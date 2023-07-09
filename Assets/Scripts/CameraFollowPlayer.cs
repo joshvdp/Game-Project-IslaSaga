@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Camera.Controls
+namespace Cam.Controls
 {
     public class CameraFollowPlayer : MonoBehaviour
     {
@@ -11,6 +11,7 @@ namespace Camera.Controls
         [SerializeField] Vector3 offset;
         [SerializeField] float FollowSpeed = 0.2f;
         [SerializeField] bool LookAtPlayer;
+        
 
         private void Awake()
         {

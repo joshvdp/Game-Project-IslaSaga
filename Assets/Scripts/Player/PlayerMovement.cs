@@ -2,60 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
+using Player.Combat;
 namespace Player.Movement
 {
     public enum PlayerMoveState
     {
         Walking,
         Running,
-        Idle
+        Idle,
+        Attacking
     }
     public class PlayerMovement : MonoBehaviour
     {
         
-        private PlayerControls input;
         Vector3 MoveVector;
+        float HorizontalMove;
+        float VerticalMove;
 
         [Header("Referencing")]
         [SerializeField] ControlBindings Controls;
         [SerializeField] Rigidbody PlayerRb;
+        [SerializeField] PlayerCombat PlayerCombatCS;
+        [SerializeField] float Gravity;
 
         [Header("Player Stats")]
-        public PlayerMoveState MoveState;
         [SerializeField] float RotationSpeed;
         [SerializeField] float PlayerMoveSpeed;
         [SerializeField] float RunSpeed => GetRunSpeed(PlayerMoveSpeed);
 
-        
-        
-        public bool IsRunning, IsWalking;
-        public bool IsIdle;
+
+        [Header("Player State")]
+        public PlayerMoveState MoveState;
+        public bool IsRunning, IsWalking, IsIdle;
+
         private void Awake()
         {
-            input = new PlayerControls();
             IsIdle = true;
             MoveState = PlayerMoveState.Idle;
         }
 
-        private void OnEnable()
-        {
-            input.Enable();
-            input.Player.Movement.performed += OnMove;
-        }
-        private void OnDisable()
-        {
-            input.Disable();
-            input.Player.Movement.performed -= OnMove;
-        }
-        void OnMove(InputAction.CallbackContext value)
-        {
-            MoveVector = value.ReadValue<Vector3>();
-            MoveState = IsRunning? PlayerMoveState.Running : PlayerMoveState.Walking;
-            IsWalking = (IsRunning && PlayerRb.velocity.magnitude >= 0.1f)? false: true;
-            IsIdle = false;
-        }
 
         float GetRunSpeed(float moveSpeed)
         {
@@ -64,24 +49,68 @@ namespace Player.Movement
 
         private void Update()
         {
-            StateSetter();
-            RotateTowardsMovement();
+            if(!PlayerCombatCS.IsAttacking)
+            {
+                StateSetter();
+                RotateTowardsMovement();
+            }
         }
 
         
 
         private void FixedUpdate()
         {
-            Move();
-        }
+            if (!PlayerCombatCS.IsAttacking)
+            {
+                Move();
+            }
 
+            SimulateGravity();
+        }
+        
+
+        void SimulateGravity()
+        {
+            PlayerRb.velocity += -Vector3.up * Gravity;
+        }
         void Move()
         {
-            PlayerRb.velocity = MoveVector * (IsRunning ? RunSpeed : PlayerMoveSpeed) * Time.deltaTime;
+            HorizontalMove = Mathf.Clamp(HorizontalMove, -1, 1);
+            VerticalMove = Mathf.Clamp(VerticalMove, -1, 1);
+
+            MoveVector = new Vector3(VerticalMove, 0f, HorizontalMove);
+            PlayerRb.velocity = MoveVector.normalized * (IsRunning ? RunSpeed : PlayerMoveSpeed) * Time.deltaTime;
+            if (Input.GetKey(Controls.ForwardKey))
+            {
+                HorizontalMove +=  1;
+            }
+            if (Input.GetKey(Controls.BackwardKey))
+            {
+                HorizontalMove -= 1;
+            }
+            if (Input.GetKey(Controls.LeftKey))
+            {
+                VerticalMove -= 1;
+            }
+            if (Input.GetKey(Controls.RightKey))
+            {
+                VerticalMove += 1;
+            }
+
+            if(!Input.GetKey(Controls.ForwardKey) && !Input.GetKey(Controls.BackwardKey))
+            {
+                HorizontalMove = 0;
+            }
+
+            if(!Input.GetKey(Controls.RightKey) && !Input.GetKey(Controls.LeftKey))
+            {
+                VerticalMove = 0;
+            }
             if (Input.GetKey(Controls.SprintKey) && PlayerRb.velocity.magnitude >= 0.1f)
             {
                 IsRunning = true;
                 IsWalking = false;
+                IsIdle = false;
             }
             if (!Input.GetKey(Controls.SprintKey) || PlayerRb.velocity.magnitude <= 0f)
             {
@@ -114,6 +143,11 @@ namespace Player.Movement
             if (IsIdle)
             {
                 MoveState = PlayerMoveState.Idle;
+            }
+            if(PlayerCombatCS.IsAttacking)
+            {
+                MoveState = PlayerMoveState.Attacking;
+                MoveVector = Vector3.zero;
             }
         }
         void RotateTowardsMovement()
