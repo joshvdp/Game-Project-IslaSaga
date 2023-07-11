@@ -13,6 +13,7 @@ namespace Player.Combat
         [SerializeField] ControlBindings Controls;
         [SerializeField] Transform WeaponHolder;
         [SerializeField] PlayerMovement PlayerMovementCS;
+        [SerializeField] PlayerPickUp PlayerPickUpCS;
         [SerializeField] GameObject AttackRange;
         [SerializeField] Camera PlayerCam;
         [SerializeField] LayerMask RayHittableLayers;
@@ -37,6 +38,8 @@ namespace Player.Combat
         void Attack()
         {
             StopCoroutine("AttackSequenceReset");
+            ChangePlayerMovement(0f);
+            PlayerPickUpCS.DropItem();
             PlayerMovementCS.IsRunning = false;
             PlayerMovementCS.IsWalking = false;
             PlayerMovementCS.IsIdle = false;
@@ -64,6 +67,13 @@ namespace Player.Combat
             }
             PlayerMovementCS.IsIdle = true;
             IsAttacking = false;
+            ChangePlayerMovement(1f);
+        }
+
+        void ChangePlayerMovement(float value)
+        {
+            PlayerMovementCS.PlayerRb.velocity *= value;
+            PlayerMovementCS.MoveValueHandler = value;
         }
 
         IEnumerator AttackSequenceReset()

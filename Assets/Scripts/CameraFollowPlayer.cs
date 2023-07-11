@@ -16,7 +16,6 @@ namespace Cam.Controls
         private void Awake()
         {
             target = GameObject.FindWithTag("Player").transform;
-            Debug.Log(target.name);
         }
         private void FixedUpdate()
         {

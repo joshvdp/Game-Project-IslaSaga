@@ -14,22 +14,29 @@ namespace Player.Movement
     }
     public class PlayerMovement : MonoBehaviour
     {
-        
-        Vector3 MoveVector;
+        [HideInInspector]
+        public Vector3 MoveVector;
+        Vector3 PlayerHeightPos;
         float HorizontalMove;
         float VerticalMove;
 
         [Header("Referencing")]
         [SerializeField] ControlBindings Controls;
-        [SerializeField] Rigidbody PlayerRb;
+        [SerializeField] public Rigidbody PlayerRb;
         [SerializeField] PlayerCombat PlayerCombatCS;
+
+
+        [Header("Movement References/Variables")]
         [SerializeField] float Gravity;
+        [SerializeField] Transform FeetRayStart;
+        [SerializeField] LayerMask NavigatableAreas;
+        [SerializeField] float HeightOffSet;
 
         [Header("Player Stats")]
         [SerializeField] float RotationSpeed;
         [SerializeField] float PlayerMoveSpeed;
         [SerializeField] float RunSpeed => GetRunSpeed(PlayerMoveSpeed);
-
+        [HideInInspector] public float MoveValueHandler = 1f;
 
         [Header("Player State")]
         public PlayerMoveState MoveState;
@@ -37,6 +44,7 @@ namespace Player.Movement
 
         private void Awake()
         {
+            MoveValueHandler = 1f;
             IsIdle = true;
             MoveState = PlayerMoveState.Idle;
         }
@@ -63,9 +71,10 @@ namespace Player.Movement
             if (!PlayerCombatCS.IsAttacking)
             {
                 Move();
+                SlopeHandler();
             }
 
-            SimulateGravity();
+            
         }
         
 
@@ -79,7 +88,7 @@ namespace Player.Movement
             VerticalMove = Mathf.Clamp(VerticalMove, -1, 1);
 
             MoveVector = new Vector3(VerticalMove, 0f, HorizontalMove);
-            PlayerRb.velocity = MoveVector.normalized * (IsRunning ? RunSpeed : PlayerMoveSpeed) * Time.deltaTime;
+            PlayerRb.velocity = MoveVector.normalized * (IsRunning ? RunSpeed : PlayerMoveSpeed) * MoveValueHandler * Time.deltaTime;
             if (Input.GetKey(Controls.ForwardKey))
             {
                 HorizontalMove +=  1;
@@ -127,6 +136,17 @@ namespace Player.Movement
                     IsWalking = false;
                     IsIdle = true;
                 }
+            }
+        }
+
+        void SlopeHandler()
+        {
+            if(Physics.Raycast(FeetRayStart.position, -Vector3.up,out RaycastHit hit, 0.6f, NavigatableAreas))
+            {
+                transform.position = new Vector3(transform.position.x, hit.point.y + HeightOffSet, transform.position.z);
+            } else
+            {
+                SimulateGravity();
             }
         }
 
