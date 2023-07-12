@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player.Movement;
+using Player.Combat;
 namespace Player.Animation
 {
     public class PlayerAnimationHandler : MonoBehaviour
     {
-        [SerializeField] Animator PlayerAnimator;
+        [Header("References")]
+        public Animator PlayerAnimator;
         [SerializeField] PlayerMovement PlayerMoveCS;
+        [SerializeField] PlayerCombat PlayerCombatCS;
         float WalkRunBlendSpeed = 0.5f;
         float MoveBlend;
         private void Update()
@@ -25,6 +28,9 @@ namespace Player.Animation
             PlayerAnimator.SetBool("IsIdle", PlayerMoveCS.IsIdle);
             PlayerAnimator.SetBool("IsRunning", PlayerMoveCS.IsRunning);
             PlayerAnimator.SetBool("IsWalking", PlayerMoveCS.IsWalking);
+            PlayerAnimator.SetBool("IsAttacking", PlayerCombatCS.IsAttacking);
+            PlayerAnimator.SetInteger("Attack Sequence", PlayerCombatCS.AttackSequence);
+
         }
     }
 }
