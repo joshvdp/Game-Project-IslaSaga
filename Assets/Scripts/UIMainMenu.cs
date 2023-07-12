@@ -10,13 +10,19 @@ public class UI : MonoBehaviour
 
     void Start()
     {
-        _startGame.onClick.AddListener(StartNewGame);
+        _startGame.onClick.AddListener(StartGame);
     }
 
-    void StartNewGame()
+    void StartGame()
     {
         ScenesManager.Instance.LoadNewGame();
     }
+    void QuitGame()
+    {
+        Debug.Log("Quit");
+        //Application.Quit();
 
-    
+    }
+
+
 }
