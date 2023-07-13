@@ -5,8 +5,8 @@ using UnityEngine;
 public class PressurePlateGateCS : MonoBehaviour
 {
     Vector3 StartingPosition;
-    [SerializeField] Vector3 OpenPosition;
 
+    [Header("Pressure Plates Connected")]
     public PressurePlateCS[] ConnectedPressurePlates;
 
     public bool AllPlatesPressed = false;
@@ -17,6 +17,7 @@ public class PressurePlateGateCS : MonoBehaviour
 
     [Header("For Opening")]
     [SerializeField] float OpenSpeed;
+    [SerializeField] Vector3 OpenPosition;
 
     [Header("Choose 1 for Opening")]
     [SerializeField] bool MustOpen;

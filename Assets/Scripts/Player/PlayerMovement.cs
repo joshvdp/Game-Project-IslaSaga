@@ -24,6 +24,7 @@ namespace Player.Movement
         [SerializeField] ControlBindings Controls;
         [SerializeField] public Rigidbody PlayerRb;
         [SerializeField] PlayerCombat PlayerCombatCS;
+        [SerializeField] PlayerStats PlayerStatsCS;
 
 
         [Header("Movement References/Variables")]
@@ -47,6 +48,8 @@ namespace Player.Movement
             MoveValueHandler = 1f;
             IsIdle = true;
             MoveState = PlayerMoveState.Idle;
+
+            PlayerMoveSpeed = PlayerStatsCS.PlayerSpeed;
         }
 
 
