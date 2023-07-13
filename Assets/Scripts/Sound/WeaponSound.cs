@@ -39,7 +39,7 @@ namespace Player.Combat
         }
         private void Attack2()
         {
-            Debug.Log("Type 1");
+            Debug.Log("Type 2");
             GameObject hit = Instantiate(sound2, transform.position, transform.rotation);
         }
         private void Attack3()
