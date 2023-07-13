@@ -9,8 +9,6 @@ namespace Player.Combat
         public delegate void attackEvent();
         public static attackEvent attackEvent1, attackEvent2, attackEvent3, attackEvent4;
 
-        //public AudioClip reload;
-        //public AudioSource audiosource;
 
         public GameObject sound1, sound2, sound3, sound4;
 
@@ -18,7 +16,6 @@ namespace Player.Combat
 
         private void OnEnable()
         {
-            //attack1 += attack;
             attackEvent1 += Attack1;
             attackEvent2 += Attack2;
             attackEvent3 += Attack3;
@@ -26,7 +23,6 @@ namespace Player.Combat
         }
         private void OnDisable()
         {
-            //attack1 -= attack;
             attackEvent1 -= Attack1;
             attackEvent2 -= Attack2;
             attackEvent3 -= Attack3;
@@ -38,29 +34,25 @@ namespace Player.Combat
         }
         private void Attack1()
         {
-            Debug.Log("Sound 1 Plays");
+            Debug.Log("Type 1");
             GameObject hit = Instantiate(sound1, transform.position, transform.rotation);
         }
         private void Attack2()
         {
-            Debug.Log("Sound 2 Plays");
+            Debug.Log("Type 1");
             GameObject hit = Instantiate(sound2, transform.position, transform.rotation);
         }
         private void Attack3()
         {
-            Debug.Log("Sound 3 Plays");
+            Debug.Log("Type 3");
             GameObject hit = Instantiate(sound3, transform.position, transform.rotation);
         }
         private void Attack4()
         {
-            Debug.Log("Sound 4 Plays");
+            Debug.Log("Type 4");
             GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
         }
 
-        /*private void attack()
-        {
-            audiosource.PlayOneShot(reload);
-        }*/
     }
 }
 

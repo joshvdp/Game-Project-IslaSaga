@@ -90,7 +90,6 @@ namespace Player.Combat
             if (AttackSequence == 1)
             {
                 WeaponSound.attackEvent1?.Invoke();
-                
             }
             else if (AttackSequence == 2)
             {
