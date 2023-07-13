@@ -9,9 +9,11 @@ namespace Enemy
     public class EnemyHpHandler : MonoBehaviour, IDamageable
     {
         [Header("References")]
+        [SerializeField] EnemyStats EnemyStatsCS;
         [SerializeField] EnemyAnimationSetter EnemyAnimation;
         [SerializeField] EnemyNavScript EnemyAICS;
         [SerializeField] EnemyCombatCS EnemyCombatCS;
+        [SerializeField] EnemyDetectCS EnemyDetect;
         [SerializeField] SphereCollider AttackRangeColl;
         [SerializeField] CapsuleCollider MainCollider;
 
@@ -19,28 +21,32 @@ namespace Enemy
         [Header("Stats")]
         [SerializeField] float EnemyHp;
         [SerializeField] float HitStunTime;
+        public float MaxHealth { get; set; }
+        public float CurrentHealth { get; set; }
         public bool IsDead = false;
-        void Start()
+
+        private void Start()
         {
-
+            CurrentHealth = EnemyStatsCS.Health;
+            EnemyHp = CurrentHealth;
         }
-
         public void Hit(float Damage)
         {
-            if (EnemyHp > 0)
+            if (CurrentHealth > 0)
             {
-                EnemyHp -= Damage;
+                CurrentHealth -= Damage;
+                EnemyHp = CurrentHealth;
                 EnemyAnimation.EnemyAnimator.SetTrigger("TookDamage");
                 CheckHp();
-
                 StartCoroutine(HitStun());
             }
         }
 
         void CheckHp()
         {
-            if (EnemyHp <= 0f)
+            if (CurrentHealth <= 0f)
             {
+                EnemyHp = CurrentHealth;
                 Death();
             }
         }
@@ -52,6 +58,7 @@ namespace Enemy
             EnemyAICS.enabled = false;
             EnemyCombatCS.enabled = false;
             AttackRangeColl.enabled = false;
+            EnemyDetect.enabled = false;
             MainCollider.enabled = false;
 
             EnemyAICS.EnemyStateReference = EnemyState.Dead;

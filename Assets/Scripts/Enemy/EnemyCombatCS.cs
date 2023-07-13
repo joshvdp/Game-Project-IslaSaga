@@ -12,7 +12,7 @@ public class EnemyCombatCS : MonoBehaviour
     public bool PlayerInAttackRange, IsAttacking;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && EnemyAICS.EnemyStateReference != EnemyState.Dead)
+        if(other.tag == "Player" )
         {
             PlayerInAttackRange = true;
         }
@@ -20,7 +20,7 @@ public class EnemyCombatCS : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player" && EnemyAICS.EnemyStateReference != EnemyState.Dead)
+        if (other.tag == "Player" )
         {
             PlayerInAttackRange = false;
         }
@@ -28,24 +28,31 @@ public class EnemyCombatCS : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerInAttackRange && !IsAttacking && EnemyAICS.EnemyStateReference != EnemyState.Dead)
+        if(PlayerInAttackRange && !IsAttacking)
         {
             StartCoroutine("AttackPlayer");
         }
+        if (IsAttacking) FacePlayer();
     }
 
 
     IEnumerator AttackPlayer()
     {
         IsAttacking = true;
+        EnemyAICS.EnemyStateReference = EnemyState.Attacking;
         EnemyAICS.AgentAI.speed = 0f;
         EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack");
-        yield return new WaitForSeconds(1f);
-        if(EnemyAICS.EnemyStateReference != EnemyState.Dead)
-        {
-            EnemyAICS.EnemyStateReference = EnemyState.Idle;
-            EnemyAICS.AgentAI.speed = EnemyAICS.Speed;
-            IsAttacking = false;
-        }
+        EnemyAICS.EnemyStateReference = EnemyState.Idle;
+
+        yield return new WaitForSeconds(2f);
+
+        EnemyAICS.EnemyStateReference = PlayerInAttackRange ? EnemyState.Idle : EnemyState.Chasing;
+        EnemyAICS.AgentAI.speed = EnemyAICS.Speed;
+        IsAttacking = false;
+    }
+
+    void FacePlayer()
+    {
+        transform.LookAt(EnemyAICS.Target);
     }
 }

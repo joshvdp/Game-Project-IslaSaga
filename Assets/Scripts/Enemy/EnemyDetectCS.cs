@@ -10,7 +10,7 @@ public class EnemyDetectCS : MonoBehaviour
     [SerializeField] EnemyHpHandler EnemyHpCS;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && EnemyAICS.EnemyStateReference != EnemyState.Dead)
+        if(other.tag == "Player" )
         {
             EnemyAICS.EnemyStateReference = EnemyState.Chasing;
         }
@@ -18,7 +18,7 @@ public class EnemyDetectCS : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && EnemyAICS.EnemyStateReference != EnemyState.Dead)
+        if (other.tag == "Player"  && !EnemyCombatCS.IsAttacking)
         {
             EnemyAICS.EnemyStateReference = EnemyState.Chasing;
         }
