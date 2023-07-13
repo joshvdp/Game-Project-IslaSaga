@@ -6,6 +6,8 @@ namespace Interface
 {
     public interface IDamageable
     {
+        float MaxHealth { get; set;}
+        float CurrentHealth { get; set; }
         void Hit(float Damage);
         void Death();
     }

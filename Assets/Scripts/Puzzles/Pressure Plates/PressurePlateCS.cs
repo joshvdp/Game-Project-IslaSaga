@@ -6,8 +6,10 @@ public class PressurePlateCS : MonoBehaviour
 {
     Vector3 StartingPos;
     Vector3 MaxDistancePosition;
+    [Header("References")]
     [SerializeField] PressurePlateGateCS MasterGate;
     [SerializeField] Renderer ObjectRenderer;
+    [Header("Variables")]
     [SerializeField] float PressureSpeed;
     [SerializeField] int ObjectsOnTop = 0;
     public bool IsPressed;

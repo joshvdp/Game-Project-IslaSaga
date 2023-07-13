@@ -13,10 +13,7 @@ namespace Enemy.Animation
 
         private void Update()
         {
-            if (EnemyAICS.EnemyStateReference != EnemyState.Dead)
-            {
-                AnimationSetter();
-            }
+            AnimationSetter();
         }
 
         void AnimationSetter()
@@ -24,7 +21,6 @@ namespace Enemy.Animation
             EnemyAnimator.SetBool("IsIdle", (EnemyAICS.EnemyStateReference == EnemyState.Idle) ? true:false);
             EnemyAnimator.SetBool("IsChasing", (EnemyAICS.EnemyStateReference == EnemyState.Chasing) ? true : false);
             EnemyAnimator.SetBool("IsPatrolling", (EnemyAICS.EnemyStateReference == EnemyState.Patrolling) ? true : false);
-
         }
 
     }
