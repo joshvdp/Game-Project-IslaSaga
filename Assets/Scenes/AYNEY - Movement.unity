@@ -1984,6 +1984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1759234034}
   - component: {fileID: 1759234035}
+  - component: {fileID: 1759234042}
   - component: {fileID: 1759234036}
   - component: {fileID: 1759234037}
   - component: {fileID: 1759234038}
@@ -2153,6 +2154,26 @@ MonoBehaviour:
   EnemyHpCS: {fileID: 1759234038}
   PlayerInAttackRange: 0
   IsAttacking: 0
+--- !u!114 &1759234042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759234033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60c99f34b958d84b9a85d24ba91dcbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyStatsCS: {fileID: 11400000, guid: 1ebfc0ca232392a47a38add8dbba82f7, type: 2}
+  EnemyCombat: {fileID: 1759234041}
+  EnemyAICS: {fileID: 1759234036}
+  EnemyHpCS: {fileID: 1759234038}
+  EnemyAnimationCS: {fileID: 1759234037}
+  EnemyDetect: {fileID: 233637052}
+  EnemyMainCollider: {fileID: 1759234039}
+  EnemyAttackRange: {fileID: 1759234040}
 --- !u!1 &1911413407
 GameObject:
   m_ObjectHideFlags: 0
