@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_InGameMenu : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class UI_InGameMenu : MonoBehaviour
         _mainMenu.onClick.AddListener(LoadMainMenu);
     }
 
-    void LoadMainMenu()
+    public void LoadMainMenu()
     {
-        ScenesManager.Instance.LoadMainMenu();
+        SceneManager.LoadScene("MainMenu");
     }
 }
