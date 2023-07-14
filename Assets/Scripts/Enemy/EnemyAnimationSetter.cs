@@ -7,9 +7,11 @@ namespace Enemy.Animation
     public class EnemyAnimationSetter : MonoBehaviour
     {
         [Header("References")]
+        [SerializeField] EnemyReferences EnemyReferencesCS;
+
+
+        [Header("-----  Script Variables    -----")]
         public Animator EnemyAnimator;
-        [SerializeField] EnemyNavScript EnemyAICS;
-        [SerializeField] EnemyHpHandler EnemyHpCS;
 
         private void Update()
         {
@@ -18,9 +20,9 @@ namespace Enemy.Animation
 
         void AnimationSetter()
         {
-            EnemyAnimator.SetBool("IsIdle", (EnemyAICS.EnemyStateReference == EnemyState.Idle) ? true:false);
-            EnemyAnimator.SetBool("IsChasing", (EnemyAICS.EnemyStateReference == EnemyState.Chasing) ? true : false);
-            EnemyAnimator.SetBool("IsPatrolling", (EnemyAICS.EnemyStateReference == EnemyState.Patrolling) ? true : false);
+            EnemyAnimator.SetBool("IsIdle", (EnemyReferencesCS.EnemyAICS.EnemyStateReference == EnemyState.Idle) ? true:false);
+            EnemyAnimator.SetBool("IsChasing", (EnemyReferencesCS.EnemyAICS.EnemyStateReference == EnemyState.Chasing) ? true : false);
+            EnemyAnimator.SetBool("IsPatrolling", (EnemyReferencesCS.EnemyAICS.EnemyStateReference == EnemyState.Patrolling) ? true : false);
         }
 
     }

@@ -25,7 +25,7 @@ public class PressurePlateGateCS : MonoBehaviour
 
     private void Awake()
     {
-        StartingPosition = transform.position;
+        StartingPosition = transform.localPosition;
     }
     private void Update()
     {
@@ -72,17 +72,17 @@ public class PressurePlateGateCS : MonoBehaviour
 
     void GoToOpenPosition()
     {
-        if (Vector3.Distance(transform.position, StartingPosition) > 0)
+        if (Vector3.Distance(transform.localPosition, StartingPosition) > 0)
         {
-            transform.position += (StartingPosition - transform.position).normalized * OpenSpeed * Time.deltaTime;
+            transform.localPosition += (StartingPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
         }
     }
 
     void GoToStartingPosition()
     {
-        if (Vector3.Distance(transform.position, OpenPosition) > 0)
+        if (Vector3.Distance(transform.localPosition, OpenPosition) > 0)
         {
-            transform.position += (OpenPosition - transform.position).normalized * OpenSpeed * Time.deltaTime;
+            transform.localPosition += (OpenPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
         }
     }
 

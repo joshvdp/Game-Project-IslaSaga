@@ -9,16 +9,10 @@ namespace Enemy
     public class EnemyHpHandler : MonoBehaviour, IDamageable
     {
         [Header("References")]
-        [SerializeField] EnemyStats EnemyStatsCS;
-        [SerializeField] EnemyAnimationSetter EnemyAnimation;
-        [SerializeField] EnemyNavScript EnemyAICS;
-        [SerializeField] EnemyCombatCS EnemyCombatCS;
-        [SerializeField] EnemyDetectCS EnemyDetect;
-        [SerializeField] SphereCollider AttackRangeColl;
-        [SerializeField] CapsuleCollider MainCollider;
+        [SerializeField] EnemyReferences EnemyReferencesCS;
 
 
-        [Header("Stats")]
+        [Header("-----  Script Variables    -----")]
         [SerializeField] float EnemyHp;
         [SerializeField] float HitStunTime;
         public float MaxHealth { get; set; }
@@ -27,7 +21,7 @@ namespace Enemy
 
         private void Start()
         {
-            CurrentHealth = EnemyStatsCS.Health;
+            CurrentHealth = EnemyReferencesCS.EnemyStatsCS.Health;
             EnemyHp = CurrentHealth;
         }
         public void Hit(float Damage)
@@ -36,7 +30,7 @@ namespace Enemy
             {
                 CurrentHealth -= Damage;
                 EnemyHp = CurrentHealth;
-                EnemyAnimation.EnemyAnimator.SetTrigger("TookDamage");
+                EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("TookDamage");
                 CheckHp();
                 StartCoroutine(HitStun());
             }
@@ -54,27 +48,27 @@ namespace Enemy
         public void Death()
         {
             IsDead = true;
-            EnemyAnimation.enabled = false;
-            EnemyAICS.enabled = false;
-            EnemyCombatCS.enabled = false;
-            AttackRangeColl.enabled = false;
-            EnemyDetect.enabled = false;
-            MainCollider.enabled = false;
+            EnemyReferencesCS.EnemyAnimationCS.enabled = false;
+            EnemyReferencesCS.EnemyAICS.enabled = false;
+            EnemyReferencesCS.EnemyCombat.enabled = false;
+            EnemyReferencesCS.EnemyAttackRange.enabled = false;
+            EnemyReferencesCS.EnemyDetect.enabled = false;
+            EnemyReferencesCS.EnemyMainCollider.enabled = false;
 
-            EnemyAICS.EnemyStateReference = EnemyState.Dead;
-            EnemyAnimation.EnemyAnimator.SetTrigger("Death");
+            EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Dead;
+            EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Death");
         }
 
         IEnumerator HitStun()
         {
-            var StateBeforeStunned = EnemyAICS.EnemyStateReference;
-            EnemyAICS.AgentAI.speed = 0f;
-            EnemyAICS.AgentAI.isStopped = true;
-            EnemyAICS.EnemyStateReference = EnemyState.Idle;
+            var StateBeforeStunned = EnemyReferencesCS.EnemyAICS.EnemyStateReference;
+            EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
+            EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = true;
+            EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle;
             yield return new WaitForSeconds(HitStunTime);
-            EnemyAICS.EnemyStateReference = StateBeforeStunned;
-            EnemyAICS.AgentAI.speed = EnemyAICS.Speed;
-            EnemyAICS.AgentAI.isStopped = false;
+            EnemyReferencesCS.EnemyAICS.EnemyStateReference = StateBeforeStunned;
+            EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
+            EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = false;
         }
     }
 }
