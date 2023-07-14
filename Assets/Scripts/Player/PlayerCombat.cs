@@ -33,10 +33,12 @@ namespace Player.Combat
             {
                 FaceDirectionOfMousePos();
                 Attack();
+                soundUpdate();
             }
         }
         void Attack()
         {
+            
             StopCoroutine("AttackSequenceReset");
             ChangePlayerMovement(0f);
             PlayerPickUpCS.DropItem();
@@ -51,15 +53,16 @@ namespace Player.Combat
         void FaceDirectionOfMousePos()
         {
             Ray MouseRay = PlayerCam.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(MouseRay, out RaycastHit rayCastHit, RayHittableLayers))
+            if (Physics.Raycast(MouseRay, out RaycastHit rayCastHit, RayHittableLayers))
             {
                 Vector3 DirectionToLookAt = new Vector3(rayCastHit.point.x, transform.position.y, rayCastHit.point.z);
                 transform.rotation = Quaternion.LookRotation(DirectionToLookAt - transform.position, Vector3.up);
             }
-            
+
         }
         public void CheckAttackSequence()
         {
+            
             if (AttackSequence >= 4)
             {
                 AttackSequence = 0;
@@ -82,5 +85,25 @@ namespace Player.Combat
             IsAttacking = false;
             AttackSequence = 0;
         }
+        public void soundUpdate ()
+        {
+            if (AttackSequence == 1)
+            {
+                WeaponSound.attackEvent1?.Invoke();
+            }
+            else if (AttackSequence == 2)
+            {
+                WeaponSound.attackEvent2?.Invoke();
+            }
+            else if (AttackSequence == 3)
+            {
+                WeaponSound.attackEvent3?.Invoke();
+            }
+            else if (AttackSequence == 4)
+            {
+                WeaponSound.attackEvent4?.Invoke();
+            }
+        }
+           
     }
 }
