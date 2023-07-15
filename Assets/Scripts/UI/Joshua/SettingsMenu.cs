@@ -10,17 +10,14 @@ public class SettingsMenu : MonoBehaviour
     public void MainVol(float mainVolume)
     {
         audioMixer.SetFloat("VolMain", mainVolume);
-        Debug.Log(mainVolume);
     }
     
     public void MusicVol(float musicVolume)
     {
         audioMixer.SetFloat("MusVol", musicVolume);
-        Debug.Log(musicVolume);
     }
     public void SFXVol(float volumeSfx)
     {
         audioMixer.SetFloat("SfxVol", volumeSfx);
-        Debug.Log(volumeSfx);
     }
 }

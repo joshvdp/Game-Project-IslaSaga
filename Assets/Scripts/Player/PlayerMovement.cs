@@ -15,7 +15,7 @@ namespace Player.Movement
     public class PlayerMovement : MonoBehaviour
     {
         [HideInInspector]
-        public Vector3 MoveVector;
+        public Vector3 CamRelativeMoveVect;
         Vector3 PlayerHeightPos;
         float HorizontalMove;
         float VerticalMove;
@@ -25,7 +25,7 @@ namespace Player.Movement
         [SerializeField] public Rigidbody PlayerRb;
         [SerializeField] PlayerCombat PlayerCombatCS;
         [SerializeField] PlayerStats PlayerStatsCS;
-
+        [SerializeField] Transform PlayerCamTransform;
 
         [Header("Movement References/Variables")]
         [SerializeField] float Gravity;
@@ -76,8 +76,6 @@ namespace Player.Movement
                 Move();
                 SlopeHandler();
             }
-
-            
         }
         
 
@@ -90,8 +88,18 @@ namespace Player.Movement
             HorizontalMove = Mathf.Clamp(HorizontalMove, -1, 1);
             VerticalMove = Mathf.Clamp(VerticalMove, -1, 1);
 
-            MoveVector = new Vector3(VerticalMove, 0f, HorizontalMove);
-            PlayerRb.velocity = MoveVector.normalized * (IsRunning ? RunSpeed : PlayerMoveSpeed) * MoveValueHandler * Time.deltaTime;
+            Vector3 camForward = PlayerCamTransform.forward;
+            Vector3 camRight = PlayerCamTransform.right;
+
+            camForward.y = 0;
+            camRight.y = 0;
+
+            Vector3 forwardRelativeMoveVect = HorizontalMove * camForward;
+            Vector3 rightRelativeMoveVect = VerticalMove * camRight;
+
+            CamRelativeMoveVect = forwardRelativeMoveVect + rightRelativeMoveVect;
+
+            PlayerRb.velocity = CamRelativeMoveVect.normalized * (IsRunning ? RunSpeed : PlayerMoveSpeed) * MoveValueHandler * Time.deltaTime;
             if (Input.GetKey(Controls.ForwardKey))
             {
                 HorizontalMove +=  1;
@@ -170,15 +178,15 @@ namespace Player.Movement
             if(PlayerCombatCS.IsAttacking)
             {
                 MoveState = PlayerMoveState.Attacking;
-                MoveVector = Vector3.zero;
+                CamRelativeMoveVect = Vector3.zero;
             }
         }
         void RotateTowardsMovement()
         {
-            Vector3 MoveDirection = new Vector3(MoveVector.x, 0f, MoveVector.z).normalized;
-            Quaternion ForwardDirection = MoveVector.magnitude > 0.1f ? Quaternion.LookRotation(MoveDirection, Vector3.up):Quaternion.identity;
+            Vector3 MoveDirection = new Vector3(CamRelativeMoveVect.x, 0f, CamRelativeMoveVect.z).normalized;
+            Quaternion ForwardDirection = CamRelativeMoveVect.magnitude > 0.1f ? Quaternion.LookRotation(MoveDirection, Vector3.up):Quaternion.identity;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, ForwardDirection, 
-                                RotationSpeed * Time.deltaTime * (MoveVector.magnitude != 0? 1 : 0));
+                                RotationSpeed * Time.deltaTime * (CamRelativeMoveVect.magnitude != 0? 1 : 0));
         }
 
     }

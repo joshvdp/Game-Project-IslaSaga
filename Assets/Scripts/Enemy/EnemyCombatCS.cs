@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Enemy.AI;
-using Enemy.Animation;
 using Enemy;
 public class EnemyCombatCS : MonoBehaviour
 {
-    [SerializeField] EnemyNavScript EnemyAICS;
-    [SerializeField] EnemyAnimationSetter EnemyAnimationCS;
-    [SerializeField] EnemyHpHandler EnemyHpCS;
-    public bool PlayerInAttackRange, IsAttacking;
+    [SerializeField] EnemyReferences EnemyReferencesCS;
+
+    [Header("-----  Script Variables    -----")]
+    public bool PlayerInAttackRange;
+    public bool IsAttacking;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player" )
@@ -39,20 +39,20 @@ public class EnemyCombatCS : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         IsAttacking = true;
-        EnemyAICS.EnemyStateReference = EnemyState.Attacking;
-        EnemyAICS.AgentAI.speed = 0f;
-        EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack");
-        EnemyAICS.EnemyStateReference = EnemyState.Idle;
+        EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Attacking;
+        EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
+        EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack");
+        EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle;
 
         yield return new WaitForSeconds(2f);
 
-        EnemyAICS.EnemyStateReference = PlayerInAttackRange ? EnemyState.Idle : EnemyState.Chasing;
-        EnemyAICS.AgentAI.speed = EnemyAICS.Speed;
+        EnemyReferencesCS.EnemyAICS.EnemyStateReference = PlayerInAttackRange ? EnemyState.Idle : EnemyState.Chasing;
+        EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
         IsAttacking = false;
     }
 
     void FacePlayer()
     {
-        transform.LookAt(EnemyAICS.Target);
+        transform.LookAt(EnemyReferencesCS.EnemyAICS.Target);
     }
 }

@@ -12,11 +12,13 @@ public class PressurePlateCS : MonoBehaviour
     [Header("Variables")]
     [SerializeField] float PressureSpeed;
     [SerializeField] int ObjectsOnTop = 0;
+
+    [SerializeField] float MaxYDownDistance;
     public bool IsPressed;
     void Start()
     {
         StartingPos = transform.position;
-        MaxDistancePosition = new Vector3(StartingPos.x, StartingPos.y - 0.20f, StartingPos.z);
+        MaxDistancePosition = new Vector3(StartingPos.x, StartingPos.y - MaxYDownDistance, StartingPos.z);
     }
     private void OnTriggerEnter(Collider other)
     {

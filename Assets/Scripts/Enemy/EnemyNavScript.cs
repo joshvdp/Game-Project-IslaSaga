@@ -16,13 +16,13 @@ namespace Enemy.AI
     public class EnemyNavScript : MonoBehaviour
     {
         [Header("References")]
+        [SerializeField] EnemyReferences EnemyReferencesCS;
 
-        [SerializeField] EnemyStats EnemyStatsCS;
+
+        [Header("-----  Script Variables    -----")]
         public EnemyState EnemyStateReference;
         public NavMeshAgent AgentAI;
         [HideInInspector] public Transform Target;
-        [SerializeField] EnemyHpHandler EnemyHpCS;
-        [SerializeField] EnemyCombatCS EnemyCombat;
         [Header("Stats")]
 
         public float Speed;
@@ -30,14 +30,14 @@ namespace Enemy.AI
         {
             Target = GameObject.Find("Player 1").transform;
 
-            Speed = EnemyStatsCS.Speed;
+            Speed = EnemyReferencesCS.EnemyStatsCS.Speed;
 
             AgentAI.speed = Speed;
         }
 
         void Update()
         {
-            if (EnemyStateReference == EnemyState.Chasing && !EnemyCombat.IsAttacking)
+            if (EnemyStateReference == EnemyState.Chasing && !EnemyReferencesCS.EnemyCombat.IsAttacking)
             {
                 ChasePlayer();
             }
