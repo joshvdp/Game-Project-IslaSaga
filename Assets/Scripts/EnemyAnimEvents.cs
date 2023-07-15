@@ -6,13 +6,11 @@ using Enemy.AI;
 using Interface;
 public class EnemyAnimEvents : MonoBehaviour
 {
-    [SerializeField] EnemyStats EnemyStatsCS;
-    [SerializeField] EnemyNavScript EnemyAICS;
-    [SerializeField] EnemyCombatCS EnemyCombat;
+    [SerializeField] EnemyReferences EnemyReferencesCS;
     
     void AttackPlayer()
     {
 
-        if(EnemyCombat.PlayerInAttackRange) EnemyAICS.Target.GetComponent<IDamageable>().Hit(EnemyStatsCS.Damage);
+        if(EnemyReferencesCS.EnemyCombat.PlayerInAttackRange) EnemyReferencesCS.EnemyAICS.Target.GetComponent<IDamageable>().Hit(EnemyReferencesCS.EnemyStatsCS.Damage);
     }
 }

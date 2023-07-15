@@ -19,4 +19,6 @@ public class ControlBindings : ScriptableObject
 
     public KeyCode PickUpKey;
 
+    public KeyCode CameraRotateKey;
+
 }

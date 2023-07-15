@@ -5,22 +5,20 @@ using Enemy.AI;
 using Enemy;
 public class EnemyDetectCS : MonoBehaviour
 {
-    [SerializeField] EnemyNavScript EnemyAICS;
-    [SerializeField] EnemyCombatCS EnemyCombatCS;
-    [SerializeField] EnemyHpHandler EnemyHpCS;
+    [SerializeField] EnemyReferences EnemyReferencesCS;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player" )
         {
-            EnemyAICS.EnemyStateReference = EnemyState.Chasing;
+            EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Chasing;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player"  && !EnemyCombatCS.IsAttacking)
+        if (other.tag == "Player"  && !EnemyReferencesCS.EnemyCombat.IsAttacking)
         {
-            EnemyAICS.EnemyStateReference = EnemyState.Chasing;
+            EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Chasing;
         }
     }
 
