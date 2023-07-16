@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GlobalSoundFX;
 
 public class PressurePlateCS : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PressurePlateCS : MonoBehaviour
     {
         if(other.tag == "Player" || other.tag == "Moveable")
         {
+            GlobalSFX.onEnter?.Invoke();
             ObjectsOnTop++;
         }
     }
@@ -32,6 +34,7 @@ public class PressurePlateCS : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "Moveable")
         {
+            GlobalSFX.onExit?.Invoke();
             ObjectsOnTop--;
         }
     }
@@ -62,15 +65,18 @@ public class PressurePlateCS : MonoBehaviour
 
     }
 
+
     void GoDown()
     {
+        
         if (transform.position.y >= MaxDistancePosition.y)
             transform.Translate(Vector3.down * Time.deltaTime * PressureSpeed, Space.World);
     }
 
     void GoUp()
     {
-        if(transform.position.y <= StartingPos.y)
+        
+        if (transform.position.y <= StartingPos.y)
         transform.Translate(Vector3.up * Time.deltaTime * PressureSpeed, Space.World);
     }
 }
