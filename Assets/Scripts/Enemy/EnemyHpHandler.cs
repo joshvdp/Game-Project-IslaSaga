@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Interface;
+using Enemy.Animation;
 using Enemy.AI;
-using VFX;
+using SoundFX;
 namespace Enemy
 {
     public class EnemyHpHandler : MonoBehaviour, IDamageable
@@ -12,46 +14,26 @@ namespace Enemy
 
 
         [Header("-----  Script Variables    -----")]
-        [Header("Stats")]
         [SerializeField] float EnemyHp;
         [SerializeField] float HitStunTime;
         public float MaxHealth { get; set; }
         public float CurrentHealth { get; set; }
         public bool IsDead = false;
-        [SerializeField] float DeathAnimLength;
-        [Header("Knockback Variables")]
-        public bool CanBeHitBack;
-        public bool IsBeingKnockbacked;
-        public float KnockbackTime;
-        public float KnockbackAmount;
-
-        [Header("Hit Effect Variables")]
-        [SerializeField] float EffectTime;
-        [SerializeField] Renderer[] MainRenderers;
-        [SerializeField] Color HitColor;
-        [SerializeField] Color DefaultColor;
 
         private void Start()
         {
             CurrentHealth = EnemyReferencesCS.EnemyStatsCS.Health;
             EnemyHp = CurrentHealth;
         }
-
         public void Hit(float Damage)
         {
             if (CurrentHealth > 0)
             {
-                if (CanBeHitBack && !IsBeingKnockbacked)
-                {
-                    StartCoroutine("Knockback");
-                }
                 CurrentHealth -= Damage;
                 EnemyHp = CurrentHealth;
                 EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("TookDamage");
                 CheckHp();
                 StartCoroutine(HitStun());
-                StartCoroutine(HitEffect());
-                VFXManager.Instance.SpawnDmgPopup(transform.position, Damage);
             }
         }
 
@@ -66,10 +48,9 @@ namespace Enemy
 
         public void Death()
         {
+
+            EnemySFX.onDied?.Invoke();
             IsDead = true;
-           
-            EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
-            EnemyReferencesCS.EnemyAICS.Target = null;
             EnemyReferencesCS.EnemyAnimationCS.enabled = false;
             EnemyReferencesCS.EnemyAICS.enabled = false;
             EnemyReferencesCS.EnemyCombat.enabled = false;
@@ -79,8 +60,6 @@ namespace Enemy
 
             EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Dead;
             EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Death");
-
-            Destroy(gameObject, DeathAnimLength);
         }
 
         IEnumerator HitStun()
@@ -90,51 +69,9 @@ namespace Enemy
             EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = true;
             EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle;
             yield return new WaitForSeconds(HitStunTime);
-            if(!IsDead && !EnemyReferencesCS.EnemyCombat.IsAttacking)
-            {
-                EnemyReferencesCS.EnemyAICS.EnemyStateReference = StateBeforeStunned;
-                EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
-                EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = false;
-            }
-        }
-        IEnumerator Knockback()
-        {
-
-            IsBeingKnockbacked = true;
-            float TimeElapsed = 0;
-            Vector3 KnockbackDir = EnemyReferencesCS.EnemyAICS.Target.forward;
-
-
-            EnemyReferencesCS.EnemyAICS.enabled = false;
-            EnemyReferencesCS.EnemyCombat.enabled = false;
-
-            while (TimeElapsed < KnockbackTime)
-            {
-                TimeElapsed += Time.deltaTime;
-                transform.Translate(KnockbackDir.normalized * KnockbackAmount * Time.deltaTime, Space.World);
-                yield return null;
-            }
-
-            if(!IsDead)
-            {
-                EnemyReferencesCS.EnemyAICS.enabled = true;
-                EnemyReferencesCS.EnemyCombat.enabled = true;
-            }
-            IsBeingKnockbacked = false;
-            yield break;
-        }
-        IEnumerator HitEffect()
-        {
-            for(int i = 0; i<MainRenderers.Length; i++)
-            {
-                MainRenderers[i].material.color = HitColor;
-            }
-            yield return new WaitForSeconds(EffectTime);
-
-            for (int i = 0; i < MainRenderers.Length; i++)
-            {
-                MainRenderers[i].material.color = DefaultColor;
-            }
+            EnemyReferencesCS.EnemyAICS.EnemyStateReference = StateBeforeStunned;
+            EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
+            EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = false;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enemy.AI;
 using Enemy;
+using SoundFX;
 public class EnemyCombatCS : MonoBehaviour
 {
     [SerializeField] EnemyReferences EnemyReferencesCS;
@@ -10,7 +11,24 @@ public class EnemyCombatCS : MonoBehaviour
     [Header("-----  Script Variables    -----")]
     public bool PlayerInAttackRange;
     public bool IsAttacking;
-    [SerializeField] float AttackAnimationLength;
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        if(other.tag == "Player" )
+        {
+            EnemySFX.onGrowl?.Invoke();
+            PlayerInAttackRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player" )
+        {
+            PlayerInAttackRange = false;
+        }
+    }
+
     private void Update()
     {
         if(PlayerInAttackRange && !IsAttacking)
@@ -24,21 +42,17 @@ public class EnemyCombatCS : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         IsAttacking = true;
+        EnemySFX.onGrunt?.Invoke();
         EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Attacking;
         EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
-        EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = true;
         EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack");
-        EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle; // Added to transition to idle after attacking, giving a smooth transition
+        EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle;
 
-        yield return new WaitForSeconds(AttackAnimationLength);
+        yield return new WaitForSeconds(2f);
 
-        if(!EnemyReferencesCS.EnemyHpCS.IsDead)
-        {
-            EnemyReferencesCS.EnemyAICS.EnemyStateReference = PlayerInAttackRange ? EnemyState.Idle : EnemyState.Chasing;
-            EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
-            EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = false;
-            IsAttacking = false;
-        }
+        EnemyReferencesCS.EnemyAICS.EnemyStateReference = PlayerInAttackRange ? EnemyState.Idle : EnemyState.Chasing;
+        EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
+        IsAttacking = false;
     }
 
     void FacePlayer()
