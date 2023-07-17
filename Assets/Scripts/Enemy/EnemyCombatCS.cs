@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enemy.AI;
 using Enemy;
+using SoundFX;
 public class EnemyCombatCS : MonoBehaviour
 {
     [SerializeField] EnemyReferences EnemyReferencesCS;
@@ -12,8 +13,10 @@ public class EnemyCombatCS : MonoBehaviour
     public bool IsAttacking;
     private void OnTriggerEnter(Collider other)
     {
+       
         if(other.tag == "Player" )
         {
+            EnemySFX.onGrowl?.Invoke();
             PlayerInAttackRange = true;
         }
     }
@@ -39,6 +42,7 @@ public class EnemyCombatCS : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         IsAttacking = true;
+        EnemySFX.onGrunt?.Invoke();
         EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Attacking;
         EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
         EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack");

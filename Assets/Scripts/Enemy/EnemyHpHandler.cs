@@ -4,6 +4,7 @@ using UnityEngine;
 using Interface;
 using Enemy.Animation;
 using Enemy.AI;
+using SoundFX;
 namespace Enemy
 {
     public class EnemyHpHandler : MonoBehaviour, IDamageable
@@ -47,6 +48,8 @@ namespace Enemy
 
         public void Death()
         {
+
+            EnemySFX.onDied?.Invoke();
             IsDead = true;
             EnemyReferencesCS.EnemyAnimationCS.enabled = false;
             EnemyReferencesCS.EnemyAICS.enabled = false;

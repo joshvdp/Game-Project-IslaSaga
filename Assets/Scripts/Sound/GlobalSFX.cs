@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GlobalSoundFX
+namespace SoundFX
 {
     public class GlobalSFX : MonoBehaviour
     {
         public delegate void statusEvent();
-        public static statusEvent onEnter, onExit;
+        public static statusEvent onEnter, onExit, gateOpen, gateClose;
 
-        public GameObject PressurePlate0, PressurePlate1;
+        public GameObject PressurePlate0, PressurePlate1, Gate0, Gate1;
 
         private PressurePlateCS sound;
 
@@ -17,12 +17,16 @@ namespace GlobalSoundFX
         {
             onEnter += pressurePlateOn;
             onExit += pressurePlateOff;
+            gateOpen += openGate;
+            gateClose += closeGate;
         }
 
         private void OnDisable()
         {
             onEnter -= pressurePlateOn;
             onExit -= pressurePlateOff;
+            gateOpen -= openGate;
+            gateClose -= closeGate;
         }
         private void Start()
         {
@@ -31,13 +35,19 @@ namespace GlobalSoundFX
 
         public void pressurePlateOff()
         {
-            Debug.Log("Pressure = 0");
             GameObject play = Instantiate(PressurePlate0, transform.position, transform.rotation);
         }
         public void pressurePlateOn ()
         {
-            Debug.Log("Pressure = 1");
             GameObject play = Instantiate(PressurePlate1, transform.position, transform.rotation);
+        }
+        public void openGate()
+        {
+            GameObject play = Instantiate(Gate1, transform.position, transform.rotation);
+        }
+        public void closeGate()
+        {
+            GameObject play = Instantiate(Gate0, transform.position, transform.rotation);
         }
        
 

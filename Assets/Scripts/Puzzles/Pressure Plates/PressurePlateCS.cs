@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GlobalSoundFX;
+using SoundFX;
 
 public class PressurePlateCS : MonoBehaviour
 {

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace GameScenes
 {
-    public class GlobalSFX : MonoBehaviour
+    public class UILoader : MonoBehaviour
     {
         public void Start()
         {

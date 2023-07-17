@@ -34,22 +34,18 @@ namespace Player.Combat
         }
         private void Attack1()
         {
-            Debug.Log("Type 1");
             GameObject hit = Instantiate(sound1, transform.position, transform.rotation);
         }
         private void Attack2()
         {
-            Debug.Log("Type 2");
             GameObject hit = Instantiate(sound2, transform.position, transform.rotation);
         }
         private void Attack3()
         {
-            Debug.Log("Type 3");
             GameObject hit = Instantiate(sound3, transform.position, transform.rotation);
         }
         private void Attack4()
         {
-            Debug.Log("Type 4");
             GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
         }
 

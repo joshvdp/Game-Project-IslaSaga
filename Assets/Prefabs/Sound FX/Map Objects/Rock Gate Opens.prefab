@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6920908094126413407
+--- !u!1 &1778013744758415580
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3245438956909523321}
-  - component: {fileID: 5204592372014079358}
-  - component: {fileID: 5202950012188003086}
+  - component: {fileID: 3158580054113261044}
+  - component: {fileID: 4008375364265816637}
+  - component: {fileID: 57502818072234680}
   m_Layer: 0
-  m_Name: UI SFX
-  m_TagString: Untagged
+  m_Name: Rock Gate Opens
+  m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3245438956909523321
+--- !u!4 &3158580054113261044
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6920908094126413407}
+  m_GameObject: {fileID: 1778013744758415580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 609.67163, y: 118.39068, z: 10.491076}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &5204592372014079358
+--- !u!82 &4008375364265816637
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6920908094126413407}
+  m_GameObject: {fileID: 1778013744758415580}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1692692593057087096, guid: aa60b60f7d48b294bb49a2e8b86fadbe, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b1506d5bc253b58449bd40b20b78fbdc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -129,22 +129,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5202950012188003086
+--- !u!114 &57502818072234680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6920908094126413407}
+  m_GameObject: {fileID: 1778013744758415580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d374ddea1bcc97f4494b402a98300efa, type: 3}
+  m_Script: {fileID: 11500000, guid: 51c435dfa21176b4d8be9659580d8a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: 5204592372014079358}
-  clickSelect: {fileID: 8300000, guid: aebebda2f31892042b00cd2b7dec2a39, type: 3}
-  clickBack: {fileID: 8300000, guid: 93c2e5efd33720346a4b9c0563b641fd, type: 3}
-  clickRun: {fileID: 0}
-  clickVolume: {fileID: 0}
-  clickMute: {fileID: 0}
-  charHover: {fileID: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SoundFX;
 
 public class PressurePlateGateCS : MonoBehaviour
 {
@@ -37,12 +38,13 @@ public class PressurePlateGateCS : MonoBehaviour
 
     void DoAction()
     {
-        if(MustOpen)
+        
+        if (MustOpen)
         {
             GoToStartingPosition();
         }
 
-        if(MustDisappear)
+        if (MustDisappear)
         {
             Disappear();
         }
