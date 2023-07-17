@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Interface;
-using Player.Animation;
 using Player.Movement;
 
 namespace Player.Combat
@@ -10,6 +7,7 @@ namespace Player.Combat
     public class PlayerCombat : MonoBehaviour
     {
         [Header("References")]
+        [SerializeField] PlayerReferences References;
         [SerializeField] ControlBindings Controls;
         [SerializeField] Transform WeaponHolder;
         [SerializeField] PlayerMovement PlayerMovementCS;
@@ -38,8 +36,8 @@ namespace Player.Combat
         }
         void Attack()
         {
-            
             StopCoroutine("AttackSequenceReset");
+            References.PlayerAttackRangeCS.UpdateList();
             ChangePlayerMovement(0f);
             PlayerPickUpCS.DropItem();
             PlayerMovementCS.IsRunning = false;

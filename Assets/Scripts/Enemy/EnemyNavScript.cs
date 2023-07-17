@@ -41,7 +41,6 @@ namespace Enemy.AI
             {
                 ChasePlayer();
             }
-
         }
         void ChasePlayer()
         {

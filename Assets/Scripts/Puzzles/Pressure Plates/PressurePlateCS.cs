@@ -1,76 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PressurePlateCS : MonoBehaviour
+using System;
+using Puzzle;
+namespace Puzzle
 {
-    Vector3 StartingPos;
-    Vector3 MaxDistancePosition;
-    [Header("References")]
-    [SerializeField] PressurePlateGateCS MasterGate;
-    [SerializeField] Renderer ObjectRenderer;
-    [Header("Variables")]
-    [SerializeField] float PressureSpeed;
-    [SerializeField] int ObjectsOnTop = 0;
+    public class PressurePlateCS : MonoBehaviour
+    {
+        Vector3 StartingPos;
+        Vector3 MaxDistancePosition;
+        public delegate void OnPlatePressed();
+        public OnPlatePressed onPlatePressed;
 
-    [SerializeField] float MaxYDownDistance;
-    public bool IsPressed;
-    void Start()
-    {
-        StartingPos = transform.position;
-        MaxDistancePosition = new Vector3(StartingPos.x, StartingPos.y - MaxYDownDistance, StartingPos.z);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player" || other.tag == "Moveable")
+        [Header("References")]
+        [SerializeField] PressurePlateGateCS MasterGate;
+        [SerializeField] Renderer ObjectRenderer;
+        [Header("Variables")]
+        [SerializeField] float PressureSpeed;
+        [SerializeField] int ObjectsOnTop = 0;
+
+        [SerializeField] float MaxYDownDistance;
+        public bool IsPressed;
+        public bool EventFired = false;
+        void Start()
         {
-            ObjectsOnTop++;
+            StartingPos = transform.position;
+            MaxDistancePosition = new Vector3(StartingPos.x, StartingPos.y - MaxYDownDistance, StartingPos.z);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" || other.tag == "Moveable")
+        private void OnTriggerEnter(Collider other)
         {
-            ObjectsOnTop--;
-        }
-    }
-
-    private void Update()
-    {
-        if(ObjectsOnTop>0)
-        {
-            ObjectRenderer.material.color = Color.red;
-            GoDown();
+            if (other.tag == "Player" || other.tag == "Moveable")
+            {
+                ObjectsOnTop++;
+            }
         }
 
-        if (ObjectsOnTop <= 0)
+        private void OnTriggerExit(Collider other)
         {
-            ObjectRenderer.material.color = Color.green;
-            GoUp();
+            if (other.tag == "Player" || other.tag == "Moveable")
+            {
+                ObjectsOnTop--;
+            }
         }
 
-        if(transform.position.y <= MaxDistancePosition.y && !IsPressed)
+        private void Update()
         {
-            IsPressed = true;
+            if (ObjectsOnTop > 0)
+            {
+                ObjectRenderer.material.color = Color.red;
+                GoDown();
+            }
+
+            if (ObjectsOnTop <= 0)
+            {
+                ObjectRenderer.material.color = Color.green;
+                GoUp();
+            }
+
+            if (transform.position.y <= MaxDistancePosition.y && !IsPressed)
+            {
+                if (!EventFired) onPlatePressed.Invoke();
+                EventFired = true;
+                IsPressed = true;
+            }
+
+            if (transform.position.y >= StartingPos.y && IsPressed)
+            {
+                IsPressed = false;
+            }
+
         }
 
-        if (transform.position.y >= StartingPos.y && IsPressed)
+        void GoDown()
         {
-            IsPressed = false;
+            if (transform.position.y >= MaxDistancePosition.y)
+                transform.Translate(Vector3.down * Time.deltaTime * PressureSpeed, Space.World);
         }
 
-    }
-
-    void GoDown()
-    {
-        if (transform.position.y >= MaxDistancePosition.y)
-            transform.Translate(Vector3.down * Time.deltaTime * PressureSpeed, Space.World);
-    }
-
-    void GoUp()
-    {
-        if(transform.position.y <= StartingPos.y)
-        transform.Translate(Vector3.up * Time.deltaTime * PressureSpeed, Space.World);
+        void GoUp()
+        {
+            if (transform.position.y <= StartingPos.y)
+                transform.Translate(Vector3.up * Time.deltaTime * PressureSpeed, Space.World);
+        }
     }
 }
+

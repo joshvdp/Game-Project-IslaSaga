@@ -1,19 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Player.Combat;
-using Items.Weapon;
 namespace Player.Combat
 {
     public class PlayerAttackRangeDetect : MonoBehaviour
     {
         [SerializeField] PlayerCombat PlayerCombatCS;
         public List<GameObject> EnemiesInRange;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Enemy" && !other.isTrigger)
             {
                 EnemiesInRange.Add(other.gameObject);
+                UpdateList();
+                
             }
         }
 
@@ -22,8 +22,20 @@ namespace Player.Combat
             if (other.tag == "Enemy" && !other.isTrigger)
             {
                 EnemiesInRange.Remove(other.gameObject);
+                UpdateList();
             }
             
+        }
+
+        public void UpdateList()
+        {
+            for (int i = 0; i < EnemiesInRange.Count; i++)
+            {
+                if (EnemiesInRange[i].gameObject == null)
+                {
+                    EnemiesInRange.RemoveAt(i);
+                }
+            }
         }
     }
 }

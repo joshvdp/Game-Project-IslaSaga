@@ -25,15 +25,18 @@ namespace Cam.Controls
         [SerializeField] float MinYOffset, MinZOffset;
         [SerializeField] float MaxYOffset, MaxZOffset;
 
-
         [SerializeField] float OffsetIndicator;
         [SerializeField] float ZoomInSpeed;
-
         Vector3 ZoomOffset;
+
+        [Header("Collision Variables")]
+        [SerializeField] LayerMask RayHittableLayers;
+
         private void Update()
         {
             RotateCamera();
             ZoomInOrOut();
+            CameraCollisionHandler();
         }
         private void FixedUpdate()
         {
@@ -48,7 +51,7 @@ namespace Cam.Controls
             Forward1.y = 0;
             Forward2.y = 0;
 
-            ZoomOffset.z *= (Vector3.Dot(Forward1, Forward2)); // To have equal zoom on z position for both forwards.
+            ZoomOffset.z *= Vector3.Dot(Forward1, Forward2) ; // To have equal zoom on z position for both forwards.
 
             transform.position = Vector3.Lerp(transform.position, target.position + offset + ZoomOffset, FollowSpeed * Time.deltaTime);
         }
@@ -69,6 +72,19 @@ namespace Cam.Controls
                 offset = CamTurnDir * offset;
             }
 
+        }
+
+        void CameraCollisionHandler()
+        {
+            Vector3 RayDirection =  transform.position - target.position;
+            float Distance = Vector3.Distance(transform.position, target.position);
+            if(Physics.Raycast(target.position, RayDirection.normalized, out RaycastHit hitInfo, Distance, RayHittableLayers))
+            {
+                if(hitInfo.collider != null)
+                {
+                    transform.position = hitInfo.point;
+                }
+            }
         }
     }
 }

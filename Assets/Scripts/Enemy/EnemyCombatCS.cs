@@ -10,22 +10,7 @@ public class EnemyCombatCS : MonoBehaviour
     [Header("-----  Script Variables    -----")]
     public bool PlayerInAttackRange;
     public bool IsAttacking;
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player" )
-        {
-            PlayerInAttackRange = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" )
-        {
-            PlayerInAttackRange = false;
-        }
-    }
-
+    [SerializeField] float AttackAnimationLength;
     private void Update()
     {
         if(PlayerInAttackRange && !IsAttacking)
@@ -41,14 +26,19 @@ public class EnemyCombatCS : MonoBehaviour
         IsAttacking = true;
         EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Attacking;
         EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
+        EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = true;
         EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack");
-        EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle;
+        EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle; // Added to transition to idle after attacking, giving a smooth transition
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(AttackAnimationLength);
 
-        EnemyReferencesCS.EnemyAICS.EnemyStateReference = PlayerInAttackRange ? EnemyState.Idle : EnemyState.Chasing;
-        EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
-        IsAttacking = false;
+        if(!EnemyReferencesCS.EnemyHpCS.IsDead)
+        {
+            EnemyReferencesCS.EnemyAICS.EnemyStateReference = PlayerInAttackRange ? EnemyState.Idle : EnemyState.Chasing;
+            EnemyReferencesCS.EnemyAICS.AgentAI.speed = EnemyReferencesCS.EnemyAICS.Speed;
+            EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = false;
+            IsAttacking = false;
+        }
     }
 
     void FacePlayer()
