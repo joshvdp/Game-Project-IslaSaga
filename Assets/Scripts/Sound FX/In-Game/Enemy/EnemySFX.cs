@@ -41,7 +41,6 @@ namespace SoundFX
         }
         public void Death()
         {
-            Debug.Log("Died");
             GameObject sound = Instantiate(Died, transform.position, transform.rotation);
         }
         public void Growling()
