@@ -1,19 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using Player.Movement;
-
+using Manager;
 namespace Player.Combat
 {
     public class PlayerCombat : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] PlayerReferences References;
-        [SerializeField] ControlBindings Controls;
-        [SerializeField] Transform WeaponHolder;
-        [SerializeField] PlayerMovement PlayerMovementCS;
-        [SerializeField] PlayerPickUp PlayerPickUpCS;
-        [SerializeField] GameObject AttackRange;
-        [SerializeField] Camera PlayerCam;
         [SerializeField] LayerMask RayHittableLayers;
 
         [Header("Attack Variables")]
@@ -22,12 +16,13 @@ namespace Player.Combat
         [SerializeField] float SequenceResetTime;
         private void Update()
         {
-            GetInput();
+            if(References.PlayerHpCS.IsAlive) GetInput();
+
         }
 
         void GetInput()
         {
-            if (Input.GetKeyDown(Controls.Attack1Key) && !IsAttacking)
+            if (Input.GetKeyDown(References.Controls.Attack1Key) && !IsAttacking && !MainManager.Instance.IsPaused)
             {
                 FaceDirectionOfMousePos();
                 Attack();
@@ -39,10 +34,10 @@ namespace Player.Combat
             StopCoroutine("AttackSequenceReset");
             References.PlayerAttackRangeCS.UpdateList();
             ChangePlayerMovement(0f);
-            PlayerPickUpCS.DropItem();
-            PlayerMovementCS.IsRunning = false;
-            PlayerMovementCS.IsWalking = false;
-            PlayerMovementCS.IsIdle = false;
+            References.PlayerPickUpCS.DropItem();
+            References.PlayerMoveCS.IsRunning = false;
+            References.PlayerMoveCS.IsWalking = false;
+            References.PlayerMoveCS.IsIdle = false;
             IsAttacking = true;
             AttackSequence++;
             StartCoroutine("AttackSequenceReset");
@@ -50,7 +45,7 @@ namespace Player.Combat
 
         void FaceDirectionOfMousePos()
         {
-            Ray MouseRay = PlayerCam.ScreenPointToRay(Input.mousePosition);
+            Ray MouseRay = References.PlayerCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(MouseRay, out RaycastHit rayCastHit, RayHittableLayers))
             {
                 Vector3 DirectionToLookAt = new Vector3(rayCastHit.point.x, transform.position.y, rayCastHit.point.z);
@@ -66,15 +61,15 @@ namespace Player.Combat
                 AttackSequence = 0;
                 IsAttacking = false;
             }
-            PlayerMovementCS.IsIdle = true;
+            References.PlayerMoveCS.IsIdle = true;
             IsAttacking = false;
             ChangePlayerMovement(1f);
         }
 
         void ChangePlayerMovement(float value)
         {
-            PlayerMovementCS.PlayerRb.velocity *= value;
-            PlayerMovementCS.MoveValueHandler = value;
+            References.PlayerRb.velocity *= value;
+            References.PlayerMoveCS.MoveValueHandler = value;
         }
 
         IEnumerator AttackSequenceReset()

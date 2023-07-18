@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Manager;
 namespace Player
 {
     public class PlayerPickUp : MonoBehaviour
     {
-        [SerializeField] ControlBindings Controls;
-        [SerializeField] PlayerDetectObjects PlayerDetectObjCS;
-        [SerializeField] Transform HoldSpot;
+        [SerializeField] PlayerReferences References;
         [SerializeField] GameObject ItemBeingHeld;
         bool ItemPickedUp = false;
 
@@ -16,26 +14,39 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
-            GetInput();
+            if (!MainManager.Instance.IsPaused && References.PlayerHpCS.IsAlive)
+            {
+                GetInput();
 
-            if (ItemPickedUp) ItemBeingHeld.transform.position = Vector3.Lerp(ItemBeingHeld.transform.position, HoldSpot.position, ItemFollowSpeed * Time.deltaTime);
-
+                if (ItemPickedUp)
+                {
+                    HoldItem();
+                }
+            }
         }
 
         void GetInput()
         {
-            if (Input.GetKeyDown(Controls.PickUpKey) && PlayerDetectObjCS.MoveableObjectInRange != null && !ItemPickedUp)
+            
+            if (Input.GetKeyDown(References.Controls.PickUpKey) && References.PlayerDetectObjCS.MoveableObjectInRange != null && !ItemPickedUp)
             {
-                ItemBeingHeld = PlayerDetectObjCS.MoveableObjectInRange;
-                ItemPickedUp = true;
+                PickUpItem();
             }
-            else if (Input.GetKeyDown(Controls.PickUpKey) && ItemPickedUp)
+            else if (Input.GetKeyDown(References.Controls.PickUpKey) && ItemPickedUp)
             {
-                ItemPickedUp = false;
-                ItemBeingHeld = null;
+                DropItem();
             }
         }
 
+        void PickUpItem()
+        {
+            ItemBeingHeld = References.PlayerDetectObjCS.MoveableObjectInRange;
+            ItemPickedUp = true;
+        }
+        void HoldItem()
+        {
+            ItemBeingHeld.transform.position = Vector3.Lerp(ItemBeingHeld.transform.position, References.HoldSpot.position, ItemFollowSpeed * Time.deltaTime);
+        }
         public void DropItem()
         {
             ItemPickedUp = false;

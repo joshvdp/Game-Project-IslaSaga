@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Manager;
 
 namespace Cam.Controls
 {
@@ -34,13 +34,19 @@ namespace Cam.Controls
 
         private void Update()
         {
-            RotateCamera();
-            ZoomInOrOut();
-            CameraCollisionHandler();
+            if(!MainManager.Instance.IsPaused)
+            {
+                RotateCamera();
+                ZoomInOrOut();
+                CameraCollisionHandler();
+            }
         }
         private void FixedUpdate()
         {
-            FollowPlayerPosition();
+            if (!MainManager.Instance.IsPaused)
+            {
+                FollowPlayerPosition();
+            }
         }
 
         void FollowPlayerPosition()

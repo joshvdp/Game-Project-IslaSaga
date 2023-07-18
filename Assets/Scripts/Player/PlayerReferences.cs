@@ -14,4 +14,11 @@ public class PlayerReferences : MonoBehaviour
     public PlayerCombat PlayerCombatCS;
     public PlayerHpHandler PlayerHpCS;
     public PlayerAttackRangeDetect PlayerAttackRangeCS;
+    public PlayerPickUp PlayerPickUpCS;
+    public PlayerDetectObjects PlayerDetectObjCS;
+
+    public Rigidbody PlayerRb;
+    public Transform PlayerCamTransform;
+    public Transform HoldSpot;
+    public Camera PlayerCamera;
 }

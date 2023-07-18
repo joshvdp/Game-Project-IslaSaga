@@ -3,31 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using Interface;
 using Player;
+using Manager;
 public class PlayerHpHandler : MonoBehaviour, IDamageable
 {
-    [SerializeField] PlayerStats PlayerStatsCS;
-    public float MaxHealth { get { return PlayerStatsCS.PlayerMaxHealth;} set { PlayerStatsCS.PlayerCurrentHealth = value; } }
-    public float CurrentHealth { get { return PlayerStatsCS.PlayerCurrentHealth; } set { PlayerStatsCS.PlayerCurrentHealth = value; } }
-    private void Start()
-    {
+    public delegate void OnPlayerDeath();
+    public OnPlayerDeath onPlayerDeath;
 
+    [SerializeField] PlayerReferences References;
+    public float MaxHealth { get { return References.PlayerStatsCS.PlayerMaxHealth;} set { References.PlayerStatsCS.PlayerCurrentHealth = value; } }
+    public float CurrentHealth { get { return References.PlayerStatsCS.PlayerCurrentHealth; } set { References.PlayerStatsCS.PlayerCurrentHealth = value; } }
+    public bool IsAlive;
+
+    private void Awake()
+    {
+        References.PlayerStatsCS.Reset();
     }
     public void Hit(float Damage)
     {
-        PlayerStatsCS.TakeDamage(Damage);
-        CurrentHealth = PlayerStatsCS.PlayerCurrentHealth;
+        References.PlayerStatsCS.TakeDamage(Damage);
+        CurrentHealth = References.PlayerStatsCS.PlayerCurrentHealth;
         CheckHealth();
     }
 
     void CheckHealth()
     {
-        if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0 && IsAlive)
         {
             Death();
         }
     }
     public void Death()
     {
-        Debug.Log("Player Dead");
+        
+        References.PlayerAnimCS.PlayerAnimator.SetBool("IsDead", true);
+        References.PlayerAnimCS.PlayerAnimator.SetTrigger("Death");
+        onPlayerDeath?.Invoke();
+        IsAlive = false;
     }
+
 }
