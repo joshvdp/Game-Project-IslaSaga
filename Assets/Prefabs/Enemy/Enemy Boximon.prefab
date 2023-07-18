@@ -760,6 +760,7 @@ GameObject:
   - component: {fileID: 3502735766209144749}
   - component: {fileID: 1471301948259789628}
   - component: {fileID: 7821129870527401118}
+  - component: {fileID: 6442601627965063869}
   m_Layer: 7
   m_Name: Enemy Boximon
   m_TagString: Enemy
@@ -923,6 +924,22 @@ CapsuleCollider:
   m_Height: 1.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!114 &6442601627965063869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996947752993889941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c050adb3ea17f409e42c394d6f0c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Grunt: {fileID: 0}
+  Died: {fileID: 1778013744758415580, guid: 727dcfa9d2f82c4499ae3cb9891e3955, type: 3}
+  Growl: {fileID: 0}
+  Hit: {fileID: 3143686212897395493, guid: 875d686eb6d56f84e807cc2dfc957bb1, type: 3}
 --- !u!1 &5484065957331434154
 GameObject:
   m_ObjectHideFlags: 0

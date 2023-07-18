@@ -8,25 +8,27 @@ namespace SoundFX
     public class EnemySFX: MonoBehaviour
     {
         public delegate void statusEvent();
-        public static statusEvent onGrunt, onDied, onGrowl;
+        public static statusEvent onGrunt, onDeath, onGrowl, onHit;
 
-        public GameObject Grunt, Died, Growl;
+        public GameObject Grunt, Died, Growl, Hit;
 
         private EnemyHpHandler sound;
 
         private void OnEnable()
         {
             onGrunt += Grunting;
-            onDied += Death;
+            onDeath += Death;
             onGrowl += Growling;
+            onHit += TakeHit;
             
         }
 
         private void OnDisable()
         {
             onGrunt -= Grunting;
-            onDied -= Death;
+            onDeath -= Death;
             onGrowl -= Growling;
+            onHit -= TakeHit;
         }
         private void Start()
         {
@@ -35,18 +37,22 @@ namespace SoundFX
 
         public void Grunting()
         {
-            Debug.Log("I am Grunting");
-            //GameObject hit = Instantiate(Grunt, transform.position, transform.rotation);
+            //Debug.Log("Grunt Grunt");
+            //GameObject sound = Instantiate(Grunt, transform.position, transform.rotation);
         }
         public void Death()
         {
-            Debug.Log("I Died");
-            //GameObject hit = Instantiate(Died, transform.position, transform.rotation);
+            //Debug.Log("Died");
+            GameObject sound = Instantiate(Died, transform.position, transform.rotation);
         }
         public void Growling()
         {
-            Debug.Log("Grrrr");
-            //GameObject hit = Instantiate(Growl, transform.position, transform.rotation);
+            //Debug.Log("Growl Growl");
+            //GameObject sound = Instantiate(Growl, transform.position, transform.rotation);
+        }
+        public void TakeHit()
+        {
+            GameObject sound = Instantiate(Hit, transform.position, transform.rotation);
         }
     }
 

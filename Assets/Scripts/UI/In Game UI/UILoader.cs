@@ -14,7 +14,6 @@ namespace GameScenes
         public void loadUI()
         {
             SceneManager.LoadScene(2, LoadSceneMode.Additive);
-            Debug.Log("Load UI");
         }
     }
 

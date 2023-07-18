@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Puzzle;
+using SoundFX; 
 namespace Puzzle
 {
     public class PressurePlateCS : MonoBehaviour
@@ -29,6 +30,7 @@ namespace Puzzle
         }
         private void OnTriggerEnter(Collider other)
         {
+            GlobalSFX.onEnter?.Invoke();
             if (other.tag == "Player" || other.tag == "Moveable")
             {
                 ObjectsOnTop++;
@@ -37,6 +39,7 @@ namespace Puzzle
 
         private void OnTriggerExit(Collider other)
         {
+            GlobalSFX.onExit?.Invoke();
             if (other.tag == "Player" || other.tag == "Moveable")
             {
                 ObjectsOnTop--;

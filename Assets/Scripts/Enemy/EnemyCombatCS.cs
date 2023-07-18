@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enemy.AI;
 using Enemy;
+using SoundFX;
+
 public class EnemyCombatCS : MonoBehaviour
 {
     [SerializeField] EnemyReferences EnemyReferencesCS;

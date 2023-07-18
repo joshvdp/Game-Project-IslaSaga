@@ -3,6 +3,7 @@ using UnityEngine;
 using Interface;
 using Enemy.AI;
 using VFX;
+using SoundFX;
 namespace Enemy
 {
     public class EnemyHpHandler : MonoBehaviour, IDamageable
@@ -52,6 +53,7 @@ namespace Enemy
                 StartCoroutine(HitStun());
                 StartCoroutine(HitEffect());
                 VFXManager.Instance.SpawnDmgPopup(transform.position, Damage);
+                EnemySFX.onHit?.Invoke();
             }
         }
 
@@ -61,13 +63,15 @@ namespace Enemy
             {
                 EnemyHp = CurrentHealth;
                 Death();
+                
             }
+            
         }
 
         public void Death()
         {
             IsDead = true;
-           
+            EnemySFX.onDeath?.Invoke();
             EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
             EnemyReferencesCS.EnemyAICS.Target = null;
             EnemyReferencesCS.EnemyAnimationCS.enabled = false;
@@ -85,6 +89,7 @@ namespace Enemy
 
         IEnumerator HitStun()
         {
+            //sfx here
             var StateBeforeStunned = EnemyReferencesCS.EnemyAICS.EnemyStateReference;
             EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
             EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = true;
@@ -99,7 +104,7 @@ namespace Enemy
         }
         IEnumerator Knockback()
         {
-
+            //EnemySFX.onHit?.Invoke();
             IsBeingKnockbacked = true;
             float TimeElapsed = 0;
             Vector3 KnockbackDir = EnemyReferencesCS.EnemyAICS.Target.forward;
@@ -125,6 +130,7 @@ namespace Enemy
         }
         IEnumerator HitEffect()
         {
+            //sfx here
             for(int i = 0; i<MainRenderers.Length; i++)
             {
                 MainRenderers[i].material.color = HitColor;
