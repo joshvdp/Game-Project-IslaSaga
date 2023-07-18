@@ -21,11 +21,7 @@ namespace Player.Movement
         float VerticalMove;
 
         [Header("Referencing")]
-        [SerializeField] ControlBindings Controls;
-        [SerializeField] public Rigidbody PlayerRb;
-        [SerializeField] PlayerCombat PlayerCombatCS;
-        [SerializeField] PlayerStats PlayerStatsCS;
-        [SerializeField] Transform PlayerCamTransform;
+        [SerializeField] PlayerReferences References;
 
         [Header("Movement References/Variables")]
         [SerializeField] float Gravity;
@@ -49,7 +45,7 @@ namespace Player.Movement
             IsIdle = true;
             MoveState = PlayerMoveState.Idle;
 
-            PlayerMoveSpeed = PlayerStatsCS.PlayerSpeed;
+            PlayerMoveSpeed = References.PlayerStatsCS.PlayerSpeed;
         }
 
 
@@ -60,18 +56,19 @@ namespace Player.Movement
 
         private void Update()
         {
-            if(!PlayerCombatCS.IsAttacking)
+            if(!References.PlayerCombatCS.IsAttacking && References.PlayerHpCS.IsAlive)
             {
                 StateSetter();
                 RotateTowardsMovement();
             }
         }
-
         
+
+
 
         private void FixedUpdate()
         {
-            if (!PlayerCombatCS.IsAttacking)
+            if (!References.PlayerCombatCS.IsAttacking && References.PlayerHpCS.IsAlive)
             {
                 Move();
                 SlopeHandler();
@@ -81,15 +78,15 @@ namespace Player.Movement
 
         void SimulateGravity()
         {
-            PlayerRb.velocity += -Vector3.up * Gravity;
+            References.PlayerRb.velocity += -Vector3.up * Gravity;
         }
         void Move()
         {
             HorizontalMove = Mathf.Clamp(HorizontalMove, -1, 1);
             VerticalMove = Mathf.Clamp(VerticalMove, -1, 1);
 
-            Vector3 camForward = PlayerCamTransform.forward;
-            Vector3 camRight = PlayerCamTransform.right;
+            Vector3 camForward = References.PlayerCamTransform.forward;
+            Vector3 camRight = References.PlayerCamTransform.right;
 
             camForward.y = 0;
             camRight.y = 0;
@@ -99,43 +96,43 @@ namespace Player.Movement
 
             CamRelativeMoveVect = forwardRelativeMoveVect + rightRelativeMoveVect;
 
-            PlayerRb.velocity = CamRelativeMoveVect.normalized * (IsRunning ? RunSpeed : PlayerMoveSpeed) * MoveValueHandler * Time.deltaTime;
-            if (Input.GetKey(Controls.ForwardKey))
+            References.PlayerRb.velocity = CamRelativeMoveVect.normalized * (IsRunning ? RunSpeed : PlayerMoveSpeed) * MoveValueHandler * Time.deltaTime;
+            if (Input.GetKey(References.Controls.ForwardKey))
             {
                 HorizontalMove +=  1;
             }
-            if (Input.GetKey(Controls.BackwardKey))
+            if (Input.GetKey(References.Controls.BackwardKey))
             {
                 HorizontalMove -= 1;
             }
-            if (Input.GetKey(Controls.LeftKey))
+            if (Input.GetKey(References.Controls.LeftKey))
             {
                 VerticalMove -= 1;
             }
-            if (Input.GetKey(Controls.RightKey))
+            if (Input.GetKey(References.Controls.RightKey))
             {
                 VerticalMove += 1;
             }
 
-            if(!Input.GetKey(Controls.ForwardKey) && !Input.GetKey(Controls.BackwardKey))
+            if(!Input.GetKey(References.Controls.ForwardKey) && !Input.GetKey(References.Controls.BackwardKey))
             {
                 HorizontalMove = 0;
             }
 
-            if(!Input.GetKey(Controls.RightKey) && !Input.GetKey(Controls.LeftKey))
+            if(!Input.GetKey(References.Controls.RightKey) && !Input.GetKey(References.Controls.LeftKey))
             {
                 VerticalMove = 0;
             }
-            if (Input.GetKey(Controls.SprintKey) && PlayerRb.velocity.magnitude >= 0.1f)
+            if (Input.GetKey(References.Controls.SprintKey) && References.PlayerRb.velocity.magnitude >= 0.1f)
             {
                 IsRunning = true;
                 IsWalking = false;
                 IsIdle = false;
             }
-            if (!Input.GetKey(Controls.SprintKey) || PlayerRb.velocity.magnitude <= 0f)
+            if (!Input.GetKey(References.Controls.SprintKey) || References.PlayerRb.velocity.magnitude <= 0f)
             {
                 IsRunning = false;
-                if(PlayerRb.velocity.magnitude >= 0.1f)
+                if(References.PlayerRb.velocity.magnitude >= 0.1f)
                 {
 
                     IsWalking = true;
@@ -175,7 +172,7 @@ namespace Player.Movement
             {
                 MoveState = PlayerMoveState.Idle;
             }
-            if(PlayerCombatCS.IsAttacking)
+            if(References.PlayerCombatCS.IsAttacking)
             {
                 MoveState = PlayerMoveState.Attacking;
                 CamRelativeMoveVect = Vector3.zero;

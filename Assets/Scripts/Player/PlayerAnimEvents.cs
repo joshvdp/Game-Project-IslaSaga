@@ -4,16 +4,15 @@ using Player.Combat;
 using System;
 public class PlayerAnimEvents : MonoBehaviour
 {
-    [SerializeField] PlayerCombat PlayerCombatCS;
-    [SerializeField] PlayerAttackRangeDetect PlayerAttackRangeCS;
+    [SerializeField] PlayerReferences References;
     public static event Action<List<GameObject>, int> OnWeaponAttack;
     void CheckAttackSequence()
     {
-        PlayerCombatCS.CheckAttackSequence();
+        References.PlayerCombatCS.CheckAttackSequence();
     }
 
     void WeaponAttack()
     {
-        OnWeaponAttack?.Invoke(PlayerAttackRangeCS.EnemiesInRange, PlayerCombatCS.AttackSequence);
+        OnWeaponAttack?.Invoke(References.PlayerAttackRangeCS.EnemiesInRange, References.PlayerCombatCS.AttackSequence);
     }
 }

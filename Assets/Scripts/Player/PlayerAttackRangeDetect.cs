@@ -4,7 +4,6 @@ namespace Player.Combat
 {
     public class PlayerAttackRangeDetect : MonoBehaviour
     {
-        [SerializeField] PlayerCombat PlayerCombatCS;
         public List<GameObject> EnemiesInRange;
 
         private void OnTriggerEnter(Collider other)

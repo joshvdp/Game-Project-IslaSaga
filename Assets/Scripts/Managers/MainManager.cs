@@ -7,9 +7,9 @@ namespace Manager
     public class MainManager : MonoBehaviour
     {
         public static MainManager Instance;
-
         [SerializeField] PlayerStats PlayerStatsSCO;
 
+        public bool IsPaused = false;
         private void Awake()
         {
             if (Instance != null && Instance != this) Destroy(this);
