@@ -48,7 +48,6 @@ namespace Player.Combat
         {
             GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
         }
-
     }
 }
 

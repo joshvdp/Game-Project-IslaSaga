@@ -20,7 +20,6 @@ namespace SoundFX
             onDeath += Death;
             onGrowl += Growling;
             onHit += TakeHit;
-            
         }
 
         private void OnDisable()
@@ -37,17 +36,17 @@ namespace SoundFX
 
         public void Grunting()
         {
-            //Debug.Log("Grunt Grunt");
+            Debug.Log("Grunt");
             //GameObject sound = Instantiate(Grunt, transform.position, transform.rotation);
         }
         public void Death()
         {
-            //Debug.Log("Died");
+            Debug.Log("Died");
             GameObject sound = Instantiate(Died, transform.position, transform.rotation);
         }
         public void Growling()
         {
-            //Debug.Log("Growl Growl");
+            Debug.Log("Growl");
             //GameObject sound = Instantiate(Growl, transform.position, transform.rotation);
         }
         public void TakeHit()
@@ -55,6 +54,4 @@ namespace SoundFX
             GameObject sound = Instantiate(Hit, transform.position, transform.rotation);
         }
     }
-
-
 }

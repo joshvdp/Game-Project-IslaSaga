@@ -50,11 +50,5 @@ namespace SoundFX
         {
             GameObject play = Instantiate(Gate0, transform.position, transform.rotation);
         }
-       
-
-
-
     }
-
-
 }
