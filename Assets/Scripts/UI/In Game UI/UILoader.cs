@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameScenes
+namespace Manager
 {
     public class UILoader : MonoBehaviour
     {
@@ -16,6 +16,4 @@ namespace GameScenes
             SceneManager.LoadScene(2, LoadSceneMode.Additive);
         }
     }
-
-
 }

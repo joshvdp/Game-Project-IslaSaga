@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player;
 using UnityEngine.SceneManagement;
+
 namespace Manager
 {
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-
-
-
         public GameObject GameOverScreen;
+
         private void Awake()
         {
             if (Instance != null && Instance != this) Destroy(this);
@@ -41,5 +40,4 @@ namespace Manager
             SceneManager.LoadScene("MainMenu");
         }
     }
-
 }
