@@ -34,7 +34,7 @@ namespace Cam.Controls
 
         private void Update()
         {
-            if(!MainManager.Instance.IsPaused)
+            if(!MainManager.Instance.IsPaused && !MainManager.Instance.IsGameOver)
             {
                 RotateCamera();
                 ZoomInOrOut();

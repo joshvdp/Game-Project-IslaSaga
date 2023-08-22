@@ -21,6 +21,7 @@ public class PlayerHpHandler : MonoBehaviour, IDamageable
     public void Hit(float Damage)
     {
         References.PlayerStatsCS.TakeDamage(Damage);
+        Debug.Log(Damage);
         CurrentHealth = References.PlayerStatsCS.PlayerCurrentHealth;
         CheckHealth();
     }
@@ -37,6 +38,7 @@ public class PlayerHpHandler : MonoBehaviour, IDamageable
         
         References.PlayerAnimCS.PlayerAnimator.SetBool("IsDead", true);
         References.PlayerAnimCS.PlayerAnimator.SetTrigger("Death");
+        MainManager.Instance.IsGameOver = true;
         onPlayerDeath?.Invoke();
         IsAlive = false;
     }

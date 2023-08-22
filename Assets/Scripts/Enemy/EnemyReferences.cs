@@ -18,8 +18,6 @@ namespace Enemy
 
         public CapsuleCollider EnemyMainCollider;
         public SphereCollider EnemyAttackRange;
-
-
     }
 }
 

@@ -10,6 +10,7 @@ namespace Manager
         [SerializeField] PlayerStats PlayerStatsSCO;
 
         public bool IsPaused = false;
+        public bool IsGameOver = false;
         private void Awake()
         {
             if (Instance != null && Instance != this) Destroy(this);
