@@ -14,7 +14,6 @@ namespace Interface
         bool IsDamageable { get; set; }
         void Hit(float Damage);
 
-        void Death();
     }
 
 }

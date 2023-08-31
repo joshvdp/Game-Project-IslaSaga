@@ -58,7 +58,7 @@ namespace Enemy
                 CheckHp();
                 StartCoroutine(HitStun());
                 StartCoroutine(HitEffect());
-                VFXManager.Instance.SpawnDmgPopup(transform.position, Damage);
+                VFXManager.Instance.SpawnDmgPopup(transform.position, Damage, 1);
                 EnemySFX.onHit?.Invoke();
             }
         }
@@ -88,7 +88,7 @@ namespace Enemy
             EnemyReferencesCS.EnemyMainCollider.enabled = false;
 
             EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Dead;
-            EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Death");
+            EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Die");
 
             Destroy(gameObject, DeathAnimLength);
         }

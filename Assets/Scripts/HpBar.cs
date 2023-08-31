@@ -14,30 +14,28 @@ public class HpBar : MonoBehaviour, IDamageable
     public bool IsDamageable { get; set; }
 
     public bool ShowDamageText;
+    public float PopUpScale;
     VFXManager vfxManager;
 
     public UnityEvent onHit;
+
 
     private void Awake()
     {
         CurrentHealth = MaxHealth;
         vfxManager = FindObjectOfType<VFXManager>();
     }
-    public void Death()
-    {
-        onDeath?.Invoke();
-    }
 
     public void Hit(float Damage)
     {
         if (!IsDamageable) return;
+        if (ShowDamageText && vfxManager != null) vfxManager.SpawnDmgPopup(gameObject.transform.position, Damage, PopUpScale);
 
-        if (ShowDamageText && vfxManager != null) vfxManager.SpawnDmgPopup(transform.position, Damage);
         CurrentHealth = Mathf.Clamp(CurrentHealth - Damage, 0, MaxHealth);
         onHit?.Invoke();
         Debug.Log("FIERY DAMAGED " + Damage + " CURRENT HP: " + CurrentHealth);
 
-        if (CurrentHealth <= 0) Death();
+        if (CurrentHealth <= 0) onDeath?.Invoke();
     }
 
     
