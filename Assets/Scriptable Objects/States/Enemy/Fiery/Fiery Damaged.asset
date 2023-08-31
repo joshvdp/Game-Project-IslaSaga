@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68edd067f0f49f945aae3d711fbaf87d, type: 3}
-  m_Name: Fiery Idle
+  m_Script: {fileID: 11500000, guid: 0d4803c3fe487b84b88853c531122b4f, type: 3}
+  m_Name: Fiery Damaged
   m_EditorClassIdentifier: 
-  StateName: Idle
-  AnimationTrigger: Idle
+  StateName: 
+  AnimationTrigger: Damaged
   isUnlocked: 1
   isDamageable: 1
   isKnockbackable: 1
-  materialColor: {r: 1, g: 1, b: 1, a: 1}
+  materialColor: {r: 0.5, g: 0.26603773, b: 0.26603773, a: 1}
   statesToChangeTo:
   - state: {fileID: 11400000, guid: 02523f4d979559243bfb338fec2867e5, type: 2}
-    eventsToListen: 00000000
+    eventsToListen: 03000000
+  timerTime: 0.5

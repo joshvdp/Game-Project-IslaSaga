@@ -4,6 +4,9 @@ using Interface;
 using Enemy.AI;
 using VFX;
 using SoundFX;
+using UnityEngine.Events;
+using System.Collections.Generic;
+
 namespace Enemy
 {
     public class EnemyHpHandler : MonoBehaviour, IDamageable
@@ -18,6 +21,9 @@ namespace Enemy
         [SerializeField] float HitStunTime;
         public float MaxHealth { get; set; }
         public float CurrentHealth { get; set; }
+        [field: SerializeField] public UnityEvent onDeath { get; set; }
+        public bool IsDamageable { get; set; }
+
         public bool IsDead = false;
         [SerializeField] float DeathAnimLength;
         [Header("Knockback Variables")]

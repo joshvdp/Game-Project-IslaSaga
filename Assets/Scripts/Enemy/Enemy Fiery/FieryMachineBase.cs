@@ -11,14 +11,22 @@ namespace StateMachine.Enemy.State
     {
         [SerializeField, Foldout("Animations")] protected string AnimationTrigger;
         [SerializeField, Foldout("Settings")] protected bool isUnlocked = true;
+        [SerializeField, Foldout("Settings")] protected bool isDamageable = true;
+        [SerializeField, Foldout("Settings")] protected bool isKnockbackable = true;
+        [SerializeField, Foldout("Settings")] protected Color materialColor;
 
         [SerializeField] public List<FieryChangeState> statesToChangeTo;
         public bool IsUnlocked => isUnlocked;
+        public bool IsDamageable => isDamageable;
+        public bool IsKnockbackable => isKnockbackable;
+        public Color MaterialColor => materialColor;
         public string AnimTrigger => AnimationTrigger;
         public override FieryMachineFunctions Initialize(FieryMonoStateMachine machine)
         {
             return null;
         }
+
+       
     }
     public class FieryMachineFunctions : StateMachineFunction<FieryMonoStateMachine, FieryMachineData>
     {
@@ -27,6 +35,12 @@ namespace StateMachine.Enemy.State
         public FieryMachineFunctions(FieryMonoStateMachine machine, FieryMachineData data) : base(machine, data)
         {
             AnimTrigger = data.AnimTrigger;
+            machine.HpComponent.IsDamageable = data.IsDamageable;
+
+            for (int i = 0; i < machine.MainRenderers.Length; i++)
+            {
+                machine.MainRenderers[i].material.color = data.MaterialColor;
+            }
 
             if (!string.IsNullOrEmpty(AnimTrigger)) machine.Animator.SetTrigger(AnimTrigger);
             StartStateListeners(machine, data);
@@ -102,6 +116,12 @@ namespace StateMachine.Enemy.State
                 case FieryChangeEventsToListen.ON_ANIMATION_END:
                     machine.AnimationEvents.FindEvent("On Animation End").AddListener(SetState);
                     break;
+                case FieryChangeEventsToListen.ON_END_STATE_CALLED:
+                    machine.OnEndState += SetState;
+                    break;
+                case FieryChangeEventsToListen.ON_HIT:
+                    machine.HpComponent.onHit.AddListener(SetState);
+                    break;
 
             }
 
@@ -124,6 +144,12 @@ namespace StateMachine.Enemy.State
             {
                 case FieryChangeEventsToListen.ON_ANIMATION_END:
                     machine.AnimationEvents.FindEvent("On Animation End").RemoveListener(SetState);
+                    break;
+                case FieryChangeEventsToListen.ON_END_STATE_CALLED:
+                    machine.OnEndState -= SetState;
+                    break;
+                case FieryChangeEventsToListen.ON_HIT:
+                    machine.HpComponent.onHit.RemoveListener(SetState);
                     break;
             }
         }
@@ -159,6 +185,8 @@ namespace StateMachine.Enemy.State
     {
         PLAYER_WITHIN_RANGE,
         PLAYER_WITHIN_ATTACK_RANGE,
-        ON_ANIMATION_END
+        ON_ANIMATION_END,
+        ON_END_STATE_CALLED,
+        ON_HIT
     }
 }

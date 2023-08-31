@@ -21,14 +21,21 @@ namespace StateMachine.Enemy.State
         private float Speed;
         public FieryFollowFunctions(FieryMonoStateMachine machine, FieryFollow data) : base(machine, data)
         {
-            Target = machine.DetectCollider.ObjectThatIsInRange.transform;
+            if (machine.DetectCollider.ObjectThatIsInRange != null) Target = machine.DetectCollider.ObjectThatIsInRange.transform;
+            else machine.OnEndState?.Invoke();
             Speed = data.Speed;
             machine.Agent.isStopped = false;
             machine.Agent.speed = Speed;
+            machine.CurrentTarget = Target;
         }
         public override void StateUpdate()
         {
             base.StateUpdate();
+            if (Target == null)
+            {
+                machine.OnEndState?.Invoke();
+                return;
+            }
             machine.Agent.destination = Target.position;
         }
     }

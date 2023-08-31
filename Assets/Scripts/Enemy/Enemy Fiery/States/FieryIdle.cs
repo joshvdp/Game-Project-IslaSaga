@@ -17,7 +17,7 @@ namespace StateMachine.Enemy.State
     {
         public FieryIdleFunctions(FieryMonoStateMachine machine, FieryIdle data) : base(machine, data)
         {
-            machine.Agent.velocity = Vector3.zero;
+            machine.Agent.isStopped = true;
             
         }
     }

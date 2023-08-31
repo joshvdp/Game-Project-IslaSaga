@@ -15,7 +15,12 @@ MonoBehaviour:
   StateName: 
   AnimationTrigger: Attack 1
   isUnlocked: 1
+  isDamageable: 1
+  isKnockbackable: 1
+  materialColor: {r: 1, g: 1, b: 1, a: 1}
   statesToChangeTo:
   - state: {fileID: 11400000, guid: 02523f4d979559243bfb338fec2867e5, type: 2}
     eventsToListen: 02000000
+  - state: {fileID: 11400000, guid: 1d4f5ff7d7b4fd04a9255b44d31decaa, type: 2}
+    eventsToListen: 04000000
   damage: 10
