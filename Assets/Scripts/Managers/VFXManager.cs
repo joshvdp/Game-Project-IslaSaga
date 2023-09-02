@@ -16,9 +16,11 @@ namespace VFX
             else Instance = this;
         }
 
-        public void SpawnDmgPopup(Vector3 position, float Dmg)
+        public void SpawnDmgPopup(Vector3 position, float Dmg, float scale)
         {
+            Vector3 Scale = new Vector3(scale, scale, scale);
             GameObject popup = Instantiate(DamagePopup, position, Quaternion.identity);
+            popup.transform.localScale = Scale;
             popup.GetComponent<TextMeshPro>().text = Dmg.ToString();
         }
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 using Interface;
 using Player;
 using Manager;
+using UnityEngine.Events;
+
 public class PlayerHpHandler : MonoBehaviour, IDamageable
 {
     public delegate void OnPlayerDeath();
@@ -12,6 +14,10 @@ public class PlayerHpHandler : MonoBehaviour, IDamageable
     [SerializeField] PlayerReferences References;
     public float MaxHealth { get { return References.PlayerStatsCS.PlayerMaxHealth;} set { References.PlayerStatsCS.PlayerCurrentHealth = value; } }
     public float CurrentHealth { get { return References.PlayerStatsCS.PlayerCurrentHealth; } set { References.PlayerStatsCS.PlayerCurrentHealth = value; } }
+
+    [field: SerializeField] public UnityEvent onDeath { get; set; }
+    public bool IsDamageable { get; set; }
+
     public bool IsAlive;
 
     private void Awake()
@@ -21,6 +27,7 @@ public class PlayerHpHandler : MonoBehaviour, IDamageable
     public void Hit(float Damage)
     {
         References.PlayerStatsCS.TakeDamage(Damage);
+        Debug.Log(Damage);
         CurrentHealth = References.PlayerStatsCS.PlayerCurrentHealth;
         CheckHealth();
     }
@@ -37,6 +44,7 @@ public class PlayerHpHandler : MonoBehaviour, IDamageable
         
         References.PlayerAnimCS.PlayerAnimator.SetBool("IsDead", true);
         References.PlayerAnimCS.PlayerAnimator.SetTrigger("Death");
+        MainManager.Instance.IsGameOver = true;
         onPlayerDeath?.Invoke();
         IsAlive = false;
     }
