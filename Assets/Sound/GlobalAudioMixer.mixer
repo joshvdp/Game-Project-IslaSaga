@@ -20,7 +20,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MainVolMixer
+  m_Name: GlobalAudioMixer
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -30,12 +30,10 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: cc3b8ae163a1bbf4e8e2256ec114e89b
-    name: VolMain
   - guid: 4a43cd02b380ad74b8b2f09dfe7e8d94
-    name: MusVol
+    name: MusicVol
   - guid: a3eec53fc53395045888c243621c9345
-    name: SfxVol
+    name: SFXVol
   m_AudioMixerGroupViews:
   - guids:
     - 4a571330c14f3bb42a779f151ae01ce4
@@ -91,6 +89,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     6bfc07f0fc51aac4f957bd3fc206a5a1: 9.19
     cc3b8ae163a1bbf4e8e2256ec114e89b: 0.1080026
+    4a43cd02b380ad74b8b2f09dfe7e8d94: 0.10800299
     d7e4237597f0b6f42a09d567cbc55a52: 0.42
     17af2af7770dddd4796e519c6a1afa7d: -30.2
     78a93aa926f73404a9ccdc16ab057e8a: 11
