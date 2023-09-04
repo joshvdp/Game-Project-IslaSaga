@@ -4,6 +4,7 @@ using UnityEngine;
 using Player.Movement;
 using Player.Combat;
 using Player.Animation;
+using Player.Controls;
 using Player;
 public class PlayerReferences : MonoBehaviour
 {

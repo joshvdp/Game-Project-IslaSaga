@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using ColliderScripts;
 using StateMachine.Base;
 using StateMachine.Enemy.State;
+using Core;
 using System;
 
 public class FieryMonoStateMachine : StateMachineHandler<FieryMachineData, FieryMachineFunctions>
@@ -49,7 +49,6 @@ public class FieryMonoStateMachine : StateMachineHandler<FieryMachineData, Fiery
 
         CurrentState?.Discard();
         CurrentState = newState.Initialize(this);
-        Debug.Log("State is now " + CurrentState.Data.name);
     }
 
 }

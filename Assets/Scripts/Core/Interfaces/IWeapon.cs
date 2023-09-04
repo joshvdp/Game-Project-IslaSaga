@@ -7,6 +7,9 @@ namespace Interface
     public interface IWeapon
     {
         float Damage { get; set;}
-        void Attack(List<GameObject> targets,int Sequence);
+        float SequenceResetTime { get; set; }
+        void Attack();
+
+        GameObject GetGameobject();
     }
 }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Melee_Attack04
+  m_Name: Melee_Spin_Attack
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -15749,22 +15749,22 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.06666667
-    functionName: WeaponAttack
-    data: 
+    functionName: CallEvent
+    data: On Attack Frame
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.23333333
-    functionName: WeaponAttack
-    data: 
+    functionName: CallEvent
+    data: On Attack Frame
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.26666668
-    functionName: CheckAttackSequence
-    data: 
+    functionName: CallEvent
+    data: On Animation End
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

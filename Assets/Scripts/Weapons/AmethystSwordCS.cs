@@ -7,29 +7,20 @@ namespace Items.Weapon
     public class AmethystSwordCS : MonoBehaviour, IWeapon
     {
         [SerializeField] float WeaponDamage;
+        [SerializeField] float WeaponSequenceResetTime;
         public float Damage { get {return WeaponDamage;} set {WeaponDamage = value; } }
 
-        private void OnEnable()
-        {
-            PlayerAnimEvents.OnWeaponAttack += Attack;
-        }
-        private void OnDisable()
-        {
-            PlayerAnimEvents.OnWeaponAttack -= Attack;
-        }
-        public void Attack(List<GameObject> Targets, int Sequence)
+        public float SequenceResetTime { get => WeaponSequenceResetTime; set { WeaponSequenceResetTime = value; } }
+
+        
+        public void Attack()
         {
 
-            for (int i = 0; i < Targets.Count; i++)
-            {
-                 if (Targets[i].gameObject != null)
-                {
-                    IDamageable EnemyHp = Targets[i].GetComponent<IDamageable>();
-                    if (EnemyHp != null) EnemyHp.Hit(Damage);
-                } 
-            }
-            
-           
+        }
+
+        public GameObject GetGameobject()
+        {
+            return gameObject;
         }
     }
 }
