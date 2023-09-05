@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b462a17f3f485c043af1c3bb177f55ba, type: 3}
+  m_Name: Player Idle
+  m_EditorClassIdentifier: 
+  StateName: Idle
+  AnimationTrigger: Idle
+  animationSpeed: 1
+  isUnlocked: 1
+  isDamageable: 1
+  isKnockbackable: 1
+  materialColor: {r: 1, g: 1, b: 1, a: 1}
+  statesToChangeTo:
+  - state: {fileID: 11400000, guid: a367558580ac5e4449a2ec28c4440615, type: 2}
+    eventsToListen: 00000000
+  - state: {fileID: 11400000, guid: 91148010c9d5b804ead059249bb04dcd, type: 2}
+    eventsToListen: 04000000
+  - state: {fileID: 11400000, guid: da37c290125bea543b3717894d5b447d, type: 2}
+    eventsToListen: 05000000
+  - state: {fileID: 11400000, guid: 9b4b3b1c0a748ab48a78af585e6ae916, type: 2}
+    eventsToListen: 06000000
+  - state: {fileID: 11400000, guid: 2c86971e87608c648a299e83af107174, type: 2}
+    eventsToListen: 07000000
+  - state: {fileID: 11400000, guid: 08823786bbbf14e498db677149ae5d92, type: 2}
+    eventsToListen: 09000000

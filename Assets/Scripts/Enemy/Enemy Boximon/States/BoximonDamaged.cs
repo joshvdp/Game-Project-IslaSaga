@@ -39,7 +39,7 @@ namespace StateMachine.Enemy.State
         IEnumerator Knockback()
         {
             float TimeElapsed = 0;
-            Vector3 KnockbackDir = machine.CurrentTarget.forward;
+            Vector3 KnockbackDir = machine.transform.position - machine.CurrentTarget.position;
 
             while (TimeElapsed < TimerTime)
             {

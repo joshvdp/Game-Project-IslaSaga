@@ -13,12 +13,12 @@ public class HpBar : MonoBehaviour, IDamageable
     [field: SerializeField] public UnityEvent onDeath { get; set; }
     public bool IsDamageable { get; set; }
 
-    public bool ShowDamageText;
-    public float PopUpScale;
-    VFXManager vfxManager;
-
     public UnityEvent onHit;
 
+    VFXManager vfxManager;
+    [SerializeField] bool ShowDamageText;
+    [SerializeField] float PopUpScale;
+    [SerializeField] Color PopupTextColor;
 
     private void Awake()
     {
@@ -28,12 +28,11 @@ public class HpBar : MonoBehaviour, IDamageable
 
     public void Hit(float Damage)
     {
-        if (!IsDamageable) return;
-        if (ShowDamageText && vfxManager != null) vfxManager.SpawnDmgPopup(gameObject.transform.position, Damage, PopUpScale);
+        if (!IsDamageable || CurrentHealth <= 0) return;
+        if (ShowDamageText && vfxManager != null) vfxManager.SpawnDmgPopup(gameObject.transform.position, Damage, PopUpScale, PopupTextColor);
 
         CurrentHealth = Mathf.Clamp(CurrentHealth - Damage, 0, MaxHealth);
         onHit?.Invoke();
-        Debug.Log("FIERY DAMAGED " + Damage + " CURRENT HP: " + CurrentHealth);
 
         if (CurrentHealth <= 0) onDeath?.Invoke();
     }

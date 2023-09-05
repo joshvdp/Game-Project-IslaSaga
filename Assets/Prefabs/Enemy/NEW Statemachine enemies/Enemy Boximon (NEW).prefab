@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectWithinDetectRange: 0
-  ObjectThatIsInRange: {fileID: 0}
+  ObjectsThatIsInRange: []
 --- !u!1 &675034894263458672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ Transform:
   - {fileID: 8659553637456928851}
   - {fileID: 4288734081977896676}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -173.47, z: 0}
 --- !u!195 &8674071401994616894
 NavMeshAgent:
@@ -1323,11 +1323,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  ShowDamageText: 1
-  PopUpScale: 2
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  ShowDamageText: 1
+  PopUpScale: 2
+  PopupTextColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8397401009913331196
 GameObject:
   m_ObjectHideFlags: 0

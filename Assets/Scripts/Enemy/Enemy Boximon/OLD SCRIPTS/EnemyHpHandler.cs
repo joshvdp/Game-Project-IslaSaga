@@ -58,7 +58,7 @@ namespace Enemy
                 CheckHp();
                 StartCoroutine(HitStun());
                 StartCoroutine(HitEffect());
-                VFXManager.Instance.SpawnDmgPopup(transform.position, Damage, 1);
+                VFXManager.Instance.SpawnDmgPopup(transform.position, Damage, 1, Color.red);
                 EnemySFX.onHit?.Invoke();
             }
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Manager;
+using Player.Controls;
 
 namespace Cam.Controls
 {

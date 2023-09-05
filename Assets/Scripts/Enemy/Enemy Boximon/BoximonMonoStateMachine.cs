@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using ColliderScripts;
+using Core;
 using StateMachine.Base;
 using StateMachine.Enemy.State;
 using System;
+
 
 public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, BoximonMachineFunctions>
 {
@@ -49,10 +50,12 @@ public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, B
 
         CurrentState?.Discard();
         CurrentState = newState.Initialize(this);
-        Debug.Log("State is now " + CurrentState.Data.name);
     }
 
+    public void LookAtTarget() => transform.rotation = Quaternion.LookRotation(CurrentTarget.position - transform.position);
+
     public void DestroyGameobject() => Destroy(gameObject);
+
 
 }
 

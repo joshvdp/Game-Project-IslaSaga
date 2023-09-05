@@ -28,7 +28,7 @@ namespace Enemy.AI
         public float Speed;
         private void Start()
         {
-            Target = GameObject.Find("Player 1").transform;
+            Target = GameObject.Find("Player").transform;
 
             Speed = EnemyReferencesCS.EnemyStatsCS.Speed;
 

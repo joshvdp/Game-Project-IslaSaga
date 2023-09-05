@@ -151,7 +151,7 @@ namespace Player.Movement
         {
             if(Physics.Raycast(FeetRayStart.position, -Vector3.up,out RaycastHit hit, 0.6f, NavigatableAreas))
             {
-                transform.position = new Vector3(transform.position.x, hit.point.y + HeightOffSet, transform.position.z);
+                transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
             } else
             {
                 SimulateGravity();

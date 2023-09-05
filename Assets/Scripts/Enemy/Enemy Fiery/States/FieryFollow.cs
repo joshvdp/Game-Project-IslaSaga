@@ -21,7 +21,7 @@ namespace StateMachine.Enemy.State
         private float Speed;
         public FieryFollowFunctions(FieryMonoStateMachine machine, FieryFollow data) : base(machine, data)
         {
-            if (machine.DetectCollider.ObjectThatIsInRange != null) Target = machine.DetectCollider.ObjectThatIsInRange.transform;
+            if (machine.DetectCollider.NearestGameobject() != null) Target = machine.DetectCollider.NearestGameobject().transform;
             else machine.OnEndState?.Invoke();
             Speed = data.Speed;
             machine.Agent.isStopped = false;

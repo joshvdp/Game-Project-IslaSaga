@@ -30,6 +30,5 @@ namespace StateMachine.Enemy.State
             base.Discard();
             if (DestroyOnEnd) machine.AnimationEvents.FindEvent("On Animation End").RemoveListener(machine.DestroyGameobject);
         }
-
     }
 }
