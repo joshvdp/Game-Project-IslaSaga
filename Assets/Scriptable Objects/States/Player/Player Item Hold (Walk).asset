@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494a48b14353909468cb4a7ec3523709, type: 3}
-  m_Name: Player Attack 1
+  m_Script: {fileID: 11500000, guid: 070635b510456c8408d384042d1dabb7, type: 3}
+  m_Name: Player Item Hold (Walk)
   m_EditorClassIdentifier: 
-  StateName: Attack 1
-  AnimationTrigger: Attack 1
+  StateName: Item Hold (Walk)
+  AnimationTrigger: Walk
   animationSpeed: 1
   isUnlocked: 1
   isDamageable: 1
@@ -21,6 +21,10 @@ MonoBehaviour:
   materialColor: {r: 1, g: 1, b: 1, a: 1}
   statesToChangeTo:
   - state: {fileID: 11400000, guid: 4a9b425c22747e044bf157746ed8a0a2, type: 2}
-    eventsToListen: 08000000
-  colliderName: Attack 1
-  targetingType: 0
+    eventsToListen: 0b000000
+  - state: {fileID: 11400000, guid: e1eae4b0ae3130e4f80d2aaf00d069a6, type: 2}
+    eventsToListen: 02000000
+  - state: {fileID: 11400000, guid: 08823786bbbf14e498db677149ae5d92, type: 2}
+    eventsToListen: 01000000
+  moveSpeed: 100
+  itemFollowSpeed: 50

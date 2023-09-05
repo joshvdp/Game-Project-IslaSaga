@@ -26,9 +26,11 @@ namespace StateMachine.Player.State
         public PlayerAttackFunctions(PlayerMonoStateMachine machine, PlayerAttack data) : base(machine, data)
         {
             machine.FaceDirectionOfMousePos();
-           
+
             machine.PlayerRb.velocity = Vector3.zero;
             ColliderName = data.ColliderName;
+
+            AttackTargetingType = data.AttackTargetingType;
             switch (AttackTargetingType)
             {
                 case TargetingType.ALL_TARGETS:
@@ -60,16 +62,11 @@ namespace StateMachine.Player.State
         }
 
 
-        public void AttackAllTargets()
-        {
-            Debug.Log("WEAPON DAMAGE IS " + Damage);
-            machine.AttackCollidersHandler.FindCollider(ColliderName).AttackAllTargets(Damage);
-        }
+        public void AttackAllTargets() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackAllTargets(Damage);
+        
 
-        public void AttackNearestTarget()
-        {
-            machine.AttackCollidersHandler.FindCollider(ColliderName).AttackNearestTarget(Damage);
-        }
+        public void AttackNearestTarget() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackNearestTarget(Damage);
+       
 
         public override void Discard()
         {

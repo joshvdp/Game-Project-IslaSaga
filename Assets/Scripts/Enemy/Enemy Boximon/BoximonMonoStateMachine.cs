@@ -7,6 +7,7 @@ using StateMachine.Base;
 using StateMachine.Enemy.State;
 using System;
 
+
 public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, BoximonMachineFunctions>
 {
 
@@ -51,7 +52,10 @@ public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, B
         CurrentState = newState.Initialize(this);
     }
 
+    public void LookAtTarget() => transform.rotation = Quaternion.LookRotation(CurrentTarget.position - transform.position);
+
     public void DestroyGameobject() => Destroy(gameObject);
+
 
 }
 

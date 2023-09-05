@@ -51,5 +51,9 @@ public class FieryMonoStateMachine : StateMachineHandler<FieryMachineData, Fiery
         CurrentState = newState.Initialize(this);
     }
 
+    public void LookAtTarget() => transform.rotation = Quaternion.LookRotation(CurrentTarget.position - transform.position);
+    
+    public void DestroyGameobject() => Destroy(gameObject);
+
 }
 

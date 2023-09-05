@@ -27,7 +27,7 @@ namespace StateMachine.Player.State
         public override void StateFixedUpdate()
         {
             base.StateFixedUpdate();
-            machine.PlayerRb.velocity = machine.MoveVelocityInputs * Speed;
+            machine.PlayerRb.velocity = new Vector3(machine.MoveVelocityInputs.x * Speed, machine.PlayerRb.velocity.y, machine.MoveVelocityInputs.z * Speed);
             machine.RotateTowardsMovement(300f, false);
         }
 

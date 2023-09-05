@@ -18,5 +18,11 @@ namespace StateMachine.Player.State
             machine.PlayerRb.velocity = new Vector3(0, machine.PlayerRb.velocity.y, 0);
         }
 
+        public override void StateUpdate()
+        {
+            base.StateUpdate();
+            machine.PlayerRb.velocity = new Vector3(0, machine.PlayerRb.velocity.y, 0);
+        }
+
     }
 }

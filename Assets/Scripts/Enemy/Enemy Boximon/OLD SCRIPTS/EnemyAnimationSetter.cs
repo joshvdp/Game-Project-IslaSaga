@@ -15,7 +15,7 @@ namespace Enemy.Animation
 
         private void Update()
         {
-            AnimationSetter();
+            //AnimationSetter();
         }
 
         void AnimationSetter()

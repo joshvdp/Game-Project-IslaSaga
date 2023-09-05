@@ -22,7 +22,8 @@ namespace StateMachine.Enemy.State
         public BoximonAttackFunctions(BoximonMonoStateMachine machine, BoximonAttack data) : base(machine, data)
         {
             Damage = data.Damage;
-            machine.transform.LookAt(machine.CurrentTarget);
+            //machine.transform.LookAt(machine.CurrentTarget);
+            machine.LookAtTarget();
             machine.Agent.isStopped = true;
             machine.AnimationEvents.FindEvent("Attack Frame").AddListener(Attack);
         }

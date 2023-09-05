@@ -46,7 +46,6 @@ namespace Core
                     ObjectsToDamage[i].GetComponent<IDamageable>().Hit(damage);
 
                 else Debug.Log("IDAMAGEABLE IS MISSING ON " + ObjectsToDamage[i]);
-
             }
         }
 

@@ -22,7 +22,7 @@ namespace StateMachine.Enemy.State
         public FieryAttackFunctions(FieryMonoStateMachine machine, FieryAttack data) : base(machine, data)
         {
             Damage = data.Damage;
-            machine.transform.LookAt(machine.CurrentTarget);
+            machine.LookAtTarget();
             machine.Agent.isStopped = true;
             machine.AnimationEvents.FindEvent("Attack Frame").AddListener(Attack);
         }

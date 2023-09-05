@@ -29,7 +29,7 @@ public class EnemyCombatCS : MonoBehaviour
         EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Attacking;
         EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
         EnemyReferencesCS.EnemyAICS.AgentAI.isStopped = true;
-        EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack");
+        EnemyReferencesCS.EnemyAnimationCS.EnemyAnimator.SetTrigger("Attack 01");
         EnemyReferencesCS.EnemyAICS.EnemyStateReference = EnemyState.Idle; // Added to transition to idle after attacking, giving a smooth transition
 
         yield return new WaitForSeconds(AttackAnimationLength);

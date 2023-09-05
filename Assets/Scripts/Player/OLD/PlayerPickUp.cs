@@ -14,15 +14,12 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
-            if (!MainManager.Instance.IsPaused && References.PlayerHpCS.IsAlive)
-            {
                 GetInput();
 
                 if (ItemPickedUp)
                 {
                     HoldItem();
                 }
-            }
         }
 
         void GetInput()

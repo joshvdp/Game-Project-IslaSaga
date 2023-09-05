@@ -7,12 +7,14 @@ using NaughtyAttributes;
 using Player.Controls;
 using Core;
 using Interface;
+using Player;
 namespace StateMachine.Player
 {
     [RequireComponent(typeof(PlayerInputs))]
     public class PlayerMonoStateMachine : StateMachineHandler<PlayerMachineData, PlayerMachineFunctions>
     {
         [SerializeField, Foldout("Transform")] private Transform FeetRayStart;
+        [SerializeField, Foldout("Transform")] public Transform ItemHoldPosition;
         [SerializeField] LayerMask NavigatableAreas;
         public Renderer[] MainRenderers;
 
@@ -23,33 +25,46 @@ namespace StateMachine.Player
         private Rigidbody _playerRb;
         private PlayerInputs _playerInputs;
         private AttackCollidersHandler _attackCollidersHandler;
-        
+        private DetectCollider _pickUpRange;
+
         public Animator Animator => _animator ? _animator : _animator = GetComponentInChildren<Animator>();
         public AnimationEvents AnimationEvents => _animationEvents ? _animationEvents : _animationEvents = GetComponentInChildren<AnimationEvents>();
         public HpBar HpComponent => _hpComponent ? _hpComponent : _hpComponent = GetComponent<HpBar>();
         public Rigidbody PlayerRb => _playerRb ? _playerRb : _playerRb = GetComponent<Rigidbody>();
         public PlayerInputs PlayerInputs => _playerInputs ? _playerInputs : _playerInputs = GetComponent<PlayerInputs>();
         public AttackCollidersHandler AttackCollidersHandler => _attackCollidersHandler ? _attackCollidersHandler : _attackCollidersHandler = GetComponentInChildren<AttackCollidersHandler>();
+        public DetectCollider PickUpRange => _pickUpRange ? _pickUpRange : _pickUpRange = transform.Find("Pick Up Range").GetComponent<DetectCollider>();
 
 
         public Action OnNoMoveInput;
 
-        
+
+        private void OnEnable()
+        {
+            PlayerInputs.OnPickupInput += CheckIfThereIsPickupable;
+        }
+
+        private void OnDisable()
+        {
+            PlayerInputs.OnPickupInput -= CheckIfThereIsPickupable;
+        }
 
         public override void Awake()
         {
             base.Awake();
             AssignWeapon();
         }
+        
         public override void Update()
         {
             CurrentState.StateUpdate();
+
             CalculateMoveInputs();
+            SlopeHandler();
         }
         public override void FixedUpdate()
         {
             CurrentState.StateFixedUpdate();
-            SlopeHandler();
         }
 
         public override void SetState(PlayerMachineData newState)
@@ -70,10 +85,11 @@ namespace StateMachine.Player
         float HorizontalMove;
         float VerticalMove;
         Transform PlayerCamTransform => Camera.main.transform;
-        void SimulateGravity() => PlayerRb.velocity += Vector3.up * -1f;
-        void SlopeHandler()
+        void SimulateGravity() => PlayerRb.velocity += Vector3.up * -9.81f * Time.fixedDeltaTime;
+        public void SlopeHandler()
         {
-            if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out RaycastHit hit, 0.6f, NavigatableAreas))
+            RaycastHit hit;
+            if (Physics.Raycast(FeetRayStart.position, -Vector3.up * 0.6f, out hit, 0.6f, NavigatableAreas))
             {
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
             }
@@ -82,7 +98,6 @@ namespace StateMachine.Player
                 SimulateGravity();
             }
         }
-
         public void CalculateMoveInputs()
         {
             HorizontalMove = Mathf.Clamp(HorizontalMove, -1, 1);
@@ -97,9 +112,10 @@ namespace StateMachine.Player
             Vector3 forwardRelativeMoveVect = HorizontalMove * camForward;
             Vector3 rightRelativeMoveVect = VerticalMove * camRight;
 
-            CamRelativeMoveVect = forwardRelativeMoveVect + rightRelativeMoveVect;
+            CamRelativeMoveVect = forwardRelativeMoveVect + rightRelativeMoveVect ;
 
-            MoveVelocityInputs = CamRelativeMoveVect.normalized * Time.fixedDeltaTime;
+            MoveVelocityInputs = CamRelativeMoveVect.normalized  *  Time.fixedDeltaTime;
+
             if (Input.GetKey(Controls.ForwardKey))
             {
                 HorizontalMove += 1;
@@ -124,7 +140,7 @@ namespace StateMachine.Player
         }
         public void RotateTowardsMovement(float rotationSpeed, bool isInstant)
         {
-            
+
             Vector3 MoveDirection = new Vector3(CamRelativeMoveVect.x, 0f, CamRelativeMoveVect.z).normalized;
             Quaternion ForwardDirection = CamRelativeMoveVect.magnitude > 0.1f ? Quaternion.LookRotation(MoveDirection, Vector3.up) : Quaternion.identity;
             if (!isInstant) transform.rotation = Quaternion.RotateTowards(transform.rotation, ForwardDirection,
@@ -143,16 +159,14 @@ namespace StateMachine.Player
 
 
 
-        public float AttackSequence;
+        [HideInInspector] public float AttackSequence;
         Coroutine AttackSequenceCoroutine;
         IEnumerator AttackSequenceResetEnumerator(float sequenceResetTime)
         {
             if (AttackSequence > 3) AttackSequence = 0;
             yield return new WaitForSeconds(sequenceResetTime);
-            Debug.Log("Resetted Attack Sequence");
             AttackSequence = 0;
         }
-
         public void AttackSequenceReset(float sequenceResetTime)
         {
             if (AttackSequenceCoroutine != null) StopCoroutine(AttackSequenceCoroutine);
@@ -176,6 +190,28 @@ namespace StateMachine.Player
                 transform.rotation = Quaternion.LookRotation(DirectionToLookAt - transform.position, Vector3.up);
             }
         }
+        #endregion
+        #region INTERACTIONS
+
+        public Action OnPickupItem;
+        public Action OnNoItemPickup; // Added so when there is something that you want to happen when there is no item to pickup.
+
+        public void CheckIfThereIsPickupable()
+        {
+            if (PickUpRange.NearestGameobject() != null) OnPickupItem?.Invoke();
+            else OnNoItemPickup?.Invoke();
+        }
+
+
+        #endregion
+        #region CONNECTED VARIABLES
+        [SerializeField, Foldout("Variables")] public PlayerStats PlayerStatsSCO;
+        
+        public void UpdatePlayerStatsSCO()
+        {
+            PlayerStatsSCO.PlayerCurrentHealth = HpComponent.CurrentHealth;
+        }
+
         #endregion
 
     }

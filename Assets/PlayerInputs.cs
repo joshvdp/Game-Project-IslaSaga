@@ -11,13 +11,14 @@ namespace Player.Controls
         public Action OnSprintInput;
         public Action OnNoSprintInput;
 
+        public Action OnAttackOneInput;
+
         public Action AttackOne;
         public Action AttackTwo;
         public Action AttackThree;
         public Action SpinAttack;
 
-        public Action OnAttackOneInput;
-
+        public Action OnPickupInput;
         PlayerMonoStateMachine machine => GetComponent<PlayerMonoStateMachine>();
 
         public ControlBindings Controls;
@@ -32,6 +33,7 @@ namespace Player.Controls
         {
             MoveInputs();
             AttackInputs();
+            InteractionInputs();
         }
 
         private void AttackInputs()
@@ -52,6 +54,11 @@ namespace Player.Controls
             if (Input.GetKey(Controls.RightKey)) OnMoveInput?.Invoke();
             if (Input.GetKey(Controls.SprintKey)) OnSprintInput?.Invoke();
             else if (!Input.GetKey(Controls.SprintKey)) OnNoSprintInput?.Invoke();
+        }
+
+        private void InteractionInputs()
+        {
+            if (Input.GetKeyDown(Controls.PickUpKey)) OnPickupInput?.Invoke();
         }
     }
 }

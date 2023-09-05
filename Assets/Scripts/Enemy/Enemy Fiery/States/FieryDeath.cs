@@ -4,22 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace StateMachine.Enemy.State
 {
-    [CreateAssetMenu(fileName = "Boximon Death", menuName = "State Machine/Enemy/Boximon/State/Death")]
-    public class BoximonDeath : BoximonMachineData
+    [CreateAssetMenu(fileName = "Fiery Death", menuName = "State Machine/Enemy/Fiery/State/Death")]
+    public class FieryDeath : FieryMachineData
     {
         [SerializeField, Foldout("Death")] private bool destroyOnEnd;
 
         public bool DestroyOnEnd => destroyOnEnd;
-        public override BoximonMachineFunctions Initialize(BoximonMonoStateMachine machine)
+        public override FieryMachineFunctions Initialize(FieryMonoStateMachine machine)
         {
-            return new BoximonDeathFunctions(machine, this);
+            return new FieryDeathFunctions(machine, this);
         }
     }
 
-    public class BoximonDeathFunctions : BoximonMachineFunctions
+    public class FieryDeathFunctions : FieryMachineFunctions
     {
         bool DestroyOnEnd;
-        public BoximonDeathFunctions(BoximonMonoStateMachine machine, BoximonDeath data) : base(machine, data)
+        public FieryDeathFunctions(FieryMonoStateMachine machine, FieryDeath data) : base(machine, data)
         {
             DestroyOnEnd = data.DestroyOnEnd;
             if (DestroyOnEnd) machine.AnimationEvents.FindEvent("On Animation End").AddListener(machine.DestroyGameobject);
@@ -30,5 +30,6 @@ namespace StateMachine.Enemy.State
             base.Discard();
             if (DestroyOnEnd) machine.AnimationEvents.FindEvent("On Animation End").RemoveListener(machine.DestroyGameobject);
         }
+
     }
 }

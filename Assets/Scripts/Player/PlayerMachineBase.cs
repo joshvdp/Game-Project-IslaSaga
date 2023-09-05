@@ -70,7 +70,7 @@ namespace StateMachine.Player
         }
         public override void StateFixedUpdate()
         {
-
+            
         }
     }
 
@@ -134,6 +134,15 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_ANIMATION_END:
                     machine.AnimationEvents.FindEvent("On Animation End").AddListener(SetState);
                     break;
+                case PlayerChangeEventsToListen.ON_PICKUP_ITEM:
+                    machine.OnPickupItem += SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_NO_PICKUP_ITEM:
+                    machine.OnNoItemPickup += SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_PICKUP_INPUT:
+                    machine.PlayerInputs.OnPickupInput += SetState;
+                    break;
             }
 
             isDoneWithStart = true;
@@ -180,6 +189,15 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_ANIMATION_END:
                     machine.AnimationEvents.FindEvent("On Animation End").RemoveListener(SetState);
                     break;
+                case PlayerChangeEventsToListen.ON_PICKUP_ITEM:
+                    machine.OnPickupItem -= SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_NO_PICKUP_ITEM:
+                    machine.OnNoItemPickup -= SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_PICKUP_INPUT:
+                    machine.PlayerInputs.OnPickupInput -= SetState;
+                    break;
             }
         }
         private bool CheckIfEventsToListenIsEmpty()
@@ -220,6 +238,9 @@ namespace StateMachine.Player
         ATTACK_TWO,
         ATTACK_THREE,
         SPIN_ATTACK,
-        ON_ANIMATION_END
+        ON_ANIMATION_END,
+        ON_PICKUP_ITEM,
+        ON_NO_PICKUP_ITEM,
+        ON_PICKUP_INPUT
     }
 }
