@@ -61,6 +61,8 @@ namespace Cam.Controls
             ZoomOffset.z *= Vector3.Dot(Forward1, Forward2) ; // To have equal zoom on z position for both forwards.
 
             transform.position = Vector3.Lerp(transform.position, target.position + offset + ZoomOffset, FollowSpeed * Time.deltaTime);
+
+            
         }
 
         void ZoomInOrOut()

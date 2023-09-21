@@ -37,7 +37,7 @@ namespace StateMachine.Player
 
 
         public Action OnNoMoveInput;
-
+        public Action OnEndstate;
 
         private void OnEnable()
         {
@@ -74,7 +74,7 @@ namespace StateMachine.Player
 
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
-            Debug.Log("State is now " + CurrentState.Data.name);
+            //Debug.Log("State is now " + CurrentState.Data.name);
         }
 
         #region PLAYER MOVEMENT FUNCTIONS
@@ -89,14 +89,16 @@ namespace StateMachine.Player
         public void SlopeHandler()
         {
             RaycastHit hit;
-            if (Physics.Raycast(FeetRayStart.position, -Vector3.up * 0.6f, out hit, 0.6f, NavigatableAreas))
+            if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out hit, 1f, NavigatableAreas))
             {
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+                
             }
             else
             {
                 SimulateGravity();
             }
+            
         }
         public void CalculateMoveInputs()
         {
@@ -147,6 +149,8 @@ namespace StateMachine.Player
                                 rotationSpeed * Time.deltaTime * (CamRelativeMoveVect.magnitude != 0 ? 1 : 0));
             else transform.rotation = ForwardDirection;
         }
+
+        public void MoveHorizontal(float speed) => PlayerRb.velocity = new Vector3(MoveVelocityInputs.x * speed, PlayerRb.velocity.y, MoveVelocityInputs.z * speed);
         #endregion
         #region ATTACK VARIABLES
 
@@ -193,12 +197,15 @@ namespace StateMachine.Player
         #endregion
         #region INTERACTIONS
 
+        [SerializeField, Foldout("Pick-up Variables")] public Rigidbody ItemPickedUpRb;
         public Action OnPickupItem;
         public Action OnNoItemPickup; // Added so when there is something that you want to happen when there is no item to pickup.
 
         public void CheckIfThereIsPickupable()
         {
-            if (PickUpRange.NearestGameobject() != null) OnPickupItem?.Invoke();
+            GameObject ObjectToPickup = PickUpRange.NearestGameobject();
+            if (ObjectToPickup != null && !CurrentState.Data.name.Contains("Item Hold")) OnPickupItem?.Invoke();
+            
             else OnNoItemPickup?.Invoke();
         }
 

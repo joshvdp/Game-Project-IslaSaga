@@ -143,6 +143,9 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_PICKUP_INPUT:
                     machine.PlayerInputs.OnPickupInput += SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_ENDSTATE_CALLED:
+                    machine.OnEndstate += SetState;
+                    break;
             }
 
             isDoneWithStart = true;
@@ -198,6 +201,9 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_PICKUP_INPUT:
                     machine.PlayerInputs.OnPickupInput -= SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_ENDSTATE_CALLED:
+                    machine.OnEndstate -= SetState;
+                    break;
             }
         }
         private bool CheckIfEventsToListenIsEmpty()
@@ -241,6 +247,7 @@ namespace StateMachine.Player
         ON_ANIMATION_END,
         ON_PICKUP_ITEM,
         ON_NO_PICKUP_ITEM,
-        ON_PICKUP_INPUT
+        ON_PICKUP_INPUT,
+        ON_ENDSTATE_CALLED
     }
 }

@@ -42,7 +42,7 @@ namespace Core
             UpdateList();
             for (int i = 0; i < ObjectsToDamage.Count; i++)
             {
-                if (ObjectsToDamage[i].GetComponent<IDamageable>() != null)
+                if (ObjectsToDamage[i] != null)
                     ObjectsToDamage[i].GetComponent<IDamageable>().Hit(damage);
 
                 else Debug.Log("IDAMAGEABLE IS MISSING ON " + ObjectsToDamage[i]);
