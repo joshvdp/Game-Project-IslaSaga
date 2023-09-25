@@ -27,7 +27,7 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
-    IEnumerator TypeLine()
+    public IEnumerator TypeLine()
     {
         foreach (char c in lines[index].ToCharArray())
         {
