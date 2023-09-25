@@ -6,23 +6,23 @@ using UnityEngine;
 public class FootSteps : MonoBehaviour
 {
     [SerializeField] 
-    private AudioClip[] clips;
+    public AudioClip[] clips;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
-    private void Awake()
+    public void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void Step()
+    public void Step()
     {
         AudioClip clip = GetRandomClip();
         audioSource.PlayOneShot(clip);
         Debug.Log("work");
     }
 
-    private AudioClip GetRandomClip()
+    public AudioClip GetRandomClip()
     {
         return clips[UnityEngine.Random.Range(0, clips.Length)];
     }
