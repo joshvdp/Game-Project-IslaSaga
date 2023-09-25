@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 3460020}
   - component: {fileID: 3460023}
   - component: {fileID: 3460022}
-  - component: {fileID: 3460021}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -163,22 +162,6 @@ RectTransform:
   m_AnchoredPosition: {x: -125, y: -275}
   m_SizeDelta: {x: -650, y: -650}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3460021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3460019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1416d81e5b991f541ab97d7f7024b7a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 1093906798}
-  lines:
-  - Hmmm.. I need to go through here
-  textSpeed: 0.1
 --- !u!114 &3460022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +841,7 @@ GameObject:
   - component: {fileID: 440972265}
   - component: {fileID: 440972266}
   - component: {fileID: 440972267}
+  - component: {fileID: 440972268}
   m_Layer: 6
   m_Name: Player 1
   m_TagString: Player
@@ -1042,7 +1026,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4853791fe6581874fbdda680f9ec09de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1846117853}
+  dialogueBox: {fileID: 1846117853}
+--- !u!114 &440972268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440972257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1416d81e5b991f541ab97d7f7024b7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 1093906798}
+  lines:
+  - Hmm... I need to get out of here
+  - But how?
+  textSpeed: 0.1
 --- !u!1 &443901067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,7 +4761,7 @@ GameObject:
   - component: {fileID: 1846117855}
   - component: {fileID: 1846117854}
   m_Layer: 5
-  m_Name: Dialogue_Box
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

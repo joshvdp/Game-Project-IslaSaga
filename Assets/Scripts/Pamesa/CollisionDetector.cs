@@ -16,7 +16,6 @@ public class CollisionDetector : MonoBehaviour
         if(collision.collider.name == "Moveable Box")
         {
             dialogueBox.SetActive(true);
-            StartCoroutine(gameObject.GetComponent<Dialogue>().TypeLine());
         }
     }
 }
