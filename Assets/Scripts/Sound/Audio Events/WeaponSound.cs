@@ -50,8 +50,7 @@ namespace StateMachine.Player
         private void Attack4()
         {
             Debug.Log("SPIN");
-           GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
+            GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
         }
     }
 }
-

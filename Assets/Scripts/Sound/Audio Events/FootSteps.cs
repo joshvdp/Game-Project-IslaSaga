@@ -9,17 +9,20 @@ public class FootSteps : MonoBehaviour
     public AudioClip[] clips;
 
     public AudioSource audioSource;
-
     public void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
-
     public void Step()
     {
         AudioClip clip = GetRandomClip();
         audioSource.PlayOneShot(clip);
-        Debug.Log("work");
+        Debug.Log(clip);
+    }
+
+    public void RunStep()
+    {
+        
     }
 
     public AudioClip GetRandomClip()
