@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player.Combat
+namespace StateMachine.Player
 {
     public class WeaponSound : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Player.Combat
 
         public GameObject sound1, sound2, sound3, sound4;
 
-        private PlayerCombat hit;
+        private PlayerMonoStateMachine hit;
 
         private void OnEnable()
         {
@@ -30,23 +30,27 @@ namespace Player.Combat
         }
         private void Start()
         {
-            hit = GetComponent<PlayerCombat>();
+            hit = GetComponent<PlayerMonoStateMachine>();
         }
         private void Attack1()
         {
+            Debug.Log("Attack 1");
             GameObject hit = Instantiate(sound1, transform.position, transform.rotation);
         }
         private void Attack2()
         {
+            Debug.Log("Attack 2");
             GameObject hit = Instantiate(sound2, transform.position, transform.rotation);
         }
         private void Attack3()
         {
+            Debug.Log("Attack 3");
             GameObject hit = Instantiate(sound3, transform.position, transform.rotation);
         }
         private void Attack4()
         {
-            GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
+            Debug.Log("SPIN");
+           GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
         }
     }
 }

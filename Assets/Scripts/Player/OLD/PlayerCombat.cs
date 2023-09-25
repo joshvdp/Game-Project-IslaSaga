@@ -82,19 +82,19 @@ namespace Player.Combat
         {
             if (AttackSequence == 1)
             {
-                WeaponSound.attackEvent1?.Invoke();
+                //WeaponSound.attackEvent1?.Invoke();
             }
             else if (AttackSequence == 2)
             {
-                WeaponSound.attackEvent2?.Invoke();
+                //WeaponSound.attackEvent2?.Invoke();
             }
             else if (AttackSequence == 3)
             {
-                WeaponSound.attackEvent3?.Invoke();
+                //WeaponSound.attackEvent3?.Invoke();
             }
             else if (AttackSequence == 4)
             {
-                WeaponSound.attackEvent4?.Invoke();
+                //WeaponSound.attackEvent4?.Invoke();
             }
         }
            

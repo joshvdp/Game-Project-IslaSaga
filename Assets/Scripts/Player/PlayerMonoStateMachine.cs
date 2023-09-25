@@ -38,12 +38,13 @@ namespace StateMachine.Player
 
         public Action OnNoMoveInput;
         public Action OnEndstate;
+        
+        
 
         private void OnEnable()
         {
             PlayerInputs.OnPickupInput += CheckIfThereIsPickupable;
         }
-
         private void OnDisable()
         {
             PlayerInputs.OnPickupInput -= CheckIfThereIsPickupable;
@@ -53,6 +54,7 @@ namespace StateMachine.Player
         {
             base.Awake();
             AssignWeapon();
+            
         }
         
         public override void Update()
@@ -61,12 +63,12 @@ namespace StateMachine.Player
 
             CalculateMoveInputs();
             SlopeHandler();
+            
         }
         public override void FixedUpdate()
         {
             CurrentState.StateFixedUpdate();
         }
-
         public override void SetState(PlayerMachineData newState)
         {
             if (newState == null || !newState.IsUnlocked)
@@ -75,7 +77,32 @@ namespace StateMachine.Player
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
             //Debug.Log("State is now " + CurrentState.Data.name);
+            soundUpdate();
         }
+        
+
+        #region SOUND EVENTS
+        public void soundUpdate()
+        {
+            if (CurrentState.Data.name == "Player Attack 1")
+            {
+                WeaponSound.attackEvent1?.Invoke();
+            }
+            if (CurrentState.Data.name == "Player Attack 2")
+            {
+                WeaponSound.attackEvent2?.Invoke();
+            }
+            if (CurrentState.Data.name == "Player Attack 3")
+            {
+                WeaponSound.attackEvent3?.Invoke();
+            }
+            if (CurrentState.Data.name == "Player Spin Attack")
+            {
+                WeaponSound.attackEvent4?.Invoke();
+            }
+        }
+
+        #endregion
 
         #region PLAYER MOVEMENT FUNCTIONS
 
