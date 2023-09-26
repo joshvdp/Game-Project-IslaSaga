@@ -35,12 +35,9 @@ namespace StateMachine.Player
         public AttackCollidersHandler AttackCollidersHandler => _attackCollidersHandler ? _attackCollidersHandler : _attackCollidersHandler = GetComponentInChildren<AttackCollidersHandler>();
         public DetectCollider PickUpRange => _pickUpRange ? _pickUpRange : _pickUpRange = transform.Find("Pick Up Range").GetComponent<DetectCollider>();
 
-
         public Action OnNoMoveInput;
         public Action OnEndstate;
         
-        
-
         private void OnEnable()
         {
             PlayerInputs.OnPickupInput += CheckIfThereIsPickupable;
@@ -60,14 +57,14 @@ namespace StateMachine.Player
         public override void Update()
         {
             CurrentState.StateUpdate();
-
             CalculateMoveInputs();
             SlopeHandler();
-            
+
         }
         public override void FixedUpdate()
         {
             CurrentState.StateFixedUpdate();
+            
         }
         public override void SetState(PlayerMachineData newState)
         {
@@ -103,23 +100,24 @@ namespace StateMachine.Player
         }
 
         #endregion
-
         #region PLAYER MOVEMENT FUNCTIONS
+        [SerializeField, Foldout("Movement")] public ControlBindings PCControls;
+        public FixedJoystick MobileJoystick => FindAnyObjectByType<FixedJoystick>();
 
-        [SerializeField, Foldout("Movement")] public ControlBindings Controls;
-        [SerializeField, Foldout("Movement")] public Vector3 MoveVelocityInputs;
+        Vector3 MoveVelocityInputs;
         Vector3 CamRelativeMoveVect;
         float HorizontalMove;
         float VerticalMove;
         Transform PlayerCamTransform => Camera.main.transform;
         void SimulateGravity() => PlayerRb.velocity += Vector3.up * -9.81f * Time.fixedDeltaTime;
-        public void SlopeHandler()
+        void SlopeHandler()
         {
             RaycastHit hit;
-            if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out hit, 1f, NavigatableAreas))
+            if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out hit,  NavigatableAreas))
             {
+                if (hit.point.y == transform.position.y) return;
+                PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
-                
             }
             else
             {
@@ -127,7 +125,7 @@ namespace StateMachine.Player
             }
             
         }
-        public void CalculateMoveInputs()
+        void CalculateMoveInputs()
         {
             HorizontalMove = Mathf.Clamp(HorizontalMove, -1, 1);
             VerticalMove = Mathf.Clamp(VerticalMove, -1, 1);
@@ -145,27 +143,45 @@ namespace StateMachine.Player
 
             MoveVelocityInputs = CamRelativeMoveVect.normalized  *  Time.fixedDeltaTime;
 
-            if (Input.GetKey(Controls.ForwardKey))
+            switch (PlayerInputs.PlatformType)
+            {
+                case PlatformType.PC:
+                    CalculatePCInputs();
+                    break;
+                case PlatformType.Mobile:
+                    CalculateMobileInputs();
+                    break;
+            }
+
+            if (VerticalMove == 0 && HorizontalMove == 0) OnNoMoveInput?.Invoke();
+        }
+        void CalculatePCInputs()
+        {
+            if (Input.GetKey(PCControls.ForwardKey))
             {
                 HorizontalMove += 1;
             }
-            if (Input.GetKey(Controls.BackwardKey))
+            if (Input.GetKey(PCControls.BackwardKey))
             {
                 HorizontalMove -= 1;
             }
-            if (Input.GetKey(Controls.LeftKey))
+            if (Input.GetKey(PCControls.LeftKey))
             {
                 VerticalMove -= 1;
             }
-            if (Input.GetKey(Controls.RightKey))
+            if (Input.GetKey(PCControls.RightKey))
             {
                 VerticalMove += 1;
             }
 
-            if (!Input.GetKey(Controls.ForwardKey) && !Input.GetKey(Controls.BackwardKey)) HorizontalMove = 0;
-            if (!Input.GetKey(Controls.RightKey) && !Input.GetKey(Controls.LeftKey)) VerticalMove = 0;
-            if (VerticalMove == 0 && HorizontalMove == 0) OnNoMoveInput?.Invoke();
+            if (!Input.GetKey(PCControls.ForwardKey) && !Input.GetKey(PCControls.BackwardKey)) HorizontalMove = 0;
+            if (!Input.GetKey(PCControls.RightKey) && !Input.GetKey(PCControls.LeftKey)) VerticalMove = 0;
 
+        }
+        void CalculateMobileInputs()
+        {
+            HorizontalMove = MobileJoystick.Vertical;
+            VerticalMove = MobileJoystick.Horizontal;
         }
         public void RotateTowardsMovement(float rotationSpeed, bool isInstant)
         {

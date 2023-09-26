@@ -5,8 +5,14 @@ using UnityEngine;
 using StateMachine.Player;
 namespace Player.Controls
 {
+    public enum PlatformType
+    {
+        PC,
+        Mobile
+    }
     public class PlayerInputs : MonoBehaviour
     {
+        public PlatformType PlatformType;
         public Action OnMoveInput;
         public Action OnSprintInput;
         public Action OnNoSprintInput;
@@ -31,22 +37,23 @@ namespace Player.Controls
 
         void ListenToInputs()
         {
-            MoveInputs();
-            AttackInputs();
-            InteractionInputs();
+            switch (PlatformType)
+            {
+                case PlatformType.PC:
+                    PCMoveInputs();
+                    PCAttackInputs();
+                    PCInteractionInputs();
+                    break;
+                case PlatformType.Mobile:
+                    MobileMoveInputs();
+                    MobileAttackInputs();
+                    MobileInteractionInputs();
+                    break;
+            }
         }
 
-        private void AttackInputs()
-        {
-            if (Input.GetKeyDown(Controls.Attack1Key)) OnAttackOneInput?.Invoke();
-
-            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 0) AttackOne?.Invoke();
-            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 1) AttackTwo?.Invoke();
-            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 2) AttackThree?.Invoke();
-            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 3) SpinAttack?.Invoke();
-
-        }
-        private void MoveInputs()
+        #region PC Inputs
+        void PCMoveInputs()
         {
             if (Input.GetKey(Controls.ForwardKey)) OnMoveInput?.Invoke();
             if (Input.GetKey(Controls.BackwardKey)) OnMoveInput?.Invoke();
@@ -55,11 +62,36 @@ namespace Player.Controls
             if (Input.GetKey(Controls.SprintKey)) OnSprintInput?.Invoke();
             else if (!Input.GetKey(Controls.SprintKey)) OnNoSprintInput?.Invoke();
         }
+        private void PCAttackInputs()
+        {
+            if (Input.GetKeyDown(Controls.Attack1Key)) OnAttackOneInput?.Invoke();
+            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 0) AttackOne?.Invoke();
+            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 1) AttackTwo?.Invoke();
+            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 2) AttackThree?.Invoke();
+            if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 3) SpinAttack?.Invoke();
 
-        private void InteractionInputs()
+        }
+        private void PCInteractionInputs()
         {
             if (Input.GetKeyDown(Controls.PickUpKey)) OnPickupInput?.Invoke();
         }
+        #endregion
+
+        #region Mobile Inputs
+        void MobileMoveInputs()
+        {
+            if (machine.MobileJoystick.Horizontal != 0 || machine.MobileJoystick.Vertical != 0) OnMoveInput?.Invoke();
+        }
+        private void MobileAttackInputs()
+        {
+
+        }
+        private void MobileInteractionInputs()
+        {
+
+        }
+        #endregion
+
     }
 }
 

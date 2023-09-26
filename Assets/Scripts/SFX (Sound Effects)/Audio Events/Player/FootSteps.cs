@@ -19,12 +19,12 @@ namespace AudioSoundEvents
         {
             AudioClip clip = GetRandomClip();
             audioSource.PlayOneShot(clip);
-            Debug.Log(clip);
+            
         }
 
         public void RunStep()
         {
-            Debug.Log("runSteps");
+            
         }
 
         public AudioClip GetRandomClip()

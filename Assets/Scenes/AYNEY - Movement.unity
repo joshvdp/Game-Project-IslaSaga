@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -677,6 +677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fb7a223fbc68740b5c83b4aa2be9ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMachine: {fileID: 9178029458073483208}
+  StateNameText: {fileID: 2132175767}
 --- !u!1 &454917880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1248,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 90
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1271,8 +1273,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735775784}
-  m_LocalRotation: {x: 0.3309064, y: -0.21840209, z: 0.07885807, w: 0.91464907}
-  m_LocalPosition: {x: 74.22551, y: 21.806982, z: 78.94252}
+  m_LocalRotation: {x: -0.014719889, y: -0.7875501, z: 0.6157813, w: -0.019018546}
+  m_LocalPosition: {x: 69.67562, y: 23.971092, z: 88.5204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4449,7 +4451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7195308462482474869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.788, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9528,7 +9530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7945225852388673561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.35, z: 0}
+  m_LocalPosition: {x: -0, y: 0.153, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20918,7 +20920,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &8295052379881057650
@@ -23385,8 +23387,7 @@ MonoBehaviour:
   MainRenderers:
   - {fileID: 3822385546814905417}
   - {fileID: 8315255896156416907}
-  Controls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
-  MoveVelocityInputs: {x: 0, y: 0, z: 0}
+  PCControls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
   WeaponHandPosition: {fileID: 8083343885705408411}
   WeaponOnHandGameObject: {fileID: 0}
   ClickableArea:
@@ -23467,6 +23468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f94443477be55041a756393097afd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlatformType: 0
   Controls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
 --- !u!114 &9178029458073483211
 MonoBehaviour:
