@@ -5,6 +5,7 @@ using Interface;
 using UnityEngine.Events;
 using System;
 using VFX;
+using AudioSoundEvents;
 public class HpBar : MonoBehaviour, IDamageable
 {
 
@@ -33,7 +34,7 @@ public class HpBar : MonoBehaviour, IDamageable
 
         CurrentHealth = Mathf.Clamp(CurrentHealth - Damage, 0, MaxHealth);
         onHit?.Invoke();
-
+        
         if (CurrentHealth <= 0) onDeath?.Invoke();
     }
 

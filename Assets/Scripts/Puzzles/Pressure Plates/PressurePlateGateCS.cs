@@ -77,6 +77,7 @@ namespace Puzzle
             if (Vector3.Distance(transform.localPosition, StartingPosition) > 0)
             {
                 transform.localPosition += (StartingPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
+                Debug.Log("Open");
             }
         }
 

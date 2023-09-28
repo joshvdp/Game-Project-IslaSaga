@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Puzzle;
-using SoundFX; 
+using AudioSoundEvents; 
 namespace Puzzle
 {
     public class PressurePlateCS : MonoBehaviour

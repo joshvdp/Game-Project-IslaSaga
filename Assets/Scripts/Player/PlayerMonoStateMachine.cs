@@ -8,6 +8,7 @@ using Player.Controls;
 using Core;
 using Interface;
 using Player;
+using AudioSoundEvents;
 namespace StateMachine.Player
 {
     [RequireComponent(typeof(PlayerInputs))]
@@ -74,12 +75,12 @@ namespace StateMachine.Player
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
             //Debug.Log("State is now " + CurrentState.Data.name);
-            soundUpdate();
+            //soundUpdate();
         }
         
 
         #region SOUND EVENTS
-        public void soundUpdate()
+        /*public void soundUpdate()
         {
             if (CurrentState.Data.name == "Player Attack 1")
             {
@@ -97,7 +98,7 @@ namespace StateMachine.Player
             {
                 WeaponSound.attackEvent4?.Invoke();
             }
-        }
+        }*/
 
         #endregion
         #region PLAYER MOVEMENT FUNCTIONS

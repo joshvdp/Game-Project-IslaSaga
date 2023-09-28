@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Puzzle;
 
-namespace SoundFX
+namespace AudioSoundEvents
 {
     public class GlobalSFX : MonoBehaviour
     {

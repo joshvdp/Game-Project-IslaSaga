@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4008375364265816637}
   - component: {fileID: 57502818072234680}
   m_Layer: 0
-  m_Name: Attack 3
+  m_Name: Walk
   m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4008375364265816637
 AudioSource:
@@ -42,11 +42,11 @@ AudioSource:
   m_GameObject: {fileID: 1778013744758415580}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1692692593057087096, guid: aa60b60f7d48b294bb49a2e8b86fadbe, type: 2}
-  m_audioClip: {fileID: 8300000, guid: daf586e5c0db842499bd4f226890bcc0, type: 3}
+  OutputAudioMixerGroup: {fileID: 7303451158979946518, guid: aa60b60f7d48b294bb49a2e8b86fadbe, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 636a5ae46bbce0041b8054a273d5bad2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -89,7 +89,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
