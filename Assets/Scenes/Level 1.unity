@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1275,7 +1275,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 90
+  field of view: 45
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1405,6 +1405,10 @@ MonoBehaviour:
   SmoothFollow: 0
   _smoothTime: 0.1
   _rotationXMinMax: {x: -40, y: 80}
+  OffSet: {x: 0, y: 12, z: 10}
+  CameraAngle: 0
+  CameraMoveSensitivityMobile: 0.2
+  TouchField: {fileID: 0}
 --- !u!1001 &778397908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2350,6 +2354,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
+--- !u!1 &1537802071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537802072}
+  - component: {fileID: 1537802073}
+  - component: {fileID: 1537802074}
+  m_Layer: 6
+  m_Name: Range of Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1537802072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537802071}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8120076878126862432}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1537802073
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537802071}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 32639
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1537802074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537802071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053487bcac8315340b381882924d641a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectWithinDetectRange: 0
+  ObjectsThatIsInRange: []
 --- !u!1 &1547716882
 GameObject:
   m_ObjectHideFlags: 0
@@ -20322,6 +20394,7 @@ Transform:
   - {fileID: 2207800103257478867}
   - {fileID: 3423572521645565080}
   - {fileID: 528397880185632804}
+  - {fileID: 1537802072}
   - {fileID: 1547716883}
   - {fileID: 357996011}
   m_Father: {fileID: 0}
@@ -23231,6 +23304,7 @@ MonoBehaviour:
   - {fileID: 3822385546814905417}
   - {fileID: 8315255896156416907}
   PCControls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
+  MobileJoystick: {fileID: 0}
   WeaponHandPosition: {fileID: 8083343885705408411}
   WeaponOnHandGameObject: {fileID: 0}
   ClickableArea:
@@ -23311,7 +23385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f94443477be55041a756393097afd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformType: 0
+  PlatformType: 1
   Controls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
 --- !u!114 &9178029458073483211
 MonoBehaviour:

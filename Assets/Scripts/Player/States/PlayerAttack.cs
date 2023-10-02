@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using Player.Controls;
 using UnityEngine;
 namespace StateMachine.Player.State
 {
@@ -25,7 +26,8 @@ namespace StateMachine.Player.State
         TargetingType AttackTargetingType;
         public PlayerAttackFunctions(PlayerMonoStateMachine machine, PlayerAttack data) : base(machine, data)
         {
-            machine.FaceDirectionOfMousePos();
+            if (machine.PlayerInputs.PlatformType == PlatformType.PC) machine.FaceDirectionOfMousePos();
+            else if (machine.PlayerInputs.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
 
             machine.PlayerRb.velocity = Vector3.zero;
             ColliderName = data.ColliderName;
@@ -41,7 +43,6 @@ namespace StateMachine.Player.State
                     break;
             }
             Damage = machine.CurrentWeaponDamage;
-
             switch (machine.AttackSequence)
             {
                 case 0:
@@ -60,14 +61,8 @@ namespace StateMachine.Player.State
             }
             
         }
-
-
         public void AttackAllTargets() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackAllTargets(Damage);
-        
-
         public void AttackNearestTarget() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackNearestTarget(Damage);
-       
-
         public override void Discard()
         {
             base.Discard();

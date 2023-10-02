@@ -46,8 +46,6 @@ namespace Player.Controls
                     break;
                 case PlatformType.Mobile:
                     MobileMoveInputs();
-                    MobileAttackInputs();
-                    MobileInteractionInputs();
                     break;
             }
         }
@@ -80,16 +78,21 @@ namespace Player.Controls
         #region Mobile Inputs
         void MobileMoveInputs()
         {
-            if (machine.MobileJoystick.Horizontal != 0 || machine.MobileJoystick.Vertical != 0) OnMoveInput?.Invoke();
+            if (machine.MobileJoystick != null)
+            {
+                if(machine.MobileJoystick.Horizontal != 0 || machine.MobileJoystick.Vertical != 0) OnMoveInput?.Invoke();
+            }
+            
         }
-        private void MobileAttackInputs()
+        public void MobileAttackInput()
         {
-
+            OnAttackOneInput?.Invoke();
+            if (machine.AttackSequence == 0) AttackOne?.Invoke();
+            if (machine.AttackSequence == 1) AttackTwo?.Invoke();
+            if (machine.AttackSequence == 2) AttackThree?.Invoke();
+            if (machine.AttackSequence == 3) SpinAttack?.Invoke();
         }
-        private void MobileInteractionInputs()
-        {
-
-        }
+        
         #endregion
 
     }

@@ -27,6 +27,7 @@ namespace StateMachine.Player
         private PlayerInputs _playerInputs;
         private AttackCollidersHandler _attackCollidersHandler;
         private DetectCollider _pickUpRange;
+        private DetectCollider _rangeOfAttack;
 
         public Animator Animator => _animator ? _animator : _animator = GetComponentInChildren<Animator>();
         public AnimationEvents AnimationEvents => _animationEvents ? _animationEvents : _animationEvents = GetComponentInChildren<AnimationEvents>();
@@ -35,6 +36,7 @@ namespace StateMachine.Player
         public PlayerInputs PlayerInputs => _playerInputs ? _playerInputs : _playerInputs = GetComponent<PlayerInputs>();
         public AttackCollidersHandler AttackCollidersHandler => _attackCollidersHandler ? _attackCollidersHandler : _attackCollidersHandler = GetComponentInChildren<AttackCollidersHandler>();
         public DetectCollider PickUpRange => _pickUpRange ? _pickUpRange : _pickUpRange = transform.Find("Pick Up Range").GetComponent<DetectCollider>();
+        public DetectCollider RangeOfAttack => _rangeOfAttack ? _rangeOfAttack : _rangeOfAttack = transform.Find("Range of Attack").GetComponent<DetectCollider>();
 
         public Action OnNoMoveInput;
         public Action OnEndstate;
@@ -103,7 +105,8 @@ namespace StateMachine.Player
         #endregion
         #region PLAYER MOVEMENT FUNCTIONS
         [SerializeField, Foldout("Movement")] public ControlBindings PCControls;
-        public FixedJoystick MobileJoystick => FindAnyObjectByType<FixedJoystick>();
+
+        public FixedJoystick MobileJoystick;
 
         Vector3 MoveVelocityInputs;
         Vector3 CamRelativeMoveVect;
@@ -150,7 +153,7 @@ namespace StateMachine.Player
                     CalculatePCInputs();
                     break;
                 case PlatformType.Mobile:
-                    CalculateMobileInputs();
+                    if(MobileJoystick != null) CalculateMobileInputs();
                     break;
             }
 
@@ -237,6 +240,14 @@ namespace StateMachine.Player
                 Vector3 DirectionToLookAt = new Vector3(rayCastHit.point.x, transform.position.y, rayCastHit.point.z);
                 transform.rotation = Quaternion.LookRotation(DirectionToLookAt - transform.position, Vector3.up);
             }
+        }
+        public void FaceToNearestEnemy()
+        {
+            if (RangeOfAttack.NearestGameobject() == null) return;
+
+            Transform NearestEnemy = RangeOfAttack.NearestGameobject().transform;
+            Vector3 Direction = NearestEnemy.position- transform.position;
+            transform.rotation = Quaternion.LookRotation(Direction, Vector3.up);
         }
         #endregion
         #region INTERACTIONS
