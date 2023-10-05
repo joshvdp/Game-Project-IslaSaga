@@ -119,7 +119,6 @@ namespace StateMachine.Player
             RaycastHit hit;
             if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out hit, NavigatableAreas))
             {
-                Debug.Log(hit.point.y + " " + hit.collider.name);
                 if (hit.point.y == transform.position.y) return;
                 PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
