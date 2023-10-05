@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Enemy
 {
-    public class EnemyHpHandler : MonoBehaviour, IDamageable
+    public class EnemyHpHandler : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] EnemyReferences EnemyReferencesCS;

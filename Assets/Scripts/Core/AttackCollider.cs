@@ -37,19 +37,19 @@ namespace Core
             }
         }
 
-        public void AttackAllTargets(float damage)
+        public void AttackAllTargets(float damage, DamageType DamageType)
         {
             UpdateList();
             for (int i = 0; i < ObjectsToDamage.Count; i++)
             {
                 if (ObjectsToDamage[i] != null)
-                    ObjectsToDamage[i].GetComponent<IDamageable>().Hit(damage);
+                    ObjectsToDamage[i].GetComponent<IDamageable>().Hit(damage, DamageType.MELEE);
 
                 else Debug.Log("IDAMAGEABLE IS MISSING ON " + ObjectsToDamage[i]);
             }
         }
 
-        public void AttackNearestTarget(float damage)
+        public void AttackNearestTarget(float damage, DamageType DamageType)
         {
             UpdateList();
             IDamageable NearestEnemy = null;
@@ -66,7 +66,7 @@ namespace Core
                 else Debug.Log("IDAMAGEABLE IS MISSING ON " + ObjectsToDamage[i]);
             }
 
-            if(NearestEnemy != null) NearestEnemy.Hit(damage);
+            if(NearestEnemy != null) NearestEnemy.Hit(damage, DamageType);
         }
     }
 }

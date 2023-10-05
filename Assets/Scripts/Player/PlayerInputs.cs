@@ -19,6 +19,9 @@ namespace Player.Controls
 
         public Action OnAttackOneInput;
 
+        public Action OnShieldInput;
+        public Action OnNoShieldInput;
+
         public Action AttackOne;
         public Action AttackTwo;
         public Action AttackThree;
@@ -67,6 +70,9 @@ namespace Player.Controls
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 1) AttackTwo?.Invoke();
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 2) AttackThree?.Invoke();
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 3) SpinAttack?.Invoke();
+
+            if (Input.GetKeyDown(Controls.ShieldKey)) OnShieldInput?.Invoke();
+            if (Input.GetKeyUp(Controls.ShieldKey)) OnNoShieldInput?.Invoke();
 
         }
         private void PCInteractionInputs()

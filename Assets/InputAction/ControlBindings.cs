@@ -10,6 +10,7 @@ namespace Player.Controls
         public KeyCode SprintKey;
 
         public KeyCode Attack1Key;
+        public KeyCode ShieldKey;
 
 
         public KeyCode ForwardKey;

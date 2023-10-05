@@ -8,11 +8,11 @@ using VFX;
 using AudioSoundEvents;
 public class HpBar : MonoBehaviour, IDamageable
 {
-
     public float MaxHealth { get; set; } = 100f;
     public float CurrentHealth { get; set; }
     [field: SerializeField] public UnityEvent onDeath { get; set; }
     public bool IsDamageable { get; set; }
+   // public bool IsBlocking { get; set; } = false;
 
     public UnityEvent onHit;
 
@@ -25,16 +25,19 @@ public class HpBar : MonoBehaviour, IDamageable
     {
         CurrentHealth = MaxHealth;
         vfxManager = FindObjectOfType<VFXManager>();
+
+
     }
 
-    public void Hit(float Damage)
+    public void Hit(float Damage, DamageType Type)
     {
+        float FinalDmg = Damage;
         if (!IsDamageable || CurrentHealth <= 0) return;
-        if (ShowDamageText && vfxManager != null) vfxManager.SpawnDmgPopup(gameObject.transform.position, Damage, PopUpScale, PopupTextColor);
 
-        CurrentHealth = Mathf.Clamp(CurrentHealth - Damage, 0, MaxHealth);
+
+        if (ShowDamageText && vfxManager != null) vfxManager.SpawnDmgPopup(gameObject.transform.position, FinalDmg, PopUpScale, PopupTextColor);
+        CurrentHealth = Mathf.Clamp(CurrentHealth - FinalDmg, 0, MaxHealth);
         onHit?.Invoke();
-        
         if (CurrentHealth <= 0) onDeath?.Invoke();
     }
 

@@ -48,7 +48,6 @@ public class CameraControllerNEW : MonoBehaviour
         }
         else if (PlayerInput.PlatformType == PlatformType.Mobile)
         {
-            Debug.Log("PLATFORM IS MOBILE");
             MobileCameraControls();
         }
 
@@ -86,7 +85,6 @@ public class CameraControllerNEW : MonoBehaviour
 
     void MobileCameraControls()
     {
-        Debug.Log(TouchField);
         if (TouchField == null) return;
         CameraAngle += TouchField.TouchDist.x * CameraMoveSensitivityMobile;
         transform.position = target.position + Quaternion.AngleAxis(CameraAngle, Vector3.up) * OffSet;

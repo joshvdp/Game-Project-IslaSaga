@@ -8,6 +8,7 @@ namespace Items.Weapon
     {
         [SerializeField] float WeaponDamage;
         [SerializeField] float WeaponSequenceResetTime;
+        public DamageType WeaponDamageType { get; set; }
         public float Damage { get {return WeaponDamage;} set {WeaponDamage = value; } }
 
         public float SequenceResetTime { get => WeaponSequenceResetTime; set { WeaponSequenceResetTime = value; } }

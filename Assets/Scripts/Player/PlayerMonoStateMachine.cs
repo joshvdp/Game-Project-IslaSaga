@@ -53,7 +53,7 @@ namespace StateMachine.Player
         public override void Awake()
         {
             base.Awake();
-            AssignWeapon();
+            AssignWeaponAndOrShield();
             
         }
         
@@ -106,7 +106,7 @@ namespace StateMachine.Player
         #region PLAYER MOVEMENT FUNCTIONS
         [SerializeField, Foldout("Movement")] public ControlBindings PCControls;
 
-        public FixedJoystick MobileJoystick;
+        [HideInInspector] public FixedJoystick MobileJoystick;
 
         Vector3 MoveVelocityInputs;
         Vector3 CamRelativeMoveVect;
@@ -117,8 +117,9 @@ namespace StateMachine.Player
         void SlopeHandler()
         {
             RaycastHit hit;
-            if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out hit,  NavigatableAreas))
+            if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out hit, NavigatableAreas))
             {
+                Debug.Log(hit.point.y + " " + hit.collider.name);
                 if (hit.point.y == transform.position.y) return;
                 PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
@@ -202,13 +203,15 @@ namespace StateMachine.Player
         #region ATTACK VARIABLES
 
         [SerializeField, Foldout("Combat")] public Transform WeaponHandPosition;
+        [SerializeField, Foldout("Combat")] public Transform ShieldHandPosition;
         [SerializeField, Foldout("Combat")] public GameObject WeaponOnHandGameObject;
         [SerializeField, Foldout("Combat")] public IWeapon WeaponOnHand;
         [SerializeField, Foldout("Combat")] public LayerMask ClickableArea;
         [SerializeField, Foldout("Combat")] public float CurrentWeaponDamage;
+        [SerializeField, Foldout("Combat")] public DamageType CurrentWeaponDamageType;
         [SerializeField, Foldout("Combat")] public float CurrentWeaponSequenceResetTimer;
 
-
+        [HideInInspector] public Collider ShieldCollider;
 
         [HideInInspector] public float AttackSequence;
         Coroutine AttackSequenceCoroutine;
@@ -224,12 +227,15 @@ namespace StateMachine.Player
             AttackSequenceCoroutine = StartCoroutine(AttackSequenceResetEnumerator(sequenceResetTime));
         }
 
-        public void AssignWeapon()
+        public void AssignWeaponAndOrShield()
         {
             WeaponOnHand = WeaponHandPosition.GetComponentInChildren<IWeapon>();
+            ShieldCollider = ShieldHandPosition.GetComponentInChildren<Collider>();
+
             WeaponOnHandGameObject = WeaponOnHand.GetGameobject();
 
             CurrentWeaponDamage = WeaponOnHand == null ? 5f : WeaponOnHand.Damage;
+            CurrentWeaponDamageType = WeaponOnHand == null ? DamageType.MELEE : WeaponHandPosition.GetComponentInChildren<IWeapon>().WeaponDamageType;
             CurrentWeaponSequenceResetTimer = WeaponOnHand == null ? 0.75f : WeaponOnHand.SequenceResetTime;
         }
         public void FaceDirectionOfMousePos()
@@ -246,7 +252,8 @@ namespace StateMachine.Player
             if (RangeOfAttack.NearestGameobject() == null) return;
 
             Transform NearestEnemy = RangeOfAttack.NearestGameobject().transform;
-            Vector3 Direction = NearestEnemy.position- transform.position;
+            Vector3 PositionToFace = new Vector3(NearestEnemy.position.x, transform.position.y, NearestEnemy.position.z);
+            Vector3 Direction = PositionToFace - transform.position;
             transform.rotation = Quaternion.LookRotation(Direction, Vector3.up);
         }
         #endregion

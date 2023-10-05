@@ -14,7 +14,7 @@ namespace StateMachine.Player
         [SerializeField, Foldout("Settings")] protected bool isUnlocked = true;
         [SerializeField, Foldout("Settings")] protected bool isDamageable = true;
         [SerializeField, Foldout("Settings")] protected bool isKnockbackable = true;
-        [SerializeField, Foldout("Settings")] protected Color materialColor;
+        [SerializeField, Foldout("Settings")] protected Color materialColor = Color.white;
 
         [SerializeField] public List<PlayerChangeState> statesToChangeTo;
         public bool IsUnlocked => isUnlocked;
@@ -146,6 +146,12 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_ENDSTATE_CALLED:
                     machine.OnEndstate += SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_SHIELD_INPUT:
+                    machine.PlayerInputs.OnShieldInput += SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_NO_SHIELD_INPUT:
+                    machine.PlayerInputs.OnNoShieldInput += SetState;
+                    break;
             }
 
             isDoneWithStart = true;
@@ -204,6 +210,12 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_ENDSTATE_CALLED:
                     machine.OnEndstate -= SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_SHIELD_INPUT:
+                    machine.PlayerInputs.OnShieldInput -= SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_NO_SHIELD_INPUT:
+                    machine.PlayerInputs.OnNoShieldInput -= SetState;
+                    break;
             }
         }
         private bool CheckIfEventsToListenIsEmpty()
@@ -248,6 +260,8 @@ namespace StateMachine.Player
         ON_PICKUP_ITEM,
         ON_NO_PICKUP_ITEM,
         ON_PICKUP_INPUT,
-        ON_ENDSTATE_CALLED
+        ON_ENDSTATE_CALLED,
+        ON_SHIELD_INPUT,
+        ON_NO_SHIELD_INPUT
     }
 }

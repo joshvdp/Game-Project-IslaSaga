@@ -9,7 +9,10 @@ namespace StateMachine.Enemy.State
     public class BoximonAttack : BoximonMachineData
     {
         [SerializeField, Foldout("Attack")] private float damage = 5f;
+        [SerializeField, Foldout("Attack")] LayerMask raycastableLayer;
         public float Damage => damage;
+        public LayerMask RaycastableLayer => raycastableLayer;
+
         public override BoximonMachineFunctions Initialize(BoximonMonoStateMachine machine)
         {
             return new BoximonAttackFunctions(machine, this);
@@ -19,9 +22,11 @@ namespace StateMachine.Enemy.State
     public class BoximonAttackFunctions : BoximonMachineFunctions
     {
         float Damage;
+        LayerMask RaycastableLayer;
         public BoximonAttackFunctions(BoximonMonoStateMachine machine, BoximonAttack data) : base(machine, data)
         {
             Damage = data.Damage;
+            RaycastableLayer = data.RaycastableLayer;
             //machine.transform.LookAt(machine.CurrentTarget);
             machine.LookAtTarget();
             machine.Agent.isStopped = true;
@@ -32,8 +37,22 @@ namespace StateMachine.Enemy.State
         {
             for (int i = 0; i < machine.AttackCollider.ObjectsToDamage.Count; i++)
             {
+                Debug.DrawRay(machine.transform.position + Vector3.up * 0.5f, machine.AttackCollider.ObjectsToDamage[i].transform.position 
+                    - machine.transform.position , Color.red, 5f);
                 if (machine.AttackCollider.ObjectsToDamage[i].GetComponent<IDamageable>() != null)
-                     machine.AttackCollider.ObjectsToDamage[i].GetComponent<IDamageable>().Hit(Damage);
+                {
+                    // Check if Objects are Damageable
+                    RaycastHit hit;
+                    // Check if object to damage is right in front, and nothing is blocking it.
+                    if (Physics.Raycast(machine.transform.position + Vector3.up * 0.5f, machine.AttackCollider.ObjectsToDamage[i].transform.position
+                        - machine.transform.position, out hit,2f, RaycastableLayer))
+                    {
+                        IShield shield = hit.collider.GetComponent<IShield>();
+                        // If there is something blocking it, and it is a shield, get the shield's damage reduction and apply it to the damage.
+                        if (shield != null) machine.AttackCollider.ObjectsToDamage[i].GetComponent<IDamageable>().Hit(Damage * shield.DamageReduction, DamageType.MELEE);
+                        else machine.AttackCollider.ObjectsToDamage[i].GetComponent<IDamageable>().Hit(Damage, DamageType.MELEE);
+                    }
+                }
                 
                 else Debug.Log("IDAMAGEABLE IS MISSING ON " + machine.AttackCollider.ObjectsToDamage[i]);
                 

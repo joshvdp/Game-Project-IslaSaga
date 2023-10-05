@@ -10,6 +10,6 @@ public class EnemyAnimEvents : MonoBehaviour
     
     void AttackPlayer()
     {
-        if(EnemyReferencesCS.EnemyCombat.PlayerInAttackRange && EnemyReferencesCS.EnemyHpCS.CurrentHealth >0) EnemyReferencesCS.EnemyAICS.Target.GetComponent<IDamageable>().Hit(EnemyReferencesCS.EnemyStatsCS.Damage);
+        //if(EnemyReferencesCS.EnemyCombat.PlayerInAttackRange && EnemyReferencesCS.EnemyHpCS.CurrentHealth >0) EnemyReferencesCS.EnemyAICS.Target.GetComponent<IDamageable>().Hit(EnemyReferencesCS.EnemyStatsCS.Damage);
     }
 }

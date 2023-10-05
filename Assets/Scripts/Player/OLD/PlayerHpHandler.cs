@@ -6,7 +6,7 @@ using Player;
 using Manager;
 using UnityEngine.Events;
 
-public class PlayerHpHandler : MonoBehaviour, IDamageable
+public class PlayerHpHandler : MonoBehaviour
 {
     public delegate void OnPlayerDeath();
     public OnPlayerDeath onPlayerDeath;

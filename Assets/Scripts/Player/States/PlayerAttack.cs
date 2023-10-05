@@ -21,6 +21,7 @@ namespace StateMachine.Player.State
     public class PlayerAttackFunctions : PlayerMachineFunctions
     {
         string ColliderName;
+        
         float Damage;
         float SequenceResetTime;
         TargetingType AttackTargetingType;
@@ -61,8 +62,8 @@ namespace StateMachine.Player.State
             }
             
         }
-        public void AttackAllTargets() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackAllTargets(Damage);
-        public void AttackNearestTarget() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackNearestTarget(Damage);
+        public void AttackAllTargets() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackAllTargets(Damage, machine.CurrentWeaponDamageType);
+        public void AttackNearestTarget() => machine.AttackCollidersHandler.FindCollider(ColliderName).AttackNearestTarget(Damage, machine.CurrentWeaponDamageType);
         public override void Discard()
         {
             base.Discard();
