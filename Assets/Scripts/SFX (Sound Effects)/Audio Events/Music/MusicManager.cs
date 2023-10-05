@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour
+namespace AudioSoundEvents
 {
-    [SerializeField] public AudioSource musicSource;
-
-    [Header("-----  Music List   -----")]
-    public AudioClip Track1;
-
-    private void Start()
+    public class MusicManager : MonoBehaviour
     {
-        musicSource.clip = Track1;
-        musicSource.Play();
-    }
+        [SerializeField] public AudioSource musicSource;
+
+        [Header("-----  Music List   -----")]
+        public AudioClip Track1;
+
+        private void Start()
+        {
+            musicSource.clip = Track1;
+            musicSource.Play();
+        }
     
+    }
 }
+

@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyGameObject : MonoBehaviour
+namespace AudioSoundEvents
 {
-    private float totalTimeBeforeDestroy;
-
-    private AudioSource audioSource;
-
-    void Start()
+    public class DestroyGameObject : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-        totalTimeBeforeDestroy = audioSource.clip.length;
-    }
+        private float totalTimeBeforeDestroy;
 
-    void Update()
-    {
-        totalTimeBeforeDestroy -= Time.deltaTime;
+        private AudioSource audioSource;
 
-        if (totalTimeBeforeDestroy <= 0f)
-            Destroy(gameObject);
+        void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+            totalTimeBeforeDestroy = audioSource.clip.length;
+        }
+
+        void Update()
+        {
+            totalTimeBeforeDestroy -= Time.deltaTime;
+
+            if (totalTimeBeforeDestroy <= 0f)
+                Destroy(gameObject);
+        }
     }
 }
+
+
