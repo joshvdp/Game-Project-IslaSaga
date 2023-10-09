@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2fe3f53df26fe4f9249ce4ca90588c, type: 3}
+  m_Name: Boximon Follow
+  m_EditorClassIdentifier: 
+  StateName: Follow
+  AnimationTrigger: Run
+  isUnlocked: 1
+  isDamageable: 1
+  isKnockbackable: 1
+  materialColor: {r: 1, g: 1, b: 1, a: 1}
+  statesToChangeTo:
+  - state: {fileID: 11400000, guid: 432df26a4bc6fd141ae35f4999d5afb2, type: 2}
+    eventsToListen: 01000000
+  - state: {fileID: 11400000, guid: 27d89b25079e223458d1c1fd20fdf67e, type: 2}
+    eventsToListen: 04000000
+  - state: {fileID: 11400000, guid: ad49a8c613b225449a047cfd7cf520e8, type: 2}
+    eventsToListen: 03000000
+  speed: 3.5

@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace Manager
+{
+    public class UILoader : MonoBehaviour
+    {
+        public void Start()
+        {
+            loadUI();
+        }
+        public void loadUI()
+        {
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
+        }
+    }
+}
