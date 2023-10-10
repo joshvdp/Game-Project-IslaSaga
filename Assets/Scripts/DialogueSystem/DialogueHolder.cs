@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StateMachine.Player;
 
 namespace DialogueSystem
 {
     public class DialogueHolder : MonoBehaviour
     {
         private IEnumerator dialogueSeq;
-        private void Awake()
+
+        private void Start()
         {
             dialogueSeq = dialogueSequence();
             StartCoroutine(dialogueSeq);
