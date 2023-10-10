@@ -24,8 +24,9 @@ namespace DialogueSystem
             
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            ResetLine();
             lineAppear = WriteText(input, textHolder, delay);
             StartCoroutine(lineAppear);
         }
@@ -42,6 +43,13 @@ namespace DialogueSystem
                 else
                     Finished = true;
             }
+        }
+
+        private void ResetLine()
+        {
+            textHolder = GetComponent<TMP_Text>();
+            textHolder.text = "";
+            Finished = false;
         }
     }
 

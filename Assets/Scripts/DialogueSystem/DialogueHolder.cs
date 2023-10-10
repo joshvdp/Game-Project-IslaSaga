@@ -9,7 +9,7 @@ namespace DialogueSystem
     {
         private IEnumerator dialogueSeq;
 
-        private void Start()
+        private void OnEnable()
         {
             dialogueSeq = dialogueSequence();
             StartCoroutine(dialogueSeq);
