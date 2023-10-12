@@ -20,8 +20,6 @@ namespace DialogueSystem
         {
             textHolder = GetComponent<TMP_Text>();
             textHolder.text = "";
-
-            
         }
 
         private void OnEnable()
