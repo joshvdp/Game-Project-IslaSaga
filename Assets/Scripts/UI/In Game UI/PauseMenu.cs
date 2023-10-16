@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameisPaused = false;
 
-    public GameObject pauseMenuUI, optionsMenuUI;  //healthBar, miniMap, pauseButton;
+    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox;  //healthBar, miniMap, pauseButton;
 
     
     void Update()
@@ -44,6 +44,7 @@ public class PauseMenu : MonoBehaviour
         pauseButton.SetActive(false);*/
         MainManager.Instance.IsPaused = true;
         pauseMenuUI.SetActive(true);
+        dialogueBox.SetActive(false);
         Time.timeScale = 0f;
         GameisPaused = true;
         Debug.Log("Paused");
