@@ -16,7 +16,7 @@ namespace Items.Weapon
         
         public void Attack()
         {
-
+            Debug.Log("Attacking");
         }
 
         public GameObject GetGameobject()

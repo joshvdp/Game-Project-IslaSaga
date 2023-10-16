@@ -11,7 +11,6 @@ namespace AudioSoundEvents
         {
             WeaponSound.attackEvent1?.Invoke();
         }
-
         public void Attack2()
         {
             WeaponSound.attackEvent2?.Invoke();
