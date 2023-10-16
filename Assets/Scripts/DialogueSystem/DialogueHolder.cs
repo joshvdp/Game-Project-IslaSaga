@@ -23,6 +23,8 @@ namespace DialogueSystem
                 yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().Finished);
             }
             gameObject.SetActive(false);
+            transform.DetachChildren();
+
         }
 
         private void Deactivate()

@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public int dialogueIndex;
     public int controlIndex;
+    [SerializeField] private GameObject dialogueCollider;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.collider.name == "Dialogue Collider")
         {
             DialogueHandler.Instance.EnableDialogue(controlIndex);
+            dialogueCollider.SetActive(false);
         }
     }
 }
