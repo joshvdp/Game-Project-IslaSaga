@@ -7,21 +7,22 @@ namespace AudioSoundEvents
 {
     public class AttackingSFX : MonoBehaviour
     {
+        public WeaponSound weaponSoundCS => GetComponent<WeaponSound>();
         public void Attack1()
         {
-            WeaponSound.attackEvent1?.Invoke();
+            weaponSoundCS.attackEvent1?.Invoke();
         }
         public void Attack2()
         {
-            WeaponSound.attackEvent2?.Invoke();
+            weaponSoundCS.attackEvent2?.Invoke();
         }
         public void Attack3()
         {
-            WeaponSound.attackEvent3?.Invoke();
+            weaponSoundCS.attackEvent3?.Invoke();
         }
         public void Attack4()
         {
-            WeaponSound.attackEvent4?.Invoke();
+            weaponSoundCS.attackEvent4?.Invoke();
         }
     }
 }
