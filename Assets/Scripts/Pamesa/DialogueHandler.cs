@@ -2,28 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueHandler : MonoBehaviour
+namespace DialogueSystem
 {
-    public static DialogueHandler Instance;
-
-    public List<GameObject> dialogues;
-    public GameObject ActiveDialogue { get; private set; }
-
-    private void Awake() => Instance = this;
-
-    public void EnableDialogue(int dialogueIndex)
+    public class DialogueHandler : MonoBehaviour
     {
-        DisableActiveDialogue();
+        public static DialogueHandler Instance;
 
-        dialogues[dialogueIndex].SetActive(true);
-        ActiveDialogue = dialogues[dialogueIndex];
-    }
+        public List<GameObject> dialogues;
+        public GameObject ActiveDialogue { get; private set; }
 
-    public void DisableActiveDialogue()
-    {
-        if (ActiveDialogue == null)
-            return;
+        private void Awake() => Instance = this;
 
-        ActiveDialogue.SetActive(false);
+        public void EnableDialogue(int dialogueIndex)
+        {
+            DisableActiveDialogue();
+
+            dialogues[dialogueIndex].SetActive(true);
+            ActiveDialogue = dialogues[dialogueIndex];
+        }
+
+        public void DisableActiveDialogue()
+        {
+            if (ActiveDialogue == null)
+                return;
+
+            ActiveDialogue.SetActive(false);
+        }
     }
 }
+

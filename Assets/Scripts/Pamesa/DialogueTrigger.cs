@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DialogueTrigger : MonoBehaviour
+namespace DialogueSystem
 {
-
-    public int dialogueIndex;
-    public int controlIndex;
-    [SerializeField] private GameObject dialogueCollider;
-
-    private void OnCollisionEnter(Collision collision)
+    public class DialogueTrigger : MonoBehaviour
     {
-        if (collision.collider.name == "Moveable Box")
-        {
-            DialogueHandler.Instance.EnableDialogue(dialogueIndex);
-        }
 
-        if (collision.collider.name == "Dialogue Collider")
+        public int dialogueIndex;
+        public int controlIndex;
+        [SerializeField] private GameObject dialogueCollider;
+
+        private void OnCollisionEnter(Collision collision)
         {
-            DialogueHandler.Instance.EnableDialogue(controlIndex);
-            dialogueCollider.SetActive(false);
+            if (collision.collider.name == "Moveable Box")
+            {
+                DialogueHandler.Instance.EnableDialogue(dialogueIndex);
+            }
+
+            if (collision.collider.name == "Dialogue Collider")
+            {
+                DialogueHandler.Instance.EnableDialogue(controlIndex);
+                dialogueCollider.SetActive(false);
+            }
         }
     }
 }
+
