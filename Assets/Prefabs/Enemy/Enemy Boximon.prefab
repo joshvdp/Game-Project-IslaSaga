@@ -46,7 +46,7 @@ SphereCollider:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4031
+    m_Bits: 1048511
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -954,7 +954,7 @@ SphereCollider:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 20415
+    m_Bits: 1048511
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -1267,7 +1267,7 @@ Transform:
   - {fileID: 4288734081977896676}
   - {fileID: 4418430749979110352}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -173.47, z: 0}
 --- !u!195 &8674071401994616894
 NavMeshAgent:
@@ -1342,6 +1342,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabb70d5165f9c843a060c16c55c5cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100
+  <CurrentHealth>k__BackingField: 0
+  <IsDamageable>k__BackingField: 0
+  ShowDamageText: 1
+  PopUpScale: 2
+  PopupTextColor: {r: 1, g: 0, b: 0, a: 1}
+  DroppableObjects: []
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 912039789168873246}
+        m_TargetAssemblyTypeName: AudioSoundEvents.EnemyEventSFX, Assembly-CSharp
+        m_MethodName: Hitting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <onDeath>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1370,24 +1392,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 912039789168873246}
-        m_TargetAssemblyTypeName: AudioSoundEvents.EnemyEventSFX, Assembly-CSharp
-        m_MethodName: Hitting
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  ShowDamageText: 1
-  PopUpScale: 2
-  PopupTextColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8397401009913331196
 GameObject:
   m_ObjectHideFlags: 0

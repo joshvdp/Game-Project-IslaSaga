@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enemy;
 using Enemy.AI;
-using Interface;
+using InterfaceAndInheritables;
 public class EnemyAnimEvents : MonoBehaviour
 {
     [SerializeField] EnemyReferences EnemyReferencesCS;
