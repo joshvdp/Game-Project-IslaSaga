@@ -10,7 +10,14 @@ namespace DialogueSystem
 
         public int dialogueIndex;
         public int controlIndex;
+        public float sec = 3;
         [SerializeField] private GameObject dialogueCollider;
+
+        private void Start()
+        {
+            dialogueCollider.SetActive(false);
+            StartCoroutine(WaitForSeconds());
+        }
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -24,6 +31,12 @@ namespace DialogueSystem
                 DialogueHandler.Instance.EnableDialogue(controlIndex);
                 dialogueCollider.SetActive(false);
             }
+        }
+
+        private IEnumerator WaitForSeconds()
+        {
+            yield return new WaitForSeconds(sec);
+            dialogueCollider.SetActive(true);
         }
     }
 }
