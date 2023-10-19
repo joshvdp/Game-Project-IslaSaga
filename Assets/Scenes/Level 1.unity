@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1399,7 +1399,7 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1000832640}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AudioSoundEvents.FootStep, Assembly-CSharp
           m_MethodName: Walk
           m_Mode: 1
@@ -1415,7 +1415,7 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1000832640}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AudioSoundEvents.FootStep, Assembly-CSharp
           m_MethodName: Run
           m_Mode: 1
@@ -4903,17 +4903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b62a2569e148f34ab20840039efe113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1000832640 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1755818405126437826, guid: 6e64eca4ec405f946b44cb76bd8879ac, type: 3}
-  m_PrefabInstance: {fileID: 1642206924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019e99feaa32d3f4fb59ebca6441052b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1006112575
 GameObject:
   m_ObjectHideFlags: 0
@@ -5709,13 +5698,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2083021687887046998, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: sound1
+      value: 
+      objectReference: {fileID: 1778013744758415580, guid: ab61a42026a0895448d93c712381b97a, type: 3}
     - target: {fileID: 3873750573651617882, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7968785508490599268, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: AnimationEvent.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1000832639}
+    - target: {fileID: 7968785508490599268, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: AnimationEvent.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Attack1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974070265976076083, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: PlatformType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
