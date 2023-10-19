@@ -3672,6 +3672,7 @@ RectTransform:
   m_Children:
   - {fileID: 2086814461}
   - {fileID: 5148113532614340882}
+  - {fileID: 6760435537343443505}
   m_Father: {fileID: 1646781876}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6572,7 +6573,6 @@ GameObject:
   - component: {fileID: 2068228260}
   - component: {fileID: 2068228262}
   - component: {fileID: 2068228261}
-  - component: {fileID: 2068228263}
   m_Layer: 5
   m_Name: Touch Field
   m_TagString: Untagged
@@ -6653,19 +6653,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068228258}
   m_CullTransparentMesh: 1
---- !u!114 &2068228263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068228258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4038cd9b7dfdd39459026f2f2a554a48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TouchField: {fileID: 2068228260}
 --- !u!1001 &2086814460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6722,6 +6709,10 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3067393849822209140, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 3323807652128618107, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_SizeDelta.x
       value: 503.7909
@@ -6748,7 +6739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4276231374003081700, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_text
-      value: Click anywhere to continue
+      value: Press any key to continue
       objectReference: {fileID: 0}
     - target: {fileID: 4276231374003081700, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_fontSize
@@ -6858,6 +6849,10 @@ PrefabInstance:
       propertyPath: input
       value: I have to find out who's responsible for this turmoil and save the island
       objectReference: {fileID: 0}
+    - target: {fileID: 5475204260876433530, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 6119460559281998240, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_text
       value: 
@@ -6895,9 +6890,13 @@ PrefabInstance:
       value: Something is blocking my path, I guess I need to figure out another
         way, maybe I can push this blocks and clear a path.
       objectReference: {fileID: 0}
+    - target: {fileID: 7026486181396172261, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 7642101431395519763, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_text
-      value: Click anywhere to continue
+      value: Press any key to continue
       objectReference: {fileID: 0}
     - target: {fileID: 7642101431395519763, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_fontSize
@@ -6949,7 +6948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8221933175817636150, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_text
-      value: Click anywhere to continue
+      value: Press any key to continue
       objectReference: {fileID: 0}
     - target: {fileID: 8221933175817636150, guid: 63717cb5bdd0ba946b71ea096b1f7eb5, type: 3}
       propertyPath: m_fontSize
@@ -7246,6 +7245,10 @@ PrefabInstance:
       propertyPath: input
       value: Use WASD Keys on keyboard for movement.
       objectReference: {fileID: 0}
+    - target: {fileID: 151816025784747374, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 576866642982309796, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
       propertyPath: m_Name
       value: Controls
@@ -7310,6 +7313,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2967938435842356568, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
+      propertyPath: m_text
+      value: Press any key to continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987384969712334164, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
+      propertyPath: m_text
+      value: Press any key to continue
+      objectReference: {fileID: 0}
     - target: {fileID: 3024856067544596904, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7318,6 +7329,10 @@ PrefabInstance:
       propertyPath: input
       value: Good Luck On Your Adventure!
       objectReference: {fileID: 0}
+    - target: {fileID: 3075129420505561874, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 3310692989650242543, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
       propertyPath: m_VideoClip
       value: 
@@ -7534,6 +7549,10 @@ PrefabInstance:
       propertyPath: input
       value: Press SHIFT Key if to run.
       objectReference: {fileID: 0}
+    - target: {fileID: 8175013703702556919, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 8333920952679947768, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7546,8 +7565,134 @@ PrefabInstance:
       propertyPath: input
       value: Press LEFT Mouse Button to Attack enemies or to destroy boxes.
       objectReference: {fileID: 0}
+    - target: {fileID: 8694419692133268520, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21a07e72c1524d24b95667379a5fc602, type: 3}
+--- !u!224 &6760435537343443505 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+  m_PrefabInstance: {fileID: 7946749896662648194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7946749896662648194
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 924829902}
+    m_Modifications:
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 596.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 139.9016
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322146599860072201, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565360488687200161, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 1668321816246022709, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 3092095710443657291, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: m_Name
+      value: Controls (Mobile)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453491850707156688, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 7111260576836592647, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67557b080b7cf484380f74036a09ad78, type: 3}
