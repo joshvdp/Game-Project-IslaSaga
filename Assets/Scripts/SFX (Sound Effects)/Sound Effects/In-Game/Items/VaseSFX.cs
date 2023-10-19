@@ -7,11 +7,11 @@ namespace AudioSoundEvents
 {
     public class VaseSFX : MonoBehaviour
     {
-        public GameObject Destroy;
+        public GameObject Wrecked;
         public void Destroyed()
         {
-            Debug.Log("Destroyed");
-            Instantiate(Destroy, transform.position, transform.rotation);
+            Debug.Log("Vase Cracked");
+            Instantiate(Wrecked, transform.position, transform.rotation);
         }
     }
 }

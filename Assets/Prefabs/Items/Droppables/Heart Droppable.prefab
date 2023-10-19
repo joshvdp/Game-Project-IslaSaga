@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1187376695056102011}
   - component: {fileID: 2058717036793124587}
   - component: {fileID: -4218467392684460401}
+  - component: {fileID: -8848318592348093164}
   m_Layer: 19
   m_Name: Heart Droppable
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6380937811192339155
 MeshFilter:
@@ -148,3 +149,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: b57890f3523d89b48822eed1c76915af, type: 2}
   HealAmount: 25
+  onPicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -8848318592348093164}
+        m_TargetAssemblyTypeName: AudioSoundEvents.HeartSFX, Assembly-CSharp
+        m_MethodName: Grab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-8848318592348093164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116037237059783493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6064cc1ad131ba4cb900151076d2949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Picked: {fileID: 5961185818742050191, guid: c6076a772b8d30e4b8f9b59487140810, type: 3}

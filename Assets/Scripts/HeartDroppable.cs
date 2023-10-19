@@ -8,6 +8,7 @@ public class HeartDroppable : MonoBehaviour
 {
     public PlayerStats playerStats;
     public float HealAmount;
+    public UnityEvent onPicked;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag != "Player") return;
@@ -20,5 +21,6 @@ public class HeartDroppable : MonoBehaviour
         if (other.transform.tag != "Player") return;
         playerStats.TakeHeal(HealAmount);
         Destroy(gameObject);
+        onPicked.Invoke();
     }
 }
