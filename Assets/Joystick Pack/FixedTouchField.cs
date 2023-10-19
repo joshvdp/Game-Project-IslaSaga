@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    public Action OnTouchDown;
+    public Action OnTouchUp;
     [HideInInspector]
     public Vector2 TouchDist;
     [HideInInspector]
@@ -11,12 +14,6 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     protected int PointerId;
     [HideInInspector]
     public bool Pressed;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -42,6 +39,7 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        OnTouchDown?.Invoke();
         Pressed = true;
         PointerId = eventData.pointerId;
         PointerOld = eventData.position;
@@ -50,6 +48,7 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        OnTouchUp?.Invoke();
         Pressed = false;
     }
 

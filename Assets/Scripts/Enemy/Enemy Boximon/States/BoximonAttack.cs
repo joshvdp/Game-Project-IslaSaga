@@ -2,7 +2,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Interface;
+using InterfaceAndInheritables;
 namespace StateMachine.Enemy.State
 {
     [CreateAssetMenu(fileName = "Boximon Attack", menuName = "State Machine/Enemy/Boximon/State/Attack")]
