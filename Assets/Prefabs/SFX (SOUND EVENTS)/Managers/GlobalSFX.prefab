@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6608548530803927894}
   - component: {fileID: 1276417272034229722}
-  - component: {fileID: 1755818405126437826}
   m_Layer: 15
   m_Name: Player
   m_TagString: Untagged
@@ -45,18 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b62a2569e148f34ab20840039efe113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1755818405126437826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230691990907403082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019e99feaa32d3f4fb59ebca6441052b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1382027319827541607
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +55,7 @@ GameObject:
   - component: {fileID: 8525030464464477469}
   - component: {fileID: 3882698731086599755}
   - component: {fileID: 854547583181549667}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GlobalSFX
   m_TagString: Sound
   m_Icon: {fileID: 0}
@@ -132,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6533576193053531318}
   - component: {fileID: 3260757111137045650}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}

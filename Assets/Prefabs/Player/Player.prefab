@@ -1358,8 +1358,6 @@ GameObject:
   - component: {fileID: 1010506759253207997}
   - component: {fileID: 7974070265976076083}
   - component: {fileID: 1141879445611857941}
-  - component: {fileID: 4982539346900982481}
-  - component: {fileID: 6117431315788010466}
   - component: {fileID: 3572800939348553787}
   - component: {fileID: 1441446314350040463}
   m_Layer: 6
@@ -1555,34 +1553,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4982539346900982481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3873750573651617882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b62a2569e148f34ab20840039efe113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6117431315788010466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3873750573651617882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93077c35adc22fd448da491808d2eac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound1: {fileID: 1778013744758415580, guid: ab61a42026a0895448d93c712381b97a, type: 3}
-  sound2: {fileID: 1778013744758415580, guid: f03d7f3a4a5631b4f87446a318bc002f, type: 3}
-  sound3: {fileID: 1778013744758415580, guid: c7802798904f5da499fde4ad58c2b810, type: 3}
-  sound4: {fileID: 1778013744758415580, guid: ee0785c488668414dae6ad3d1edc4d77, type: 3}
 --- !u!114 &3572800939348553787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,7 +2587,7 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4982539346900982481}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AudioSoundEvents.AttackingSFX, Assembly-CSharp
           m_MethodName: Attack1
           m_Mode: 1
