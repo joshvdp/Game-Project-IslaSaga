@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-namespace Interface
+using System;
+namespace InterfaceAndInheritables
 {
     public enum DamageType
     {
@@ -49,5 +50,12 @@ namespace Interface
         public float DamageReduction;
         private void Awake() => GetComponent<Collider>().enabled = false;
         public abstract void Block();
+    }
+
+    [Serializable] 
+    public class Droppable
+    {
+        public GameObject ItemToDrop;
+        public float Probability;
     }
 }
