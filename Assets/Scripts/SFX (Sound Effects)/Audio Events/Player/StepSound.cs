@@ -26,13 +26,13 @@ namespace AudioSoundEvents
         }
         private void Walk()
         {
-            Debug.Log("Im Walking");
+            //Debug.Log("Im Walking");
             GameObject _step = Instantiate(Walking, transform.position, transform.rotation);
             //Instantiate(Walking, transform.position, transform.rotation);
         }
         private void Run()
         {
-            Debug.Log("Im Running");
+            //Debug.Log("Im Running");
             GameObject _step = Instantiate(Running, transform.position, transform.rotation);
             //Instantiate(Running, transform.position, transform.rotation);
         }

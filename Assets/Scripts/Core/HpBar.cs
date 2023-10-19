@@ -76,7 +76,7 @@ public class HpBar : MonoBehaviour, IDamageable
 
     #region OPTIONS OF FUNCTIONS TO CALL WHEN THIS DIES
     public void DestroyThis() => Destroy(gameObject);
-
+    
 
     public void InstantiateItemOrObject(float PercentChance, GameObject ObjToDrop)
     {

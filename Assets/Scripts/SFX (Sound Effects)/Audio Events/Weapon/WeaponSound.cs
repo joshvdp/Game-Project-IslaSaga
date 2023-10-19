@@ -8,7 +8,6 @@ namespace AudioSoundEvents
     public class WeaponSound : MonoBehaviour
     {
         public delegate void attackEvent();
-
         public static attackEvent attackEvent1, attackEvent2, attackEvent3, attackEvent4;
         public GameObject sound1, sound2, sound3, sound4;
 
