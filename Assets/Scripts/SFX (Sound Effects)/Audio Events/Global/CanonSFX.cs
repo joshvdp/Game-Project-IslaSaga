@@ -10,7 +10,7 @@ namespace AudioSoundEvents
         public GameObject ShotsFired;
         public void Fire()
         {
-            Debug.Log("FIRE");
+            //Debug.Log("FIRE");
             //Instantiate(ShotsFired, transform.position, transform.rotation);
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AudioSoundEvents
 {
-    public class PlayerEvents : MonoBehaviour
+    public class PlayerSoundEvents : MonoBehaviour
     {
         public void onDeath()
         {
