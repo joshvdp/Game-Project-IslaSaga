@@ -1,72 +1,82 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BGMusic : MonoBehaviour
+namespace AudioSoundEvents
 {
-   static public BGMusic instance;
-   private AudioSource source;
+    public class BGMusic : MonoBehaviour
+    {
+        public AudioClip defaultAmbience;
 
-   private void Awake()
-   {
-      instance = this;
-      DontDestroyOnLoad(gameObject);
-   }
+        private AudioSource track01, track02;
+        private bool isPlayingTrack01;
 
-   private void Start()
-   {
-      source = GetComponent<AudioSource>();
-      source.volume = 0f;
-      StartCoroutine(Fade(true, source, 2f, 1f));
-      StartCoroutine(Fade(false, source, 2f, 0f));
-      
-   }
+        public static BGMusic instance;
 
-   private void Update()
-   {
-      if (!source.isPlaying)
-      {
-         source.Play();
-         StartCoroutine(Fade(true, source, 2f, 1f));
-         StartCoroutine(Fade(false, source, 2f, 0f));
-      }
-   }
+        private void Awake()
+        {
+            if (instance == null)
+                instance = this;
+        }
 
-   public IEnumerator Fade(bool fadeIn, AudioSource source, float duration, float targetVolume)
-   {
-      if (!fadeIn)
-      {
-         double lengthOfSource = (double)source.clip.samples / source.clip.frequency;
-         yield return new WaitForSecondsRealtime((float)(lengthOfSource - duration));
-      }
+        private void Start()
+        {
+            track01 = gameObject.AddComponent<AudioSource>();
+            track02 = gameObject.AddComponent<AudioSource>();
+            isPlayingTrack01 = true;
 
-      float time = 0f;
-      float startVol = source.volume;
-      while (time < duration)
-      {
-         //string fadeSituation = fadeIn ? "fadeIn" : "fadeOut";
-         //Debug.Log(fadeSituation);
-         time += Time.deltaTime;
-         source.volume = Mathf.Lerp(startVol, targetVolume, time / duration);
-         yield return null;
+            SwapTrack(defaultAmbience);
+        }
 
-      }
-      yield break;
-   }
+        public void SwapTrack(AudioClip newClip)
+        {
+            
+           StopAllCoroutines();
+           StartCoroutine(FadeTrack(newClip));
 
-   public void ChangeTrack(AudioClip clip)
-   {
-      StopAllCoroutines();
-      source.clip = clip;
-      source.volume = 0f;
-      StartCoroutine(Fade(true, source, 2f, 1f));
-      StartCoroutine(Fade(false, source, 2f, 0f));
-   }
+            isPlayingTrack01 = !isPlayingTrack01;
+        }
 
-   public AudioClip GetTrack()
-   {
-      return source.clip;
-   }
+        public void ReturnToDefault()
+        {
+            SwapTrack(defaultAmbience);
+        }
+
+        private IEnumerator FadeTrack(AudioClip newClip)
+        {
+            float timeToFade = 1.25f;
+            float timeElapsed = 0;
+            
+            if (isPlayingTrack01)
+            {
+                track02.clip = newClip;
+                track02.Play();
+                while (timeElapsed < timeToFade)
+                {
+                    track02.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+                    track01.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+                track01.Stop();
+            }
+            else
+            {
+                
+                track01.clip = newClip;
+                track01.Play();
+                while (timeElapsed < timeToFade)
+                {
+                    track01.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+                    track02.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+                track02.Stop();
+            }
+        }
+    }
 }

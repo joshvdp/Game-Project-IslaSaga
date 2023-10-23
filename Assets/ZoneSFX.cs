@@ -5,25 +5,26 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class ZoneSFX : MonoBehaviour
+namespace AudioSoundEvents
 {
-    [SerializeField]
-    private AudioClip theme, previousTheme;
-
-    private void OnTriggerEnter(Collider other)
+    public class ZoneSFX : MonoBehaviour
     {
-        previousTheme = BGMusic.instance.GetTrack();
-        if (other.CompareTag("Player"))
+        public AudioClip newTrack;
+
+        private void OnTriggerEnter(Collider other)
         {
-            BGMusic.instance.ChangeTrack(theme);
+            if (other.CompareTag("Player"))
+            {
+                BGMusic.instance.SwapTrack(newTrack);
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        private void OnTriggerExit(Collider other)
         {
-            BGMusic.instance.ChangeTrack(previousTheme);
+            if (other.CompareTag("Player"))
+            {
+                BGMusic.instance.ReturnToDefault();
+            }
         }
     }
 }

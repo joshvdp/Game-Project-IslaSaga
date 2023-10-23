@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Manager;
+using UnityEngine.Events;
+
 namespace Puzzle
 {
     public class Cannon : MonoBehaviour
@@ -11,6 +13,7 @@ namespace Puzzle
         [SerializeField] float DefaultFireSpeed;
         [SerializeField] float ProjectileSpeed;
         float FireSpeed;
+        public UnityEvent ShotsFired;
 
         private void Awake()
         {
@@ -29,9 +32,11 @@ namespace Puzzle
 
         void Fire()
         {
+            ShotsFired?.Invoke();
             Rigidbody ProjectileRb = Instantiate(ProjectileGameobject, FireOrigin.position, Quaternion.identity).GetComponent<Rigidbody>();
             ProjectileRb.velocity = transform.right * ProjectileSpeed;
         }
+        
         
 
     }
