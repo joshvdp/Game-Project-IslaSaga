@@ -152,6 +152,15 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_NO_SHIELD_INPUT:
                     machine.PlayerInputs.OnNoShieldInput += SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_JUMP_INPUT:
+                    machine.PlayerInputs.OnJumpInput += SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_FALLING:
+                    machine.OnFalling += SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_LANDED:
+                    machine.OnLanded += SetState;
+                    break;
             }
 
             isDoneWithStart = true;
@@ -216,6 +225,16 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_NO_SHIELD_INPUT:
                     machine.PlayerInputs.OnNoShieldInput -= SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_JUMP_INPUT:
+                    machine.PlayerInputs.OnJumpInput -= SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_FALLING:
+                    machine.OnFalling -= SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_LANDED:
+                    machine.OnLanded -= SetState;
+                    break;
+
             }
         }
         private bool CheckIfEventsToListenIsEmpty()
@@ -262,6 +281,9 @@ namespace StateMachine.Player
         ON_PICKUP_INPUT,
         ON_ENDSTATE_CALLED,
         ON_SHIELD_INPUT,
-        ON_NO_SHIELD_INPUT
+        ON_NO_SHIELD_INPUT,
+        ON_JUMP_INPUT,
+        ON_FALLING,
+        ON_LANDED
     }
 }

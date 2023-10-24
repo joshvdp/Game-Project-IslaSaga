@@ -18,6 +18,7 @@ namespace Player.Controls
         public KeyCode LeftKey;
         public KeyCode RightKey;
 
+        public KeyCode JumpKey;
 
         public KeyCode PickUpKey;
 
