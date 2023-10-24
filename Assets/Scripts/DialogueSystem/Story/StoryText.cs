@@ -9,8 +9,10 @@ namespace Story
     public class StoryText : MonoBehaviour
     {
         float textSpeed = 100.0f;
-        float textBeginPosition = -952f;  
-        float textEndPosition = 962f;
+        float textBeginPosition = -1064f;  
+        float textEndPosition = 1068f;
+
+        public GameObject Skip;
 
         RectTransform myGorectTransform;
 
@@ -20,6 +22,7 @@ namespace Story
         {
             myGorectTransform = gameObject.GetComponent<RectTransform>();
             StartCoroutine(AutoScrollText());
+            StartCoroutine(ShowSkipButton());
         }
 
         IEnumerator AutoScrollText()
@@ -45,6 +48,28 @@ namespace Story
         }
 
         
+
+        IEnumerator ShowSkipButton()
+        {
+            yield return new WaitForSeconds(5);
+
+            
+            Skip.SetActive(true);
+
+            
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                StopCoroutine(AutoScrollText());
+                SceneManager.LoadScene(1);
+            }
+        }
+
+
+
 
 
     }
