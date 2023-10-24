@@ -1,30 +1,60 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-namespace AudioSoundEvents
+public class MusicController : MonoBehaviour
 {
-    public class ZoneSFX : MonoBehaviour
-    {
-        public AudioClip newTrack;
+    public AudioSource CurrentMusic;
+    public AudioSource NextMusic;
+    public float fadeTime = 2f;
 
-        private void OnTriggerEnter(Collider other)
+    private void Start()
+    {
+        CurrentMusic.Play();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
-            {
-                BGMusic.instance.SwapTrack(newTrack);
-            }
+            StartCoroutine(FadeOut(CurrentMusic, fadeTime));
+            StartCoroutine(FadeIn(NextMusic, fadeTime));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(FadeOut(NextMusic, fadeTime));
+            StartCoroutine(FadeIn(CurrentMusic, fadeTime));
+        }
+    }
+
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
         }
 
-        private void OnTriggerExit(Collider other)
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
+    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
+    {
+        float endVolume = audioSource.volume;
+        audioSource.volume = 0;
+        audioSource.Play();
+
+        while (audioSource.volume < endVolume)
         {
-            if (other.CompareTag("Player"))
-            {
-                BGMusic.instance.ReturnToDefault();
-            }
+            audioSource.volume += endVolume * Time.deltaTime / FadeTime;
+            yield return null;
         }
     }
 }

@@ -9,9 +9,9 @@ namespace AudioSoundEvents
 {
     public class BGMusic : MonoBehaviour
     {
+        public AudioSource track01, track02;
         public AudioClip defaultAmbience;
-
-        private AudioSource track01, track02;
+        
         private bool isPlayingTrack01;
 
         public static BGMusic instance;
@@ -24,8 +24,8 @@ namespace AudioSoundEvents
 
         private void Start()
         {
-            track01 = gameObject.AddComponent<AudioSource>();
-            track02 = gameObject.AddComponent<AudioSource>();
+            //track01 = gameObject.AddComponent<AudioSource>();
+            //track02 = gameObject.AddComponent<AudioSource>();
             isPlayingTrack01 = true;
 
             SwapTrack(defaultAmbience);
@@ -52,8 +52,8 @@ namespace AudioSoundEvents
             
             if (isPlayingTrack01)
             {
-                track02.clip = newClip;
-                track02.Play();
+                //track02.clip = newClip;
+                //track02.Play();
                 while (timeElapsed < timeToFade)
                 {
                     track02.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
