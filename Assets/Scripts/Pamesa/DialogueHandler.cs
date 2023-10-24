@@ -17,6 +17,8 @@ namespace DialogueSystem
         {
             DisableActiveDialogue();
 
+            Time.timeScale = 0f;
+
             dialogues[dialogueIndex].SetActive(true);
             ActiveDialogue = dialogues[dialogueIndex];
         }
