@@ -21,7 +21,10 @@ namespace DialogueSystem
             dialogues[dialogueIndex].SetActive(true);
             ActiveDialogue = dialogues[dialogueIndex];
 
-            //pauseButton.SetActive(false);
+            pauseButton.SetActive(false);
+            map.SetActive(false);
+            health.SetActive(false);
+
 
         }
 
@@ -32,8 +35,6 @@ namespace DialogueSystem
                 return;
 
             ActiveDialogue.SetActive(false);
-            //pauseButton.SetActive(true);
-
 
         }
     }
