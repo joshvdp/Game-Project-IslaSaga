@@ -28,6 +28,7 @@ namespace Player.Controls
         public Action SpinAttack;
 
         public Action OnPickupInput;
+
         PlayerMonoStateMachine machine => GetComponent<PlayerMonoStateMachine>();
 
         public ControlBindings Controls;
