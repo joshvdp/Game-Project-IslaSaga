@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Interface;
-public class WoodenShield : MonoBehaviour, IShield
+using InterfaceAndInheritables;
+public class WoodenShield : Shield
 {
-    [SerializeField] float DamageBlockReduction;
-    public float DamageReduction { get { return DamageBlockReduction; } set { DamageBlockReduction = value; } }
-
-    public void Block()
+    public override void Block()
     {
-
+        
     }
 }

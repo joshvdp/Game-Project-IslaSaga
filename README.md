@@ -1,2 +1,2 @@
-# Capstone-EMC-GD
-Game Project - Capstone
+# Isla Saga
+A game project by NEU Game Devs

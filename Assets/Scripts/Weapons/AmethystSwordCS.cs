@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Interface;
+using InterfaceAndInheritables;
 
 namespace Items.Weapon
 {
@@ -16,7 +16,7 @@ namespace Items.Weapon
         
         public void Attack()
         {
-
+            Debug.Log("Attacking");
         }
 
         public GameObject GetGameobject()

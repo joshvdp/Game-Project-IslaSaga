@@ -2,7 +2,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Interface;
+using InterfaceAndInheritables;
 namespace StateMachine.Enemy.State
 {
     [CreateAssetMenu(fileName = "Boximon Attack", menuName = "State Machine/Enemy/Boximon/State/Attack")]
@@ -47,7 +47,7 @@ namespace StateMachine.Enemy.State
                     if (Physics.Raycast(machine.transform.position + Vector3.up * 0.5f, machine.AttackCollider.ObjectsToDamage[i].transform.position
                         - machine.transform.position, out hit,2f, RaycastableLayer))
                     {
-                        IShield shield = hit.collider.GetComponent<IShield>();
+                        Shield shield = hit.collider.GetComponent<Shield>();
                         // If there is something blocking it, and it is a shield, get the shield's damage reduction and apply it to the damage.
                         if (shield != null) machine.AttackCollider.ObjectsToDamage[i].GetComponent<IDamageable>().Hit(Damage * shield.DamageReduction, DamageType.MELEE);
                         else machine.AttackCollider.ObjectsToDamage[i].GetComponent<IDamageable>().Hit(Damage, DamageType.MELEE);

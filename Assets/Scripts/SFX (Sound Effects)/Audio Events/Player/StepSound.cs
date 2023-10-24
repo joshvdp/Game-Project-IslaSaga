@@ -8,16 +8,12 @@ namespace AudioSoundEvents
     {
         public delegate void stepEvent();
         public static stepEvent walk, run;
-
         public GameObject Walking, Running;
-
         private FootStep _step;
-        
         private void OnEnable()
         {
             walk += Walk;
             run += Run;
-            
         }
         private void OnDisable()
         {
@@ -32,12 +28,24 @@ namespace AudioSoundEvents
         {
             //Debug.Log("Im Walking");
             GameObject _step = Instantiate(Walking, transform.position, transform.rotation);
+            //Instantiate(Walking, transform.position, transform.rotation);
         }
         private void Run()
         {
-            Debug.Log("Im Running");
-            //GameObject _step = Instantiate(Running, transform.position, transform.rotation);
+            //Debug.Log("Im Running");
+            GameObject _step = Instantiate(Running, transform.position, transform.rotation);
+            //Instantiate(Running, transform.position, transform.rotation);
         }
+        #region TRIGGER
+        /*public void WalkStep()
+        {
+            walk?.Invoke();
+        }
+        public void RunStep()
+        {
+            run?.Invoke();
+        }*/
+        #endregion
     }
 }
 

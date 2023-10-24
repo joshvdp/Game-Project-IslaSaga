@@ -9,11 +9,9 @@ namespace AudioSoundEvents
     {
         public delegate void attackEvent();
         public static attackEvent attackEvent1, attackEvent2, attackEvent3, attackEvent4;
-
-
         public GameObject sound1, sound2, sound3, sound4;
 
-        private PlayerMonoStateMachine hit;
+        private AttackingSFX Sound;
 
         private void OnEnable()
         {
@@ -31,27 +29,27 @@ namespace AudioSoundEvents
         }
         private void Start()
         {
-            hit = GetComponent<PlayerMonoStateMachine>();
+            Sound = GetComponent<AttackingSFX>();
         }
         private void Attack1()
         {
             //Debug.Log("Attack 1");
-            GameObject hit = Instantiate(sound1, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(sound1, transform.position, transform.rotation);
         }
         private void Attack2()
         {
             //Debug.Log("Attack 2");
-            GameObject hit = Instantiate(sound2, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(sound2, transform.position, transform.rotation);
         }
         private void Attack3()
         {
             //Debug.Log("Attack 3");
-            GameObject hit = Instantiate(sound3, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(sound3, transform.position, transform.rotation);
         }
         private void Attack4()
         {
             //Debug.Log("SPIN");
-            GameObject hit = Instantiate(sound4, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(sound4, transform.position, transform.rotation);
         }
     }
 }

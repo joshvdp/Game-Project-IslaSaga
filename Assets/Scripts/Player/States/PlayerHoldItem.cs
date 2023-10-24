@@ -48,7 +48,6 @@ namespace StateMachine.Player.State
             //ItemBeingHeld.transform.position = Vector3.Lerp(ItemBeingHeld.transform.position, machine.ItemHoldPosition.position, ItemFollowSpeed * Time.deltaTime);
             Vector3 Direction = machine.ItemHoldPosition.position - machine.ItemPickedUpRb.transform.position;
             float Distance = Direction.magnitude;
-            Debug.Log(Distance);
             machine.ItemPickedUpRb.rotation = machine.transform.rotation;
             machine.ItemPickedUpRb.velocity = Direction * ItemFollowSpeed * 2;
         }

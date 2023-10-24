@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using Interface;
+using InterfaceAndInheritables;
 using Enemy.AI;
 using VFX;
 using SoundFX;

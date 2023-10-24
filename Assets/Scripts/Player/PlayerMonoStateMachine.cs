@@ -6,7 +6,7 @@ using System;
 using NaughtyAttributes;
 using Player.Controls;
 using Core;
-using Interface;
+using InterfaceAndInheritables;
 using Player;
 using AudioSoundEvents;
 namespace StateMachine.Player
@@ -275,10 +275,10 @@ namespace StateMachine.Player
         #region CONNECTED VARIABLES
         [SerializeField, Foldout("Variables")] public PlayerStats PlayerStatsSCO;
         
-        public void UpdatePlayerStatsSCO()
-        {
-            PlayerStatsSCO.PlayerCurrentHealth = HpComponent.CurrentHealth;
-        }
+        //public void UpdatePlayerStatsSCO()
+        //{
+        //    PlayerStatsSCO.PlayerCurrentHealth = HpComponent.CurrentHealth;
+        //}
 
         #endregion
 

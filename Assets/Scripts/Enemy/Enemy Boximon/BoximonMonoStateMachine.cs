@@ -34,6 +34,7 @@ public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, B
     public override void Awake()
     {
         base.Awake();
+        transform.parent = GameObject.FindWithTag("Enemy Container").transform;
     }
     public override void Update()
     {

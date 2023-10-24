@@ -31,23 +31,13 @@ namespace Puzzle
         }
         private void Update()
         {
-
-            GateRenderer.material.color = AllPlatesPressed ? Color.green : Color.red;
-
             CheckPressedPressurePlates();
         }
 
         void DoAction()
         {
-            if (MustOpen)
-            {
-                GoToStartingPosition();
-            }
-
-            if (MustDisappear)
-            {
-                Disappear();
-            }
+            if (MustOpen && Vector3.Distance(transform.localPosition, OpenPosition) > 0) GoToStartingPosition();
+            if (MustDisappear) Disappear();
         }
 
         public void CheckPressedPressurePlates()
@@ -68,25 +58,18 @@ namespace Puzzle
             else
             {
                 Appear();
-                GoToOpenPosition();
+                if (Vector3.Distance(transform.localPosition, StartingPosition) > 0) GoToOpenPosition();
             }
         }
 
         void GoToOpenPosition()
         {
-            if (Vector3.Distance(transform.localPosition, StartingPosition) > 0)
-            {
-                transform.localPosition += (StartingPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
-                Debug.Log("Open");
-            }
+            transform.localPosition += (StartingPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
         }
 
         void GoToStartingPosition()
         {
-            if (Vector3.Distance(transform.localPosition, OpenPosition) > 0)
-            {
-                transform.localPosition += (OpenPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
-            }
+            transform.localPosition += (OpenPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
         }
 
         void Disappear()
