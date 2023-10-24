@@ -71,11 +71,12 @@ namespace StateMachine.Player
             CurrentState.StateFixedUpdate();
             
         }
+
+        
         public override void SetState(PlayerMachineData newState)
         {
             if (newState == null || !newState.IsUnlocked)
                 return;
-
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
             //Debug.Log("State is now " + CurrentState.Data.name);
@@ -213,6 +214,9 @@ namespace StateMachine.Player
         }
 
         public void MoveHorizontal(float speed) => PlayerRb.velocity = new Vector3(MoveVelocityInputs.x * speed, PlayerRb.velocity.y, MoveVelocityInputs.z * speed);
+
+        public void StopMovement() => PlayerRb.velocity = Vector3.zero;
+
         #endregion
         #region ATTACK VARIABLES
 

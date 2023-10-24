@@ -4109,7 +4109,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 942079
+    m_Bits: 1990655
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -6434,14 +6434,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1010506759253207997, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: NavigatableAreas.m_Bits
-      value: 264127
-      objectReference: {fileID: 0}
-    - target: {fileID: 1166125374077770929, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6490,6 +6482,10 @@ PrefabInstance:
       propertyPath: sound1
       value: 
       objectReference: {fileID: 1778013744758415580, guid: ab61a42026a0895448d93c712381b97a, type: 3}
+    - target: {fileID: 2882495442577339762, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3873750573651617882, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6498,10 +6494,6 @@ PrefabInstance:
       propertyPath: AnimationEvent.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1000832639}
-    - target: {fileID: 7968785508490599268, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: AnimationEvent.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Attack1
-      objectReference: {fileID: 0}
     - target: {fileID: 7974070265976076083, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: PlatformType
       value: 0
@@ -7602,6 +7594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1724242914}
     m_Modifications:
+    - target: {fileID: 60223125414957083, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 579413742899389848, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.6710183
