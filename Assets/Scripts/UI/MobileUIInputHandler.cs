@@ -17,7 +17,6 @@ namespace Mobile
         private PlayerInputs _playerInput;
         public PlayerInputs PlayerInput => _playerInput ? _playerInput : FindObjectOfType<PlayerInputs>();
 
-        public Button SprintButton;
         private void Awake()
         {
             FindObjectOfType<PlayerMonoStateMachine>().MobileJoystick = Joystick;
@@ -52,6 +51,10 @@ namespace Mobile
             if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnNoShieldInput?.Invoke();
         }
 
+        public void InvokeJump()
+        {
+            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnJumpInput?.Invoke();
+        }
 
     }
 }

@@ -44,6 +44,8 @@ namespace InterfaceAndInheritables
         Rigidbody rb { get; set; }
         float Speed { get; set; }
         float Damage { get; set; }
+
+        float ArmorPenetrationPercent { get; set; }
     }
     public abstract class Shield: MonoBehaviour
     {

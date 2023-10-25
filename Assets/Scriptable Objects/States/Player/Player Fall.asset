@@ -9,14 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b462a17f3f485c043af1c3bb177f55ba, type: 3}
-  m_Name: Player Death
+  m_Script: {fileID: 11500000, guid: 437a730930367e6449cebe383178ad06, type: 3}
+  m_Name: Player Fall
   m_EditorClassIdentifier: 
-  StateName: Death
-  AnimationTrigger: Death
+  StateName: Falling
+  AnimationTrigger: Falling
   animationSpeed: 1
   isUnlocked: 1
-  isDamageable: 0
-  isKnockbackable: 0
+  isDamageable: 1
+  isKnockbackable: 1
   materialColor: {r: 1, g: 1, b: 1, a: 1}
-  statesToChangeTo: []
+  statesToChangeTo:
+  - state: {fileID: 11400000, guid: 36dfccf13db98564db01c34f24f7ff3e, type: 2}
+    eventsToListen: 11000000
+  speed: 100

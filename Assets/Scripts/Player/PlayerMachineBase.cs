@@ -58,10 +58,8 @@ namespace StateMachine.Player
 
         public override void Discard()
         {
-            if (!string.IsNullOrEmpty(AnimTrigger))
-                machine.Animator.ResetTrigger(AnimTrigger);
-            foreach (var state in _changeStates)
-                state.RemoveListeners();
+            if (!string.IsNullOrEmpty(AnimTrigger)) machine.Animator.ResetTrigger(AnimTrigger);
+            foreach (var state in _changeStates) state.RemoveListeners();
         }
 
         public override void StateUpdate()
@@ -103,7 +101,6 @@ namespace StateMachine.Player
         private void AddListener(PlayerChangeEventsToListen typeOfEvent)
         {
             isDoneWithStart = false;
-
 
             switch (typeOfEvent)
             {
@@ -152,20 +149,24 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_NO_SHIELD_INPUT:
                     machine.PlayerInputs.OnNoShieldInput += SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_JUMP_INPUT:
+                    machine.PlayerInputs.OnJumpInput += SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_FALLING:
+                    machine.OnFalling += SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_LANDED:
+                    machine.OnLanded += SetState;
+                    break;
             }
-
             isDoneWithStart = true;
         }
 
         public void RemoveListeners()
         {
-            if (CheckIfEventsToListenIsEmpty())
-                return;
-            foreach (var routine in routines)
-                machine.StopCoroutine(routine);
-
-            foreach (PlayerChangeEventsToListen typeOfEvent in eventsToListen)
-                RemoveListener(typeOfEvent);
+            if (CheckIfEventsToListenIsEmpty()) return;
+            foreach (var routine in routines) machine.StopCoroutine(routine);
+            foreach (PlayerChangeEventsToListen typeOfEvent in eventsToListen) RemoveListener(typeOfEvent);
         }
         private void RemoveListener(PlayerChangeEventsToListen typeOfEvent)
         {
@@ -216,7 +217,17 @@ namespace StateMachine.Player
                 case PlayerChangeEventsToListen.ON_NO_SHIELD_INPUT:
                     machine.PlayerInputs.OnNoShieldInput -= SetState;
                     break;
+                case PlayerChangeEventsToListen.ON_JUMP_INPUT:
+                    machine.PlayerInputs.OnJumpInput -= SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_FALLING:
+                    machine.OnFalling -= SetState;
+                    break;
+                case PlayerChangeEventsToListen.ON_LANDED:
+                    machine.OnLanded -= SetState;
+                    break;
             }
+
         }
         private bool CheckIfEventsToListenIsEmpty()
         {
@@ -229,10 +240,7 @@ namespace StateMachine.Player
             return false;
         }
 
-        private void SetState()
-        {
-            machine.SetState(state);
-        }
+        private void SetState() => machine.SetState(state);
 
         private IEnumerator CheckFor(Func<bool> action)
         {
@@ -262,6 +270,9 @@ namespace StateMachine.Player
         ON_PICKUP_INPUT,
         ON_ENDSTATE_CALLED,
         ON_SHIELD_INPUT,
-        ON_NO_SHIELD_INPUT
+        ON_NO_SHIELD_INPUT,
+        ON_JUMP_INPUT,
+        ON_FALLING,
+        ON_LANDED
     }
 }

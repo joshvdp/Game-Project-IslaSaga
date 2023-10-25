@@ -40,7 +40,8 @@ namespace StateMachine.Player
 
         public Action OnNoMoveInput;
         public Action OnEndstate;
-        
+        public Action OnFalling;
+        public Action OnLanded;
         private void OnEnable()
         {
             PlayerInputs.OnPickupInput += CheckIfThereIsPickupable;
@@ -62,6 +63,7 @@ namespace StateMachine.Player
             CurrentState.StateUpdate();
             CalculateMoveInputs();
             SlopeHandler();
+            DetectIfFalling();
 
         }
         public override void FixedUpdate()
@@ -69,11 +71,12 @@ namespace StateMachine.Player
             CurrentState.StateFixedUpdate();
             
         }
+
+        
         public override void SetState(PlayerMachineData newState)
         {
             if (newState == null || !newState.IsUnlocked)
                 return;
-
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
             //Debug.Log("State is now " + CurrentState.Data.name);
@@ -113,15 +116,28 @@ namespace StateMachine.Player
         float HorizontalMove;
         float VerticalMove;
         Transform PlayerCamTransform => Camera.main.transform;
+        void DetectIfFalling()
+        {
+            if (PlayerRb.velocity.y < -0.5f) OnFalling?.Invoke();
+        }
         void SimulateGravity() => PlayerRb.velocity += Vector3.up * -9.81f * Time.fixedDeltaTime;
         void SlopeHandler()
         {
             RaycastHit hit;
-            if (Physics.Raycast(FeetRayStart.position, -Vector3.up, out hit, NavigatableAreas))
+            Ray ray = new Ray(FeetRayStart.position, -Vector3.up);
+            Debug.DrawRay(FeetRayStart.position, -Vector3.up , Color.red);
+
+            if (Physics.Raycast(ray, out hit, 1f, NavigatableAreas))
             {
-                if (hit.point.y == transform.position.y) return;
+                float HitPointYRounded = Mathf.Round(hit.point.y * 10.0f) * 0.1f;
+                float PositionYRounded = Mathf.Round(transform.position.y * 10.0f) * 0.1f;
+
+                
+                if (HitPointYRounded == PositionYRounded) return; // This line is bugged. makes me angy >:[
+                Debug.Log(HitPointYRounded == PositionYRounded); // Had to add this to fix the line above. If you try to remove this, you will experience an issue with jumping
                 PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+                OnLanded?.Invoke();
             }
             else
             {
@@ -198,6 +214,9 @@ namespace StateMachine.Player
         }
 
         public void MoveHorizontal(float speed) => PlayerRb.velocity = new Vector3(MoveVelocityInputs.x * speed, PlayerRb.velocity.y, MoveVelocityInputs.z * speed);
+
+        public void StopMovement() => PlayerRb.velocity = Vector3.zero;
+
         #endregion
         #region ATTACK VARIABLES
 

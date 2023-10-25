@@ -9,14 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b462a17f3f485c043af1c3bb177f55ba, type: 3}
-  m_Name: Player Death
+  m_Script: {fileID: 11500000, guid: 9fb853e52e409404aace71550f5d232a, type: 3}
+  m_Name: Player Jump
   m_EditorClassIdentifier: 
-  StateName: Death
-  AnimationTrigger: Death
+  StateName: Jump
+  AnimationTrigger: Jump
   animationSpeed: 1
   isUnlocked: 1
-  isDamageable: 0
-  isKnockbackable: 0
+  isDamageable: 1
+  isKnockbackable: 1
   materialColor: {r: 1, g: 1, b: 1, a: 1}
-  statesToChangeTo: []
+  statesToChangeTo:
+  - state: {fileID: 11400000, guid: f6838b0dcd8844146873aaab329821b6, type: 2}
+    eventsToListen: 10000000
+  jumpPower: 20

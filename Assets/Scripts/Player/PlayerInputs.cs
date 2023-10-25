@@ -17,10 +17,15 @@ namespace Player.Controls
         public Action OnSprintInput;
         public Action OnNoSprintInput;
 
+        public Action OnJumpInput;
+        public Action OnNoJumpInput;
+
         public Action OnAttackOneInput;
 
         public Action OnShieldInput;
         public Action OnNoShieldInput;
+
+        
 
         public Action AttackOne;
         public Action AttackTwo;
@@ -62,6 +67,9 @@ namespace Player.Controls
             if (Input.GetKey(Controls.RightKey)) OnMoveInput?.Invoke();
             if (Input.GetKey(Controls.SprintKey)) OnSprintInput?.Invoke();
             else if (!Input.GetKey(Controls.SprintKey)) OnNoSprintInput?.Invoke();
+
+            if (Input.GetKeyDown(Controls.JumpKey)) OnJumpInput?.Invoke();
+
         }
         private void PCAttackInputs()
         {

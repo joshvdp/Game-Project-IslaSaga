@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403704971085244903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.153, z: 0}
+  m_LocalPosition: {x: -0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1460,7 +1460,7 @@ MonoBehaviour:
   ItemHoldPosition: {fileID: 5840287785806680981}
   NavigatableAreas:
     serializedVersion: 2
-    m_Bits: 1983
+    m_Bits: 264127
   MainRenderers:
   - {fileID: 6401315363645517814}
   - {fileID: 801095140295668860}
@@ -1514,19 +1514,7 @@ MonoBehaviour:
   DroppableObjects: []
   onHit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1010506759253207997}
-        m_TargetAssemblyTypeName: StateMachine.Player.PlayerMonoStateMachine, Assembly-CSharp
-        m_MethodName: UpdatePlayerStatsSCO
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   <onDeath>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1820,7 +1808,7 @@ GameObject:
   - component: {fileID: 6157436640251683616}
   - component: {fileID: 6187788090558015262}
   - component: {fileID: 7249083247994927048}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Range of Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
