@@ -29,13 +29,13 @@ namespace Puzzle
         }
         private void OnTriggerEnter(Collider other)
         {
-            GlobalSFX.onEnter?.Invoke();
+            //SFX
             if (other.tag == "Player" || other.tag == "Moveable") ObjectsOnTop++;
         }
 
         private void OnTriggerExit(Collider other)
         {
-            GlobalSFX.onExit?.Invoke();
+            //SFX
             if (other.tag == "Player" || other.tag == "Moveable") ObjectsOnTop--;
         }
 

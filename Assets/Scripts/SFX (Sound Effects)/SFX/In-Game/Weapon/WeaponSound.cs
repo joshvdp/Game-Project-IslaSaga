@@ -11,7 +11,7 @@ namespace AudioSoundEvents
         public static attackEvent attackEvent1, attackEvent2, attackEvent3, attackEvent4;
         public GameObject sound1, sound2, sound3, sound4;
 
-        private AttackingSFX Sound;
+        private PlayerSound Sound;
 
         private void OnEnable()
         {
@@ -29,7 +29,7 @@ namespace AudioSoundEvents
         }
         private void Start()
         {
-            Sound = GetComponent<AttackingSFX>();
+            Sound = GetComponent<PlayerSound>();
         }
         private void Attack1()
         {

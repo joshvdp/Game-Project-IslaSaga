@@ -9,14 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6608548530803927894}
-  - component: {fileID: 1276417272034229722}
   m_Layer: 15
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6608548530803927894
 Transform:
   m_ObjectHideFlags: 0
@@ -32,18 +31,6 @@ Transform:
   m_Father: {fileID: 8525030464464477469}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1276417272034229722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230691990907403082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b62a2569e148f34ab20840039efe113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1382027319827541607
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,16 +40,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8525030464464477469}
-  - component: {fileID: 3882698731086599755}
-  - component: {fileID: 854547583181549667}
   - component: {fileID: 5654577354263222709}
+  - component: {fileID: 50338143593997494}
   m_Layer: 15
   m_Name: GlobalSFX
   m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8525030464464477469
 Transform:
   m_ObjectHideFlags: 0
@@ -78,38 +64,8 @@ Transform:
   - {fileID: 6533576193053531318}
   - {fileID: 6608548530803927894}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3882698731086599755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382027319827541607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25cf1be4bb27584cbe5fce40323e73c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PressurePlate0: {fileID: 1778013744758415580, guid: 727dcfa9d2f82c4499ae3cb9891e3955, type: 3}
-  PressurePlate1: {fileID: 1778013744758415580, guid: 8a34eb33e855a5445a616dd909288911, type: 3}
-  Gate0: {fileID: 1778013744758415580, guid: e93954c686753254bac9f50028e5ec4d, type: 3}
-  Gate1: {fileID: 1778013744758415580, guid: e0d317b7f7616d845af72c2a51d91cae, type: 3}
---- !u!114 &854547583181549667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382027319827541607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e28c44323fd48c54c86d99d04eb9b0b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 3260757111137045650}
-  Track1: {fileID: 8300000, guid: acd634006e9d6ed4f89c736924b0d553, type: 3}
 --- !u!82 &5654577354263222709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -119,12 +75,12 @@ AudioSource:
   m_GameObject: {fileID: 1382027319827541607}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1651728233428882896, guid: aa60b60f7d48b294bb49a2e8b86fadbe, type: 2}
+  m_audioClip: {fileID: 8300000, guid: fe0ab0466a16a174787af39723142a84, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -206,6 +162,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &50338143593997494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382027319827541607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5217089c175e4ce41ab96bce164ae56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Music: {fileID: 0}
+  SFX: {fileID: 0}
+  FootSteps: {fileID: 0}
+  music1: {fileID: 0}
+  music2: {fileID: 0}
+  FootStep: {fileID: 0}
+  Grunt: {fileID: 0}
+  Death: {fileID: 0}
+  Jump: {fileID: 0}
+  Landed: {fileID: 0}
 --- !u!1 &4588598883841673371
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6533576193053531318
 Transform:
   m_ObjectHideFlags: 0
@@ -324,7 +302,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

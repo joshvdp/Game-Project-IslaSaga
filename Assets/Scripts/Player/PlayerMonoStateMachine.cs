@@ -83,29 +83,6 @@ namespace StateMachine.Player
             //soundUpdate();
         }
         
-
-        #region SOUND EVENTS
-        /*public void soundUpdate()
-        {
-            if (CurrentState.Data.name == "Player Attack 1")
-            {
-                WeaponSound.attackEvent1?.Invoke();
-            }
-            if (CurrentState.Data.name == "Player Attack 2")
-            {
-                WeaponSound.attackEvent2?.Invoke();
-            }
-            if (CurrentState.Data.name == "Player Attack 3")
-            {
-                WeaponSound.attackEvent3?.Invoke();
-            }
-            if (CurrentState.Data.name == "Player Spin Attack")
-            {
-                WeaponSound.attackEvent4?.Invoke();
-            }
-        }*/
-
-        #endregion
         #region PLAYER MOVEMENT FUNCTIONS
         [SerializeField, Foldout("Movement")] public ControlBindings PCControls;
 
