@@ -8,10 +8,17 @@ public class AnimationEvents : MonoBehaviour
 {
     public List<UnityEventWithName> AnimationEvent;
 
-    public void CallEvent(string eventName) =>
-                FindEvent(eventName)?.Invoke();
+    public void CallEvent(string eventName) => FindEvent(eventName)?.Invoke();
 
-    public UnityEvent FindEvent(string eventName) => AnimationEvent.Find(_ => _.myName == eventName).unityEvent;
+    public UnityEvent FindEvent(string eventName)
+    {
+        if (AnimationEvent.Find(_ => _.myName == eventName) != null) return AnimationEvent.Find(_ => _.myName == eventName).unityEvent;
+        else
+        {
+            Debug.Log("NO EVENT WITH THE NAME " + eventName +" FOUND IN THE ANIMATION EVENTS");
+            return null;
+        }
+    }
 }
 
 [Serializable]
