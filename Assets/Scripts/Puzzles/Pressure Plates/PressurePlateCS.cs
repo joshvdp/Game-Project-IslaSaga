@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Puzzle;
 using AudioSoundEvents; 
+using UnityEngine.Events;
 namespace Puzzle
 {
     public class PressurePlateCS : MonoBehaviour
@@ -22,6 +23,7 @@ namespace Puzzle
         [SerializeField] float MaxYDownDistance;
         public bool IsPressed => transform.localPosition.y <= MaxYDownDistance;
         public bool EventFired = false;
+        public UnityEvent Activated, Deactivated;
         void Start()
         {
             MaxYDownDistance = transform.localPosition.y - MaxYDownDistance;
@@ -29,13 +31,13 @@ namespace Puzzle
         }
         private void OnTriggerEnter(Collider other)
         {
-            //SFX
+            Activated.Invoke();
             if (other.tag == "Player" || other.tag == "Moveable") ObjectsOnTop++;
         }
 
         private void OnTriggerExit(Collider other)
         {
-            //SFX
+            Deactivated.Invoke();
             if (other.tag == "Player" || other.tag == "Moveable") ObjectsOnTop--;
         }
 

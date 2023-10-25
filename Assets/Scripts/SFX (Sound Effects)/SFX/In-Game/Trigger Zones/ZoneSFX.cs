@@ -1,60 +1,30 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class MusicController : MonoBehaviour
+namespace AudioSoundEvents
 {
-    public AudioSource CurrentMusic;
-    public AudioSource NextMusic;
-    public float fadeTime = 2f;
-
-    private void Start()
+    public class ZoneSFX : MonoBehaviour
     {
-        CurrentMusic.Play();
-    }
+        public AudioClip newTrack;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        private void OnTriggerEnter(Collider other)
         {
-            StartCoroutine(FadeOut(CurrentMusic, fadeTime));
-            StartCoroutine(FadeIn(NextMusic, fadeTime));
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(FadeOut(NextMusic, fadeTime));
-            StartCoroutine(FadeIn(CurrentMusic, fadeTime));
-        }
-    }
-
-    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
-    {
-        float startVolume = audioSource.volume;
-
-        while (audioSource.volume > 0)
-        {
-            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
-            yield return null;
+            if (other.CompareTag("Player"))
+            {
+                BGMusic.instance.SwapTrack(newTrack);
+            }
         }
 
-        audioSource.Stop();
-        audioSource.volume = startVolume;
-    }
-
-    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
-    {
-        float endVolume = audioSource.volume;
-        audioSource.volume = 0;
-        audioSource.Play();
-
-        while (audioSource.volume < endVolume)
+        private void OnTriggerExit(Collider other)
         {
-            audioSource.volume += endVolume * Time.deltaTime / FadeTime;
-            yield return null;
+            if (other.CompareTag("Player"))
+            {
+                BGMusic.instance.ReturnToDefault();
+            }
         }
     }
 }
