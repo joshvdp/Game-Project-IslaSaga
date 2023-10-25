@@ -1,35 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Interface;
+using InterfaceAndInheritables;
 
 namespace Items.Weapon
 {
     public class AmethystSwordCS : MonoBehaviour, IWeapon
     {
         [SerializeField] float WeaponDamage;
+        [SerializeField] float WeaponSequenceResetTime;
+        public DamageType WeaponDamageType { get; set; }
         public float Damage { get {return WeaponDamage;} set {WeaponDamage = value; } }
 
-        private void OnEnable()
-        {
-            PlayerAnimEvents.OnWeaponAttack += Attack;
-        }
-        private void OnDisable()
-        {
-            PlayerAnimEvents.OnWeaponAttack -= Attack;
-        }
-        public void Attack(List<GameObject> Targets, int Sequence)
-        {
+        public float SequenceResetTime { get => WeaponSequenceResetTime; set { WeaponSequenceResetTime = value; } }
 
-            for (int i = 0; i < Targets.Count; i++)
-            {
-                 if (Targets[i].gameObject != null)
-                {
-                    IDamageable EnemyHp = Targets[i].GetComponent<IDamageable>();
-                    if (EnemyHp != null) EnemyHp.Hit(Damage);
-                } 
-            }
-            
-           
+        
+        public void Attack()
+        {
+            Debug.Log("Attacking");
+        }
+
+        public GameObject GetGameobject()
+        {
+            return gameObject;
         }
     }
 }
