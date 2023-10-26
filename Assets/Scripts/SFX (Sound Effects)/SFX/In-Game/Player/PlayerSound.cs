@@ -2,51 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AudioSoundEvents
 {
     public class PlayerSound : MonoBehaviour
     {
-        /*[Header("MIXER CATEGORY: ")]
-        [SerializeField] public AudioSource SFX;*/
-
+        [Header("MIXER CATEGORY: ")]
+        [SerializeField] public AudioSource SFX;
+        //public UnityEvent SoundBite;
+        
         #region PLAYER
 
-        [Header("PLAYER: ")] 
+        [Header("PLAYER:")] 
         public GameObject FootStep;
-        public GameObject Grunt;
         public GameObject Death;
         public GameObject Jump;
         public GameObject Landed;
-
+        
         public void Moving()
         {
             Instantiate(FootStep, transform.position, transform.rotation);
         }
 
-        public void Grunting ()
-        {
-            //Instantiate(Grunt, transform.position, transform.rotation);
-            Debug.Log("ANGRY AS FCK");
-        }
-        
         public void Jumps ()
         {
-            //Instantiate(Jump, transform.position, transform.rotation);
-            Debug.Log("JUMP");
+            Instantiate(Jump, transform.position, transform.rotation);
+            //Debug.Log("JUMP");
+            Jumping();
         }
 
         public void Dies ()
         {
             //Instantiate(Death, transform.position, transform.rotation);
-            Debug.Log("NIGGA DIED");
+            Debug.Log("DEAD BODY THUD");
+            Dying();
         }
 
         public void Land()
         {
-            //Instantiate(Landed, transform.position, transform.rotation);
-            Debug.Log("NIGGA LANDED");
+            Instantiate(Landed, transform.position, transform.rotation);
+            //Debug.Log("LAND THUD");
+            Landing();
         }
+        
+        
 
         #endregion
 
@@ -67,6 +67,44 @@ namespace AudioSoundEvents
         public void Attack4()
         {
             WeaponSound.attackEvent4?.Invoke();
+        }
+
+        #endregion
+
+        #region PLAYER SOUND BITES
+        
+        [Header("PLAYER SOUND BITES:")]
+        public AudioClip TakeHit;
+        public GameObject Grunts;
+        public AudioClip LandOnGround;
+        public AudioClip Interacts;
+        public AudioClip JumpJump;
+        public AudioClip Dead;
+
+        public void Grunting ()
+        {
+            //SoundBite.Invoke();
+            Instantiate(Grunts, transform.position, transform.rotation);
+        }
+        public void Jumping ()
+        {
+            Debug.Log("Jump Voice");
+        }
+
+        public void Landing()
+        {
+            Debug.Log("Land Voice");
+            SFX.PlayOneShot(LandOnGround);
+        }
+
+        public void Dying()
+        {
+            Debug.Log("Death Voice");
+        }
+
+        public void Interact()
+        {
+            Debug.Log("Interact");
         }
 
         #endregion
