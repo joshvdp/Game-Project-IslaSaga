@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StateMachine.Player;
+using Manager;
+using UnityEngine.EventSystems;
+
 namespace Player.Controls
 {
     public enum PlatformType
@@ -13,6 +16,9 @@ namespace Player.Controls
     public class PlayerInputs : MonoBehaviour
     {
         public PlatformType PlatformType;
+        PlatformType PreviousPlatformType;
+
+
         public Action OnMoveInput;
         public Action OnSprintInput;
         public Action OnNoSprintInput;
@@ -33,13 +39,15 @@ namespace Player.Controls
         public Action SpinAttack;
 
         public Action OnPickupInput;
+
         PlayerMonoStateMachine machine => GetComponent<PlayerMonoStateMachine>();
 
         public ControlBindings Controls;
 
-        
+        [SerializeField] bool ShowClickcastObjects;
         private void Update()
         {
+            CheckIfChangedPlatformType();
             ListenToInputs();
         }
 
@@ -48,6 +56,7 @@ namespace Player.Controls
             switch (PlatformType)
             {
                 case PlatformType.PC:
+                    
                     PCMoveInputs();
                     PCAttackInputs();
                     PCInteractionInputs();
@@ -57,7 +66,16 @@ namespace Player.Controls
                     break;
             }
         }
-
+        void CheckIfChangedPlatformType()
+        {
+            if(PlatformType != PreviousPlatformType)
+            {
+                Debug.Log("CHANGED PLATFORM TYPE");
+                if (PlatformType == PlatformType.PC) GlobalEvents.Instance.CallEvent("On Change Platform Type PC", this.GetType().ToString());
+                if (PlatformType == PlatformType.Mobile) GlobalEvents.Instance.CallEvent("On Change Platform Type Mobile", this.GetType().ToString());
+                PreviousPlatformType = PlatformType;
+            }
+        }
         #region PC Inputs
         void PCMoveInputs()
         {
@@ -69,10 +87,18 @@ namespace Player.Controls
             else if (!Input.GetKey(Controls.SprintKey)) OnNoSprintInput?.Invoke();
 
             if (Input.GetKeyDown(Controls.JumpKey)) OnJumpInput?.Invoke();
+            if (Input.GetKeyDown(Controls.InventoryKey)) UIManager.Instance.ToggleScreen("Inventory");
+
 
         }
         private void PCAttackInputs()
         {
+            if (Input.GetKeyDown(Controls.Attack1Key) && ShowClickcastObjects)
+            {
+                GetClickcastObjects(); // FOR DEBUGGING.
+                Debug.Log(IsMouseOverUI());
+            }
+            if (IsMouseOverUI()) return;
             if (Input.GetKeyDown(Controls.Attack1Key)) OnAttackOneInput?.Invoke();
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 0) AttackOne?.Invoke();
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 1) AttackTwo?.Invoke();
@@ -88,7 +114,25 @@ namespace Player.Controls
             if (Input.GetKeyDown(Controls.PickUpKey)) OnPickupInput?.Invoke();
         }
         #endregion
+        #region Mouse Data
+        bool IsMouseOverUI()
+        {
+            if (EventSystem.current) return EventSystem.current.IsPointerOverGameObject();
+            else return false;
+        }
 
+        void GetClickcastObjects()
+        {
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            for (int i = 0; i < results.Count; i++)
+            {
+                Debug.Log(results[i].gameObject.name);
+            }
+        }
+        #endregion
         #region Mobile Inputs
         void MobileMoveInputs()
         {

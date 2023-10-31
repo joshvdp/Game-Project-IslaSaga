@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using NaughtyAttributes;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class SceneLoader : MonoBehaviour
 
     public static SceneLoader Instance;
 
-    public Texture BGOfLoadingScreen;
-    public string NextSceneToLoad;
+
+    [SerializeField, Foldout("Next Scene Variables")] public Texture BGOfLoadingScreen;
+    [SerializeField, Foldout("Next Scene Variables")] public string NextSceneToLoad;
+    [SerializeField, Foldout("Next Scene Variables")] public LightingSettings NextSceneLightingSettings;
+
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(this);

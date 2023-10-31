@@ -9,6 +9,7 @@ using Core;
 using InterfaceAndInheritables;
 using Player;
 using AudioSoundEvents;
+using UnityEngine.EventSystems;
 namespace StateMachine.Player
 {
     [RequireComponent(typeof(PlayerInputs))]

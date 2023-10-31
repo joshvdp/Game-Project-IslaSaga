@@ -4,29 +4,34 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Manager;
+using UnityEditor;
+using NaughtyAttributes;
 public class LoadingSceneHandler : MonoBehaviour
 {
-    public string SceneToLoad;
-    public Texture BackgroundImage;
+    [SerializeField, Foldout("Referencing")] public Animator CanvasAnimator;
+    [SerializeField, Foldout("Referencing")] public RawImage BackgroundVariable;
+    [SerializeField, Foldout("Referencing")] public Slider LoadingBar;
 
+    [SerializeField, Foldout("Next Scene Variables")] public string SceneToLoad;
+    [SerializeField, Foldout("Next Scene Variables")] public Texture BackgroundImage;
+    [SerializeField, Foldout("Next Scene Variables")] public LightingSettings LightingSettingOfNextScene;
 
-    public Animator CanvasAnimator;
-    public RawImage BackgroundVariable;
-    public Slider LoadingBar;
+   
     private void Start()
     {
-        
-
+        LightingSettingOfNextScene = SceneLoader.Instance?.NextSceneLightingSettings;
         BackgroundImage = SceneLoader.Instance?.BGOfLoadingScreen;
+
         SceneToLoad = SceneLoader.Instance? SceneLoader.Instance?.NextSceneToLoad : SceneToLoad ;
+
         BackgroundVariable.color = BackgroundImage != null? Color.white : Color.black ;
         if (BackgroundImage != null) BackgroundVariable.texture = BackgroundImage;
     }
     public void LoadNextSceneAsync()
     {
         SceneLoader.Instance?.UnloadThisScene();
-
         StartCoroutine(LoadSceneAsync(SceneToLoad));
+        if (LightingSettingOfNextScene != null) Lightmapping.lightingSettings = LightingSettingOfNextScene;
     }
     public void UnloadThisScene() => SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Loading Screen").buildIndex);
 

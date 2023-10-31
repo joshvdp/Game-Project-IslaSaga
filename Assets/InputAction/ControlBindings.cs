@@ -24,6 +24,8 @@ namespace Player.Controls
 
         public KeyCode CameraRotateKey;
 
+        public KeyCode InventoryKey;
+
     }
 }
 
