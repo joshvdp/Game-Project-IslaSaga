@@ -860,7 +860,7 @@ BoxCollider:
     m_Bits: 524544
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2097152
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -1358,6 +1358,7 @@ GameObject:
   - component: {fileID: 1010506759253207997}
   - component: {fileID: 7974070265976076083}
   - component: {fileID: 1141879445611857941}
+  - component: {fileID: 7636897181315624750}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1540,6 +1541,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7636897181315624750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873750573651617882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3882624999bcb4eabc968e20959425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  ItemRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  InventoryItems: []
 --- !u!1 &3908013188453867346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1721,7 @@ BoxCollider:
     m_Bits: 262272
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 786303
+    m_Bits: 3932031
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -1802,7 +1822,7 @@ SphereCollider:
     m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 32639
+    m_Bits: 3932031
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -2084,7 +2104,7 @@ BoxCollider:
     m_Bits: 262272
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 786303
+    m_Bits: 3932031
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -2414,7 +2434,7 @@ BoxCollider:
     m_Bits: 262272
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 786303
+    m_Bits: 3932031
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -3148,7 +3168,7 @@ BoxCollider:
     m_Bits: 1024
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 15359
+    m_Bits: 4193279
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -3518,7 +3538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3847,7 +3867,7 @@ CapsuleCollider:
     m_Bits: 262272
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 786303
+    m_Bits: 3932031
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

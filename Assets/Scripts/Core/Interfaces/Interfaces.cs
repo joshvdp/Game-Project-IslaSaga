@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using Items;
 namespace InterfaceAndInheritables
 {
     public enum DamageType
@@ -59,5 +60,24 @@ namespace InterfaceAndInheritables
     {
         public GameObject ItemToDrop;
         public float Probability;
+    }
+
+    //public abstract class Pickupable: MonoBehaviour
+    //{
+    //    public Rigidbody rb => GetComponent<Rigidbody>();
+    //    public InventoryItem ItemData;
+    //}
+
+    public abstract class Consumable : MonoBehaviour
+    {
+        private void OnEnable()
+        {
+            transform.parent.GetComponent<PlayerInventorySlot>().OnUseItemOnSlot += UseConsumable;
+        }
+        private void OnDisable()
+        {
+            transform.parent.GetComponent<PlayerInventorySlot>().OnUseItemOnSlot -= UseConsumable;
+        }
+        public abstract void UseConsumable();
     }
 }
