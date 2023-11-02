@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,30 +17,14 @@ namespace AudioSoundEvents
         [Header("IN-GAME MUSIC: ")]
         public AudioClip music1;
         public AudioClip music2;
-        public void Awake()
+
+        public void Start()
         {
-            Music.clip = music1;
-            Music.Play();
+            
         }
 
         #endregion
-        #region PLAYER
-
-        [Header("PLAYER: ")] 
-        public AudioClip FootStep;
-        public AudioClip Grunt;
-        public AudioClip Death;
-        public AudioClip Jump;
-        public AudioClip Landed;
-
-        public void Moving()
-        {
-            FootSteps.PlayOneShot(FootStep);
-            Debug.Log("Im Walking");
-        }
-
-        #endregion
-
+        
         #region MAP
 
 
