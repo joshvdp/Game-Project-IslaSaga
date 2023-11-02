@@ -75,7 +75,7 @@ namespace AudioSoundEvents
         
         [Header("PLAYER SOUND BITES:")]
         public AudioClip TakeHit;
-        public GameObject Grunts;
+        public GameObject Attacking;
         public AudioClip LandOnGround;
         public AudioClip Interacts;
         public AudioClip JumpJump;
@@ -84,10 +84,11 @@ namespace AudioSoundEvents
         public void Grunting ()
         {
             //SoundBite.Invoke();
-            Instantiate(Grunts, transform.position, transform.rotation);
+            Instantiate(Attacking, transform.position, transform.rotation);
         }
         public void Jumping ()
         {
+            SFX.PlayOneShot(JumpJump);
             Debug.Log("Jump Voice");
         }
 

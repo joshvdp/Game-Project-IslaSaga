@@ -1491,6 +1491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlatformType: 1
   Controls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
+  ShowClickcastObjects: 0
 --- !u!114 &1141879445611857941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2650,7 +2651,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1751114433994594629}
           m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
-          m_MethodName: Grunting
+          m_MethodName: Jumping
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3973,10 +3974,10 @@ MonoBehaviour:
   Jump: {fileID: 4662542858705176037, guid: 4efae77043b55eb4591eec46b19ee536, type: 3}
   Landed: {fileID: 8880457467761822249, guid: 1a3b97b616221834c8f5e592c50df931, type: 3}
   TakeHit: {fileID: 0}
-  Grunts: {fileID: 1166513643418378258, guid: bad2dfac668db114d859c3647d075d54, type: 3}
-  LandOnGround: {fileID: 8300000, guid: 03e595d54569aca4d99a22a7f4ba61d7, type: 3}
+  Attacking: {fileID: 1166513643418378258, guid: bad2dfac668db114d859c3647d075d54, type: 3}
+  LandOnGround: {fileID: 8300000, guid: 742206e9804e2f144b2ca69cb4ee775a, type: 3}
   Interacts: {fileID: 0}
-  JumpJump: {fileID: 0}
+  JumpJump: {fileID: 8300000, guid: b602e5f0cf9da934f956fc2c8988034a, type: 3}
   Dead: {fileID: 0}
 --- !u!82 &6552253686750660321
 AudioSource:

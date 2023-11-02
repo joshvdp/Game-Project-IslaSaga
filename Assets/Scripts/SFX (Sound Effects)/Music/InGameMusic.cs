@@ -24,5 +24,4 @@ public class InGameMusic : MonoBehaviour
         NextMusic.Stop();
         CurrentMusic.Play();
     }
-    
 }
