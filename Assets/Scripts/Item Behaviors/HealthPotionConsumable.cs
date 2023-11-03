@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using InterfaceAndInheritables;
 using Manager;
-public class NormalHealthPotionConsumable : Consumable
+public class HealthPotionConsumable : Consumable
 {
     public float HealAmount;
     public override void UseConsumable()

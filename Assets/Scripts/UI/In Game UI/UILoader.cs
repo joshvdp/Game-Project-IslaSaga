@@ -19,11 +19,18 @@ namespace Manager
         }
         public void Start()
         {
+            if (IsUIAlreadyAdded()) return;
             loadUI();
         }
         public void loadUI()
         {
+
             SceneManager.LoadScene(2, LoadSceneMode.Additive);
+        }
+        bool IsUIAlreadyAdded()
+        {
+            if (SceneManager.GetSceneByName("InGameUI").isLoaded) return true;
+            else return false;
         }
         public void UnloadThisScene() => SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
