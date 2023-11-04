@@ -26,6 +26,7 @@ namespace InterfaceAndInheritables
         DamageType WeaponDamageType { get; set; }
         float Damage { get; set; }
         float SequenceResetTime { get; set; }
+        Quaternion WeaponRotation { get; set; }
         void Attack();
         GameObject GetGameobject();
     }
@@ -52,6 +53,7 @@ namespace InterfaceAndInheritables
     {
         public float DamageReduction;
         private void Awake() => GetComponent<Collider>().enabled = false;
+        public Quaternion ShieldRotation;
         public abstract void Block();
     }
 

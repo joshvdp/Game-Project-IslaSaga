@@ -198,8 +198,8 @@ namespace StateMachine.Player
         #endregion
         #region ATTACK VARIABLES
 
-        [SerializeField, Foldout("Combat")] public Transform WeaponHandPosition;
-        [SerializeField, Foldout("Combat")] public Transform ShieldHandPosition;
+        [SerializeField, Foldout("Combat")] public Transform WeaponHolderPosition;
+        [SerializeField, Foldout("Combat")] public Transform ShieldHolderPosition;
         [SerializeField, Foldout("Combat")] public GameObject WeaponOnHandGameObject;
         [SerializeField, Foldout("Combat")] public IWeapon WeaponOnHand;
         [SerializeField, Foldout("Combat")] public LayerMask ClickableArea;
@@ -225,13 +225,16 @@ namespace StateMachine.Player
 
         public void AssignWeaponAndOrShield()
         {
-            WeaponOnHand = WeaponHandPosition.GetComponentInChildren<IWeapon>();
-            ShieldCollider = ShieldHandPosition.GetComponentInChildren<Collider>();
+            WeaponOnHand = null;
+            WeaponOnHandGameObject = null;
 
-            WeaponOnHandGameObject = WeaponOnHand.GetGameobject();
+            WeaponOnHand = WeaponHolderPosition?.GetComponentInChildren<IWeapon>();
+            ShieldCollider = ShieldHolderPosition?.GetComponentInChildren<Collider>();
+            
+            WeaponOnHandGameObject = WeaponOnHand != null ? WeaponOnHand.GetGameobject() : null;
 
             CurrentWeaponDamage = WeaponOnHand == null ? 5f : WeaponOnHand.Damage;
-            CurrentWeaponDamageType = WeaponOnHand == null ? DamageType.MELEE : WeaponHandPosition.GetComponentInChildren<IWeapon>().WeaponDamageType;
+            CurrentWeaponDamageType = WeaponOnHand == null ? DamageType.MELEE : WeaponHolderPosition.GetComponentInChildren<IWeapon>().WeaponDamageType;
             CurrentWeaponSequenceResetTimer = WeaponOnHand == null ? 0.75f : WeaponOnHand.SequenceResetTime;
         }
         public void FaceDirectionOfMousePos()

@@ -4,14 +4,14 @@ using InterfaceAndInheritables;
 
 namespace Items.Weapon
 {
-    public class AmethystSwordCS : MonoBehaviour, IWeapon
+    public class Stick : MonoBehaviour, IWeapon
     {
         [SerializeField] float WeaponDamage;
         [SerializeField] float WeaponSequenceResetTime;
         [SerializeField] Quaternion WeaponRotationVar;
         [SerializeField] DamageType WeaponDmgType;
         public DamageType WeaponDamageType { get { return WeaponDmgType; } set { WeaponDmgType = value; } }
-        public float Damage { get {return WeaponDamage;} set {WeaponDamage = value; } }
+        public float Damage { get { return WeaponDamage; } set { WeaponDamage = value; } }
 
         public float SequenceResetTime { get => WeaponSequenceResetTime; set { WeaponSequenceResetTime = value; } }
 
@@ -24,5 +24,5 @@ namespace Items.Weapon
 
         public GameObject GetGameobject() => gameObject;
     }
-}
 
+}

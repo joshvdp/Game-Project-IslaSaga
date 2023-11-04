@@ -11,6 +11,9 @@ public class PlayerInventory : MonoBehaviour
 
     public List<InventoryItem> InventoryItems;
 
+    public PlayerInventorySlot WeaponSlot;
+    public PlayerInventorySlot ShieldSlot;
+
     public void AddItem(InventoryItem Item)
     {
         InventoryItems.Add(Item);
