@@ -10,7 +10,7 @@ namespace Story
     {
         float textSpeed = 50.0f;
         float textBeginPosition = -1064f;  
-        float textEndPosition = 1068f;
+        float textEndPosition = 1697f;
 
         public GameObject Skip;
 
