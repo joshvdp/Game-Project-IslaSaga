@@ -1513,7 +1513,19 @@ MonoBehaviour:
   DroppableObjects: []
   onHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1751114433994594629}
+        m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
+        m_MethodName: Hurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <onDeath>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1534,6 +1546,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1751114433994594629}
+        m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
+        m_MethodName: Dying
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2651,7 +2675,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1751114433994594629}
           m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
-          m_MethodName: Jumping
+          m_MethodName: Grunting
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3973,7 +3997,7 @@ MonoBehaviour:
   Death: {fileID: 0}
   Jump: {fileID: 4662542858705176037, guid: 4efae77043b55eb4591eec46b19ee536, type: 3}
   Landed: {fileID: 8880457467761822249, guid: 1a3b97b616221834c8f5e592c50df931, type: 3}
-  TakeHit: {fileID: 0}
+  Hit: {fileID: 8300000, guid: 7152dec5b399c70479ed1c088bd70f07, type: 3}
   Attacking: {fileID: 1166513643418378258, guid: bad2dfac668db114d859c3647d075d54, type: 3}
   LandOnGround: {fileID: 8300000, guid: 742206e9804e2f144b2ca69cb4ee775a, type: 3}
   Interacts: {fileID: 0}

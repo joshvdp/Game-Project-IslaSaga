@@ -4415,17 +4415,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3853612681849086921, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
   m_PrefabInstance: {fileID: 889468463}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &889998830 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 50338143593997494, guid: 6e64eca4ec405f946b44cb76bd8879ac, type: 3}
-  m_PrefabInstance: {fileID: 1642206924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217089c175e4ce41ab96bce164ae56d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &909043861
 GameObject:
   m_ObjectHideFlags: 0
@@ -6207,34 +6196,6 @@ PrefabInstance:
       propertyPath: ClickableArea.m_Bits
       value: 31
       objectReference: {fileID: 0}
-    - target: {fileID: 1141879445611857941, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141879445611857941, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141879445611857941, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 889998830}
-    - target: {fileID: 1141879445611857941, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141879445611857941, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CancelInvoke
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141879445611857941, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.MonoBehaviour, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141879445611857941, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
-      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6279,6 +6240,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2083021687887046998, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: sound1
+      value: 
+      objectReference: {fileID: 1778013744758415580, guid: 40b8737207ab3ed41b67ae96b2b1c2bc, type: 3}
+    - target: {fileID: 2083021687887046998, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: AttackSwing
+      value: 
+      objectReference: {fileID: 1778013744758415580, guid: 40b8737207ab3ed41b67ae96b2b1c2bc, type: 3}
     - target: {fileID: 3873750573651617882, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7179,7 +7148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1504443322
 Transform:
   m_ObjectHideFlags: 0

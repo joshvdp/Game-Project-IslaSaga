@@ -19,7 +19,7 @@ namespace AudioSoundEvents
         {
             AudioClip clip = GetRandomClip();
             audioSource.PlayOneShot(clip);
-            Debug.Log("CHARACTER VOICE");
+            //Debug.Log("CHARACTER VOICE");
         }
 
         public void Interact()

@@ -18,6 +18,7 @@ namespace AudioSoundEvents
         public void Died()
         {
             Debug.Log("Minion Dies");
+            Instantiate(OnDeath, transform.position, transform.rotation);
         }
     }
 }

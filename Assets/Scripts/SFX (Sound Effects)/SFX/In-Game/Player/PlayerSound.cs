@@ -36,7 +36,6 @@ namespace AudioSoundEvents
         {
             //Instantiate(Death, transform.position, transform.rotation);
             Debug.Log("DEAD BODY THUD");
-            Dying();
         }
 
         public void Land()
@@ -74,7 +73,7 @@ namespace AudioSoundEvents
         #region PLAYER SOUND BITES
         
         [Header("PLAYER SOUND BITES:")]
-        public AudioClip TakeHit;
+        public AudioClip Hit;
         public GameObject Attacking;
         public AudioClip LandOnGround;
         public AudioClip Interacts;
@@ -86,6 +85,13 @@ namespace AudioSoundEvents
             //SoundBite.Invoke();
             Instantiate(Attacking, transform.position, transform.rotation);
         }
+
+        public void Hurt()
+        {
+            SFX.PlayOneShot(Hit);
+            Debug.Log("Hurt Voice");
+        }
+
         public void Jumping ()
         {
             SFX.PlayOneShot(JumpJump);
