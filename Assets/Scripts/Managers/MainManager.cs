@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using StateMachine.Player;
 namespace Manager
 {
     public class MainManager : MonoBehaviour
     {
         public static MainManager Instance;
-        [SerializeField] PlayerStats PlayerStatsSCO;
+        public PlayerStats PlayerStatsSCO;
+        public PlayerMonoStateMachine PlayerMachine => FindAnyObjectByType<PlayerMonoStateMachine>();
 
         public bool IsPaused = false;
         public bool IsGameOver = false;

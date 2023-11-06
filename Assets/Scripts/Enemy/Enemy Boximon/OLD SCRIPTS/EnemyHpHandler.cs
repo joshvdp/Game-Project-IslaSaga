@@ -3,7 +3,6 @@ using UnityEngine;
 using InterfaceAndInheritables;
 using Enemy.AI;
 using VFX;
-using SoundFX;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
@@ -59,7 +58,6 @@ namespace Enemy
                 StartCoroutine(HitStun());
                 StartCoroutine(HitEffect());
                 VFXManager.Instance.SpawnDmgPopup(transform.position, Damage, 1, Color.red);
-                EnemySFX.onHit?.Invoke();
             }
         }
 
@@ -77,7 +75,6 @@ namespace Enemy
         public void Death()
         {
             IsDead = true;
-            EnemySFX.onDeath?.Invoke();
             EnemyReferencesCS.EnemyAICS.AgentAI.speed = 0f;
             EnemyReferencesCS.EnemyAICS.Target = null;
             EnemyReferencesCS.EnemyAnimationCS.enabled = false;

@@ -20,12 +20,16 @@ namespace StateMachine.Player.State
             if (machine.PlayerInputs.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
 
             machine.ShieldCollider.enabled = true;
+            machine.StopMovement();
         }
 
         public override void Discard()
         {
+            base.Discard();
             machine.ShieldCollider.enabled = false;
         }
+
+        
     }
 
 }

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2240214248334277345}
   - component: {fileID: 306661845047183008}
   - component: {fileID: 1825193026079314893}
+  - component: {fileID: 5904828968637170890}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -147,6 +148,21 @@ MonoBehaviour:
   FireOrigin: {fileID: 2742559997588059008}
   DefaultFireSpeed: 1
   ProjectileSpeed: 10
+  ShotsFired:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5904828968637170890}
+        m_TargetAssemblyTypeName: AudioSoundEvents.CanonSFX, Assembly-CSharp
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1825193026079314893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -168,6 +184,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0134091135, y: 0.014167245, z: 0.014635526}
   m_Center: {x: 0.0017045616, y: -0.0020836222, z: 0.002317762}
+--- !u!114 &5904828968637170890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491635030243325327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f173b60e2ae4ae698d2642fa3ec07ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShotsFired: {fileID: 0}
 --- !u!1 &7626649962988127220
 GameObject:
   m_ObjectHideFlags: 0

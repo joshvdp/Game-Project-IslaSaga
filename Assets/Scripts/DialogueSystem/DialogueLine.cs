@@ -8,6 +8,8 @@ namespace DialogueSystem
 {
     public class DialogueLine : DialogueBaseClass
     {
+        public FixedTouchField TouchField;
+        
         [SerializeField]private string input;
         private TMP_Text textHolder;
 
@@ -24,14 +26,21 @@ namespace DialogueSystem
 
         private void OnEnable()
         {
+            TouchField.OnTouchDown += DoThisOnDown;
+
             ResetLine();
             lineAppear = WriteText(input, textHolder, delay);
             StartCoroutine(lineAppear);
         }
 
+        private void OnDisable()
+        {
+            TouchField.OnTouchDown -= DoThisOnDown;
+        }
+
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.anyKeyDown)
             {
                 if (textHolder.text != input)
                 {
@@ -48,6 +57,17 @@ namespace DialogueSystem
             textHolder = GetComponent<TMP_Text>();
             textHolder.text = "";
             Finished = false;
+        }
+
+        void DoThisOnDown()
+        {
+            if (textHolder.text != input)
+            {
+                StopCoroutine(lineAppear);
+                textHolder.text = input;
+            }
+            else
+                Finished = true;
         }
     }
 

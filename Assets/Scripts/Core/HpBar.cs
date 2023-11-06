@@ -23,20 +23,18 @@ public class HpBar : MonoBehaviour, IDamageable
     [field: SerializeField] public UnityEvent onDeath { get; set; }
     VFXManager vfxManager;
     
-
-    
     PlayerStats PlayerStatistics;
     public bool IsPlayer => PlayerStatistics != null;
     
     private void OnEnable()
     {
         if (!IsPlayer) return;
-        PlayerStatistics.OnChangeHp += UpdateHp;
+        PlayerStatistics.OnChangeHp += PlayerUpdateHp;
     }
     private void OnDisable()
     {
         if (!IsPlayer) return;
-        PlayerStatistics.OnChangeHp -= UpdateHp;
+        PlayerStatistics.OnChangeHp -= PlayerUpdateHp;
     }
     private void Awake()
     {
@@ -64,25 +62,19 @@ public class HpBar : MonoBehaviour, IDamageable
     {
         for (int i = 0; i < DroppableObjects.Count; i++)
         {
-            InstantiateItemOrObject(DroppableObjects[i].Probability, DroppableObjects[i].ItemToDrop);
+            DropItemOrObject(DroppableObjects[i].Probability, DroppableObjects[i].ItemToDrop);
         }
     }    
 
-    void UpdateHp()
-    {
-        CurrentHealth = PlayerStatistics.PlayerCurrentHealth;
-    }
+    void PlayerUpdateHp() => CurrentHealth = PlayerStatistics.PlayerCurrentHealth;
 
 
     #region OPTIONS OF FUNCTIONS TO CALL WHEN THIS DIES
     public void DestroyThis() => Destroy(gameObject);
-    
-
-    public void InstantiateItemOrObject(float PercentChance, GameObject ObjToDrop)
+    public void DropItemOrObject(float PercentChance, GameObject ObjToDrop)
     {
         float DropChance = Random.Range(1, 100 + 1); // Added +1 because maxExclusive is like index range. 100 = 100%. Random number between 1 and 100.
         if (DropChance <= PercentChance) Instantiate(ObjToDrop, transform.position + Vector3.up * 1, Quaternion.identity);
-        Debug.Log("PERCENT IS " + PercentChance + "  CHOSEN NUMBER IS " +DropChance);
     }
     #endregion
 

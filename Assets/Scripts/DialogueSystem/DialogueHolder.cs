@@ -22,6 +22,8 @@ namespace DialogueSystem
                 transform.GetChild(i).gameObject.SetActive(true);
                 yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().Finished);
             }
+
+            Time.timeScale = 1f;
             gameObject.SetActive(false);
             transform.DetachChildren();
             DialogueHandler.Instance.pauseButton.SetActive(true);
