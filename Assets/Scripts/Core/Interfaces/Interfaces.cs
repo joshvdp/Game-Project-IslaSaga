@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using Items;
+using StateMachine.Player;
 namespace InterfaceAndInheritables
 {
     public enum DamageType
@@ -57,6 +58,8 @@ namespace InterfaceAndInheritables
         public abstract void Block();
     }
 
+
+
     [Serializable] 
     public class Droppable
     {
@@ -81,5 +84,49 @@ namespace InterfaceAndInheritables
             transform.parent.GetComponent<PlayerInventorySlot>().OnUseItemOnSlot -= UseConsumable;
         }
         public abstract void UseConsumable();
+    }
+
+    public class Interactable : MonoBehaviour
+    {
+        public InteractableType Type;
+        public bool IsInteracted;
+        public bool IsInteractable = true;
+        [SerializeField] Transform InteractIcon;
+        private void Update()
+        {
+            if(InteractIcon) InteractIcon.rotation = Quaternion.LookRotation(InteractIcon.position - Camera.main.transform.position);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            ToggleInteractIcon(true);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            ToggleInteractIcon(false);
+        }
+
+        public void ToggleInteractIcon(bool IsActiveOrNot)
+        {
+            if(!IsInteractable)
+            {
+                InteractIcon.gameObject.SetActive(false);
+                return;
+            }
+            if(InteractIcon) InteractIcon.gameObject.SetActive(IsActiveOrNot);
+        }
+
+        public virtual void Interact(PlayerMonoStateMachine player)
+        {
+            IsInteracted = true;
+        }
+    }
+
+    public enum InteractableType
+    {
+        DOOR,
+        LOOT,
+        ACTION
     }
 }

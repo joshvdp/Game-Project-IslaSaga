@@ -11,7 +11,7 @@ namespace StateMachine.Player
     {
         [SerializeField, Foldout("Animations")] protected string AnimationTrigger;
         [SerializeField, Foldout("Animations")] protected float animationSpeed = 1f;
-        [SerializeField, Foldout("Settings")] protected bool isUnlocked = true;
+        [SerializeField, Foldout("Settings")] public bool isUnlocked = true;
         [SerializeField, Foldout("Settings")] protected bool isDamageable = true;
         [SerializeField, Foldout("Settings")] protected bool isKnockbackable = true;
         [SerializeField, Foldout("Settings")] protected Color materialColor = Color.white;

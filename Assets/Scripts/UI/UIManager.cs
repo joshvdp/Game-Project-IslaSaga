@@ -32,7 +32,7 @@ namespace Manager
             foreach (Screen screenRef in Screens)
             {
                 Screens.Find(_ => _.ScreenName != "Game Over Screen")?.ScreenObject.SetActive(false);
-                Debug.Log("REITIERIAEIR");
+                Debug.Log("SET TO FALSE");
             }
         }
 

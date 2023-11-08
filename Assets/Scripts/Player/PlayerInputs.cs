@@ -31,7 +31,7 @@ namespace Player.Controls
         public Action OnShieldInput;
         public Action OnNoShieldInput;
 
-        
+        public Action OnInteractInput;
 
         public Action AttackOne;
         public Action AttackTwo;
@@ -112,6 +112,7 @@ namespace Player.Controls
         private void PCInteractionInputs()
         {
             if (Input.GetKeyDown(Controls.PickUpKey)) OnPickupInput?.Invoke();
+            if (Input.GetKeyDown(Controls.InteractKey)) OnInteractInput?.Invoke();
         }
         #endregion
         #region Mouse Data

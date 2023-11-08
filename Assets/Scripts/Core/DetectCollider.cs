@@ -9,7 +9,7 @@ namespace Core
     {
         public bool ObjectWithinDetectRange;
 
-        [SerializeField] List<GameObject> ObjectsThatIsInRange; // For some reason, unity has an error if this is not seen in the inspector.
+        public List<GameObject> ObjectsThatIsInRange; // For some reason, unity has an error if this is not seen in the inspector.
 
         private void OnTriggerEnter(Collider other)
         {
