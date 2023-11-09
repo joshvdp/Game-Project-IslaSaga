@@ -9,13 +9,10 @@ public class InventoryUIHandler : MonoBehaviour
     public Transform InventorySlotsParent; // To increase performance
     public List<PlayerInventorySlot> ItemSlots;
 
-
-    
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
-
         ItemSlots.AddRange(InventorySlotsParent.GetComponentsInChildren<PlayerInventorySlot>());
     }
     public void AddItemToUI(InventoryItem Item)
@@ -26,8 +23,6 @@ public class InventoryUIHandler : MonoBehaviour
             {
                 ItemSlots[i].ItemData = Item;
                 ItemSlots[i].InitializeItem();
-                ItemSlots[i].ItemImage.sprite = Item.ItemImage;
-                ItemSlots[i].IsOccupied = true;
                 break;
             }
         }
@@ -39,10 +34,7 @@ public class InventoryUIHandler : MonoBehaviour
         {
             if (ItemSlots[i].ItemData == Item && ItemSlots[i].SlotID == slotID)
             {
-                ItemSlots[i].ItemData = null;
-                ItemSlots[i].RemoveItemBehavior();
-                ItemSlots[i].ItemImage.sprite = null;
-                ItemSlots[i].IsOccupied = false;
+                ItemSlots[i].RemoveItemFromSlot();
                 break;
             }
         }

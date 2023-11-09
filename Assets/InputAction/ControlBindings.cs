@@ -26,6 +26,8 @@ namespace Player.Controls
 
         public KeyCode InventoryKey;
 
+        public KeyCode InteractKey;
+
     }
 }
 

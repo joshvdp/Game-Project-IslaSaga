@@ -5,7 +5,7 @@ using Player.Controls;
 using StateMachine.Player;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using Manager;
 namespace Mobile
 {
     public class MobileUIInputHandler : MonoBehaviour
@@ -56,6 +56,15 @@ namespace Mobile
             if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnJumpInput?.Invoke();
         }
 
+        public void InvokeInventory()
+        {
+            if (PlayerInput.PlatformType == PlatformType.Mobile) UIManager.Instance.ToggleScreen("Inventory");
+        }
+
+        public void InvokeInteract()
+        {
+            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnInteractInput?.Invoke();
+        }
     }
 }
 

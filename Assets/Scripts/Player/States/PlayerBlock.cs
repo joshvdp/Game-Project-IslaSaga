@@ -19,14 +19,19 @@ namespace StateMachine.Player.State
         {
             if (machine.PlayerInputs.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
 
-            machine.ShieldCollider.enabled = true;
+            ToggleShield(true);
             machine.StopMovement();
         }
 
         public override void Discard()
         {
             base.Discard();
-            machine.ShieldCollider.enabled = false;
+            ToggleShield(false);
+        }
+
+        void ToggleShield(bool IsActive)
+        {
+            if (machine.ShieldCollider != null) machine.ShieldCollider.enabled = IsActive; 
         }
 
         

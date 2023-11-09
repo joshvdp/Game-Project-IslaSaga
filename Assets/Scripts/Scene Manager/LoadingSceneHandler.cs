@@ -14,12 +14,10 @@ public class LoadingSceneHandler : MonoBehaviour
 
     [SerializeField, Foldout("Next Scene Variables")] public string SceneToLoad;
     [SerializeField, Foldout("Next Scene Variables")] public Texture BackgroundImage;
-    [SerializeField, Foldout("Next Scene Variables")] public LightingSettings LightingSettingOfNextScene;
 
    
     private void Start()
     {
-        LightingSettingOfNextScene = SceneLoader.Instance?.NextSceneLightingSettings;
         BackgroundImage = SceneLoader.Instance?.BGOfLoadingScreen;
 
         SceneToLoad = SceneLoader.Instance? SceneLoader.Instance?.NextSceneToLoad : SceneToLoad ;
@@ -31,7 +29,6 @@ public class LoadingSceneHandler : MonoBehaviour
     {
         SceneLoader.Instance?.UnloadThisScene();
         StartCoroutine(LoadSceneAsync(SceneToLoad));
-        if (LightingSettingOfNextScene != null) Lightmapping.lightingSettings = LightingSettingOfNextScene;
     }
     public void UnloadThisScene() => SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Loading Screen").buildIndex);
 

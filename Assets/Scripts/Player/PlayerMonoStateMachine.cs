@@ -29,6 +29,7 @@ namespace StateMachine.Player
         private AttackCollidersHandler _attackCollidersHandler;
         private DetectCollider _pickUpRange;
         private DetectCollider _rangeOfAttack;
+        private DetectCollider _interactableDetector;
 
         public Animator Animator => _animator ? _animator : _animator = GetComponentInChildren<Animator>();
         public AnimationEvents AnimationEvents => _animationEvents ? _animationEvents : _animationEvents = GetComponentInChildren<AnimationEvents>();
@@ -38,6 +39,7 @@ namespace StateMachine.Player
         public AttackCollidersHandler AttackCollidersHandler => _attackCollidersHandler ? _attackCollidersHandler : _attackCollidersHandler = GetComponentInChildren<AttackCollidersHandler>();
         public DetectCollider PickUpRange => _pickUpRange ? _pickUpRange : _pickUpRange = transform.Find("Pick Up Range").GetComponent<DetectCollider>();
         public DetectCollider RangeOfAttack => _rangeOfAttack ? _rangeOfAttack : _rangeOfAttack = transform.Find("Range of Attack").GetComponent<DetectCollider>();
+        public DetectCollider InteractableDetector => _interactableDetector ? _interactableDetector : _interactableDetector = transform.Find("Detect Interactable").GetComponent<DetectCollider>();
 
         public Action OnNoMoveInput;
         public Action OnEndstate;
@@ -46,10 +48,12 @@ namespace StateMachine.Player
         private void OnEnable()
         {
             PlayerInputs.OnPickupInput += CheckIfThereIsPickupable;
+            PlayerInputs.OnInteractInput += InteractWithInteractable;
         }
         private void OnDisable()
         {
             PlayerInputs.OnPickupInput -= CheckIfThereIsPickupable;
+            PlayerInputs.OnInteractInput -= InteractWithInteractable;
         }
 
         public override void Awake()
@@ -198,8 +202,8 @@ namespace StateMachine.Player
         #endregion
         #region ATTACK VARIABLES
 
-        [SerializeField, Foldout("Combat")] public Transform WeaponHandPosition;
-        [SerializeField, Foldout("Combat")] public Transform ShieldHandPosition;
+        [SerializeField, Foldout("Combat")] public Transform WeaponHolderPosition;
+        [SerializeField, Foldout("Combat")] public Transform ShieldHolderPosition;
         [SerializeField, Foldout("Combat")] public GameObject WeaponOnHandGameObject;
         [SerializeField, Foldout("Combat")] public IWeapon WeaponOnHand;
         [SerializeField, Foldout("Combat")] public LayerMask ClickableArea;
@@ -225,13 +229,16 @@ namespace StateMachine.Player
 
         public void AssignWeaponAndOrShield()
         {
-            WeaponOnHand = WeaponHandPosition.GetComponentInChildren<IWeapon>();
-            ShieldCollider = ShieldHandPosition.GetComponentInChildren<Collider>();
+            WeaponOnHand = null;
+            WeaponOnHandGameObject = null;
 
-            WeaponOnHandGameObject = WeaponOnHand.GetGameobject();
+            WeaponOnHand = WeaponHolderPosition?.GetComponentInChildren<IWeapon>();
+            ShieldCollider = ShieldHolderPosition?.GetComponentInChildren<Collider>();
+            
+            WeaponOnHandGameObject = WeaponOnHand != null ? WeaponOnHand.GetGameobject() : null;
 
             CurrentWeaponDamage = WeaponOnHand == null ? 5f : WeaponOnHand.Damage;
-            CurrentWeaponDamageType = WeaponOnHand == null ? DamageType.MELEE : WeaponHandPosition.GetComponentInChildren<IWeapon>().WeaponDamageType;
+            CurrentWeaponDamageType = WeaponOnHand == null ? DamageType.MELEE : WeaponHolderPosition.GetComponentInChildren<IWeapon>().WeaponDamageType;
             CurrentWeaponSequenceResetTimer = WeaponOnHand == null ? 0.75f : WeaponOnHand.SequenceResetTime;
         }
         public void FaceDirectionOfMousePos()
@@ -267,6 +274,19 @@ namespace StateMachine.Player
             else OnNoItemPickup?.Invoke();
         }
 
+        public void InteractWithInteractable()
+        {
+            if(IsThereInteractableInRange())
+            {
+                InteractableDetector.NearestGameobject().GetComponent<Interactable>()?.Interact(this);
+            }
+        }
+
+        bool IsThereInteractableInRange()
+        {
+            if (InteractableDetector.ObjectsThatIsInRange.Count > 0) return true;
+            else return false;
+        }
 
         #endregion
         #region CONNECTED VARIABLES
