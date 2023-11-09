@@ -99,6 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponDamage: 15
   WeaponSequenceResetTime: 1
+  WeaponRotationVar: {x: 0, y: 0, z: 0, w: 0}
+  WeaponDmgType: 0
 --- !u!114 &4503691598416532236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93077c35adc22fd448da491808d2eac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound1: {fileID: 1778013744758415580, guid: ab61a42026a0895448d93c712381b97a, type: 3}
-  sound2: {fileID: 0}
-  sound3: {fileID: 0}
-  sound4: {fileID: 0}
+  AttackSwing: {fileID: 1778013744758415580, guid: 40b8737207ab3ed41b67ae96b2b1c2bc, type: 3}
+  SPIN: {fileID: 0}
+  Ability: {fileID: 0}
+  Hit: {fileID: 0}
