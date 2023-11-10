@@ -17,10 +17,13 @@ public class PauseMenu : MonoBehaviour
             {
                 Resume();
 
+                UIManager.Instance?.ToggleScreen("Mobile UI");
             }
             else
             {
                 Pause();
+
+                UIManager.Instance?.ToggleScreen("Mobile UI");
             }
         }
     }

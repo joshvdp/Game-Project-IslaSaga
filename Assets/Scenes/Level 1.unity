@@ -4063,7 +4063,6 @@ GameObject:
   - component: {fileID: 735775788}
   - component: {fileID: 735775789}
   - component: {fileID: 735775790}
-  - component: {fileID: 735775791}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4246,22 +4245,6 @@ MonoBehaviour:
   CameraAngle: 0
   CameraMoveSensitivityMobile: 0.2
   TouchField: {fileID: 0}
---- !u!114 &735775791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735775784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EventMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_MaxRayIntersections: 0
 --- !u!1001 &815988054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5400,7 +5383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingScreenBG: {fileID: 0}
   NextSceneName: Level 1
-  NextSceneLightingSettings: {fileID: 4890085278179872738, guid: 2ab2d1c039679454e9cb41baadd99cad, type: 2}
 --- !u!1001 &1021322870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6097,6 +6079,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0012542637
       objectReference: {fileID: 0}
+    - target: {fileID: 546852697265501054, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 817943831899185200, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.9377711
@@ -6187,11 +6173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 0.981
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -82.5
+      value: -44.8
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalRotation.w

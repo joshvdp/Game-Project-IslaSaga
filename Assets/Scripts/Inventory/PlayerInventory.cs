@@ -34,7 +34,6 @@ public class PlayerInventory : MonoBehaviour
         if (InventoryItems.Count < MaxSlot)
         {
             AddItem(Item);
-            Debug.Log("ITEM IN INVENTORY IS NOW " + InventoryItems.Count +"\n MAX ITEMS IN INVENTORY IS " + MaxSlot);
             return true;
         }
         else return false;

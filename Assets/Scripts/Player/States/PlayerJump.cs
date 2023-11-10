@@ -22,7 +22,7 @@ namespace StateMachine.Player.State
         public PlayerJumpFunctions(PlayerMonoStateMachine machine, PlayerJump data) : base(machine, data)
         {
             JumpPower = data.JumpPower;
-            machine.PlayerRb.velocity += Vector3.up * JumpPower;
+            machine.PlayerRb.velocity += Vector3.up * JumpPower * Time.fixedDeltaTime;
         }
 
     }

@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player.Controls;
+using NaughtyAttributes;
+
 namespace StateMachine.Player.State
 {
     [CreateAssetMenu(fileName = "Player Block", menuName = "State Machine/Player/State/Block")]
     public class PlayerBlock : PlayerMachineData
     {
+        [SerializeField, Foldout("Block")] float dragResist;
+
+        public float DragResist => dragResist;
         public override PlayerMachineFunctions Initialize(PlayerMonoStateMachine machine)
         {
             return new PlayerBlockFunctions(machine, this);
@@ -15,10 +20,12 @@ namespace StateMachine.Player.State
 
     public class PlayerBlockFunctions : PlayerMachineFunctions
     {
+        float DragResist;
         public PlayerBlockFunctions (PlayerMonoStateMachine machine, PlayerBlock data) : base(machine, data)
         {
             if (machine.PlayerInputs.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
-
+            DragResist = data.DragResist;
+            machine.PlayerRb.drag = DragResist;
             ToggleShield(true);
             machine.StopMovement();
         }
@@ -27,6 +34,7 @@ namespace StateMachine.Player.State
         {
             base.Discard();
             ToggleShield(false);
+            machine.PlayerRb.drag = 0f;
         }
 
         void ToggleShield(bool IsActive)

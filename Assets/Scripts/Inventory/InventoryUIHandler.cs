@@ -13,7 +13,15 @@ public class InventoryUIHandler : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
+
         ItemSlots.AddRange(InventorySlotsParent.GetComponentsInChildren<PlayerInventorySlot>());
+
+        PlayerInventory ParentInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
+        for (int i = 0; i < ItemSlots.Count; i++)
+        {
+            ItemSlots[i].ParentMainInventory = ParentInventory;
+        }
     }
     public void AddItemToUI(InventoryItem Item)
     {

@@ -19,7 +19,7 @@ namespace StateMachine.Player
         [SerializeField, Foldout("Transform")] public Transform ItemHoldPosition;
         [SerializeField] LayerMask NavigatableAreas;
         public Renderer[] MainRenderers;
-
+        float Gravity = -96.2361f;
 
         private Animator _animator;
         private AnimationEvents _animationEvents;
@@ -102,7 +102,7 @@ namespace StateMachine.Player
         {
             if (PlayerRb.velocity.y < -0.5f) OnFalling?.Invoke();
         }
-        void SimulateGravity() => PlayerRb.velocity += Vector3.up * -9.81f * Time.fixedDeltaTime;
+        void SimulateGravity() => PlayerRb.velocity += Vector3.up * Gravity * Time.fixedDeltaTime;
         void SlopeHandler()
         {
             RaycastHit hit;
