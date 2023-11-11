@@ -8,6 +8,7 @@ using VFX;
 using Player;
 using AudioSoundEvents;
 using StateMachine.Player;
+using StateMachine.Player.State;
 using Random = UnityEngine.Random;
 
 public class HpBar : MonoBehaviour, IDamageable
@@ -56,6 +57,8 @@ public class HpBar : MonoBehaviour, IDamageable
         onHit?.Invoke();
         if (DroppableObjects.Count > 0) DropItems();
         if (CurrentHealth <= 0) onDeath?.Invoke();
+        
+        
     }
 
     void DropItems()

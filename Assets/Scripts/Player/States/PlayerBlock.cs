@@ -39,7 +39,10 @@ namespace StateMachine.Player.State
 
         void ToggleShield(bool IsActive)
         {
-            if (machine.ShieldCollider != null) machine.ShieldCollider.enabled = IsActive; 
+            if (machine.ShieldCollider != null) machine.ShieldCollider.enabled = IsActive;
+
+            
+            
         }
 
         

@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.Events;
+using StateMachine.Player;
+using Unity.PlasticSCM.Editor.WebApi;
 
 namespace AudioSoundEvents
 {
@@ -10,9 +13,19 @@ namespace AudioSoundEvents
     {
         [Header("MIXER CATEGORY: ")]
         [SerializeField] public AudioSource SFX;
-        //public UnityEvent SoundBite;
+        //public UnityEvent PlayerSoundEvent;
+
+        [SerializeField] PlayerMonoStateMachine PlayerMachine;
         
         #region PLAYER
+
+        public void Start()
+        {
+            if (PlayerMachine.CurrentState.Data.name == "Player Landed")
+            {
+                Debug.Log("Machine Landed");
+            }
+        }
 
         [Header("PLAYER:")] 
         public GameObject FootStep;
@@ -41,7 +54,7 @@ namespace AudioSoundEvents
         public void Land()
         {
             Instantiate(Landed, transform.position, transform.rotation);
-            //Debug.Log("LAND THUD");
+            
             Landing();
         }
         
@@ -82,25 +95,26 @@ namespace AudioSoundEvents
 
         public void Grunting ()
         {
-            //SoundBite.Invoke();
+            
             Instantiate(Attacking, transform.position, transform.rotation);
         }
 
         public void Hurt()
         {
             SFX.PlayOneShot(Hit);
-            Debug.Log("Hurt Voice");
+            
         }
 
         public void Jumping ()
         {
+            
             SFX.PlayOneShot(JumpJump);
-            Debug.Log("Jump Voice");
+            
         }
 
         public void Landing()
         {
-            Debug.Log("Land Voice");
+            
             SFX.PlayOneShot(LandOnGround);
         }
 
