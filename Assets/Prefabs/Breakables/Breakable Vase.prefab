@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6816908388226626069}
   - component: {fileID: 5923836700730564620}
   - component: {fileID: 2455843112614586437}
+  - component: {fileID: 8173232639403593501}
   m_Layer: 18
   m_Name: Breakable Vase
   m_TagString: Untagged
@@ -157,6 +158,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8173232639403593501}
+        m_TargetAssemblyTypeName: InstantiateOnEvent, Assembly-CSharp
+        m_MethodName: InstantiateObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &5923836700730564620
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -197,3 +210,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wrecked: {fileID: 5961185818742050191, guid: 8e4180ad9a401384497f637fabf12180, type: 3}
+--- !u!114 &8173232639403593501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318167034187163836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64de7559b3024148a1c04bc874c65ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToInstantiate: {fileID: 6889813052897123967, guid: df46125e3c076414fb95dc581424efab, type: 3}
