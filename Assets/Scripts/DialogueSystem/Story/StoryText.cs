@@ -8,9 +8,9 @@ namespace Story
 {
     public class StoryText : MonoBehaviour
     {
-        float textSpeed = 100.0f;
+        float textSpeed = 50.0f;
         float textBeginPosition = -1064f;  
-        float textEndPosition = 1068f;
+        float textEndPosition = 1697f;
 
         public GameObject Skip;
 
