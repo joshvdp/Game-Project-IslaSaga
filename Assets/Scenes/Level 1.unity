@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4253,6 +4253,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3184005571413602821, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: OnPickup.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184005571413602821, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: OnPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184005571413602821, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: OnPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1447973553}
+    - target: {fileID: 3184005571413602821, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: OnPickup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3460415263142669046, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -7785,6 +7801,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbbeb3952f3a3ad47958899429b40ff3, type: 3}
+--- !u!1 &1447973553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2088891181762102821, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+  m_PrefabInstance: {fileID: 815988054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1451953915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
