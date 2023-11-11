@@ -13,7 +13,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
 {
     public Action OnUseItemOnSlot;
     [SerializeField] CanvasGroup canvasGroup;
-    public PlayerInventory ParentMainInventory => GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
+    public PlayerInventory ParentMainInventory;
     [SerializeField] Transform InventoryUIParent;
     public InventoryItem ItemData;
     public Image ItemImage;
@@ -28,6 +28,12 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
     public EquippableItemType ItemSlotEquipType;
     public string SlotID => GetInstanceID().ToString();
 
+    Canvas MainCanvas => transform.root.GetComponent<Canvas>();
+
+    private void Awake()
+    {
+        if(ParentMainInventory == null) ParentMainInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+    }
     private void OnEnable()
     {
 
@@ -131,7 +137,8 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
     {
         if (ItemData == null || ItemData.ItemType != ItemType.CONSUMABLE) return;
         OnUseItemOnSlot?.Invoke();
-        Debug.Log("ITEM " + ItemData.name + " IS USED");
+        Debug.Log("ITEM " + ItemData.name + " IS USED    " + "Parent Main Inventory is " + (ParentMainInventory != null));
+        
         ParentMainInventory.RemoveItem(ItemData, SlotID);
         
     }
@@ -158,7 +165,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
             eventData.pointerDrag = null;
             return;
         }
-        DraggableInstanceRect.anchoredPosition += eventData.delta;
+        DraggableInstanceRect.anchoredPosition += eventData.delta / MainCanvas.scaleFactor;
     }
     public void OnEndDrag(PointerEventData eventData)
     {

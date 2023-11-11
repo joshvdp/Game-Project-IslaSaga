@@ -32,6 +32,7 @@ public class SceneLoader : MonoBehaviour
     {
         LoadingScreenLoaded?.Invoke();
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.UnloadSceneAsync("InGameUI");
     }
         
         

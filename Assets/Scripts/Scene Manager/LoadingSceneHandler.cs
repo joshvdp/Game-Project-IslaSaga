@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using Manager;
 using UnityEditor;
 using NaughtyAttributes;
+using UnityEngine.Events;
+
 public class LoadingSceneHandler : MonoBehaviour
 {
     [SerializeField, Foldout("Referencing")] public Animator CanvasAnimator;
@@ -15,9 +17,16 @@ public class LoadingSceneHandler : MonoBehaviour
     [SerializeField, Foldout("Next Scene Variables")] public string SceneToLoad;
     [SerializeField, Foldout("Next Scene Variables")] public Texture BackgroundImage;
 
-   
+    public static LoadingSceneHandler Instance;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) Destroy(this);
+        else Instance = this;
+    }
+
     private void Start()
     {
+        Debug.Log("LOADING SCENE LOADED");
         BackgroundImage = SceneLoader.Instance?.BGOfLoadingScreen;
 
         SceneToLoad = SceneLoader.Instance? SceneLoader.Instance?.NextSceneToLoad : SceneToLoad ;
@@ -42,7 +51,7 @@ public class LoadingSceneHandler : MonoBehaviour
             LoadingBar.value = ProgressValue;
             yield return null;
         }
-
+        Time.timeScale = 1;
         CanvasAnimator.SetTrigger("Fade Out");
     }
 }

@@ -15,9 +15,12 @@ namespace Manager
         public bool IsGameOver = false;
         private void Awake()
         {
+            Debug.Log("MAIN SCENE LOADED");
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
         }
+
+        public void ResetPlayerStats() => PlayerStatsSCO.Reset();
 
         private void OnApplicationQuit()
         {
