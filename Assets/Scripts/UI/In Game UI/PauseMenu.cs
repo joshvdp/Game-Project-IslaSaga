@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using Manager;
 
-public enum PausePlatformType
+public enum UIPlatformType
 {
     PC,
     Mobile
 }
 public class PauseMenu : MonoBehaviour
 {
-    public PausePlatformType PlatformType;
+    public UIPlatformType PlatformType;
 
     public static bool GameisPaused = false;
 
-    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton;  //healthBar, miniMap, pauseButton;
+    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap;
 
     public Button pauseButton;
 
@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         switch (PlatformType)
         {
-            case PausePlatformType.Mobile:
+            case UIPlatformType.Mobile:
                 mobileUI.SetActive(true);
                 mobilePauseButton.SetActive(true);
                 break;
@@ -43,10 +43,10 @@ public class PauseMenu : MonoBehaviour
     {
         switch (PlatformType)
         {
-            case PausePlatformType.PC:
+            case UIPlatformType.PC:
                 interfacePC();
                 break;
-            case PausePlatformType.Mobile:
+            case UIPlatformType.Mobile:
                 interfaceMobile();
                 break;
         }
@@ -56,20 +56,24 @@ public class PauseMenu : MonoBehaviour
     {
         switch (PlatformType)
         {
-            case PausePlatformType.PC:
+            case UIPlatformType.PC:
                 MainManager.Instance.IsPaused = false;
 
                 pauseMenuUI.SetActive(false);
+                miniMap.SetActive(true);
+                healthBar.SetActive(true);
 
                 Time.timeScale = 1f;
 
                 Debug.Log("Resume");
                 GameisPaused = false;
                 break;
-            case PausePlatformType.Mobile:
+            case UIPlatformType.Mobile:
                 MainManager.Instance.IsPaused = false;
 
                 pauseMenuUI.SetActive(false);
+                miniMap.SetActive(true);
+                healthBar.SetActive(true);
                 mobileUI.SetActive(true);
                 mobilePauseButton.SetActive(true);
 
@@ -88,6 +92,8 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenuUI.SetActive(true);
         dialogueBox.SetActive(false);
+        miniMap.SetActive(false);
+        healthBar.SetActive(false);
         mobileUI.SetActive(false);
         mobilePauseButton.SetActive(false);
 
@@ -116,9 +122,9 @@ public class PauseMenu : MonoBehaviour
 
     public void pcResume()
     {
-        /*healthBar.SetActive(true);
+        healthBar.SetActive(true);
         miniMap.SetActive(true);
-        pauseButton.SetActive(true);*/
+        
         MainManager.Instance.IsPaused = false;
 
         pauseMenuUI.SetActive(false);
@@ -132,9 +138,9 @@ public class PauseMenu : MonoBehaviour
 
     public void pcPause()
     {
-        /*healthBar.SetActive(false);
+        healthBar.SetActive(false);
         miniMap.SetActive(false);
-        pauseButton.SetActive(false);*/
+        
         MainManager.Instance.IsPaused = true;
 
         pauseMenuUI.SetActive(true);
