@@ -278,7 +278,9 @@ namespace StateMachine.Player
         {
             if(IsThereInteractableInRange())
             {
-                InteractableDetector.NearestGameobject().GetComponent<Interactable>()?.Interact(this);
+                GameObject InteractedObject = InteractableDetector.NearestGameobject();
+                InteractedObject.GetComponent<Interactable>()?.Interact(this);
+                InteractableDetector.ObjectsThatIsInRange.Remove(InteractedObject);
             }
         }
 

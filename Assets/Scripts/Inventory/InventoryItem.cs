@@ -19,6 +19,7 @@ namespace Items
 
         public string ItemName;
         public Sprite ItemImage;
+        public GameObject ObjectModel;
 
     }
 

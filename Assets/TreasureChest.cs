@@ -13,12 +13,17 @@ public class TreasureChest : Interactable
     public UnityEvent OnItemGive;
     [SerializeField] InventoryItem item;
     [SerializeField] PlayerMachineData AbilityToGive;
+    [SerializeField] Animator ChestAnimator;
+    [SerializeField] GameObject ItemInChest;
     public override void Interact(PlayerMonoStateMachine player)
     {
         if (!IsInteractable) return;
 
         base.Interact(player);
 
+        ChestAnimator.SetTrigger("Open");
+        Instantiate(item.ObjectModel, ItemInChest.transform.position, Quaternion.identity, ItemInChest.transform);
+        ItemInChest.SetActive(true);
         GiveLoot(player.GetComponent<PlayerInventory>(), item);
         GiveAbility();
         ToggleInteractIcon(false);

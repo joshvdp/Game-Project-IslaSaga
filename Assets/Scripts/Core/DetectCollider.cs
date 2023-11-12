@@ -38,19 +38,20 @@ namespace Core
         public GameObject NearestGameobject()
         {
             UpdateList();
-            GameObject NearestEnemy = null;
-            float NearestEnemyDistance = Mathf.Infinity;
+            GameObject NearestObject = null;
+            float NearestObjectDistance = Mathf.Infinity;
             for (int i = 0; i < ObjectsThatIsInRange.Count; i++)
             {
                 if (ObjectsThatIsInRange[i] != null)
                 {
-                    if (Vector3.Distance(ObjectsThatIsInRange[i].transform.position, transform.position) < NearestEnemyDistance)
+                    if (Vector3.Distance(ObjectsThatIsInRange[i].transform.position, transform.position) < NearestObjectDistance)
                     {
-                        NearestEnemy = ObjectsThatIsInRange[i];
+                        NearestObject = ObjectsThatIsInRange[i];
+                        NearestObjectDistance = Vector3.Distance(ObjectsThatIsInRange[i].transform.position, transform.position);
                     }
                 }
             }
-            return NearestEnemy;
+            return NearestObject;
         }
 
         public List<GameObject> AllGameobjectsInRange()
