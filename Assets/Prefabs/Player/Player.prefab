@@ -1359,6 +1359,7 @@ GameObject:
   - component: {fileID: 7974070265976076083}
   - component: {fileID: 1141879445611857941}
   - component: {fileID: 7636897181315624750}
+  - component: {fileID: 2173312641986869490}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1587,6 +1588,21 @@ MonoBehaviour:
   InventoryItems: []
   WeaponSlot: {fileID: 0}
   ShieldSlot: {fileID: 0}
+--- !u!114 &2173312641986869490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873750573651617882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793cbd3ad0c66e343816c39270178f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueIndex: 0
+  controlIndex: 0
+  dialogueCollider: {fileID: 0}
 --- !u!1 &3908013188453867346
 GameObject:
   m_ObjectHideFlags: 0

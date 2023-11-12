@@ -11,7 +11,7 @@ namespace LoadScreen
         public GameObject LoadingScreen;
 
         public GameObject Logo;
-        float spinSpeed = 0.1f;
+        float spinSpeed = 0.5f;
 
         bool isLoading;
         
