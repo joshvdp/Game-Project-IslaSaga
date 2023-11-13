@@ -11,7 +11,7 @@ namespace AudioSoundEvents
         public void Fire()
         {
             //Debug.Log("FIRE");
-            //Instantiate(ShotsFired, transform.position, transform.rotation);
+            Instantiate(ShotsFired, transform.position, transform.rotation);
         }
     }
 }

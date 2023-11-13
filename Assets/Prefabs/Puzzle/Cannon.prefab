@@ -32,8 +32,9 @@ Transform:
   m_Children:
   - {fileID: 7402112924313255290}
   - {fileID: 1601956585136234509}
+  - {fileID: 3045980263787995052}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3239073669478949338
 MonoBehaviour:
@@ -68,7 +69,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8092581614354491169}
+      - m_Target: {fileID: 7737319628166825929}
         m_TargetAssemblyTypeName: AudioSoundEvents.CanonSFX, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 1
@@ -467,6 +468,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7552938246063440844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3045980263787995052}
+  - component: {fileID: 7737319628166825929}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3045980263787995052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552938246063440844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2465953690141110467}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7737319628166825929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552938246063440844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f173b60e2ae4ae698d2642fa3ec07ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShotsFired: {fileID: 1778013744758415580, guid: 1b0812156350f4142a7086593841e325, type: 3}
 --- !u!1 &8576802971929333238
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +544,7 @@ Transform:
   - {fileID: 6341507915202373359}
   m_Father: {fileID: 7402112924313255290}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -76.489075, y: 180, z: 90}
+  m_LocalEulerAnglesHint: {x: -86.50091, y: -16.559998, z: 53.28}
 --- !u!1001 &4954156849795793893
 PrefabInstance:
   m_ObjectHideFlags: 0
