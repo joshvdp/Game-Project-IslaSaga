@@ -21,6 +21,7 @@ namespace Items
         public Sprite ItemImage;
         public GameObject ObjectModel;
 
+        [TextArea(5,5)]
         public string ItemDescription;
 
     }
