@@ -6,11 +6,18 @@ using TMPro;
 
 namespace Story
 {
+    public enum UIPlatformType
+    {
+        PC,
+        Mobile
+    }
     public class StoryText : MonoBehaviour
     {
-        float textSpeed = 50.0f;
+        public UIPlatformType PlatformType;
+
+        float textSpeed = 38.0f;
         float textBeginPosition = -1064f;  
-        float textEndPosition = 1697f;
+        float textEndPosition = 1347f;
 
         public GameObject Skip;
 
@@ -27,8 +34,17 @@ namespace Story
 
         IEnumerator AutoScrollText()
         {
+            switch (PlatformType)
+                {
+                    case UIPlatformType.Mobile:
+                        textSpeed = 45.0f;
+                        myGorectTransform.transform.localPosition = new Vector3(0f, -1231f, 0f);
+                        textEndPosition = 1232f;
+                        break;
+                }
             while (myGorectTransform.localPosition.y < textEndPosition)
             {
+                
                 myGorectTransform.Translate(Vector3.up * textSpeed * Time.deltaTime);
                 if (myGorectTransform.localPosition.y > textEndPosition)
                 {
@@ -44,6 +60,7 @@ namespace Story
                 }
                 yield return null;
             }
+
             
         }
 
@@ -56,7 +73,12 @@ namespace Story
             
             Skip.SetActive(true);
 
-            
+            yield return new WaitForSeconds(25);
+
+
+            Skip.SetActive(false);
+
+
         }
 
         private void Update()
