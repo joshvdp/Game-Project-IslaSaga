@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4153193059343840552}
   - component: {fileID: 3121620631826834121}
+  - component: {fileID: 7598639349471174312}
   m_Layer: 0
   m_Name: Stick
   m_TagString: Untagged
@@ -155,3 +156,20 @@ MonoBehaviour:
   WeaponDamage: 10
   WeaponSequenceResetTime: 1
   WeaponRotationVar: {x: 0, y: 0, z: 0, w: 0}
+  WeaponDmgType: 0
+--- !u!114 &7598639349471174312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7964167409643062013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93077c35adc22fd448da491808d2eac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackSwing1: {fileID: 1293457542919362284, guid: db5b8d15f91c57c4d9a8dacf3b80fa37, type: 3}
+  AttackSwing2: {fileID: 1293457542919362284, guid: 552091c81925cb94db2f4917950d5961, type: 3}
+  AttackSwing3: {fileID: 1293457542919362284, guid: 4542106ba1272034491eb007291b1c31, type: 3}
+  AttackSwing4: {fileID: 1293457542919362284, guid: 2e2ee7bcc5848ad47a47e822139f710b, type: 3}

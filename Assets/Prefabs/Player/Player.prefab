@@ -2642,10 +2642,14 @@ MonoBehaviour:
   - myName: On Attack Frame
     unityEvent:
       m_PersistentCalls:
+        m_Calls: []
+  - myName: Foot Step Left
+    unityEvent:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1751114433994594629}
           m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
-          m_MethodName: Attack1
+          m_MethodName: MoveLeftFoot
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2655,13 +2659,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - myName: Foot Step
+  - myName: Foot Step Right
     unityEvent:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1751114433994594629}
           m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
-          m_MethodName: Moving
+          m_MethodName: MoveRightFoot
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2726,6 +2730,70 @@ MonoBehaviour:
         - m_Target: {fileID: 1751114433994594629}
           m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
           m_MethodName: Grunting
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - myName: Attack1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1751114433994594629}
+          m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
+          m_MethodName: Attack1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - myName: Attack2
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1751114433994594629}
+          m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
+          m_MethodName: Attack2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - myName: Attack3
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1751114433994594629}
+          m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
+          m_MethodName: Attack3
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - myName: Attack4
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1751114433994594629}
+          m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
+          m_MethodName: Attack4
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4127,8 +4195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 6552253686750660321}
-  PlayerMachine: {fileID: 1010506759253207997}
-  FootStep: {fileID: 1778013744758415580, guid: ac4a3187b9518d6459e15696e41b90d4, type: 3}
+  FootStepRight: {fileID: 4662542858705176037, guid: 7d90aa5eb82569d4ab800d95c615ade1, type: 3}
+  FootStepLeft: {fileID: 4662542858705176037, guid: bfbb46f3fb397ab4094ecc8c6dd33dc2, type: 3}
   Death: {fileID: 0}
   Jump: {fileID: 4662542858705176037, guid: 4efae77043b55eb4591eec46b19ee536, type: 3}
   Landed: {fileID: 8880457467761822249, guid: 1a3b97b616221834c8f5e592c50df931, type: 3}

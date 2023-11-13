@@ -15,27 +15,22 @@ namespace AudioSoundEvents
         [SerializeField] public AudioSource SFX;
         //public UnityEvent PlayerSoundEvent;
 
-        [SerializeField] PlayerMonoStateMachine PlayerMachine;
-        
         #region PLAYER
 
-        public void Start()
-        {
-            if (PlayerMachine.CurrentState.Data.name == "Player Landed")
-            {
-                Debug.Log("Machine Landed");
-            }
-        }
-
         [Header("PLAYER:")] 
-        public GameObject FootStep;
+        public GameObject FootStepRight;
+        public GameObject FootStepLeft;
         public GameObject Death;
         public GameObject Jump;
         public GameObject Landed;
         
-        public void Moving()
+        public void MoveRightFoot()
         {
-            Instantiate(FootStep, transform.position, transform.rotation);
+            Instantiate(FootStepRight, transform.position, transform.rotation);
+        }
+        public void MoveLeftFoot()
+        {
+            Instantiate(FootStepLeft, transform.position, transform.rotation);
         }
 
         public void Jumps ()

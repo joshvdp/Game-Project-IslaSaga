@@ -9,7 +9,7 @@ namespace AudioSoundEvents
     {
         public delegate void attackEvent();
         public static attackEvent attackEvent1, attackEvent2, attackEvent3, attackEvent4;
-        public GameObject AttackSwing, SPIN, Ability, Hit;
+        public GameObject AttackSwing1, AttackSwing2, AttackSwing3, AttackSwing4;
 
         private PlayerSound Sound;
 
@@ -34,22 +34,22 @@ namespace AudioSoundEvents
         private void Attack1()
         {
             //Debug.Log("Attack 1");
-            GameObject Sound = Instantiate(AttackSwing, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(AttackSwing1, transform.position, transform.rotation);
         }
         private void Attack2()
         {
             //Debug.Log("Attack 2");
-            GameObject Sound = Instantiate(SPIN, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(AttackSwing2, transform.position, transform.rotation);
         }
         private void Attack3()
         {
             //Debug.Log("Attack 3");
-            GameObject Sound = Instantiate(Ability, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(AttackSwing3, transform.position, transform.rotation);
         }
         private void Attack4()
         {
             //Debug.Log("SPIN");
-            GameObject Sound = Instantiate(Hit, transform.position, transform.rotation);
+            GameObject Sound = Instantiate(AttackSwing4, transform.position, transform.rotation);
         }
     }
 }
