@@ -21,6 +21,8 @@ namespace Items
         public Sprite ItemImage;
         public GameObject ObjectModel;
 
+        public string ItemDescription;
+
     }
 
     public enum ItemType
