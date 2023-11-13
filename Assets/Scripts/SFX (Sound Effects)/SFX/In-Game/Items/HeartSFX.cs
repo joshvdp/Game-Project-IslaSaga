@@ -10,7 +10,7 @@ namespace AudioSoundEvents
         public GameObject Picked;
         public void Grab()
         {
-            Debug.Log("Picked-Up");
+            //Debug.Log("Picked-Up");
             Instantiate(Picked, transform.position, transform.rotation);
         }
     }

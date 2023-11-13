@@ -148,9 +148,55 @@ Transform:
   m_Children:
   - {fileID: 2175641310267762880}
   - {fileID: 3658217738833060675}
+  - {fileID: 6353218066466481229}
   m_Father: {fileID: 7476455449665975732}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5237367872599631146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6353218066466481229}
+  - component: {fileID: 3231254269164147738}
+  m_Layer: 19
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6353218066466481229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237367872599631146}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3994716551818175934}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3231254269164147738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237367872599631146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6064cc1ad131ba4cb900151076d2949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Picked: {fileID: 5961185818742050191, guid: c6076a772b8d30e4b8f9b59487140810, type: 3}
 --- !u!1 &7735282801926235269
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +211,6 @@ GameObject:
   - component: {fileID: 1618135167645736296}
   - component: {fileID: 1793844866027305153}
   - component: {fileID: 8402478404126046592}
-  - component: {fileID: 3556546909658961389}
   m_Layer: 19
   m_Name: Heart Droppable
   m_TagString: Untagged
@@ -291,7 +336,7 @@ MonoBehaviour:
   onPicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3231254269164147738}
         m_TargetAssemblyTypeName: AudioSoundEvents.HeartSFX, Assembly-CSharp
         m_MethodName: Grab
         m_Mode: 1
@@ -303,19 +348,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3556546909658961389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735282801926235269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6064cc1ad131ba4cb900151076d2949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Picked: {fileID: 5961185818742050191, guid: c6076a772b8d30e4b8f9b59487140810, type: 3}
 --- !u!1001 &3841043660327093416
 PrefabInstance:
   m_ObjectHideFlags: 0
