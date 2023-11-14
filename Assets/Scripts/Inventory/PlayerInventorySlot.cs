@@ -9,8 +9,13 @@ using UnityEngine.EventSystems;
 using StateMachine.Player;
 
 using InterfaceAndInheritables;
+using UnityEngine.Events;
+
 public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
+    public UnityEvent OnItemAdded;
+    public UnityEvent OnItemRemoved;
+
     public Action OnUseItemOnSlot;
     [SerializeField] CanvasGroup canvasGroup;
     public PlayerInventory ParentMainInventory;
@@ -81,14 +86,15 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
                             break;
 
                     }
-
+                    if (transform.parent.GetComponent<ItemInfoChanger>()) transform.parent.GetComponent<ItemInfoChanger>().ChangeItemInformation(ItemData);
                     PlayerMachine.AssignWeaponAndOrShield();
                 }
                 break;
             case ItemType.QUEST_ITEM:
                 break;
-
         }
+        
+        OnItemAdded?.Invoke();
         ItemImage.sprite = ItemData.ItemImage;
         IsOccupied = true;
     }
@@ -123,6 +129,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
         ItemData = null;
         ItemImage.sprite = null;
         IsOccupied = false;
+        OnItemRemoved?.Invoke();
         Destroy(DraggableObjectInstance);
 
     }

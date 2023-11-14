@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player.Controls;
+using Manager;
 public class CameraControllerNEW : MonoBehaviour
 {
     [SerializeField] ControlBindings Controls;
@@ -31,7 +32,7 @@ public class CameraControllerNEW : MonoBehaviour
 
     [SerializeField] float CameraAngle;
 
-    public float CameraMoveSensitivityMobile = 0.2f;
+    public float BaseCameraRotateValue = 0.2f;
     [HideInInspector] public FixedTouchField TouchField;
     PlayerInputs PlayerInput => FindObjectOfType<PlayerInputs>();
     private void Start()
@@ -86,7 +87,7 @@ public class CameraControllerNEW : MonoBehaviour
     void MobileCameraControls()
     {
         if (TouchField == null) return;
-        CameraAngle += TouchField.TouchDist.x * CameraMoveSensitivityMobile;
+        CameraAngle += TouchField.TouchDist.x * BaseCameraRotateValue * SettingsHandler.Instance.settingsData.LookSensitivityValue;
         transform.position = target.position + Quaternion.AngleAxis(CameraAngle, Vector3.up) * OffSet;
         transform.rotation = Quaternion.LookRotation(target.position + Vector3.up * 2f - transform.position, Vector3.up);
     }
