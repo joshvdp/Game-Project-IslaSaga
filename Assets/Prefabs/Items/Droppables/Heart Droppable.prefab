@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 6353218066466481229}
   - component: {fileID: 3231254269164147738}
   m_Layer: 19
-  m_Name: Audio
+  m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6064cc1ad131ba4cb900151076d2949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Picked: {fileID: 5961185818742050191, guid: c6076a772b8d30e4b8f9b59487140810, type: 3}
+  Sound: {fileID: 5961185818742050191, guid: c6076a772b8d30e4b8f9b59487140810, type: 3}
+  Particle: {fileID: 5101465248222061424, guid: 31be2631dd55d984f8f570a537ed6b12, type: 3}
 --- !u!1 &7735282801926235269
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +316,7 @@ Transform:
   m_Children:
   - {fileID: 3994716551818175934}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &6785207029227514316
 Animation:
