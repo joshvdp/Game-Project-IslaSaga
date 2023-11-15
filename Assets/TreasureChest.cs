@@ -23,11 +23,12 @@ public class TreasureChest : Interactable
 
         ChestAnimator.SetTrigger("Open");
         Instantiate(item.ObjectModel, ItemInChest.transform.position, Quaternion.identity, ItemInChest.transform);
-        ItemInChest.SetActive(true);
+        ItemInChest.SetActive(false);
         GiveLoot(player.GetComponent<PlayerInventory>(), item);
         GiveAbility();
-        ToggleInteractIcon(false);
+        ToggleInteractIcon(true);
         IsInteractable = false; // Makes sure to only interact once
+        
     }
 
     void GiveLoot(PlayerInventory inventory, InventoryItem itemToGive)
