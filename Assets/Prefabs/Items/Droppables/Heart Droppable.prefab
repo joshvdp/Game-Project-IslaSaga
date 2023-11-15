@@ -245,6 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6353218066466481229}
   - component: {fileID: 3231254269164147738}
+  - component: {fileID: 2730208072324321904}
   m_Layer: 19
   m_Name: Effects
   m_TagString: Untagged
@@ -281,6 +282,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sound: {fileID: 5961185818742050191, guid: c6076a772b8d30e4b8f9b59487140810, type: 3}
   Particle: {fileID: 5101465248222061424, guid: 31be2631dd55d984f8f570a537ed6b12, type: 3}
+--- !u!114 &2730208072324321904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237367872599631146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ba39ce42641b14da8db9054d68019a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7735282801926235269
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +436,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3231254269164147738}
         m_TargetAssemblyTypeName: AudioSoundEvents.HeartSFX, Assembly-CSharp
         m_MethodName: Grab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2730208072324321904}
+        m_TargetAssemblyTypeName: VFX.PlayerVFXCaller, Assembly-CSharp
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
