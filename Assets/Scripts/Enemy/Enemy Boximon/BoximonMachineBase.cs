@@ -81,7 +81,7 @@ namespace StateMachine.Enemy.State
 
         private bool isDoneWithStart = false;
         private List<Coroutine> routines = new List<Coroutine>();
-
+        public string reasonForSetState;
         public BoximonChangeState(BoximonChangeState reference, BoximonMonoStateMachine machine)
         {
             state = reference.state;
@@ -114,12 +114,15 @@ namespace StateMachine.Enemy.State
                     routines.Add(machine.StartCoroutine(CheckFor(PlayerWithinAttackRange)));
                     break;
                 case BoximonChangeEventsToListen.ON_ANIMATION_END:
+                    reasonForSetState = "Animation end called";
                     machine.AnimationEvents.FindEvent("On Animation End").AddListener(SetState);
                     break;
                 case BoximonChangeEventsToListen.ON_END_STATE_CALLED:
+                    reasonForSetState = "End state called";
                     machine.OnEndState += SetState;
                     break;
                 case BoximonChangeEventsToListen.ON_HIT:
+                    reasonForSetState = "on hit called";
                     machine.HpComponent.onHit.AddListener(SetState);
                     break;
 

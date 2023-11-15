@@ -82,7 +82,7 @@ namespace StateMachine.Player
 
         private bool isDoneWithStart = false;
         private List<Coroutine> routines = new List<Coroutine>();
-
+        public string reasonForSetState;
         public PlayerChangeState(PlayerChangeState reference, PlayerMonoStateMachine machine)
         {
             state = reference.state;
@@ -105,57 +105,76 @@ namespace StateMachine.Player
             switch (typeOfEvent)
             {
                 case PlayerChangeEventsToListen.ON_MOVE_INPUT:
+                    reasonForSetState = "Move input called";
                     machine.PlayerInputs.OnMoveInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_NO_MOVE_INPUT:
+                    reasonForSetState = "NO Move input called";
                     machine.OnNoMoveInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_SPRINT_INPUT:
+                    reasonForSetState = "Sprint input called";
                     machine.PlayerInputs.OnSprintInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_NO_SPRINT_INPUT:
+                    reasonForSetState = "NO Sprint input called";
                     machine.PlayerInputs.OnNoSprintInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ATTACK_ONE:
+                    reasonForSetState = "Attack 1 input called";
                     machine.PlayerInputs.AttackOne += SetState;
                     break;
                 case PlayerChangeEventsToListen.ATTACK_TWO:
+                    reasonForSetState = "Attack 2 input called";
                     machine.PlayerInputs.AttackTwo += SetState;
                     break;
                 case PlayerChangeEventsToListen.ATTACK_THREE:
+                    reasonForSetState = "Attack 3 input called";
                     machine.PlayerInputs.AttackThree += SetState;
                     break;
                 case PlayerChangeEventsToListen.SPIN_ATTACK:
+                    reasonForSetState = "Spin attack input called";
                     machine.PlayerInputs.SpinAttack += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_ANIMATION_END:
+                    reasonForSetState = "Animation end input called";
                     machine.AnimationEvents.FindEvent("On Animation End").AddListener(SetState);
                     break;
                 case PlayerChangeEventsToListen.ON_PICKUP_ITEM:
+                    reasonForSetState = "pick up item input called";
                     machine.OnPickupItem += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_NO_PICKUP_ITEM:
+                    reasonForSetState = "NO pick up input called";
                     machine.OnNoItemPickup += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_PICKUP_INPUT:
+                    reasonForSetState = "pick up input called";
                     machine.PlayerInputs.OnPickupInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_ENDSTATE_CALLED:
+                    reasonForSetState = "end state called";
                     machine.OnEndstate += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_SHIELD_INPUT:
+                    reasonForSetState = "shield input called";
                     machine.PlayerInputs.OnShieldInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_NO_SHIELD_INPUT:
+                    reasonForSetState = "NO shield input called";
                     machine.PlayerInputs.OnNoShieldInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_JUMP_INPUT:
+                    reasonForSetState = "Jump input  called";
                     machine.PlayerInputs.OnJumpInput += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_FALLING:
+                    reasonForSetState = "Falling  called";
                     machine.OnFalling += SetState;
                     break;
                 case PlayerChangeEventsToListen.ON_LANDED:
+
+                    reasonForSetState = "Landing called";
                     machine.OnLanded += SetState;
                     break;
             }

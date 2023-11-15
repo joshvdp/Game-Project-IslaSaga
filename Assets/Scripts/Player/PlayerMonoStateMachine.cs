@@ -77,14 +77,13 @@ namespace StateMachine.Player
             
         }
 
-        
         public override void SetState(PlayerMachineData newState)
         {
-            if (newState == null || !newState.IsUnlocked)
+            if (newState == null || !newState.IsUnlocked /*|| newState == CurrentState?.Data*/)
                 return;
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
-            //Debug.Log("State is now " + CurrentState.Data.name);
+            Debug.Log("State is now " + CurrentState.Data.name);
             //soundUpdate();
         }
         
@@ -213,7 +212,7 @@ namespace StateMachine.Player
 
         [HideInInspector] public Collider ShieldCollider;
 
-        [HideInInspector] public float AttackSequence;
+         public float AttackSequence;
         Coroutine AttackSequenceCoroutine;
         IEnumerator AttackSequenceResetEnumerator(float sequenceResetTime)
         {
@@ -263,6 +262,7 @@ namespace StateMachine.Player
         #region INTERACTIONS
 
         [SerializeField, Foldout("Pick-up Variables")] public Rigidbody ItemPickedUpRb;
+        [SerializeField, Foldout("Pick-up Variables")] public float MaxHoldDistance;
         public Action OnPickupItem;
         public Action OnNoItemPickup; // Added so when there is something that you want to happen when there is no item to pickup.
 
