@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Puzzle;
+using UnityEngine.Events;
+
 namespace Puzzle
 {
     public class PressurePlateGateCS : MonoBehaviour
     {
         Vector3 StartingPosition;
 
+        public UnityEvent OnGateFullyOpened;
+        bool GateOpenedEventHasOccured = false;
         [Header("Pressure Plates Connected")]
         public PressurePlateCS[] ConnectedPressurePlates;
 
@@ -36,7 +40,7 @@ namespace Puzzle
 
         void DoAction()
         {
-            if (MustOpen && Vector3.Distance(transform.localPosition, OpenPosition) > 0) GoToStartingPosition();
+            if (MustOpen && Vector3.Distance(transform.localPosition, OpenPosition) > 0) GoToOpenPosition();
             if (MustDisappear) Disappear();
         }
 
@@ -58,18 +62,26 @@ namespace Puzzle
             else
             {
                 Appear();
-                if (Vector3.Distance(transform.localPosition, StartingPosition) > 0) GoToOpenPosition();
+                if (Vector3.Distance(transform.localPosition, StartingPosition) > 0)
+                {
+                    GoToStartingPosition();
+                }
             }
-        }
-
-        void GoToOpenPosition()
-        {
-            transform.localPosition += (StartingPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
         }
 
         void GoToStartingPosition()
         {
+            transform.localPosition += (StartingPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
+        }
+
+        void GoToOpenPosition()
+        {
             transform.localPosition += (OpenPosition - transform.localPosition).normalized * OpenSpeed * Time.deltaTime;
+            if (Vector3.Distance(transform.localPosition, OpenPosition) <= 0.01f && !GateOpenedEventHasOccured)
+            {
+                OnGateFullyOpened?.Invoke();
+                GateOpenedEventHasOccured = true;
+            }
         }
 
         void Disappear()
@@ -80,7 +92,7 @@ namespace Puzzle
 
         void Appear()
         {
-            AllPlatesPressed = false;
+            if (!MustDisappear) return;
             GateRenderer.enabled = true;
             GateCollider.enabled = true;
         }

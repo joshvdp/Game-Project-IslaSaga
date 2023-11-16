@@ -343,13 +343,16 @@ MonoBehaviour:
   IsInteracted: 0
   IsInteractable: 1
   InteractIcon: {fileID: 8644149411499366090}
+  OnChestOpen:
+    m_PersistentCalls:
+      m_Calls: []
   OnAbilityGive:
     m_PersistentCalls:
       m_Calls: []
   OnItemGive:
     m_PersistentCalls:
       m_Calls: []
-  item: {fileID: 11400000, guid: 3adc49aa022f3894aa3343d73fe6bafb, type: 2}
+  item: {fileID: 0}
   AbilityToGive: {fileID: 0}
   ChestAnimator: {fileID: 927519624198098366}
   ItemInChest: {fileID: 7615885492410960613}
@@ -363,10 +366,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8388608
+    m_Bits: 8388672
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8388607
+    m_Bits: 1065353151
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

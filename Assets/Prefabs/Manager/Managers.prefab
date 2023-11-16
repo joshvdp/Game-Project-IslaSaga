@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd7b89473038d84d98dc781293e1452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneName: {fileID: 11400000, guid: c49f40b84d31d95458a27b49df299a2b, type: 2}
   BGOfLoadingScreen: {fileID: 0}
   NextSceneToLoad: 
   NextSceneLightingSettings: {fileID: 0}
@@ -103,4 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b63f6dfb6253144cbfd09693490b453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Events: []
+  Events:
+  - myName: On Change Platform Type Mobile
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - myName: On Change Platform Type PC
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []

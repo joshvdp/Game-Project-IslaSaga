@@ -79,11 +79,11 @@ namespace StateMachine.Player
 
         public override void SetState(PlayerMachineData newState)
         {
-            if (newState == null || !newState.IsUnlocked /*|| newState == CurrentState?.Data*/)
+            if (newState == null || !newState.IsUnlocked)
                 return;
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
-            Debug.Log("State is now " + CurrentState.Data.name);
+            //Debug.Log("State is now " + CurrentState.Data.name);
             //soundUpdate();
         }
         
@@ -101,7 +101,7 @@ namespace StateMachine.Player
         {
             if (PlayerRb.velocity.y < -0.5f) OnFalling?.Invoke();
         }
-        void SimulateGravity() => PlayerRb.velocity += Vector3.up * Gravity * Time.fixedDeltaTime;
+        void SimulateGravity() => PlayerRb.velocity += Vector3.up * Gravity * Time.deltaTime;
         void SlopeHandler()
         {
             RaycastHit hit;
@@ -260,9 +260,9 @@ namespace StateMachine.Player
         }
         #endregion
         #region INTERACTIONS
-
         [SerializeField, Foldout("Pick-up Variables")] public Rigidbody ItemPickedUpRb;
         [SerializeField, Foldout("Pick-up Variables")] public float MaxHoldDistance;
+        [SerializeField, Foldout("Pick-up Variables")] public bool PlayerIsHoldingObject = false;
         public Action OnPickupItem;
         public Action OnNoItemPickup; // Added so when there is something that you want to happen when there is no item to pickup.
 

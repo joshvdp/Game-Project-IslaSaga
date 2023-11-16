@@ -33,6 +33,8 @@ namespace StateMachine.Player.State
             machine.ItemPickedUpRb.GetComponent<Collider>().excludeLayers |= 1 << machine.gameObject.layer;
             MaxDistance = data.MaxDistance;
             machine.MaxHoldDistance = MaxDistance;
+
+            machine.PlayerIsHoldingObject = true;
         }
         public override void StateFixedUpdate()
         {
@@ -87,6 +89,7 @@ namespace StateMachine.Player.State
         {
             base.Discard();
             DropItem();
+            machine.PlayerIsHoldingObject = false;
             machine.ItemPickedUpRb.GetComponent<Collider>().excludeLayers &= ~(1 << machine.gameObject.layer);
         }
     }
