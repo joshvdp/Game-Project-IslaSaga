@@ -11,11 +11,11 @@ using UnityEngine.Events;
 public class LoadingSceneHandler : MonoBehaviour
 {
     [SerializeField, Foldout("Referencing")] public Animator CanvasAnimator;
-    [SerializeField, Foldout("Referencing")] public RawImage BackgroundVariable;
+    [SerializeField, Foldout("Referencing")] public Image BackgroundVariable;
     [SerializeField, Foldout("Referencing")] public Slider LoadingBar;
 
     [SerializeField, Foldout("Next Scene Variables")] public string SceneToLoad;
-    [SerializeField, Foldout("Next Scene Variables")] public Texture BackgroundImage;
+    [SerializeField, Foldout("Next Scene Variables")] public Sprite BackgroundImage;
 
     public static LoadingSceneHandler Instance;
     private void Awake()
@@ -31,8 +31,8 @@ public class LoadingSceneHandler : MonoBehaviour
 
         SceneToLoad = SceneLoader.Instance? SceneLoader.Instance?.NextSceneToLoad : SceneToLoad ;
 
-        BackgroundVariable.color = BackgroundImage != null? Color.white : Color.black ;
-        if (BackgroundImage != null) BackgroundVariable.texture = BackgroundImage;
+        //BackgroundVariable.color = BackgroundImage? Color.white : Color.black ;
+        if (BackgroundImage != null) BackgroundVariable.sprite = BackgroundImage;
     }
     public void LoadNextSceneAsync()
     {

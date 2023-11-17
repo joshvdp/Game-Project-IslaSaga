@@ -45,8 +45,7 @@ namespace Manager
 
         public void Retry()
         {
-            SceneLoader.Instance.NextSceneToLoad = SceneManager.GetActiveScene().name;
-            SceneLoader.Instance.LoadNextSceneAsync();
+            SceneLoader.Instance.LoadNextSceneAsync(SceneManager.GetActiveScene().name);
             Time.timeScale = 1;
             OnRetry?.Invoke();
         }
