@@ -14,6 +14,7 @@ public class HeartDroppable : MonoBehaviour
         if (collision.transform.tag != "Player") return;
         playerStats.TakeHeal(HealAmount);
         Destroy(gameObject);
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,5 +23,6 @@ public class HeartDroppable : MonoBehaviour
         playerStats.TakeHeal(HealAmount);
         Destroy(gameObject);
         onPicked.Invoke();
+        
     }
 }

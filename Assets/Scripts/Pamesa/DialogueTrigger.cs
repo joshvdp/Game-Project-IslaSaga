@@ -16,7 +16,8 @@ namespace DialogueSystem
 
         
         int index;
-        [SerializeField] private GameObject dialogueCollider;
+        [SerializeField] private GameObject dialogueCollider, Movement, Map_HP, Potions, Weapons, Inventory_Button, Inventory;
+        
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -45,6 +46,91 @@ namespace DialogueSystem
                         break;
                 }
                 
+                dialogueCollider.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Movement)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 2;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                dialogueCollider.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Map_HP)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 3;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                dialogueCollider.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Potions)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 4;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                dialogueCollider.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Weapons)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 5;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                dialogueCollider.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Inventory Button)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 6;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
                 dialogueCollider.SetActive(false);
             }
         }

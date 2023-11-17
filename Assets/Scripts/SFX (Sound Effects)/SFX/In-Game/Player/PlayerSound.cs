@@ -36,7 +36,6 @@ namespace AudioSoundEvents
         public void Jumps ()
         {
             Instantiate(Jump, transform.position, transform.rotation);
-            //Debug.Log("JUMP");
             Jumping();
         }
 
@@ -90,7 +89,6 @@ namespace AudioSoundEvents
 
         public void Grunting ()
         {
-            
             Instantiate(Attacking, transform.position, transform.rotation);
         }
 
