@@ -73,11 +73,8 @@ namespace ChangePosition
 
             if (jmp.activeSelf)
             {
-                bg.transform.localPosition = new Vector3(487, 116, 0f);
+                bg.transform.localPosition = new Vector3(485, 153.02f, 0f);
                 jump.SetActive(true);
-                map.SetActive(true);
-                health.SetActive(true);
-                interact.SetActive(true);
                 
 
             }
@@ -85,6 +82,9 @@ namespace ChangePosition
             if (lastDia.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(0, 137.05f, 0f);
+                map.SetActive(true);
+                health.SetActive(true);
+                interact.SetActive(true);
             }
         }
     }

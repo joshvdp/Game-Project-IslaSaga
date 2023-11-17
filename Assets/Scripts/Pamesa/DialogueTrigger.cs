@@ -16,7 +16,7 @@ namespace DialogueSystem
 
         
         int index;
-        [SerializeField] private GameObject dialogueCollider, Movement, Map_HP, Potions, Weapons, Inventory_Button, Inventory;
+        [SerializeField] private GameObject dialogueCollider, Map_HP, Potions, Weapons, Inventory_Button;
         
 
         private void OnCollisionEnter(Collision collision)
@@ -49,22 +49,7 @@ namespace DialogueSystem
                 dialogueCollider.SetActive(false);
             }
 
-            if (collision.collider.name == "Dialogue Collider (Movement)")
-            {
-                switch (PlatformType)
-                {
-                    case UIPlatformType.PC:
-                        index = 1;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                    case UIPlatformType.Mobile:
-                        index = 2;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                }
-
-                dialogueCollider.SetActive(false);
-            }
+            
 
             if (collision.collider.name == "Dialogue Collider (Map_HP)")
             {

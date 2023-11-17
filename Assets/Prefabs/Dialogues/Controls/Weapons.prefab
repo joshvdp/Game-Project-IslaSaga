@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1206697819229833760}
   - component: {fileID: 3128178205749471275}
   - component: {fileID: 8210973156542658724}
+  - component: {fileID: 2025797978940582850}
   m_Layer: 5
   m_Name: Weapons
   m_TagString: Untagged
@@ -93,6 +94,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9fcd7568050a94ea3bf192b2e02f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2025797978940582850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847589082977652187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf008b143581bdc4b83c0f6f86278791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchField: {fileID: 0}
+  lastDia: {fileID: 0}
+  buttons: {fileID: 0}
+  analog: {fileID: 0}
+  map: {fileID: 0}
+  health: {fileID: 0}
 --- !u!1 &1213555825541038964
 GameObject:
   m_ObjectHideFlags: 0
