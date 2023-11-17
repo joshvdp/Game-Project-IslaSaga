@@ -17,14 +17,14 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public bool Pressed;
     private void OnEnable()
     {
-        GlobalEvents.Instance.FindEvent("On Change Platform Type Mobile")?.AddListener(EnableRaycastTargetOnImage);
-        GlobalEvents.Instance.FindEvent("On Change Platform Type PC")?.AddListener(DisableRaycastTargetOnImage);
+        GlobalEvents.Instance.FindEvent("On Change Platform Type Mobile").AddListener(EnableRaycastTargetOnImage);
+        GlobalEvents.Instance.FindEvent("On Change Platform Type PC").AddListener(DisableRaycastTargetOnImage);
     }
 
     private void OnDisable()
     {
-        GlobalEvents.Instance.FindEvent("On Change Platform Type PC")?.AddListener(DisableRaycastTargetOnImage);
-        GlobalEvents.Instance.FindEvent("On Change Platform Type Mobile")?.RemoveListener(EnableRaycastTargetOnImage);
+        GlobalEvents.Instance.FindEvent("On Change Platform Type PC").AddListener(DisableRaycastTargetOnImage);
+        GlobalEvents.Instance.FindEvent("On Change Platform Type Mobile").RemoveListener(EnableRaycastTargetOnImage);
     }
     void DisableRaycastTargetOnImage() => GetComponent<Image>().raycastTarget = false;
     void EnableRaycastTargetOnImage() => GetComponent<Image>().raycastTarget = true;

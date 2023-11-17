@@ -6,7 +6,6 @@ using StateMachine.Player;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Manager;
-using NaughtyAttributes;
 namespace Mobile
 {
     public class MobileUIInputHandler : MonoBehaviour
@@ -18,30 +17,10 @@ namespace Mobile
         private PlayerInputs _playerInput;
         public PlayerInputs PlayerInput => _playerInput ? _playerInput : FindObjectOfType<PlayerInputs>();
 
-        [Foldout("Buttons")] public Button AttackButton;
-        [Foldout("Buttons")] public Button SprintButton;
-        [Foldout("Buttons")] public Button BlockButton;
-        [Foldout("Buttons")] public Button InteractOrPickupButton;
-        [Foldout("Buttons")] public Button JumpButton;
-        [Foldout("Buttons")] public Button InventoryButton;
-
-        PlayerMonoStateMachine PlayerMachine => FindObjectOfType<PlayerMonoStateMachine>();
         private void Awake()
         {
-            PlayerMachine.MobileJoystick = Joystick;
+            FindObjectOfType<PlayerMonoStateMachine>().MobileJoystick = Joystick;
             FindObjectOfType<CameraControllerNEW>().TouchField = TouchField;
-        }
-
-        private void Update()
-        {
-            CheckIfButtonsCanBePressed();
-        }
-
-        void CheckIfButtonsCanBePressed()
-        {
-            if (PlayerMachine.InteractableDetector.ObjectWithinDetectRange || PlayerMachine.PickUpRange.ObjectWithinDetectRange || PlayerMachine.PlayerIsHoldingObject) 
-                InteractOrPickupButton.interactable = true;
-            else InteractOrPickupButton.interactable = false;
         }
 
         public void InvokeAttack()
@@ -49,13 +28,9 @@ namespace Mobile
             if(PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.MobileAttackInput();
         }
 
-        public void InvokePickUpOrInteract()
+        public void InvokePickUp()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile)
-            {
-                PlayerInput.OnInteractInput?.Invoke();
-                PlayerInput.OnPickupInput?.Invoke();
-            }
+            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnPickupInput?.Invoke();
         }
 
         public void InvokeSprint()
@@ -86,6 +61,10 @@ namespace Mobile
             if (PlayerInput.PlatformType == PlatformType.Mobile) UIManager.Instance.ToggleScreen("Inventory");
         }
 
+        public void InvokeInteract()
+        {
+            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnInteractInput?.Invoke();
+        }
     }
 }
 
