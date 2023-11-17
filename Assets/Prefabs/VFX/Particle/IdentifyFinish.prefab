@@ -4837,6 +4837,7 @@ GameObject:
   - component: {fileID: 427572}
   - component: {fileID: 19933978}
   - component: {fileID: 19892476}
+  - component: {fileID: -2804808100445275592}
   m_Layer: 12
   m_Name: IdentifyFinish
   m_TagString: Untagged
@@ -9663,6 +9664,20 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &-2804808100445275592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1136d0fc03450dbeb6dce8f44ec032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyThisObject: {fileID: 144420}
+  TimeToDestroy: 1.2
 --- !u!1 &164164
 GameObject:
   m_ObjectHideFlags: 0
