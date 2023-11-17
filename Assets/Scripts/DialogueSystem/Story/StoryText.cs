@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using UnityEngine.Events;
+using Manager;
 namespace Story
 {
     public enum UIPlatformType
@@ -54,7 +55,7 @@ namespace Story
                     }
                     else
                     {
-                        SceneManager.LoadScene(1);
+                        SceneLoader.Instance.LoadNextSceneAsync(SceneLoader.Instance.SceneName.Level1);
                         break;
                     }
                 }
@@ -86,7 +87,8 @@ namespace Story
             if (Input.GetMouseButtonDown(0))
             {
                 StopCoroutine(AutoScrollText());
-                SceneManager.LoadScene(1);
+                SceneLoader.Instance.LoadNextSceneAsync(SceneLoader.Instance.SceneName.Level1);
+                Debug.Log("CLICK DETECTED");
             }
         }
 

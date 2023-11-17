@@ -9,9 +9,11 @@ namespace StateMachine.Player.State
     {
         [SerializeField, Foldout("Hold Item")] private float moveSpeed;
         [SerializeField, Foldout("Hold Item")] private float itemFollowSpeed;
+        [SerializeField, Foldout("Hold Item")] private float maxDistance;
 
         public float MoveSpeed => moveSpeed;
         public float ItemFollowSpeed => itemFollowSpeed;
+        public float MaxDistance => maxDistance;
         public override PlayerMachineFunctions Initialize(PlayerMonoStateMachine machine)
         {
             return new PlayerHoldItemFunctions(machine, this);
@@ -21,13 +23,18 @@ namespace StateMachine.Player.State
     {
         float MoveSpeed;
         float ItemFollowSpeed;
-
+        float MaxDistance;
         public PlayerHoldItemFunctions(PlayerMonoStateMachine machine, PlayerHoldItem data) : base(machine, data)
         {
             MoveSpeed = data.MoveSpeed;
             if(CanPickup()) machine.ItemPickedUpRb = machine.PickUpRange.NearestGameobject().GetComponent<Rigidbody>();
             Checker();
             ItemFollowSpeed = data.ItemFollowSpeed;
+            machine.ItemPickedUpRb.GetComponent<Collider>().excludeLayers |= 1 << machine.gameObject.layer;
+            MaxDistance = data.MaxDistance;
+            machine.MaxHoldDistance = MaxDistance;
+
+            machine.PlayerIsHoldingObject = true;
         }
         public override void StateFixedUpdate()
         {
@@ -55,15 +62,19 @@ namespace StateMachine.Player.State
         void DropItem()
         {
             if (machine.ItemPickedUpRb == null) return;
-
             machine.ItemPickedUpRb.velocity = Vector3.zero;
             machine.ItemPickedUpRb.useGravity = true;
         }
 
         void Checker()
         {
+            Debug.Log((Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) > machine.MaxHoldDistance) + " BECAUSE " + Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) + " AND " + MaxDistance);
             if (machine.ItemPickedUpRb != null) machine.ItemPickedUpRb.useGravity = false;
-            else machine.OnEndstate?.Invoke();
+
+            //if (Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) > machine.MaxHoldDistance)
+            //{
+            //   machine.OnEndstate?.Invoke();
+            //}
         }
 
         bool CanPickup()
@@ -78,6 +89,8 @@ namespace StateMachine.Player.State
         {
             base.Discard();
             DropItem();
+            machine.PlayerIsHoldingObject = false;
+            machine.ItemPickedUpRb.GetComponent<Collider>().excludeLayers &= ~(1 << machine.gameObject.layer);
         }
     }
 }

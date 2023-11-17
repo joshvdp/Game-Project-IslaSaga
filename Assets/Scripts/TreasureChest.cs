@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 
 public class TreasureChest : Interactable
 {
+    public UnityEvent OnChestOpen;
     public UnityEvent OnAbilityGive;
     public UnityEvent OnItemGive;
     [SerializeField] InventoryItem item;
@@ -20,20 +21,19 @@ public class TreasureChest : Interactable
         if (!IsInteractable) return;
 
         base.Interact(player);
-
         ChestAnimator.SetTrigger("Open");
-        Instantiate(item.ObjectModel, ItemInChest.transform.position, Quaternion.identity, ItemInChest.transform);
-        ItemInChest.SetActive(false);
+        ItemInChest.SetActive(true);
         GiveLoot(player.GetComponent<PlayerInventory>(), item);
         GiveAbility();
-        ToggleInteractIcon(true);
+        ToggleInteractIcon(false);
+        OnChestOpen?.Invoke();
         IsInteractable = false; // Makes sure to only interact once
-        
     }
 
     void GiveLoot(PlayerInventory inventory, InventoryItem itemToGive)
     {
         if (itemToGive == null) return;
+        Instantiate(item.ObjectModel, ItemInChest.transform.position, Quaternion.identity, ItemInChest.transform);
         inventory.AddItem(itemToGive);
         OnItemGive?.Invoke();
     }
