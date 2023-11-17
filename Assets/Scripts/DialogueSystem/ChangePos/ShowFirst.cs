@@ -7,7 +7,9 @@ namespace DialogueSystem
 {
     public class ShowFirst : MonoBehaviour
     {
+        public float ShowDelay;
         int index;
+        public GameObject inventoryBtn, inventoryBtnTutorial;
         private void Awake()
         {
             StartCoroutine(show());
@@ -18,9 +20,16 @@ namespace DialogueSystem
             string activeSceneName = SceneManager.GetActiveScene().name;
             if (activeSceneName == "Tutorial Scene")
             {
-                yield return new WaitForSeconds(2);
+                inventoryBtn.SetActive(false);
+                inventoryBtnTutorial.SetActive(true);
+                yield return new WaitForSeconds(ShowDelay);
                 index = 2;
                 DialogueHandler.Instance.EnableDialogue(index);
+            }
+            else
+            {
+                inventoryBtn.SetActive(true);
+                inventoryBtnTutorial.SetActive(false);
             }
         }
     }

@@ -16,7 +16,7 @@ namespace DialogueSystem
 
         
         int index;
-        [SerializeField] private GameObject dialogueCollider, Map_HP, Potions, Weapons, Inventory_Button;
+        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End;
         
 
         private void OnCollisionEnter(Collision collision)
@@ -46,7 +46,7 @@ namespace DialogueSystem
                         break;
                 }
                 
-                dialogueCollider.SetActive(false);
+                //dialogueCollider.SetActive(false);
             }
 
             
@@ -65,7 +65,7 @@ namespace DialogueSystem
                         break;
                 }
 
-                dialogueCollider.SetActive(false);
+                Map_HP.SetActive(false);
             }
 
             if (collision.collider.name == "Dialogue Collider (Potions)")
@@ -82,7 +82,7 @@ namespace DialogueSystem
                         break;
                 }
 
-                dialogueCollider.SetActive(false);
+                Potions.SetActive(false);
             }
 
             if (collision.collider.name == "Dialogue Collider (Weapons)")
@@ -99,7 +99,7 @@ namespace DialogueSystem
                         break;
                 }
 
-                dialogueCollider.SetActive(false);
+                Weapons.SetActive(false);
             }
 
             if (collision.collider.name == "Dialogue Collider (Inventory Button)")
@@ -116,7 +116,126 @@ namespace DialogueSystem
                         break;
                 }
 
-                dialogueCollider.SetActive(false);
+                Inventory_Button.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Start)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 8;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                Start.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Low_Health)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 9;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                Low_Health.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Halfway)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 10;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                Halfway.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Vases)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 11;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                Vases.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Cannons)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 12;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                Cannons.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Puzzle)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 13;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                Puzzle.SetActive(false);
+            }
+
+            if (collision.collider.name == "Dialogue Collider (End)")
+            {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 1;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 14;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+
+                End.SetActive(false);
             }
         }
     }

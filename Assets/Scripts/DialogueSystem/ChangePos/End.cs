@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ShowBtn : MonoBehaviour
+public class End : MonoBehaviour
 {
     public FixedTouchField TouchField;
 
-    public GameObject btn, firstDia, lastDia,
-                      buttons, analog;
+    public GameObject lastDia;
+
 
 
     RectTransform bg;
@@ -29,18 +30,10 @@ public class ShowBtn : MonoBehaviour
 
     void DoThisOnDown()
     {
-        if (firstDia.activeSelf)
-        {
-            bg.transform.localPosition = new Vector3(172, 422, 0f);
-            btn.SetActive(true);
-        }
-
         if (lastDia.activeSelf)
         {
-            bg.transform.localPosition = new Vector3(172, 422, 0f);
-            buttons.SetActive(false);
-            analog.SetActive(false);
+            
+            SceneManager.LoadScene("MainMenu");
         }
-
     }
 }
