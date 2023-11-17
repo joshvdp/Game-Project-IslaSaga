@@ -81,7 +81,7 @@ namespace StateMachine.Enemy.State
 
         private bool isDoneWithStart = false;
         private List<Coroutine> routines = new List<Coroutine>();
-        public string reasonForSetState;
+
         public FieryChangeState (FieryChangeState reference, FieryMonoStateMachine machine)
         {
             state = reference.state;
@@ -114,15 +114,12 @@ namespace StateMachine.Enemy.State
                     routines.Add(machine.StartCoroutine(CheckFor(PlayerWithinAttackRange)));
                     break;
                 case FieryChangeEventsToListen.ON_ANIMATION_END:
-                    reasonForSetState = "Animation Ended";
                     machine.AnimationEvents.FindEvent("On Animation End").AddListener(SetState);
                     break;
                 case FieryChangeEventsToListen.ON_END_STATE_CALLED:
-                    reasonForSetState = "End state called";
                     machine.OnEndState += SetState;
                     break;
                 case FieryChangeEventsToListen.ON_HIT:
-                    reasonForSetState = "On hit called";
                     machine.HpComponent.onHit.AddListener(SetState);
                     break;
 

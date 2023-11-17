@@ -6,6 +6,6 @@ public class WoodenShield : Shield
 {
     public override void Block()
     {
-        Debug.Log("BLCOK");
+        
     }
 }

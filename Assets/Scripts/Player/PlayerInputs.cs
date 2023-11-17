@@ -139,10 +139,7 @@ namespace Player.Controls
         {
             if (machine.MobileJoystick != null)
             {
-                if (machine.MobileJoystick.Horizontal != 0 || machine.MobileJoystick.Vertical != 0)
-                {
-                    OnMoveInput?.Invoke();
-                }
+                if(machine.MobileJoystick.Horizontal != 0 || machine.MobileJoystick.Vertical != 0) OnMoveInput?.Invoke();
             }
             
         }

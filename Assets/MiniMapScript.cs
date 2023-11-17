@@ -5,11 +5,10 @@ using UnityEngine;
 public class MiniMapScript : MonoBehaviour
 {
     public Transform Player;
-    [SerializeField] float Height;
 
     void LateUpdate()
     {
-        Vector3 newPosition = Player.position + (Vector3.up * Height);
+        Vector3 newPosition = Player.position;
         newPosition.y = transform.position.y;
         transform.position = newPosition;
         

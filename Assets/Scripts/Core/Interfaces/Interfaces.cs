@@ -10,8 +10,7 @@ namespace InterfaceAndInheritables
     public enum DamageType
     {
         MELEE,
-        RANGE,
-        AREA
+        RANGE
     }
     public interface IDamageable
     {
@@ -53,7 +52,6 @@ namespace InterfaceAndInheritables
     }
     public abstract class Shield: MonoBehaviour
     {
-        public UnityEvent OnShieldHit;
         public float DamageReduction;
         private void Awake() => GetComponent<Collider>().enabled = false;
         public Quaternion ShieldRotation;
