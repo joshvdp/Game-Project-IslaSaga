@@ -10,7 +10,6 @@ namespace DialogueSystem
 
         public List<GameObject> dialogues;
         public GameObject ActiveDialogue { get; private set; }
-        public GameObject pauseButton, map, health;
 
         private void Awake() => Instance = this;
 
@@ -22,22 +21,14 @@ namespace DialogueSystem
 
             dialogues[dialogueIndex].SetActive(true);
             ActiveDialogue = dialogues[dialogueIndex];
-
-            pauseButton.SetActive(false);
-            map.SetActive(false);
-            health.SetActive(false);
-
-
         }
 
         public void DisableActiveDialogue()
         {
-
             if (ActiveDialogue == null)
                 return;
 
             ActiveDialogue.SetActive(false);
-
         }
     }
 }
