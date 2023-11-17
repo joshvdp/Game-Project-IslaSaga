@@ -26,6 +26,10 @@ namespace DialogueSystem
             Time.timeScale = 1f;
             gameObject.SetActive(false);
             transform.DetachChildren();
+            DialogueHandler.Instance.pauseButton.SetActive(true);
+            DialogueHandler.Instance.map.SetActive(true);
+            DialogueHandler.Instance.health.SetActive(true);
+
 
         }
 
