@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 3142376776922000683}
   - component: {fileID: 6197989592515913058}
   - component: {fileID: 5356936352367937923}
-  - component: {fileID: 4302257530862649108}
+  - component: {fileID: 7469819442706320621}
   m_Layer: 22
   m_Name: Treasure Chest
   m_TagString: Untagged
@@ -347,7 +347,19 @@ MonoBehaviour:
   InteractIcon: {fileID: 8644149411499366090}
   OnChestOpen:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 19838020, guid: 2e61ccc8a184acd459374290ddcb74c3, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnAbilityGive:
     m_PersistentCalls:
       m_Calls: []
@@ -406,7 +418,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &4302257530862649108
+--- !u!114 &7469819442706320621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

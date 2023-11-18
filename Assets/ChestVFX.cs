@@ -11,7 +11,7 @@ namespace AudioVisualEvents
         {
           Debug.Log("Chest Open");
           //Instantiate(Open, transform.position, transform.rotation);
-          Instantiate(Particle, transform.position, transform.rotation);
+          Instantiate(Particle, Particle.transform.position, Particle.transform.rotation);
         }
     }
 }
