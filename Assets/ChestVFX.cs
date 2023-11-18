@@ -6,12 +6,12 @@ namespace AudioVisualEvents
 { 
     public class ChestVFX : MonoBehaviour
     {  
-        public GameObject Particle;
+        public GameObject SpawnPoint, Particle;
         public void ChestOpen()
         {
           Debug.Log("Chest Open");
           //Instantiate(Open, transform.position, transform.rotation);
-          Instantiate(Particle, Particle.transform.position, Particle.transform.rotation);
+          Instantiate(Particle, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
         }
     }
 }
