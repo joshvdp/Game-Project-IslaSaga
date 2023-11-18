@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InterfaceAndInheritables;
+using UnityEngine.Events;
 
 namespace Items.Weapon
 {
@@ -23,6 +24,8 @@ namespace Items.Weapon
         }
 
         public GameObject GetGameobject() => gameObject;
+
+        //public UnityEvent Events;
     }
 }
 
