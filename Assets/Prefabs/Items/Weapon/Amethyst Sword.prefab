@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 774158896261879734}
   - component: {fileID: 688881876070273958}
   - component: {fileID: 4503691598416532236}
+  - component: {fileID: 3314612037748035454}
   m_Layer: 6
   m_Name: Amethyst Sword
   m_TagString: Untagged
@@ -118,6 +119,20 @@ MonoBehaviour:
   AttackSwing2: {fileID: 1778013744758415580, guid: 3cd600ad0614d15429bc60bf33044255, type: 3}
   AttackSwing3: {fileID: 1778013744758415580, guid: e5c1727449144354cb96ca5d29e237a1, type: 3}
   AttackSwing4: {fileID: 1778013744758415580, guid: 5a77cfdc8c4687844bc551657b0a9c37, type: 3}
+--- !u!114 &3314612037748035454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720848683434085656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671d3c70f16cd8f46897ae467478a059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trails: {fileID: 1022565368990876072}
+  SpawnPoint: {fileID: 1720848683434085656}
 --- !u!1 &5769317342414253669
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +193,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 176323423424948576}
   - {fileID: 1013165763974900154}
   m_Father: {fileID: 4758787557371320664}
   m_RootOrder: -1
@@ -207,12 +223,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9113815536294136141}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.14, y: 0, z: 0}
-  m_LocalScale: {x: 0.4228138, y: 37.03679, z: 0.06934951}
+  m_LocalRotation: {x: -0, y: -0, z: -9.3132246e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0.181, z: 0}
+  m_LocalScale: {x: 0.4228139, y: 18.518398, z: 0.06934951}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1013165763974900154}
+  m_Father: {fileID: 4397587123918371956}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!198 &195395884451281791
@@ -5077,8 +5093,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 4397587123918371956}
     m_Modifications:
     - target: {fileID: 3583152920020906900, guid: 55a1c30475724a849847ee5d0e5c8843, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 1
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4813985365294856315, guid: 55a1c30475724a849847ee5d0e5c8843, type: 3}
       propertyPath: m_RootOrder
@@ -5142,14 +5158,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4813985365294856315, guid: 55a1c30475724a849847ee5d0e5c8843, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 176323423424948576}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55a1c30475724a849847ee5d0e5c8843, type: 3}
 --- !u!4 &1013165763974900154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4813985365294856315, guid: 55a1c30475724a849847ee5d0e5c8843, type: 3}
+  m_PrefabInstance: {fileID: 5530924794106319297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1022565368990876072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4823683967142776937, guid: 55a1c30475724a849847ee5d0e5c8843, type: 3}
   m_PrefabInstance: {fileID: 5530924794106319297}
   m_PrefabAsset: {fileID: 0}
