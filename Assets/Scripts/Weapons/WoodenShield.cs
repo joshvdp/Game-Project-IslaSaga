@@ -7,6 +7,6 @@ public class WoodenShield : Shield
     public override void Block()
     {
         //will call a sound effect method from here
-        Debug.Log("BLCOCK");
+        Debug.Log("ENEMY BLOCK");
     }
 }

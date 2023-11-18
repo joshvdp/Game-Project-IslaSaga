@@ -9,7 +9,7 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject firstDia, secondDia, thirdDia, forthDia, fifthDia, sixthDia, lastDia,   //dialogue
-                          map, healthBar, mobileUI, exitInventory, inventory, inventorySlots, tabs, analog, buttons, pause, Mobileinventorybtn, invenTutorial, //UI
+                          map, healthBar, exitInventory, inventorySlots, tabs, analog, buttons, atk, blk, sprint, interact, jump, pause, pickup, Mobileinventorybtn, invenTutorial, //UI
                             sampleInventoryBtn;  // button
 
         RectTransform bg;
@@ -33,7 +33,7 @@ namespace ChangePosition
         {
             if (firstDia.activeSelf)
             {
-                Destroy(sampleInventoryBtn);
+                sampleInventoryBtn.SetActive(false);
                 bg.transform.localPosition = new Vector3(-392, 137.05f, 0f);
                 exitInventory.SetActive(false);
                 tabs.SetActive(false);
@@ -75,13 +75,17 @@ namespace ChangePosition
                 map.SetActive(true);
                 healthBar.SetActive(true);
                 buttons.SetActive(true);
+                sampleInventoryBtn.SetActive(false);
+                atk.SetActive(true);
+                sprint.SetActive(true);
+                blk.SetActive(true);
+                jump.SetActive(true);
+                interact.SetActive(true);
+                pickup.SetActive(false);
                 Mobileinventorybtn.SetActive(true);
                 pause.SetActive(true);
                 analog.SetActive(true);
-                exitInventory.SetActive(true);
-                inventory.SetActive(false);
-                Destroy(invenTutorial);
-
+                invenTutorial.SetActive(false);
             }
         }
     }

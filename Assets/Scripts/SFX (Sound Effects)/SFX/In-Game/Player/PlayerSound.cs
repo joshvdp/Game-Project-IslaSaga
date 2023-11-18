@@ -41,8 +41,8 @@ namespace AudioSoundEvents
 
         public void Dies ()
         {
-            //Instantiate(Death, transform.position, transform.rotation);
-            Debug.Log("DEAD BODY THUD");
+            Instantiate(Death, transform.position, transform.rotation);
+            
         }
 
         public void Land()
