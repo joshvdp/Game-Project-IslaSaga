@@ -21,7 +21,6 @@ namespace DialogueSystem
             if (activeSceneName == "Tutorial Scene")
             {
                 inventoryBtn.SetActive(false);
-                inventoryBtnTutorial.SetActive(true);
                 yield return new WaitForSeconds(ShowDelay);
                 index = 2;
                 DialogueHandler.Instance.EnableDialogue(index);

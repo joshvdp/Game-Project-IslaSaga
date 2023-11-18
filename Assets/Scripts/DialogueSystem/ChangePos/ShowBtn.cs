@@ -31,7 +31,7 @@ public class ShowBtn : MonoBehaviour
     {
         if (firstDia.activeSelf)
         {
-            bg.transform.localPosition = new Vector3(215.01f, 297, 0f);
+            bg.transform.localPosition = new Vector3(334, 487, 0f);
             btn.SetActive(true);
             interact.SetActive(false);
         }
