@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -885,6 +885,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1646781879}
         m_TargetAssemblyTypeName: Manager.UIManager, Assembly-CSharp
         m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1160905343}
+        m_TargetAssemblyTypeName: SoundFX.SoundManager, Assembly-CSharp
+        m_MethodName: onClickBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13053,6 +13065,8 @@ RectTransform:
   - {fileID: 1877014807}
   - {fileID: 824818383}
   - {fileID: 947843021}
+  - {fileID: 912410690}
+  - {fileID: 1492595695}
   m_Father: {fileID: 848003052}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13212,10 +13226,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
         - m_Target: {fileID: 1160905343}
           m_TargetAssemblyTypeName: SoundFX.SoundManager, Assembly-CSharp
           m_MethodName: onClick
@@ -17006,16 +17016,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912410689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -84.409775}
   m_LocalScale: {x: 0.59678024, y: 0.57218254, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1646781876}
+  m_Father: {fileID: 719635003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -230, y: -75.13718}
+  m_AnchoredPosition: {x: 679.49994, y: 450.86026}
   m_SizeDelta: {x: 182.1079, y: 160.01392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912410692
@@ -18867,6 +18877,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1646781879}
         m_TargetAssemblyTypeName: Manager.UIManager, Assembly-CSharp
         m_MethodName: Retry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1160905343}
+        m_TargetAssemblyTypeName: SoundFX.SoundManager, Assembly-CSharp
+        m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26093,16 +26115,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492595694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -84.409775}
   m_LocalScale: {x: 0.59678024, y: 0.57218254, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1646781876}
+  m_Father: {fileID: 719635003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -229.99994, y: -75.1373}
+  m_AnchoredPosition: {x: 679.50006, y: 450.8602}
   m_SizeDelta: {x: 182.1079, y: 160.01392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492595696
@@ -28720,8 +28742,6 @@ RectTransform:
   - {fileID: 785307969}
   - {fileID: 1190971358}
   - {fileID: 848003052}
-  - {fileID: 912410690}
-  - {fileID: 1492595695}
   - {fileID: 18060725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
