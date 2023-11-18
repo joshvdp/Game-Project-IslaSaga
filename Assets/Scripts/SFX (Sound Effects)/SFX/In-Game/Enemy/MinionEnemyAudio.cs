@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AudioSoundEvents
 {
-    public class EnemyEventSFX : MonoBehaviour
+    public class MinionEnemyAudio : MonoBehaviour
     {
         public GameObject OnHitting, OnDeath;
 
