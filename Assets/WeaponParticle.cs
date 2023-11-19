@@ -8,18 +8,20 @@ namespace VFX
     public class WeaponParticle : MonoBehaviour
     {
         public delegate void ParticleEvent();
-        public static ParticleEvent Swing;
-        public GameObject Trails, SpawnPoint;
-
+        public static ParticleEvent Swing, SwingDone;
+        public GameObject  SpawnPoint;
+        public ParticleSystem Trails;
         private WeaponVFXCaller ParticleVFX;
 
         private void OnEnable()
         {
             Swing += SwingParticle;
+            SwingDone += DoneSwing;
         }
         private void OnDisable()
         {
             Swing -= SwingParticle;
+            SwingDone -= DoneSwing;
         }
         private void Start()
         {
@@ -29,8 +31,18 @@ namespace VFX
         private void SwingParticle()
         {
             Debug.Log("SwingParticle");
-            GameObject ParticleVFX = Instantiate(Trails, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
-            //Trails.SetActive(true);
+            //ParticleVFX1 = Instantiate(Trails, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+            /*ParticleVFX1.SetActive(true);
+            ParticleVFX1.transform.SetParent(transform);*/
+            Trails.gameObject.SetActive(true);
         }
+        private void DoneSwing()
+        {
+            Debug.Log("PASSED");
+            Trails.gameObject.SetActive(false);
+            Trails.Clear();
+        }
+
+
     }
 }

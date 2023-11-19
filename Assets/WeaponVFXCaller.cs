@@ -11,5 +11,10 @@ namespace VFX
             //Debug.Log("Spawn Particle");
             WeaponParticle.Swing?.Invoke();
         }
+
+        public void DespawnParticle()
+        {
+            WeaponParticle.SwingDone?.Invoke();
+        }
     }
 }
