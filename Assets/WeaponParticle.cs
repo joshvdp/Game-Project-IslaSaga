@@ -40,7 +40,7 @@ namespace VFX
         {
             Debug.Log("PASSED");
             Trails.gameObject.SetActive(false);
-            Trails.Clear();
+            //Trails.Clear();
         }
 
 
