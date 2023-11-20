@@ -221,12 +221,18 @@ namespace StateMachine.Player
 
         public void AssignWeaponAndOrShield()
         {
-            Debug.Log("ASSIGN WEAPON CALLED");
+            
             WeaponOnHand = null;
             WeaponOnHandGameObject = null;
             WeaponOnHand = WeaponHolderPosition?.GetComponentInChildren<IWeapon>();
             ShieldCollider = ShieldHolderPosition?.GetComponentInChildren<Collider>();
             WeaponOnHandGameObject = WeaponOnHand != null ? WeaponOnHand.GetGameobject() : null;
+            if (WeaponOnHand != null)
+            {
+                Debug.Log("ASSIGN WEAPON CALLED WEAPON ASSIGNED IS " + WeaponOnHand.GetGameobject());
+                WeaponOnHand.holder = this;
+                WeaponOnHand.SubscribeEvents();
+            }
 
             CurrentWeaponDamage = WeaponOnHand == null ? 5f : WeaponOnHand.Damage;
             CurrentWeaponDamageType = WeaponOnHand == null ? 

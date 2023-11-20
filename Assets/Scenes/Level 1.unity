@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4497,6 +4497,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cd34d3cb013af44a0ec41f4b353581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLoadNextSceneTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+  ShouldSave: 1
   LoadingScreenBG: {fileID: 0}
   NextSceneName: Level 2
 --- !u!1001 &1041899330
@@ -5791,7 +5795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.3
+      value: -110.7
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalRotation.w

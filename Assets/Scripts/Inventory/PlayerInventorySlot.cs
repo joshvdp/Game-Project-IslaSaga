@@ -116,9 +116,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
             {
                 case EquippableItemType.WEAPON:
                     if (PlayerMachine.WeaponOnHandGameObject.gameObject == null) break;
-                    Debug.Log("WEAPON ABOUT TO DESTROY IS " + PlayerMachine.WeaponOnHandGameObject + " weapon location is at " + PlayerMachine.WeaponOnHandGameObject.transform.parent.name);
-                    Destroy(PlayerMachine.WeaponOnHandGameObject); // For some reason "Destroy" function doesn't destroy the instance of the object (object destroyed can still be reference but can't be seen.)
-                    Debug.Log("WEAPON DESTROYED " + PlayerMachine.WeaponOnHandGameObject + " player postion is at " + PlayerMachine.transform.position);
+                    DestroyImmediate(PlayerMachine.WeaponOnHandGameObject); // For some reason "Destroy" function doesn't destroy the instance of the object (object destroyed can still be reference but can't be seen.)
                     break;
                 case EquippableItemType.SHIELD:
                     if (PlayerMachine.ShieldCollider.gameObject == null) break;
