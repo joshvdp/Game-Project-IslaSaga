@@ -87,9 +87,9 @@ namespace Story
             switch (PlatformType)
             {
                 case UIPlatformType.Mobile:
-                    textSpeed = 100;
-                    myGorectTransform.transform.localPosition = new Vector3(0f, -618, 0f);
-                    textEndPosition = 604f;
+                    textSpeed = 80f;
+                    myGorectTransform.transform.localPosition = new Vector3(0f, -524, 0f);
+                    textEndPosition = 525f;
                     break;
             }
             while (myGorectTransform.localPosition.y < textEndPosition)
@@ -120,8 +120,8 @@ namespace Story
             {
                 case UIPlatformType.Mobile:
                     textSpeed = 45.0f;
-                    myGorectTransform.transform.localPosition = new Vector3(0f, -710, 0f);
-                    textEndPosition = 697f;
+                    myGorectTransform.transform.localPosition = new Vector3(0f, -862.974f, 0f);
+                    textEndPosition = 930f;
                     break;
             }
             while (myGorectTransform.localPosition.y < textEndPosition)

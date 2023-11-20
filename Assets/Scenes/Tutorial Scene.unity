@@ -852,6 +852,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!65 &95335410
@@ -4386,6 +4392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!136 &443808456
@@ -5075,6 +5087,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!65 &575665526
@@ -8549,6 +8567,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!65 &910502515
@@ -20200,7 +20224,6 @@ GameObject:
   - component: {fileID: 5488010074508629933}
   - component: {fileID: 5488010074508629934}
   - component: {fileID: 5488010074508629935}
-  - component: {fileID: 5488010074508629936}
   m_Layer: 0
   m_Name: Pressure plate
   m_TagString: Untagged
@@ -21847,7 +21870,7 @@ MonoBehaviour:
   Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5488010074508629936}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSoundEvents.PressurePlateSFX, Assembly-CSharp
         m_MethodName: Entry
         m_Mode: 1
@@ -21862,7 +21885,7 @@ MonoBehaviour:
   Deactivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5488010074508629936}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSoundEvents.PressurePlateSFX, Assembly-CSharp
         m_MethodName: Leave
         m_Mode: 1
@@ -21913,20 +21936,6 @@ MonoBehaviour:
   ChecksphereLayers:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &5488010074508629936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967236529833252552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17132733e55029949b3dd1d76628bbd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Triggered: {fileID: 0}
-  Untriggered: {fileID: 0}
 --- !u!4 &5511123385790962799
 Transform:
   m_ObjectHideFlags: 0
