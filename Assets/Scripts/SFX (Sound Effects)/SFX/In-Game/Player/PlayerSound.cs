@@ -13,17 +13,14 @@ namespace AudioSoundEvents
     {
         [Header("MIXER CATEGORY: ")]
         [SerializeField] public AudioSource SFX;
-        //public UnityEvent PlayerSoundEvent;
 
         #region PLAYER
-
         [Header("PLAYER:")] 
         public GameObject FootStepRight;
         public GameObject FootStepLeft;
         public GameObject Death;
         public GameObject Jump;
         public GameObject Landed;
-        
         public void MoveRightFoot()
         {
             Instantiate(FootStepRight, transform.position, transform.rotation);
@@ -32,28 +29,20 @@ namespace AudioSoundEvents
         {
             Instantiate(FootStepLeft, transform.position, transform.rotation);
         }
-
         public void Jumps ()
         {
             Instantiate(Jump, transform.position, transform.rotation);
             Jumping();
         }
-
         public void Dies ()
         {
             Instantiate(Death, transform.position, transform.rotation);
-            
         }
-
         public void Land()
         {
             Instantiate(Landed, transform.position, transform.rotation);
-            
             Landing();
         }
-        
-        
-
         #endregion
 
         #region PLAYER COMBAT
@@ -78,7 +67,6 @@ namespace AudioSoundEvents
         #endregion
 
         #region PLAYER SOUND BITES
-        
         [Header("PLAYER SOUND BITES:")]
         public AudioClip Hit;
         public GameObject Attacking;
@@ -86,41 +74,30 @@ namespace AudioSoundEvents
         public AudioClip Interacts;
         public AudioClip JumpJump;
         public AudioClip Dead;
-
         public void Grunting ()
         {
             Instantiate(Attacking, transform.position, transform.rotation);
         }
-
         public void Hurt()
         {
             SFX.PlayOneShot(Hit);
-            
         }
-
         public void Jumping ()
         {
-            
             SFX.PlayOneShot(JumpJump);
-            
         }
-
         public void Landing()
         {
-            
             SFX.PlayOneShot(LandOnGround);
         }
-
         public void Dying()
         {
             Debug.Log("Death Voice");
         }
-
         public void Interact()
         {
             Debug.Log("Interact");
         }
-
         #endregion
     }
 }
