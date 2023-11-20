@@ -7,7 +7,7 @@ public class ShowBtn : MonoBehaviour
     public FixedTouchField TouchField;
 
     public GameObject btn, firstDia, lastDia,
-                      analog, atk, sprint, block, jump, interact;
+                      analog, atk, sprint, block, jump;
 
 
     RectTransform bg;
@@ -33,7 +33,6 @@ public class ShowBtn : MonoBehaviour
         {
             bg.transform.localPosition = new Vector3(334, 487, 0f);
             btn.SetActive(true);
-            interact.SetActive(false);
         }
 
         if (lastDia.activeSelf)

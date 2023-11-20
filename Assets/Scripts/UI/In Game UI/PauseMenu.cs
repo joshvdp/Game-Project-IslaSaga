@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameisPaused = false;
 
-    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap;
+    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap, inventory;
 
     public Button pauseButton;
 
@@ -96,6 +96,7 @@ public class PauseMenu : MonoBehaviour
         healthBar.SetActive(false);
         mobileUI.SetActive(false);
         mobilePauseButton.SetActive(false);
+        inventory.SetActive(false);
 
         Time.timeScale = 0f;
 
@@ -145,6 +146,7 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenuUI.SetActive(true);
         dialogueBox.SetActive(false);
+        inventory.SetActive(false);
 
         Time.timeScale = 0f;
 
