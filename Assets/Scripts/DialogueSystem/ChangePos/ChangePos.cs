@@ -9,13 +9,14 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject scndIntro, lastIntro, atk, run, blk, jmp, lastDia,      //dialogue
-                          sprint, block, pickup, jump, attack, inventory, analog, map, health;  // buttons & UI
+                          sprint, block, pickup, jump, attack, inventory, analogTutorial, analog, map, health, pause;  // buttons & UI
 
         RectTransform bg;
 
         private void Start()
         {
             bg = gameObject.GetComponent<RectTransform>();
+            pause.SetActive(false);
         }
 
         private void OnEnable()
@@ -39,7 +40,7 @@ namespace ChangePosition
                 jump.SetActive(false);
                 attack.SetActive(false);
                 inventory.SetActive(false);
-                analog.SetActive(false);
+                analogTutorial.SetActive(false);
                 map.SetActive(false);
                 health.SetActive(false);
 
@@ -48,32 +49,32 @@ namespace ChangePosition
             if (lastIntro.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(-303, -103, 0f);
-                analog.SetActive(true);
+                analogTutorial.SetActive(true);
             }
 
 
             if (atk.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(355, -143, 0f);
-                attack.SetActive(true);
+                
             }
 
             if (run.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(128, -178, 0f);
-                sprint.SetActive(true);
+                
             }
 
             if (blk.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(173, -34, 0f);
-                block.SetActive(true);
+                
             }
 
             if (jmp.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(485, 153.02f, 0f);
-                jump.SetActive(true);
+                
                 
 
             }
@@ -82,7 +83,14 @@ namespace ChangePosition
             {
                 bg.transform.localPosition = new Vector3(0, 137.05f, 0f);
                 map.SetActive(true);
+                analogTutorial.SetActive(false);
+                analog.SetActive(true);
                 health.SetActive(true);
+                jump.SetActive(true);
+                block.SetActive(true);
+                sprint.SetActive(true);
+                attack.SetActive(true);
+                pause.SetActive(true);
             }
         }
     }
