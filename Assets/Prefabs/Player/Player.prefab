@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5915494098477144472}
   - component: {fileID: 7306136375380760619}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: LandedParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1494,6 +1494,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1671769491858781129}
   - {fileID: 3625640908256444989}
   - {fileID: 1166125374077770929}
   - {fileID: 7861214034940599650}
@@ -1504,7 +1505,6 @@ Transform:
   - {fileID: 3692663863365714820}
   - {fileID: 3749184329016083807}
   - {fileID: 5523213501503473417}
-  - {fileID: 1671769491858781129}
   - {fileID: 4385544877935423537}
   - {fileID: 8342329090358342443}
   - {fileID: 237941769935843086}
@@ -2150,7 +2150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6137097168525882080}
   - component: {fileID: 6123842802014787844}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: JumpParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,7 +2229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021873634544757619}
   - component: {fileID: 3708515691574395199}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: SprintParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4724,6 +4724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landed FX
       objectReference: {fileID: 0}
+    - target: {fileID: 2569274457320022305, guid: 1cb144c212ebba243b1ae348ce77f633, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8032758168839301198, guid: 1cb144c212ebba243b1ae348ce77f633, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4983,6 +4987,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SprintTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 4823683967142776937, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5125,6 +5133,10 @@ PrefabInstance:
     - target: {fileID: 4823683967142776937, guid: 45e2beb6465da9a41944263e4dc96316, type: 3}
       propertyPath: m_Name
       value: JumpTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823683967142776937, guid: 45e2beb6465da9a41944263e4dc96316, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
