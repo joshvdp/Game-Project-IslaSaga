@@ -6,16 +6,16 @@ namespace AudioSoundEvents
 {
     public class PressurePlateSFX : MonoBehaviour
     {
-        private GameObject Triggered, NotTriggered;
+        public GameObject Triggered, Untriggered;
         
         public void Entry()
         {
-            Debug.Log("On");
+            Instantiate(Triggered, transform.position, transform.rotation);
         }
 
         public void Leave()
         {
-            Debug.Log("Off");
+            Instantiate(Untriggered, transform.position, transform.rotation);
         }
     }
 

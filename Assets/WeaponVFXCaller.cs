@@ -8,7 +8,6 @@ namespace VFX
     {
         public void SpawnParticle()
         {
-            //Debug.Log("Spawn Particle");
             WeaponParticle.Swing?.Invoke();
         }
 
