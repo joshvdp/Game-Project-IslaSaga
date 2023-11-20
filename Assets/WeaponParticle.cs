@@ -9,7 +9,6 @@ namespace VFX
     {
         public delegate void ParticleEvent();
         public static ParticleEvent Swing, SwingDone;
-        public GameObject  SpawnPoint;
         public ParticleSystem Trails;
         private WeaponVFXCaller ParticleVFX;
 

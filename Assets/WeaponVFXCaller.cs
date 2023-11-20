@@ -13,7 +13,14 @@ namespace VFX
 
         public void DespawnParticle()
         {
+
+            StartCoroutine(WaitForSeconds());
             WeaponParticle.SwingDone?.Invoke();
+        }
+
+        IEnumerator WaitForSeconds()
+        {
+            yield return new WaitForSeconds(3);
         }
     }
 }
