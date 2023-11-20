@@ -832,7 +832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7499232643685022612
 Transform:
   m_ObjectHideFlags: 0
@@ -1371,7 +1371,7 @@ GameObject:
   - component: {fileID: 8362184488016823727}
   - component: {fileID: 4386025406839128643}
   - component: {fileID: 8474503708022128161}
-  - component: {fileID: 6385078025512536248}
+  - component: {fileID: 7444103904214531258}
   m_Layer: 7
   m_Name: Enemy Boximon
   m_TagString: Enemy
@@ -1398,7 +1398,7 @@ Transform:
   - {fileID: 1285054216004153713}
   - {fileID: 235762529027286249}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -173.47, z: 0}
 --- !u!195 &8674071401994616894
 NavMeshAgent:
@@ -1495,18 +1495,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8408996490222035475}
-        m_TargetAssemblyTypeName: VFX.BloodVFXCaller, Assembly-CSharp
-        m_MethodName: SpawnBlood
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   <onDeath>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1535,7 +1523,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6385078025512536248
+--- !u!114 &7444103904214531258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1544,11 +1532,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8220367471542494280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5413fde031adf1d42be224cf3a107790, type: 3}
+  m_Script: {fileID: 11500000, guid: 994789a6f037be54286333fe50b4cf11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoint: {fileID: 5404289374045496090}
-  Blood: {fileID: 8496773142720278839}
+  LandParticle: {fileID: 0}
+  SprintParticle: {fileID: 0}
+  JumpParticle: {fileID: 0}
+  Blood: {fileID: 8447643662966767723}
 --- !u!1 &8397401009913331196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,7 +1744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &235762529027286249
 Transform:
   m_ObjectHideFlags: 0
@@ -1865,7 +1855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6823200998282874702, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6823200998337669616, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
       propertyPath: playOnAwake
@@ -1883,6 +1873,11 @@ PrefabInstance:
 --- !u!4 &8447643662966767638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6823200998282874675, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
+  m_PrefabInstance: {fileID: 3138144790131707685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8447643662966767723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6823200998282874702, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
   m_PrefabInstance: {fileID: 3138144790131707685}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8766107300517362098
