@@ -9,7 +9,7 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject firstDia, thirdDia, lastDia,
-                          atk, analog, sprint, block, jump, interact, pickup, inventory;
+                          atk, analog, sprint, block, jump, pickup, inventory;
 
 
         RectTransform bg;
@@ -38,7 +38,6 @@ namespace ChangePosition
                 sprint.SetActive(false);
                 block.SetActive(false);
                 jump.SetActive(false);
-                interact.SetActive(false);
                 analog.SetActive(false);
                 inventory.SetActive(false);
                 pickup.SetActive(true);
@@ -55,7 +54,6 @@ namespace ChangePosition
                 sprint.SetActive(true);
                 block.SetActive(true);
                 jump.SetActive(true);
-                interact.SetActive(true);
                 analog.SetActive(true);
             }
 

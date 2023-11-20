@@ -9,7 +9,7 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject firstDia, secondDia, thirdDia, forthDia, fifthDia, sixthDia, lastDia,   //dialogue
-                          map, healthBar, exitInventory, inventorySlots, tabs, analog, buttons, atk, blk, sprint, interact, jump, pause, pickup, Mobileinventorybtn, invenTutorial, //UI
+                          map, healthBar, exitInventory, inventorySlots, tabs, analog, buttons, atk, blk, sprint, jump, pause, pickup, Mobileinventorybtn, invenTutorial, //UI
                             sampleInventoryBtn;  // button
 
         RectTransform bg;
@@ -80,7 +80,6 @@ namespace ChangePosition
                 sprint.SetActive(true);
                 blk.SetActive(true);
                 jump.SetActive(true);
-                interact.SetActive(true);
                 pickup.SetActive(false);
                 Mobileinventorybtn.SetActive(true);
                 pause.SetActive(true);

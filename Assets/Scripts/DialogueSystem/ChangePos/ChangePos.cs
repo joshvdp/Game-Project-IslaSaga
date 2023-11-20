@@ -9,7 +9,7 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject scndIntro, lastIntro, atk, run, blk, jmp, lastDia,      //dialogue
-                          sprint, block, pickup, jump, attack, interact, inventory, analog, map, health;  // buttons & UI
+                          sprint, block, pickup, jump, attack, inventory, analog, map, health;  // buttons & UI
 
         RectTransform bg;
 
@@ -38,7 +38,6 @@ namespace ChangePosition
                 pickup.SetActive(false);
                 jump.SetActive(false);
                 attack.SetActive(false);
-                interact.SetActive(false);
                 inventory.SetActive(false);
                 analog.SetActive(false);
                 map.SetActive(false);
@@ -84,7 +83,6 @@ namespace ChangePosition
                 bg.transform.localPosition = new Vector3(0, 137.05f, 0f);
                 map.SetActive(true);
                 health.SetActive(true);
-                interact.SetActive(true);
             }
         }
     }
