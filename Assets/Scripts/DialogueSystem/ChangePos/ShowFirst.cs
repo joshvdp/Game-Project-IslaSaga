@@ -9,7 +9,7 @@ namespace DialogueSystem
     {
         public float ShowDelay;
         int index;
-        public GameObject inventoryBtn, inventoryBtnTutorial;
+        public GameObject inventoryBtn, inventoryBtnTutorial, analog, analogTutorial;
         private void Awake()
         {
             StartCoroutine(show());
@@ -21,12 +21,14 @@ namespace DialogueSystem
             if (activeSceneName == "Tutorial Scene")
             {
                 inventoryBtn.SetActive(false);
+                analog.SetActive(false);
                 yield return new WaitForSeconds(ShowDelay);
                 index = 2;
                 DialogueHandler.Instance.EnableDialogue(index);
             }
             else
             {
+                analogTutorial.SetActive(true);
                 inventoryBtn.SetActive(true);
                 inventoryBtnTutorial.SetActive(false);
             }

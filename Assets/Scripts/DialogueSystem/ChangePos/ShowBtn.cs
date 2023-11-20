@@ -7,7 +7,7 @@ public class ShowBtn : MonoBehaviour
     public FixedTouchField TouchField;
 
     public GameObject btn, firstDia, lastDia,
-                      analog, atk, sprint, block, jump;
+                      analog, atk, sprint, block, jump, pause;
 
 
     RectTransform bg;
@@ -15,6 +15,7 @@ public class ShowBtn : MonoBehaviour
     private void Start()
     {
         bg = gameObject.GetComponent<RectTransform>();
+        pause.SetActive(false);
     }
 
     private void OnEnable()
@@ -32,7 +33,6 @@ public class ShowBtn : MonoBehaviour
         if (firstDia.activeSelf)
         {
             bg.transform.localPosition = new Vector3(334, 487, 0f);
-            btn.SetActive(true);
         }
 
         if (lastDia.activeSelf)
@@ -43,6 +43,7 @@ public class ShowBtn : MonoBehaviour
             block.SetActive(false);
             jump.SetActive(false);
             analog.SetActive(false);
+            btn.SetActive(true);
         }
 
     }
