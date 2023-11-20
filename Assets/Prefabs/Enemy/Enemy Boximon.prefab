@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 8362184488016823727}
   - component: {fileID: 4386025406839128643}
   - component: {fileID: 8474503708022128161}
-  - component: {fileID: 6385078025512536248}
+  - component: {fileID: 7444103904214531258}
   m_Layer: 7
   m_Name: Enemy Boximon
   m_TagString: Enemy
@@ -1517,7 +1517,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6385078025512536248
+--- !u!114 &7444103904214531258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1526,11 +1526,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8220367471542494280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5413fde031adf1d42be224cf3a107790, type: 3}
+  m_Script: {fileID: 11500000, guid: 994789a6f037be54286333fe50b4cf11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoint: {fileID: 5404289374045496090}
-  Blood: {fileID: 8496773142720278839}
+  LandParticle: {fileID: 0}
+  SprintParticle: {fileID: 0}
+  JumpParticle: {fileID: 0}
+  Blood: {fileID: 8447643662966767723}
 --- !u!1 &8397401009913331196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1867,11 @@ PrefabInstance:
 --- !u!4 &8447643662966767638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6823200998282874675, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
+  m_PrefabInstance: {fileID: 3138144790131707685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8447643662966767723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6823200998282874702, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
   m_PrefabInstance: {fileID: 3138144790131707685}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8766107300517362098
