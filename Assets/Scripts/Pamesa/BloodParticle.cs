@@ -8,8 +8,8 @@ namespace VFX
     {
         public delegate void OnHitEvent();
         public static OnHitEvent Hit, HitDone;
-        public GameObject SpawnPoint;
-        public ParticleSystem Blood;
+        public GameObject SpawnPoint,Blood;
+        //public ParticleSystem Blood;
         private BloodVFXCaller BloodVFX;
 
         private void OnEnable()
@@ -29,9 +29,9 @@ namespace VFX
         }
         private void EnemyHit()
         {
-            Debug.Log("WENT");
+            Debug.Log("ENEMYHIT");
             Blood.gameObject.SetActive(true);
-            Instantiate(Blood, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+            //Instantiate(Blood, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
             //BloodVFX = Instantiate(Blood, transform.position, transform.rotation);
         }
         private void DoneHit()

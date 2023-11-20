@@ -8,6 +8,7 @@ namespace VFX
     {
         public void SpawnBlood()
         {
+            Debug.Log("Invoke");
             BloodParticle.Hit?.Invoke();
         }
         public void DespawnBlood()

@@ -1462,6 +1462,7 @@ Transform:
   - {fileID: 4385544877935423537}
   - {fileID: 8342329090358342443}
   - {fileID: 5548502280814060432}
+  - {fileID: 2021873634544757619}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -173.47, z: 0}
@@ -2127,6 +2128,52 @@ Transform:
   m_Father: {fileID: 2598878993770944347}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5048624516359778071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2021873634544757619}
+  - component: {fileID: 2154966704190135821}
+  m_Layer: 6
+  m_Name: SprintParticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2021873634544757619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048624516359778071}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.537, z: -0.515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3660376347992221316}
+  m_Father: {fileID: 1403995966872483314}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2154966704190135821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048624516359778071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da32d05351d6d6438a7b7b40ba01b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SprintParticle: {fileID: 5048624516359778071}
 --- !u!1 &5155908300188824651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,7 +2728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6132578708695697482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.65}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2903,6 +2950,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1992507405516021775}
+          m_TargetAssemblyTypeName: VFX.WeaponVFXCaller, Assembly-CSharp
+          m_MethodName: SpawnParticle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - myName: Attack4
     unityEvent:
       m_PersistentCalls:
@@ -2910,6 +2969,66 @@ MonoBehaviour:
         - m_Target: {fileID: 1751114433994594629}
           m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
           m_MethodName: Attack4
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1992507405516021775}
+          m_TargetAssemblyTypeName: VFX.WeaponVFXCaller, Assembly-CSharp
+          m_MethodName: SpawnParticle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - myName: DoneAttack
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1992507405516021775}
+          m_TargetAssemblyTypeName: VFX.WeaponVFXCaller, Assembly-CSharp
+          m_MethodName: DespawnParticle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - myName: Sprint
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2154966704190135821}
+          m_TargetAssemblyTypeName: VFX.SprintParticleCaller, Assembly-CSharp
+          m_MethodName: Sprinting
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - myName: SprintDone
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2154966704190135821}
+          m_TargetAssemblyTypeName: VFX.SprintParticleCaller, Assembly-CSharp
+          m_MethodName: DoneSprinting
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4562,6 +4681,80 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8207246976807790581, guid: 04c89a059744a564db37decfd7f2e0eb, type: 3}
   m_PrefabInstance: {fileID: 5957841596169291837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8071280432572096255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2021873634544757619}
+    m_Modifications:
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4978929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.735
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823683967142776937, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+      propertyPath: m_Name
+      value: SprintTrail
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+--- !u!4 &3660376347992221316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4813985365294856315, guid: 4d06e61079f54c043b18366161e878b4, type: 3}
+  m_PrefabInstance: {fileID: 8071280432572096255}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8278202389180850371
 PrefabInstance:
