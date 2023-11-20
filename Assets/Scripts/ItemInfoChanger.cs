@@ -8,13 +8,14 @@ using System;
 public class ItemInfoChanger : MonoBehaviour
 {
     [SerializeField] List<TMProUGUIWithName> Texts;
-
+    InventoryItem currentDataHolding;
     private void Awake()
     {
         EmptyInformation();
     }
     public void EmptyInformation()
     {
+        if (currentDataHolding != null) return;
         for (int i = 0; i < Texts.Count; i++)
         {
             Texts[i].TMProUGUIElement.text = "";
@@ -22,6 +23,7 @@ public class ItemInfoChanger : MonoBehaviour
     }
     public void ChangeItemInformation(InventoryItem data)
     {
+        currentDataHolding = data;
         if (Texts.Find(_ => _.StringName == "Item Name") != null) Texts.Find(_ => _.StringName == "Item Name").TMProUGUIElement.text = data.ItemName;
         if (Texts.Find(_ => _.StringName == "Item Description") != null) Texts.Find(_ => _.StringName == "Item Description").TMProUGUIElement.text = data.ItemDescription;
     }

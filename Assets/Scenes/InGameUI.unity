@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15971,6 +15971,58 @@ PrefabInstance:
       propertyPath: ItemSlotEquipType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1887297905}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2039518230}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TMPro.TMP_Text, Unity.TextMeshPro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TMPro.TMP_Text, Unity.TextMeshPro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+      propertyPath: OnItemRemoved.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1877331696526297137, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -16141,6 +16193,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6865193288234644812, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
   m_PrefabInstance: {fileID: 854018789}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &854018791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+  m_PrefabInstance: {fileID: 854018789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1231f1604e096b478950ed64bf529bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860962462
 GameObject:
   m_ObjectHideFlags: 0
@@ -22679,6 +22742,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+--- !u!114 &1310983156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1002050924636095822, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
+  m_PrefabInstance: {fileID: 1310983155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1231f1604e096b478950ed64bf529bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311261656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1337343679707875867, guid: 822819a7681926544b92bb11f6abd2b3, type: 3}
@@ -28763,8 +28837,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c8b0b5f9d7d8c4baf3658baaaccade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnEquippableItemAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  InventoryData: {fileID: 11400000, guid: a188e99ebaf13024fa510cdbd49c32a0, type: 2}
   InventorySlotsParent: {fileID: 1243656948}
   ItemSlots: []
+  itemSlotsGameObjects: []
+  WeaponSlot: {fileID: 1310983156}
+  ShieldSlot: {fileID: 854018791}
 --- !u!114 &1646781882
 MonoBehaviour:
   m_ObjectHideFlags: 0
