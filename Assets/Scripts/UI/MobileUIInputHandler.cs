@@ -25,9 +25,10 @@ namespace Mobile
         [Foldout("Buttons")] public Button JumpButton;
         [Foldout("Buttons")] public Button InventoryButton;
 
-        PlayerMonoStateMachine PlayerMachine => FindObjectOfType<PlayerMonoStateMachine>();
+        PlayerMonoStateMachine PlayerMachine;
         private void Awake()
         {
+            PlayerMachine = FindObjectOfType<PlayerMonoStateMachine>();
             PlayerMachine.MobileJoystick = Joystick;
             FindObjectOfType<CameraControllerNEW>().TouchField = TouchField;
         }
@@ -39,6 +40,7 @@ namespace Mobile
 
         void CheckIfButtonsCanBePressed()
         {
+            if (PlayerMachine == null) return;
             if (PlayerMachine.InteractableDetector.ObjectWithinDetectRange || PlayerMachine.PickUpRange.ObjectWithinDetectRange || PlayerMachine.PlayerIsHoldingObject) 
                 InteractOrPickupButton.interactable = true;
             else InteractOrPickupButton.interactable = false;

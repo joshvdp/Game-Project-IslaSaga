@@ -21,7 +21,8 @@ namespace StateMachine.Enemy.State
         private float Speed;
         public BoximonFollowFunctions(BoximonMonoStateMachine machine, BoximonFollow data) : base(machine, data)
         {
-            if (machine.DetectCollider.NearestGameobject() != null) Target = machine.DetectCollider.NearestGameobject().transform;
+            if (machine.DetectCollider.NearestGameobject() != null)
+                Target = machine.DetectCollider.NearestGameobject().transform;
             else machine.OnEndState?.Invoke();
             Speed = data.Speed;
             machine.Agent.isStopped = false;

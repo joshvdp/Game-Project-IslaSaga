@@ -68,7 +68,7 @@ namespace StateMachine.Player.State
 
         void Checker()
         {
-            Debug.Log((Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) > machine.MaxHoldDistance) + " BECAUSE " + Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) + " AND " + MaxDistance);
+            //Debug.Log((Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) > machine.MaxHoldDistance) + " BECAUSE " + Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) + " AND " + MaxDistance);
             if (machine.ItemPickedUpRb != null) machine.ItemPickedUpRb.useGravity = false;
 
             //if (Vector3.Distance(machine.ItemPickedUpRb.position, machine.transform.position) > machine.MaxHoldDistance)

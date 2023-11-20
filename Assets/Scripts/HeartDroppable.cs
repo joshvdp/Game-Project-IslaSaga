@@ -11,6 +11,7 @@ public class HeartDroppable : MonoBehaviour
     public UnityEvent onPicked;
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.transform.tag != "Player") return;
         playerStats.TakeHeal(HealAmount);
         Destroy(gameObject);

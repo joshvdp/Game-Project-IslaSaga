@@ -32,25 +32,20 @@ namespace AudioSoundEvents
         {
             Instantiate(FootStepLeft, transform.position, transform.rotation);
         }
-
         public void Jumps ()
         {
             Instantiate(Jump, transform.position, transform.rotation);
             Jumping();
         }
-
         public void Dies ()
         {
-            //Instantiate(Death, transform.position, transform.rotation);
-            Debug.Log("DEAD BODY THUD");
+            Instantiate(Death, transform.position, transform.rotation);
         }
-
         public void Land()
         {
             Instantiate(Landed, transform.position, transform.rotation);
             Landing();
         }
-        
         #endregion
 
         #region ENEMY COMBAT

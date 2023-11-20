@@ -15,7 +15,6 @@ namespace Items
         public InventoryItem ItemData;
         private void OnTriggerEnter(Collider other)
         {
-            
             if(!other.transform.GetComponent<PlayerInventory>().PickUpItem(ItemData)) return;
             OnPickup?.Invoke();
             Destroy(gameObject);

@@ -7,10 +7,11 @@ using Manager;
 using System;
 using UnityEngine.EventSystems;
 using StateMachine.Player;
-
 using InterfaceAndInheritables;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
+[Serializable]
 public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     public UnityEvent OnItemAdded;
@@ -18,7 +19,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
     public Action OnUseItemOnSlot;
     [SerializeField] CanvasGroup canvasGroup;
-    public PlayerInventory ParentMainInventory;
+    public PlayerInventory ParentMainInventory => GameObject.Find("Player").GetComponent<PlayerInventory>();
     [SerializeField] Transform InventoryUIParent;
     public InventoryItem ItemData;
     public Image ItemImage;
@@ -30,6 +31,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
     public bool IsOccupied = false;
     public bool IsEquipSlot = false;
+    bool HasInitialized = false;
     public EquippableItemType ItemSlotEquipType;
     public string SlotID => GetInstanceID().ToString();
 
@@ -37,7 +39,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
     private void Awake()
     {
-        if(ParentMainInventory == null) ParentMainInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+        InitializeItem();
     }
     private void OnEnable()
     {
@@ -52,26 +54,29 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
             
         }
     }
-
+    public Transform EquippableTransform;
     public void InitializeItem()
     {
+        
+        if (ItemData == null || HasInitialized) return;
         switch (ItemData.ItemType)
         {
             case ItemType.CONSUMABLE:
                 BehaviorObject = Instantiate(ItemData.BehaviorObject, transform);
                 break;
             case ItemType.EQUIPPABLE:
-                PlayerMonoStateMachine PlayerMachine = ParentMainInventory.GetComponent<PlayerMonoStateMachine>();
+                
                 if (IsEquipSlot)
                 {
+                    PlayerMonoStateMachine PlayerMachine = ParentMainInventory.GetComponent<PlayerMonoStateMachine>();
                     Transform Item;
                     switch (ItemData.EquippableType)
                     {
                         case EquippableItemType.WEAPON:
-                            Item = Instantiate(ItemData.ItemToEquip, PlayerMachine.WeaponHolderPosition.position,
+                            EquippableTransform = Instantiate(ItemData.ItemToEquip, PlayerMachine.WeaponHolderPosition.position,
                                                 Quaternion.identity, PlayerMachine.WeaponHolderPosition).transform;
-                            Item.localRotation = Item.GetComponent<IWeapon>().WeaponRotation;
-                            Item.localPosition = Vector3.zero;
+                            EquippableTransform.localRotation = EquippableTransform.GetComponent<IWeapon>().WeaponRotation;
+                            EquippableTransform.localPosition = Vector3.zero;
 
                             break;
                         case EquippableItemType.SHIELD:
@@ -87,6 +92,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
                     }
                     if (transform.parent.GetComponent<ItemInfoChanger>()) transform.parent.GetComponent<ItemInfoChanger>().ChangeItemInformation(ItemData);
+                    InventoryUIHandler.Instance.AddEquippableToSavableData(ItemData, this);
                     PlayerMachine.AssignWeaponAndOrShield();
                 }
                 break;
@@ -97,19 +103,23 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
         OnItemAdded?.Invoke();
         ItemImage.sprite = ItemData.ItemImage;
         IsOccupied = true;
+        HasInitialized = true;
     }
 
     public void RemoveEquippable()
     {
+        Debug.Log("REMOVE EQUIPPABLE CALLED");
         PlayerMonoStateMachine PlayerMachine = ParentMainInventory.GetComponent<PlayerMonoStateMachine>();
         if (IsEquipSlot)
         {
             switch (ItemData.EquippableType)
             {
                 case EquippableItemType.WEAPON:
-                    DestroyImmediate(PlayerMachine.WeaponOnHandGameObject.gameObject); // For some reason "Destroy" function doesn't destroy the instance of the object (object destroyed can still be reference but can't be seen.)
+                    if (PlayerMachine.WeaponOnHandGameObject.gameObject == null) break;
+                    DestroyImmediate(PlayerMachine.WeaponOnHandGameObject); // For some reason "Destroy" function doesn't destroy the instance of the object (object destroyed can still be reference but can't be seen.)
                     break;
                 case EquippableItemType.SHIELD:
+                    if (PlayerMachine.ShieldCollider.gameObject == null) break;
                     DestroyImmediate(PlayerMachine.ShieldCollider.gameObject);
                     break;
                 case EquippableItemType.ACCESSORIES:
@@ -124,6 +134,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
     }
     public void RemoveItemFromSlot()
     {
+        if (ItemData == null) return;
         if (IsEquipSlot) RemoveEquippable();
         RemoveItemBehavior();
         ItemData = null;
@@ -131,6 +142,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
         IsOccupied = false;
         OnItemRemoved?.Invoke();
         Destroy(DraggableObjectInstance);
+        HasInitialized = false;
 
     }
     public void RemoveItemBehavior()

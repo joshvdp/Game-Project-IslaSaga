@@ -25,8 +25,6 @@ namespace StateMachine.Base
         public abstract void StateUpdate();
         public abstract void StateFixedUpdate();
         public abstract void Discard();
-
-
     }
 }
 
