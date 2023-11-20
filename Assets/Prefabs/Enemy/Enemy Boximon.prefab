@@ -46,7 +46,7 @@ SphereCollider:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 3145663
+    m_Bits: 1072693183
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -1012,6 +1012,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!1 &6619869817796056316
