@@ -36,7 +36,8 @@ namespace AudioSoundEvents
         }
         public void Dies ()
         {
-            Instantiate(Death, transform.position, transform.rotation);
+            //Instantiate(Death, transform.position, transform.rotation);
+            Wasted();
         }
         public void Land()
         {
@@ -90,9 +91,9 @@ namespace AudioSoundEvents
         {
             SFX.PlayOneShot(LandOnGround);
         }
-        public void Dying()
+        public void Wasted()
         {
-            Debug.Log("Death Voice");
+            SFX.PlayOneShot(Dead);
         }
         public void Interact()
         {
