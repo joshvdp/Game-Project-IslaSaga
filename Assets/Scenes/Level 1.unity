@@ -1632,6 +1632,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HP Potion Pickupable (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2848,6 +2856,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1298001797}
     m_Modifications:
+    - target: {fileID: 2731846665538361378, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731846665538361378, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     - target: {fileID: 3460415263142669046, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3478,6 +3494,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1298001797}
     m_Modifications:
+    - target: {fileID: 2731846665538361378, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731846665538361378, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     - target: {fileID: 3184005571413602821, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
       propertyPath: OnPickup.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -4227,6 +4251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cd34d3cb013af44a0ec41f4b353581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLoadNextSceneTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+  ShouldSave: 1
   LoadingScreenBG: {fileID: 0}
   NextSceneName: Level 2
 --- !u!1001 &1041899330
@@ -5521,7 +5549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.6
+      value: -112.62
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6567,6 +6595,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HP Potion Pickupable (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6847,7 +6883,7 @@ Transform:
   - {fileID: 349641440}
   - {fileID: 125527118}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1299070101
 PrefabInstance:
@@ -7482,6 +7518,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1298001797}
     m_Modifications:
+    - target: {fileID: 3180299727570587852, guid: cbbeb3952f3a3ad47958899429b40ff3, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180299727570587852, guid: cbbeb3952f3a3ad47958899429b40ff3, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     - target: {fileID: 6722382072238693837, guid: cbbeb3952f3a3ad47958899429b40ff3, type: 3}
       propertyPath: m_Name
       value: Stick Pickupable
@@ -8321,6 +8365,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield Pickupable
       objectReference: {fileID: 0}
+    - target: {fileID: 4694426279397798039, guid: 7b0eae0c496d9f84f8b5d0e32213dec5, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694426279397798039, guid: 7b0eae0c496d9f84f8b5d0e32213dec5, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8830,6 +8882,14 @@ PrefabInstance:
     - target: {fileID: 2551957570229597695, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
       propertyPath: m_Name
       value: HP Potion Pickupable
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9904,6 +9964,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1298001797}
     m_Modifications:
+    - target: {fileID: 3180299727570587852, guid: cbbeb3952f3a3ad47958899429b40ff3, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180299727570587852, guid: cbbeb3952f3a3ad47958899429b40ff3, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     - target: {fileID: 6722382072238693837, guid: cbbeb3952f3a3ad47958899429b40ff3, type: 3}
       propertyPath: m_Name
       value: Stick Pickupable (1)
@@ -10017,6 +10085,14 @@ PrefabInstance:
     - target: {fileID: 2551957570229597695, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
       propertyPath: m_Name
       value: HP Potion Pickupable (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049465541670710893, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10721,6 +10797,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield Pickupable (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4694426279397798039, guid: 7b0eae0c496d9f84f8b5d0e32213dec5, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 536870847
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694426279397798039, guid: 7b0eae0c496d9f84f8b5d0e32213dec5, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 536870976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10934,7 +11018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11047,6 +11131,10 @@ PrefabInstance:
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_Name
       value: Enemy Boximon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11272,6 +11360,10 @@ PrefabInstance:
     - target: {fileID: 4264688830944754365, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5839376198085788951, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1073741759
       objectReference: {fileID: 0}
     - target: {fileID: 7476455449665975732, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
       propertyPath: m_RootOrder
@@ -11662,7 +11754,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &1130909570504370248
 Transform:

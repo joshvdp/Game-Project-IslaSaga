@@ -25,7 +25,7 @@ namespace Manager
         public void loadUI()
         {
 
-            SceneManager.LoadScene(2, LoadSceneMode.Additive);
+            SceneManager.LoadScene("InGameUI", LoadSceneMode.Additive);
         }
         bool IsUIAlreadyAdded()
         {

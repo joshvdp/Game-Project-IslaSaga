@@ -1073,6 +1073,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 0
+      - m_Target: {fileID: 1154300865}
+        m_TargetAssemblyTypeName: SaveSystemJSON, Assembly-CSharp
+        m_MethodName: DeleteSaveData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &147275445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7409,6 +7421,7 @@ GameObject:
   - component: {fileID: 1154300862}
   - component: {fileID: 1154300863}
   - component: {fileID: 1154300864}
+  - component: {fileID: 1154300865}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -7460,6 +7473,19 @@ MonoBehaviour:
   myMixer: {fileID: 24100000, guid: aa60b60f7d48b294bb49a2e8b86fadbe, type: 2}
   musicSlider: {fileID: 1791133092}
   sfxSlider: {fileID: 998517857}
+--- !u!114 &1154300865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154300860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d195dce70960d0949a4a2d4800440f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryData: {fileID: 11400000, guid: a188e99ebaf13024fa510cdbd49c32a0, type: 2}
 --- !u!1 &1162449769
 GameObject:
   m_ObjectHideFlags: 0

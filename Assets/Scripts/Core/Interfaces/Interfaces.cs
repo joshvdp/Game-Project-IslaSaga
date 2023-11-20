@@ -31,6 +31,7 @@ namespace InterfaceAndInheritables
         Quaternion WeaponRotation { get; set; }
         void Attack();
         GameObject GetGameobject();
+        void DestroyThisWeapon();
     }
 
     // OLD INTERFACE

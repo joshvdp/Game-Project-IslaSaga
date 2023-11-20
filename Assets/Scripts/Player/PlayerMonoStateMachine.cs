@@ -31,20 +31,30 @@ namespace StateMachine.Player
         private DetectCollider _rangeOfAttack;
         private DetectCollider _interactableDetector;
 
-        public Animator Animator => _animator ? _animator : _animator = GetComponentInChildren<Animator>();
-        public AnimationEvents AnimationEvents => _animationEvents ? _animationEvents : _animationEvents = GetComponentInChildren<AnimationEvents>();
-        public HpBar HpComponent => _hpComponent ? _hpComponent : _hpComponent = GetComponent<HpBar>();
-        public Rigidbody PlayerRb => _playerRb ? _playerRb : _playerRb = GetComponent<Rigidbody>();
-        public PlayerInputs PlayerInputs => _playerInputs ? _playerInputs : _playerInputs = GetComponent<PlayerInputs>();
-        public AttackCollidersHandler AttackCollidersHandler => _attackCollidersHandler ? _attackCollidersHandler : _attackCollidersHandler = GetComponentInChildren<AttackCollidersHandler>();
-        public DetectCollider PickUpRange => _pickUpRange ? _pickUpRange : _pickUpRange = transform.Find("Pick Up Range").GetComponent<DetectCollider>();
-        public DetectCollider RangeOfAttack => _rangeOfAttack ? _rangeOfAttack : _rangeOfAttack = transform.Find("Range of Attack").GetComponent<DetectCollider>();
-        public DetectCollider InteractableDetector => _interactableDetector ? _interactableDetector : _interactableDetector = transform.Find("Detect Interactable").GetComponent<DetectCollider>();
+        public Animator Animator => _animator ? 
+            _animator : _animator = GetComponentInChildren<Animator>();
+        public AnimationEvents AnimationEvents => _animationEvents ?
+            _animationEvents : _animationEvents = GetComponentInChildren<AnimationEvents>();
+        public HpBar HpComponent => _hpComponent ?
+            _hpComponent : _hpComponent = GetComponent<HpBar>();
+        public Rigidbody PlayerRb => _playerRb ?
+            _playerRb : _playerRb = GetComponent<Rigidbody>();
+        public PlayerInputs PlayerInputs => _playerInputs ? 
+            _playerInputs : _playerInputs = GetComponent<PlayerInputs>();
+        public AttackCollidersHandler AttackCollidersHandler => _attackCollidersHandler ? 
+            _attackCollidersHandler : _attackCollidersHandler = GetComponentInChildren<AttackCollidersHandler>();
+        public DetectCollider PickUpRange => _pickUpRange ? 
+            _pickUpRange : _pickUpRange = transform.Find("Pick Up Range").GetComponent<DetectCollider>();
+        public DetectCollider RangeOfAttack => _rangeOfAttack ? 
+            _rangeOfAttack : _rangeOfAttack = transform.Find("Range of Attack").GetComponent<DetectCollider>();
+        public DetectCollider InteractableDetector => _interactableDetector ? 
+            _interactableDetector : _interactableDetector = transform.Find("Detect Interactable").GetComponent<DetectCollider>();
 
         public Action OnNoMoveInput;
         public Action OnEndstate;
         public Action OnFalling;
         public Action OnLanded;
+
         private void OnEnable()
         {
             PlayerInputs.OnPickupInput += CheckIfThereIsPickupable;
@@ -158,26 +168,12 @@ namespace StateMachine.Player
         }
         void CalculatePCInputs()
         {
-            if (Input.GetKey(PCControls.ForwardKey))
-            {
-                HorizontalMove += 1;
-            }
-            if (Input.GetKey(PCControls.BackwardKey))
-            {
-                HorizontalMove -= 1;
-            }
-            if (Input.GetKey(PCControls.LeftKey))
-            {
-                VerticalMove -= 1;
-            }
-            if (Input.GetKey(PCControls.RightKey))
-            {
-                VerticalMove += 1;
-            }
-
+            if (Input.GetKey(PCControls.ForwardKey)) HorizontalMove += 1;
+            if (Input.GetKey(PCControls.BackwardKey)) HorizontalMove -= 1;
+            if (Input.GetKey(PCControls.LeftKey)) VerticalMove -= 1;
+            if (Input.GetKey(PCControls.RightKey))VerticalMove += 1;
             if (!Input.GetKey(PCControls.ForwardKey) && !Input.GetKey(PCControls.BackwardKey)) HorizontalMove = 0;
             if (!Input.GetKey(PCControls.RightKey) && !Input.GetKey(PCControls.LeftKey)) VerticalMove = 0;
-
         }
         void CalculateMobileInputs()
         {
@@ -186,20 +182,19 @@ namespace StateMachine.Player
         }
         public void RotateTowardsMovement(float rotationSpeed, bool isInstant)
         {
-
             Vector3 MoveDirection = new Vector3(CamRelativeMoveVect.x, 0f, CamRelativeMoveVect.z).normalized;
-            Quaternion ForwardDirection = CamRelativeMoveVect.magnitude > 0.1f ? Quaternion.LookRotation(MoveDirection, Vector3.up) : Quaternion.identity;
+            Quaternion ForwardDirection = CamRelativeMoveVect.magnitude > 0.1f ? 
+                Quaternion.LookRotation(MoveDirection, Vector3.up) : Quaternion.identity;
             if (!isInstant) transform.rotation = Quaternion.RotateTowards(transform.rotation, ForwardDirection,
                                 rotationSpeed * Time.deltaTime * (CamRelativeMoveVect.magnitude != 0 ? 1 : 0));
             else transform.rotation = ForwardDirection;
         }
 
         public void MoveHorizontal(float speed) => PlayerRb.velocity = new Vector3(MoveVelocityInputs.x * speed, PlayerRb.velocity.y, MoveVelocityInputs.z * speed);
-
         public void StopMovement() => PlayerRb.velocity = Vector3.zero;
 
         #endregion
-        #region ATTACK VARIABLES
+        #region ATTACK
 
         [SerializeField, Foldout("Combat")] public Transform WeaponHolderPosition;
         [SerializeField, Foldout("Combat")] public Transform ShieldHolderPosition;
@@ -209,9 +204,7 @@ namespace StateMachine.Player
         [SerializeField, Foldout("Combat")] public float CurrentWeaponDamage;
         [SerializeField, Foldout("Combat")] public DamageType CurrentWeaponDamageType;
         [SerializeField, Foldout("Combat")] public float CurrentWeaponSequenceResetTimer;
-
         [HideInInspector] public Collider ShieldCollider;
-
          public float AttackSequence;
         Coroutine AttackSequenceCoroutine;
         IEnumerator AttackSequenceResetEnumerator(float sequenceResetTime)
@@ -228,16 +221,16 @@ namespace StateMachine.Player
 
         public void AssignWeaponAndOrShield()
         {
+            Debug.Log("ASSIGN WEAPON CALLED");
             WeaponOnHand = null;
             WeaponOnHandGameObject = null;
-
             WeaponOnHand = WeaponHolderPosition?.GetComponentInChildren<IWeapon>();
             ShieldCollider = ShieldHolderPosition?.GetComponentInChildren<Collider>();
-            
             WeaponOnHandGameObject = WeaponOnHand != null ? WeaponOnHand.GetGameobject() : null;
 
             CurrentWeaponDamage = WeaponOnHand == null ? 5f : WeaponOnHand.Damage;
-            CurrentWeaponDamageType = WeaponOnHand == null ? DamageType.MELEE : WeaponHolderPosition.GetComponentInChildren<IWeapon>().WeaponDamageType;
+            CurrentWeaponDamageType = WeaponOnHand == null ? 
+                DamageType.MELEE : WeaponHolderPosition.GetComponentInChildren<IWeapon>().WeaponDamageType;
             CurrentWeaponSequenceResetTimer = WeaponOnHand == null ? 0.75f : WeaponOnHand.SequenceResetTime;
         }
         public void FaceDirectionOfMousePos()
@@ -252,7 +245,6 @@ namespace StateMachine.Player
         public void FaceToNearestEnemy()
         {
             if (RangeOfAttack.NearestGameobject() == null) return;
-
             Transform NearestEnemy = RangeOfAttack.NearestGameobject().transform;
             Vector3 PositionToFace = new Vector3(NearestEnemy.position.x, transform.position.y, NearestEnemy.position.z);
             Vector3 Direction = PositionToFace - transform.position;
@@ -264,16 +256,13 @@ namespace StateMachine.Player
         [SerializeField, Foldout("Pick-up Variables")] public float MaxHoldDistance;
         [SerializeField, Foldout("Pick-up Variables")] public bool PlayerIsHoldingObject = false;
         public Action OnPickupItem;
-        public Action OnNoItemPickup; // Added so when there is something that you want to happen when there is no item to pickup.
-
+        public Action OnNoItemPickup;
         public void CheckIfThereIsPickupable()
         {
             GameObject ObjectToPickup = PickUpRange.NearestGameobject();
             if (ObjectToPickup != null && !CurrentState.Data.name.Contains("Item Hold")) OnPickupItem?.Invoke();
-            
             else OnNoItemPickup?.Invoke();
         }
-
         public void InteractWithInteractable()
         {
             if(IsThereInteractableInRange())
@@ -283,7 +272,6 @@ namespace StateMachine.Player
                 InteractableDetector.ObjectsThatIsInRange.Remove(InteractedObject);
             }
         }
-
         bool IsThereInteractableInRange()
         {
             if (InteractableDetector.ObjectsThatIsInRange.Count > 0) return true;
@@ -293,12 +281,6 @@ namespace StateMachine.Player
         #endregion
         #region CONNECTED VARIABLES
         [SerializeField, Foldout("Variables")] public PlayerStats PlayerStatsSCO;
-        
-        //public void UpdatePlayerStatsSCO()
-        //{
-        //    PlayerStatsSCO.PlayerCurrentHealth = HpComponent.CurrentHealth;
-        //}
-
         #endregion
 
     }

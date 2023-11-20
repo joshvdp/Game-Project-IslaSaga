@@ -23,6 +23,7 @@ namespace Items.Weapon
         }
 
         public GameObject GetGameobject() => gameObject;
+        public void DestroyThisWeapon() => DestroyImmediate(gameObject);
     }
 
 }
