@@ -65,7 +65,7 @@ public class PauseMenu : MonoBehaviour
 
                 Time.timeScale = 1f;
 
-                Debug.Log("Resume");
+                
                 GameisPaused = false;
                 break;
             case UIPlatformType.Mobile:
@@ -79,7 +79,7 @@ public class PauseMenu : MonoBehaviour
 
                 Time.timeScale = 1f;
 
-                Debug.Log("Resume");
+                
                 GameisPaused = false;
                 break;
         }
@@ -101,7 +101,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         GameisPaused = true;
-        Debug.Log("Paused");
+        
     }
 
     #region PC Pause Menu
@@ -134,7 +134,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         GameisPaused = false;
-        Debug.Log("Resume");
+        
     }
 
     public void pcPause()
@@ -151,7 +151,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         GameisPaused = true;
-        Debug.Log("Paused");
+        
     }
     #endregion
 
@@ -187,7 +187,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         GameisPaused = false;
-        Debug.Log("Resume");
+        
     }
 
     public void mobilePause()
@@ -203,14 +203,14 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         GameisPaused = true;
-        Debug.Log("Paused");
+        
     }
 
     #endregion
 
     public void exit2Menu()
     {
-        Debug.Log("Exit to Menu");
+        
     }
 
     

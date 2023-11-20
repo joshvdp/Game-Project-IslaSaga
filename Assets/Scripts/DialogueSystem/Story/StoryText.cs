@@ -184,7 +184,7 @@ namespace Story
                 }
 
                 SceneLoader.Instance.LoadNextSceneAsync(SceneLoader.Instance.SceneName.Level1);
-                Debug.Log("CLICK DETECTED");
+                
             }
         }
 
