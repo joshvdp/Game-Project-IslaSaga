@@ -22,7 +22,7 @@ namespace AudioSoundEvents
         public GameObject FootStepLeft;
         public GameObject Death;
         public GameObject Jump;
-        public GameObject Landed;
+        public GameObject SmokeBomb;
         
         public void MoveRightFoot()
         {
@@ -41,10 +41,10 @@ namespace AudioSoundEvents
         {
             Instantiate(Death, transform.position, transform.rotation);
         }
-        public void Land()
+        public void Dissappear()
         {
-            Instantiate(Landed, transform.position, transform.rotation);
-            Landing();
+            Instantiate(SmokeBomb, transform.position, transform.rotation);
+            Debug.Log("BOMB");
         }
         #endregion
 
@@ -52,19 +52,19 @@ namespace AudioSoundEvents
         
         public void Attack1()
         {
-            WeaponSound.attackEvent1?.Invoke();
+            WeaponEnemySound.attackEvent1?.Invoke();
         }
         public void Attack2()
         {
-            WeaponSound.attackEvent2?.Invoke();
+            WeaponEnemySound.attackEvent2?.Invoke();
         }
         public void Attack3()
         {
-            WeaponSound.attackEvent3?.Invoke();
+            WeaponEnemySound.attackEvent3?.Invoke();
         }
         public void Attack4()
         {
-            WeaponSound.attackEvent4?.Invoke();
+            WeaponEnemySound.attackEvent4?.Invoke();
         }
 
         #endregion
@@ -73,7 +73,7 @@ namespace AudioSoundEvents
         
         [Header("ENEMY SOUND BITES:")]
         public AudioClip Hit;
-        public GameObject Attacking;
+        public AudioClip Attacking;
         public AudioClip LandOnGround;
         public AudioClip Interacts;
         public AudioClip JumpJump;
@@ -81,7 +81,7 @@ namespace AudioSoundEvents
 
         public void Grunting ()
         {
-            Instantiate(Attacking, transform.position, transform.rotation);
+            SFX.PlayOneShot(Attacking);
         }
 
         public void Hurt()
