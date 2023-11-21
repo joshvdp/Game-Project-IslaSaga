@@ -73,7 +73,7 @@ namespace AudioSoundEvents
         
         [Header("ENEMY SOUND BITES:")]
         public AudioClip Hit;
-        public GameObject Attacking;
+        public AudioClip Attacking;
         public AudioClip LandOnGround;
         public AudioClip Interacts;
         public AudioClip JumpJump;
@@ -81,7 +81,7 @@ namespace AudioSoundEvents
 
         public void Grunting ()
         {
-            Instantiate(Attacking, transform.position, transform.rotation);
+            SFX.PlayOneShot(Attacking);
         }
 
         public void Hurt()
