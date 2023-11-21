@@ -5,5 +5,6 @@ using UnityEngine;
 public class InstantiateOnEvent : MonoBehaviour
 {
     [SerializeField] GameObject ObjectToInstantiate;
-    public void InstantiateObject() => Instantiate(ObjectToInstantiate, transform.position, ObjectToInstantiate.transform.rotation);
+    public void InstantiateObject() => Instantiate(ObjectToInstantiate, transform.position, ObjectToInstantiate.transform.rotation); 
+    
 }
