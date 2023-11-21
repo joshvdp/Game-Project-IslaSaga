@@ -14,9 +14,13 @@ namespace DialogueSystem
     {
         public UIPlatformType PlatformType;
 
-        
+        public GameObject[] colliderArray;
+
+        private bool allMarksVisited = false;
+
+
         int index;
-        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End;
+        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished;
         
 
         private void OnCollisionEnter(Collision collision)
@@ -237,7 +241,48 @@ namespace DialogueSystem
 
                 End.SetActive(false);
             }
+
+            if (collision.collider.name == "Dialogue Collider (IsFinished)")
+            {
+                if (!allMarksVisited)
+                {
+                    switch (PlatformType)
+                    {
+                        case UIPlatformType.PC:
+                            index = 1;
+                            DialogueHandler.Instance.EnableDialogue(index);
+                            break;
+                        case UIPlatformType.Mobile:
+                            index = 15;
+                            DialogueHandler.Instance.EnableDialogue(index);
+                            break;
+                    }
+                }
+                else
+                {
+                    IsFinished.SetActive(false);
+                }
+            }
         }
+        private void Update()
+        {
+            if (!allMarksVisited)
+            {
+                allMarksVisited = CheckAllMarksVisited();
+            }
+        }
+        bool CheckAllMarksVisited()
+        {
+            foreach (GameObject collider in colliderArray)
+            {
+                if (collider.activeSelf)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }
 

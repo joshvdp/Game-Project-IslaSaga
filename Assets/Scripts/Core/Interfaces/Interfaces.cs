@@ -25,11 +25,15 @@ namespace InterfaceAndInheritables
     }
     public interface IWeapon
     {
+        public UnityEvent OnTargetIsHit { get; set; }
+        public UnityEvent OnNoTargetIsHit { get; set; }
         DamageType WeaponDamageType { get; set; }
         float Damage { get; set; }
         float SequenceResetTime { get; set; }
         Quaternion WeaponRotation { get; set; }
+        PlayerMonoStateMachine holder { get; set; }
         void Attack();
+        void SubscribeEvents();
         GameObject GetGameobject();
     }
 

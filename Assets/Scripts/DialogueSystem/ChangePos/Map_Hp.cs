@@ -9,7 +9,7 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject hp, lastDia,      //dialogue
-                          map, healthBar;  // map
+                          map, healthBar, buttons, analog, pause;  // map & buttons
 
         RectTransform bg;
 
@@ -17,6 +17,9 @@ namespace ChangePosition
         {
             bg = gameObject.GetComponent<RectTransform>();
             healthBar.SetActive(false);
+            buttons.SetActive(false);
+            analog.SetActive(false);
+            pause.SetActive(false);
         }
 
         private void OnEnable()
@@ -41,6 +44,9 @@ namespace ChangePosition
             if (lastDia.activeSelf)
             {
                 map.SetActive(true);
+                buttons.SetActive(true);
+                analog.SetActive(true);
+                pause.SetActive(true);
             }
         }
     }

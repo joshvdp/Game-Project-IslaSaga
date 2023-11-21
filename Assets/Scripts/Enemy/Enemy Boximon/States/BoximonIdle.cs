@@ -6,7 +6,6 @@ namespace StateMachine.Enemy.State
     [CreateAssetMenu(fileName = "Boximon Idle", menuName = "State Machine/Enemy/Boximon/State/Idle")]
     public class BoximonIdle : BoximonMachineData
     {
-
         public override BoximonMachineFunctions Initialize(BoximonMonoStateMachine machine)
         {
             return new BoximonIdleFunctions(machine, this);

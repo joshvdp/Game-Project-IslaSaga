@@ -20,12 +20,14 @@ public class HpBar : MonoBehaviour, IDamageable
     [SerializeField] float PopUpScale;
     [SerializeField] Color PopupTextColor;
     [SerializeField] List<Droppable> DroppableObjects;
-    public UnityEvent onHit;
     [field: SerializeField] public UnityEvent onDeath { get; set; }
+    public UnityEvent onHit;
+    public UnityEvent OnHalfHp;
     VFXManager vfxManager;
     
     PlayerStats PlayerStatistics;
     public bool IsPlayer => PlayerStatistics != null;
+    bool HalfHpEventIsTriggered = false;
     
     private void OnEnable()
     {
@@ -56,6 +58,11 @@ public class HpBar : MonoBehaviour, IDamageable
 
         onHit?.Invoke();
         if (DroppableObjects.Count > 0) DropItems();
+        if(CurrentHealth <= MaxHealth/2 && !HalfHpEventIsTriggered)
+        {
+            OnHalfHp?.Invoke();
+            HalfHpEventIsTriggered = true;
+        }
         if (CurrentHealth <= 0) onDeath?.Invoke();
         
         

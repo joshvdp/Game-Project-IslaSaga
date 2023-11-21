@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: NEU Game Devs
-  productName: Isla Saga
+  companyName: Clutch Devs
+  productName: Terebinth (Test-Run)
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -39,7 +39,9 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: 05aefc402a9c2024db5ba27f2a47d02f, type: 3}
+    duration: 3
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
@@ -133,8 +135,9 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 1.0 Testing
-  preloadedAssets: []
+  bundleVersion: TESTING 1.0x
+  preloadedAssets:
+  - {fileID: 11400000, guid: ef53e36396dd95247aaecbf468a03f21, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -154,7 +157,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.NEUGameDevs.IslaSaga
+    Android: com.ClutchDevs.TerebinthTestRun
     Standalone: com.NEU-Game-Devs.Isla-Saga
   buildNumber:
     Standalone: 0
@@ -275,7 +278,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 546dad7401cce7944ad2b37c13fe81b4, type: 3}
+      m_Icon: {fileID: 2800000, guid: 05aefc402a9c2024db5ba27f2a47d02f, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

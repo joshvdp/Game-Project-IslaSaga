@@ -13,6 +13,9 @@ namespace Manager
         public string LoadingScreen;
         public string Prologue;
         public string Level1;
+        public string Level2;
+        public string AfterLevel;
+        public string EndScene;
 
     }
 

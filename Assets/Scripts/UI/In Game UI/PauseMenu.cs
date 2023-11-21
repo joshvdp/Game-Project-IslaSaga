@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameisPaused = false;
 
-    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap;
+    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap, inventory;
 
     public Button pauseButton;
 
@@ -65,7 +65,7 @@ public class PauseMenu : MonoBehaviour
 
                 Time.timeScale = 1f;
 
-                Debug.Log("Resume");
+                
                 GameisPaused = false;
                 break;
             case UIPlatformType.Mobile:
@@ -79,7 +79,7 @@ public class PauseMenu : MonoBehaviour
 
                 Time.timeScale = 1f;
 
-                Debug.Log("Resume");
+                
                 GameisPaused = false;
                 break;
         }
@@ -96,11 +96,12 @@ public class PauseMenu : MonoBehaviour
         healthBar.SetActive(false);
         mobileUI.SetActive(false);
         mobilePauseButton.SetActive(false);
+        inventory.SetActive(false);
 
         Time.timeScale = 0f;
 
         GameisPaused = true;
-        Debug.Log("Paused");
+        
     }
 
     #region PC Pause Menu
@@ -133,7 +134,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         GameisPaused = false;
-        Debug.Log("Resume");
+        
     }
 
     public void pcPause()
@@ -145,11 +146,12 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenuUI.SetActive(true);
         dialogueBox.SetActive(false);
+        inventory.SetActive(false);
 
         Time.timeScale = 0f;
 
         GameisPaused = true;
-        Debug.Log("Paused");
+        
     }
     #endregion
 
@@ -185,7 +187,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         GameisPaused = false;
-        Debug.Log("Resume");
+        
     }
 
     public void mobilePause()
@@ -201,14 +203,14 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         GameisPaused = true;
-        Debug.Log("Paused");
+        
     }
 
     #endregion
 
     public void exit2Menu()
     {
-        Debug.Log("Exit to Menu");
+        
     }
 
     

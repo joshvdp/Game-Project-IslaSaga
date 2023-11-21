@@ -6,7 +6,7 @@ namespace Core
 {
     public class AttackCollidersHandler : MonoBehaviour
     {
-        AttackCollider[] Colliders => GetComponentsInChildren<AttackCollider>();
+        public AttackCollider[] Colliders => GetComponentsInChildren<AttackCollider>();
 
         public AttackCollider FindCollider(string colliderName)
         {

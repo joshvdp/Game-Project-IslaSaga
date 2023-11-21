@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 978423716806638141, guid: 8aa4283916c816a479e0153b256c511d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2465953690141110467, guid: 8aa4283916c816a479e0153b256c511d, type: 3}
       propertyPath: m_RootOrder
@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2465953690141110467, guid: 8aa4283916c816a479e0153b256c511d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.58
+      value: 39.9
       objectReference: {fileID: 0}
     - target: {fileID: 2465953690141110467, guid: 8aa4283916c816a479e0153b256c511d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -573,6 +573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -650,6 +654,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -844,6 +852,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!65 &95335410
@@ -922,6 +936,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase  (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -1492,6 +1510,102 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &172691445
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1724242914}
+    m_Modifications:
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -58.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -45.741653
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -70.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.05695425
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9983768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -173.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_Name
+      value: Enemy Boximon (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 494461618}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1223112567}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
 --- !u!1 &193846857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1789,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -2562,6 +2680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -3111,11 +3233,81 @@ Transform:
   m_Father: {fileID: 300001106}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &326092207 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+  m_PrefabInstance: {fileID: 1532519176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &327017601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2465953690141110467, guid: 8aa4283916c816a479e0153b256c511d, type: 3}
   m_PrefabInstance: {fileID: 8459868860001293026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &335866433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1223112567}
+    m_Modifications:
+    - target: {fileID: 521339279345268759, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1747735906954452868, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_Name
+      value: CharacterCircleRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659259
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25881904
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 30.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64f97bcadc30ea54680b892789161068, type: 3}
 --- !u!1001 &346892442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3332,6 +3524,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -3812,6 +4008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -4192,6 +4392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!136 &443808456
@@ -4313,6 +4519,11 @@ Transform:
   m_Father: {fileID: 8131127278041707248}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &444704629 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+  m_PrefabInstance: {fileID: 335866433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &452051666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7280923377449897225, guid: 08d3694cc01944de7abd6f649cc10f95, type: 3}
@@ -4876,6 +5087,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!65 &575665526
@@ -5517,6 +5734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -5871,6 +6092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -6112,6 +6337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlatformType: 0
+  colliderArray: []
   Map_HP: {fileID: 0}
   Potions: {fileID: 0}
   Weapons: {fileID: 0}
@@ -6123,6 +6349,7 @@ MonoBehaviour:
   Cannons: {fileID: 0}
   Puzzle: {fileID: 0}
   End: {fileID: 0}
+  IsFinished: {fileID: 0}
 --- !u!1 &652339532
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,6 +6530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -6375,6 +6606,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase  (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -6656,6 +6891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -6838,6 +7077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -6941,6 +7184,102 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
+--- !u!1001 &694421243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1724242914}
+    m_Modifications:
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -51.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -45.741653
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -70.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.05695425
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9983768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -173.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_Name
+      value: Enemy Boximon (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 494461618}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1494007799}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
 --- !u!1001 &716389151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7442,6 +7781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -7529,6 +7872,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -7864,6 +8211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -8147,6 +8498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -8214,6 +8569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da1db9fff30d3e44ab0604043c50989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   ObjectsToDamage: []
   ObjectWithinAttackRange: 0
 --- !u!65 &910502515
@@ -8525,6 +8886,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946806385}
   m_Mesh: {fileID: -5884956233897991705, guid: 34b0895dfc863f742aa5075a4e691859, type: 3}
+--- !u!4 &950825156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+  m_PrefabInstance: {fileID: 172691445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963206435
 GameObject:
   m_ObjectHideFlags: 0
@@ -9269,6 +9635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -9586,6 +9956,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -10192,6 +10566,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
   m_PrefabInstance: {fileID: 1679035166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1223112566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1223112567}
+  m_Layer: 7
+  m_Name: Particle Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1223112567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223112566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.38, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 444704629}
+  m_Father: {fileID: 950825156}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1228469730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10333,6 +10739,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase  (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -10644,6 +11054,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: IsFinished
+      value: 
+      objectReference: {fileID: 3225334711678531661}
+    - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: Low_Health
       value: 
       objectReference: {fileID: 1600703692}
@@ -10664,9 +11078,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: colliderArray.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: dialogueColliderMovement
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: colliderArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 532715998}
+    - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: colliderArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 761713150}
+    - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: colliderArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 598099486}
+    - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
+      propertyPath: colliderArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 1020919506}
     - target: {fileID: 2328393836863600443, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0012302097
@@ -11429,6 +11863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -11501,6 +11939,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -11762,6 +12204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -11798,7 +12244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.03
+      value: -56.37
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11806,7 +12252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.83
+      value: -67.18
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11842,7 +12288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12631,6 +13077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -12813,6 +13263,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -13278,6 +13732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -13360,6 +13818,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase  (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -13844,6 +14306,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7476455449665975732, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
   m_PrefabInstance: {fileID: 1155615008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1494007798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1494007799}
+  m_Layer: 7
+  m_Name: Particle Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1494007799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494007798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.38, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 326092207}
+  m_Father: {fileID: 1988080901}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1502550491
 GameObject:
   m_ObjectHideFlags: 0
@@ -14392,6 +14886,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
   m_PrefabInstance: {fileID: 1527345182}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1532519176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1494007799}
+    m_Modifications:
+    - target: {fileID: 521339279345268759, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1747735906954452868, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_Name
+      value: CharacterCircleRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659259
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25881904
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 30.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186766346787694161, guid: 64f97bcadc30ea54680b892789161068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64f97bcadc30ea54680b892789161068, type: 3}
 --- !u!4 &1533953025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3460415263142669046, guid: da8e337d6fd917f4fb12d8a9025ba7df, type: 3}
@@ -14674,6 +15233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -14837,6 +15400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -14882,7 +15449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597573371}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 37.12, y: -0.2, z: -74.64}
+  m_LocalPosition: {x: 33.72, y: -0.2, z: -77.47}
   m_LocalScale: {x: 100, y: 100, z: 141.74}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15872,6 +16439,8 @@ Transform:
   - {fileID: 934810288}
   - {fileID: 739217049}
   - {fileID: 539393706}
+  - {fileID: 1988080901}
+  - {fileID: 950825156}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15930,6 +16499,10 @@ PrefabInstance:
     - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: m_Name
       value: Breakable Vase (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
@@ -16444,7 +17017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.45
+      value: -53.18
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16452,7 +17025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -68.78
+      value: -67.15
       objectReference: {fileID: 0}
     - target: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16488,7 +17061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.size
@@ -17866,6 +18439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase  (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -17965,6 +18542,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3853612681849086921, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
   m_PrefabInstance: {fileID: 1938252099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1988080901 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5855644453809643669, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+  m_PrefabInstance: {fileID: 694421243}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2008806086
 PrefabInstance:
@@ -18375,6 +18957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Vase (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 4318167034187163836, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6816908388226626069, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
       propertyPath: DroppableObjects.Array.size
       value: 1
@@ -18696,6 +19282,7 @@ Transform:
   - {fileID: 1846422878}
   - {fileID: 227802669}
   - {fileID: 1257414197}
+  - {fileID: 5798357136272931432}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19305,6 +19892,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
+--- !u!1001 &839495243896796588
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2101172097}
+    m_Modifications:
+    - target: {fileID: 3225334710100489446, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_Name
+      value: Dialogue Collider (IsFinished)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225334710100489446, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.7487497
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
 --- !u!23 &933147897366560866
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19536,7 +20192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7986818193271465622}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 34.83, y: -0.19999999, z: -71.61}
+  m_LocalPosition: {x: 36.69, y: -0.19999999, z: -74.42}
   m_LocalScale: {x: 100, y: 100, z: 141.74}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19664,7 +20320,6 @@ GameObject:
   - component: {fileID: 5488010074508629933}
   - component: {fileID: 5488010074508629934}
   - component: {fileID: 5488010074508629935}
-  - component: {fileID: 5488010074508629936}
   m_Layer: 0
   m_Name: Pressure plate
   m_TagString: Untagged
@@ -20214,6 +20869,11 @@ Transform:
   m_Father: {fileID: 2052005607}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3225334711678531661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3225334710100489446, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+  m_PrefabInstance: {fileID: 839495243896796588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3245240076778607396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21311,7 +21971,7 @@ MonoBehaviour:
   Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5488010074508629936}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSoundEvents.PressurePlateSFX, Assembly-CSharp
         m_MethodName: Entry
         m_Mode: 1
@@ -21326,7 +21986,7 @@ MonoBehaviour:
   Deactivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5488010074508629936}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSoundEvents.PressurePlateSFX, Assembly-CSharp
         m_MethodName: Leave
         m_Mode: 1
@@ -21377,18 +22037,6 @@ MonoBehaviour:
   ChecksphereLayers:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &5488010074508629936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967236529833252552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17132733e55029949b3dd1d76628bbd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5511123385790962799
 Transform:
   m_ObjectHideFlags: 0
@@ -21435,6 +22083,11 @@ Transform:
   m_Father: {fileID: 8131127278041707248}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &5798357136272931432 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+  m_PrefabInstance: {fileID: 839495243896796588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &5821170524424451898
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -22843,7 +23496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78135228141163737}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 35.52, y: -0.19999999, z: -80.52}
+  m_LocalPosition: {x: 35.52, y: -0.19999999, z: -79.52}
   m_LocalScale: {x: 100, y: 100, z: 141.74}
   m_ConstrainProportionsScale: 0
   m_Children: []

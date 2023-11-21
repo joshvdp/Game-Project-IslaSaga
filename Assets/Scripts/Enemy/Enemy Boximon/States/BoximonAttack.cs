@@ -27,7 +27,6 @@ namespace StateMachine.Enemy.State
         {
             Damage = data.Damage;
             RaycastableLayer = data.RaycastableLayer;
-            //machine.transform.LookAt(machine.CurrentTarget);
             machine.LookAtTarget();
             machine.Agent.isStopped = true;
             machine.AnimationEvents.FindEvent("Attack Frame").AddListener(Attack);
@@ -57,7 +56,6 @@ namespace StateMachine.Enemy.State
                         else machine.AttackCollider.ObjectsToDamage[i].GetComponent<IDamageable>().Hit(Damage, DamageType.MELEE);
                     }
                 }
-                
                 else Debug.Log("IDAMAGEABLE IS MISSING ON " + machine.AttackCollider.ObjectsToDamage[i]);
                 
             }

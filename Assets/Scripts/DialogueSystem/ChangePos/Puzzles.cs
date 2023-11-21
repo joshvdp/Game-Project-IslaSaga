@@ -9,13 +9,20 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject firstDia, thirdDia, lastDia,
-                          atk, analog, sprint, block, jump, interact, pickup, inventory;
+                          atk, analog, sprint, block, jump, pickup, inventory, pause;
 
 
         RectTransform bg;
 
         private void Start()
         {
+            pause.SetActive(false);
+            atk.SetActive(false);
+            sprint.SetActive(false);
+            block.SetActive(false);
+            jump.SetActive(false);
+            analog.SetActive(false);
+            inventory.SetActive(false);
             bg = gameObject.GetComponent<RectTransform>();
         }
 
@@ -34,13 +41,6 @@ namespace ChangePosition
             if (firstDia.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(290, 111.86f, 0f);
-                atk.SetActive(false);
-                sprint.SetActive(false);
-                block.SetActive(false);
-                jump.SetActive(false);
-                interact.SetActive(false);
-                analog.SetActive(false);
-                inventory.SetActive(false);
                 pickup.SetActive(true);
             }
 
@@ -55,8 +55,8 @@ namespace ChangePosition
                 sprint.SetActive(true);
                 block.SetActive(true);
                 jump.SetActive(true);
-                interact.SetActive(true);
                 analog.SetActive(true);
+                pause.SetActive(true);
             }
 
         }

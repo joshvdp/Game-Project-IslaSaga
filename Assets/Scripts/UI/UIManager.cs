@@ -5,6 +5,7 @@ using Player;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Manager
 {
@@ -14,19 +15,35 @@ namespace Manager
         public UnityEvent OnGameOver;
         public static UIManager Instance;
         public List<Screen> Screens;
+        public Slider BossHpSlider;
+        public HpBar BossHpBar;
+
+        
         private void Awake()
         {
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
+            BossHpBar = GameObject.FindWithTag("Boss").GetComponent<HpBar>();
             Debug.Log("UI LOADED");
+        }
+
+        public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            BossHpBar = GameObject.FindWithTag("Boss").GetComponent<HpBar>();
         }
         private void OnEnable()
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            MainManager.Instance.OnStartBossFight.AddListener(UpdateSlider);
+            BossHpBar.onHit.AddListener(UpdateSlider);
             MainManager.Instance?.PlayerMachine?.HpComponent.onDeath.AddListener(GameOver);
             OnRetry.AddListener(MainManager.Instance.ResetPlayerStats);
         }
         private void OnDisable()
         {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            MainManager.Instance.OnStartBossFight.RemoveListener(UpdateSlider);
+            BossHpBar.onHit.RemoveListener(UpdateSlider);
             MainManager.Instance?.PlayerMachine?.HpComponent.onDeath.RemoveListener(GameOver);
             OnRetry.RemoveListener(MainManager.Instance.ResetPlayerStats);
 
@@ -53,6 +70,12 @@ namespace Manager
         public void MainMenu()
         {
             SceneManager.LoadScene("MainMenu");
+        }
+
+        public void UpdateSlider()
+        {
+            BossHpSlider.maxValue = BossHpBar.MaxHealth;
+            BossHpSlider.value = BossHpBar.CurrentHealth;
         }
     }
 
