@@ -9,6 +9,7 @@ namespace Manager
         [SerializeField] Animator transitionAnim;
         public void Start()
         {
+            if (FindObjectOfType<ScenesManager>() != null && FindObjectOfType<ScenesManager>() != this) Destroy(gameObject);
             DontDestroyOnLoad(this.gameObject);
         }
 

@@ -7,7 +7,7 @@ namespace StateMachine.Enemy.State
     [CreateAssetMenu(fileName = "Marquis Follow", menuName = "State Machine/Enemy/Marquis/State/Follow")]
     public class MarquisFollow : MarquisMachineData
     {
-        [SerializeField, Foldout("Follow")] private float speed = 3.5f;
+        [SerializeField, Foldout("Follow")] public float speed = 3.5f;
         public float Speed => speed;
         public override MarquisMachineFunctions Initialize(MarquisMonoStateMachine machine)
         {
