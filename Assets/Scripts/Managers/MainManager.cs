@@ -31,6 +31,11 @@ namespace Manager
             UIManager.Instance.ToggleScreen("Boss Fight UI");
         }
 
+        public void EndBossFight()
+        {
+            UIManager.Instance.ToggleScreen("Boss Fight UI");
+        }
+
 
         public void ResetPlayerStats() => PlayerStatsSCO.Reset();
 
