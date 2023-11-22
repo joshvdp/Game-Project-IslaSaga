@@ -9,7 +9,7 @@ namespace StateMachine.Enemy.State
     [CreateAssetMenu(fileName = "Marquis Attack", menuName = "State Machine/Enemy/Marquis/State/Attack")]
     public class MarquisAttack : MarquisMachineData
     {
-        [SerializeField, Foldout("Attack")] private float damage = 5f;
+        [SerializeField, Foldout("Attack")] public float damage = 5f;
         [SerializeField, Foldout("Attack")] LayerMask raycastableLayer;
         public float Damage => damage;
         public LayerMask RaycastableLayer => raycastableLayer;

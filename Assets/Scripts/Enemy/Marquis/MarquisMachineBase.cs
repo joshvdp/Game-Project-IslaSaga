@@ -13,14 +13,14 @@ namespace StateMachine.Enemy
         [SerializeField, Foldout("Settings")] protected bool isDamageable = true;
         [SerializeField, Foldout("Settings")] protected bool isKnockbackable = true;
         [SerializeField, Foldout("Settings")] protected Color materialColor;
-
+        [SerializeField, Foldout("Settings")] public float animationSpeed = 1;
         [SerializeField] public List<MarquisChangeState> statesToChangeTo;
         public bool IsUnlocked => isUnlocked;
         public bool IsDamageable => isDamageable;
         public bool IsKnockbackable => isKnockbackable;
         public Color MaterialColor => materialColor;
         public string AnimTrigger => AnimationTrigger;
-
+        public float AnimationSpeed => animationSpeed;
         public override MarquisMachineFunctions Initialize(MarquisMonoStateMachine machine)
         {
             return null;
@@ -34,6 +34,7 @@ namespace StateMachine.Enemy
         public MarquisMachineFunctions(MarquisMonoStateMachine machine, MarquisMachineData data) : base(machine, data)
         {
             AnimTrigger = data.AnimTrigger;
+            machine.Animator.speed = data.AnimationSpeed;
             machine.HpComponent.IsDamageable = data.IsDamageable;
 
             for (int i = 0; i < machine.MainRenderers.Length; i++)
