@@ -156,13 +156,9 @@ namespace Story
         IEnumerator ShowSkipButton()
         {
             yield return new WaitForSeconds(5);
-
-            
             Skip.SetActive(true);
 
             yield return new WaitForSeconds(25);
-
-
             Skip.SetActive(false);
 
 
@@ -172,7 +168,7 @@ namespace Story
         {
             ScrollText();
             string activeSceneName = SceneManager.GetActiveScene().name;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !SceneLoader.Instance.IsLoadingScreenPresent)
             {
 
                 //switch (activeSceneName)

@@ -77,7 +77,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
                                                 Quaternion.identity, PlayerMachine.WeaponHolderPosition).transform;
                             EquippableTransform.localRotation = EquippableTransform.GetComponent<IWeapon>().WeaponRotation;
                             EquippableTransform.localPosition = Vector3.zero;
-
+                            PlayerMachine.WeaponOnHand = PlayerMachine.WeaponHolderPosition?.GetComponentInChildren<IWeapon>();
                             break;
                         case EquippableItemType.SHIELD:
                             Item = Instantiate(ItemData.ItemToEquip, PlayerMachine.ShieldHolderPosition.position,
@@ -116,7 +116,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
             {
                 case EquippableItemType.WEAPON:
                     if (PlayerMachine.WeaponOnHandGameObject.gameObject == null) break;
-                    DestroyImmediate(PlayerMachine.WeaponOnHandGameObject); // For some reason "Destroy" function doesn't destroy the instance of the object (object destroyed can still be reference but can't be seen.)
+                    DestroyImmediate(PlayerMachine.WeaponOnHandGameObject.gameObject); // For some reason "Destroy" function doesn't destroy the instance of the object (object destroyed can still be reference but can't be seen.)
                     break;
                 case EquippableItemType.SHIELD:
                     if (PlayerMachine.ShieldCollider.gameObject == null) break;

@@ -29,7 +29,7 @@ namespace Manager
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            BossHpBar = GameObject.FindWithTag("Boss").GetComponent<HpBar>();
+            BossHpBar = GameObject.FindWithTag("Boss")?.GetComponent<HpBar>();
         }
         private void OnEnable()
         {

@@ -69,6 +69,7 @@ namespace StateMachine.Player
         public override void Awake()
         {
             base.Awake();
+            for (int i = 0; i < WeaponHolderPosition.childCount; i++) Destroy(WeaponHolderPosition.GetChild(0).gameObject); // Makes sure to destroy all weapons on hand on awake
             AssignWeaponAndOrShield();
             
         }
@@ -226,7 +227,7 @@ namespace StateMachine.Player
             WeaponOnHandGameObject = null;
             WeaponOnHand = WeaponHolderPosition?.GetComponentInChildren<IWeapon>();
             ShieldCollider = ShieldHolderPosition?.GetComponentInChildren<Collider>();
-            WeaponOnHandGameObject = WeaponOnHand != null ? WeaponOnHand.GetGameobject() : null;
+            WeaponOnHandGameObject = WeaponOnHand?.GetGameobject();
             if (WeaponOnHand != null)
             {
                 Debug.Log("ASSIGN WEAPON CALLED WEAPON ASSIGNED IS " + WeaponOnHand.GetGameobject());

@@ -12,8 +12,6 @@ public class SaveSystemJSON : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
-
-        
     }
 
     public void DeleteSaveData()
