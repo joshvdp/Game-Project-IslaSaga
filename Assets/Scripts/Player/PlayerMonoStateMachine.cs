@@ -15,7 +15,8 @@ namespace StateMachine.Player
     [RequireComponent(typeof(PlayerInputs))]
     public class PlayerMonoStateMachine : StateMachineHandler<PlayerMachineData, PlayerMachineFunctions>
     {
-        [SerializeField, Foldout("Transform")] private Transform FeetRayStart;
+        [SerializeField, Foldout("Transform")] private Transform FeetStart;
+        [SerializeField, Foldout("Transform")] private Transform FeetEnd;
         [SerializeField, Foldout("Transform")] public Transform ItemHoldPosition;
         [SerializeField] LayerMask NavigatableAreas;
         public Renderer[] MainRenderers;
@@ -69,7 +70,11 @@ namespace StateMachine.Player
         public override void Awake()
         {
             base.Awake();
-            for (int i = 0; i < WeaponHolderPosition.childCount; i++) Destroy(WeaponHolderPosition.GetChild(0).gameObject); // Makes sure to destroy all weapons on hand on awake
+            RaycastHit hit;
+            Ray ray = new Ray(FeetStart.position, Vector3.down);
+            Physics.Raycast(ray, out hit, Mathf.Infinity, NavigatableAreas);
+            transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+            if(WeaponHolderPosition.childCount > 0) for (int i = 0; i < WeaponHolderPosition.childCount; i++) Destroy(WeaponHolderPosition.GetChild(0).gameObject); // Makes sure to destroy all weapons on hand on awake
             AssignWeaponAndOrShield();
             
         }
@@ -77,8 +82,9 @@ namespace StateMachine.Player
         public override void Update()
         {
             CurrentState.StateUpdate();
-            CalculateMoveInputs();
+
             SlopeHandler();
+            CalculateMoveInputs();
             DetectIfFalling();
 
         }
@@ -110,32 +116,57 @@ namespace StateMachine.Player
         Transform PlayerCamTransform => Camera.main.transform;
         void DetectIfFalling()
         {
-            if (PlayerRb.velocity.y < -0.5f) OnFalling?.Invoke();
+            if (PlayerRb.velocity.y < -0.5f)
+            {
+                OnFalling?.Invoke();
+                Debug.Log("FALLING");
+            }
         }
         void SimulateGravity() => PlayerRb.velocity += Vector3.up * Gravity * Time.deltaTime;
+
+       
         void SlopeHandler()
         {
             RaycastHit hit;
-            Ray ray = new Ray(FeetRayStart.position, -Vector3.up);
-            Debug.DrawRay(FeetRayStart.position, -Vector3.up , Color.red);
+            Ray ray = new Ray(FeetStart.position, Vector3.down);
 
-            if (Physics.Raycast(ray, out hit, 1f, NavigatableAreas))
+            float sphereRadius = (FeetStart.position.y  - FeetEnd.position.y) / 2; 
+            float sphereMaxDist = sphereRadius * 4f; 
+
+            Debug.DrawRay(FeetStart.position, Vector3.down * 0.2f, Color.red);
+            // Physics.Raycast(ray, out hit, 1f, NavigatableAreas) OLD LINE. BRING BACK IF THERE IS ISSUE WITH SPHERECAST 
+            // Debug.Log("SPHERE RADIUS: " + sphereRadius + "  SPHERE MAX DIST: " + sphereMaxDist + "    PLAYER VELOCITY: " + PlayerRb.velocity.y);
+            if (Physics.SphereCast(FeetStart.position, sphereRadius, Vector3.down, out hit, sphereMaxDist, NavigatableAreas))
             {
-                float HitPointYRounded = Mathf.Round(hit.point.y * 10.0f) * 0.1f;
-                float PositionYRounded = Mathf.Round(transform.position.y * 10.0f) * 0.1f;
-
-                
-                if (HitPointYRounded == PositionYRounded) return; // This line is bugged. makes me angy >:[
-                Debug.Log(HitPointYRounded == PositionYRounded); // Had to add this to fix the line above. If you try to remove this, you will experience an issue with jumping
-                PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
-                transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
-                OnLanded?.Invoke();
+                Debug.Log("SPHERECAST HITS SOMETHING " + hit.transform.name);
+                GoToHitPoint(hit);
+            }
+            else if(Physics.Raycast(ray, out hit, 0.2f, NavigatableAreas)) // This is if the spherecast fails, which it sometimes does
+            {
+                Debug.Log("CAST2 HITS SOMETHING " + hit.transform.name);
+                GoToHitPoint(hit);
             }
             else
             {
                 SimulateGravity();
             }
             
+        }
+
+        void GoToHitPoint(RaycastHit hit)
+        {
+            if (PlayerRb.velocity.y > 0.1f) return;
+
+            float HitPointYRounded = Mathf.Round(hit.point.y * 10.0f) * 0.1f;
+            float PositionYRounded = Mathf.Round(transform.position.y * 10.0f) * 0.1f;// Round off both to compare at a not TOO accurate value
+
+            //Debug.Log("HITY: " + HitPointYRounded + "    POSY: " + PositionYRounded);
+            if (HitPointYRounded == PositionYRounded) return; // This line is bugged. makes me angy >:[
+            Debug.Log(HitPointYRounded == PositionYRounded); // Had to add this to fix the line above. If you try to remove this, you will experience an issue with jumping
+            PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
+            Debug.Log("LANDED");
+            transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+            OnLanded?.Invoke();
         }
         void CalculateMoveInputs()
         {
