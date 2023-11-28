@@ -30,11 +30,11 @@ namespace Items.Weapon
 
         private void OnDisable()
         {
-            OnTargetIsHit.RemoveListener(Attack);
+            OnTargetIsHit?.RemoveListener(Attack);
             for (int i = 0; i < holder.AttackCollidersHandler.Colliders.Length; i++)
             {
-                holder.AttackCollidersHandler.Colliders[i].OnTargetHit.RemoveListener(InvokeOnTargetHit);
-                holder.AttackCollidersHandler.Colliders[i].OnNoTargetHit.RemoveListener(InvokeOnNoTargetHit);
+                holder.AttackCollidersHandler.Colliders[i].OnTargetHit?.RemoveListener(InvokeOnTargetHit);
+                holder.AttackCollidersHandler.Colliders[i].OnNoTargetHit?.RemoveListener(InvokeOnNoTargetHit);
                 Debug.Log("UNNNSUBSCRIBEED");
             }
         }
