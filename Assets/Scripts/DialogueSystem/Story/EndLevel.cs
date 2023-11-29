@@ -5,21 +5,20 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Events;
 using Manager;
-namespace Story
+
+namespace EndScene
 {
     public enum UIPlatformType
     {
         PC,
         Mobile
     }
-    public class StoryText : MonoBehaviour
+    public class EndLevel : MonoBehaviour
     {
-        
-
         public UIPlatformType PlatformType;
 
         float Speed;
-        float BeginPosition;  
+        float BeginPosition;
         float LastPosition;
 
         public GameObject Skip;
@@ -47,53 +46,46 @@ namespace Story
             //Debug.Log("ACTIVE SCENE NAME IS " + activeSceneName);
 
 
-            StartCoroutine(Story());
+            StartCoroutine(End());
             StartCoroutine(ShowSkipButton());
         }
-
-        IEnumerator Story()
+        IEnumerator End()
         {
             switch (PlatformType)
-                {
-                    case UIPlatformType.Mobile:
-                        Speed = textSpeed;
-                        myGorectTransform.transform.localPosition = textBeginPosition;
-                        LastPosition = textEndPosition;
-                        break;
+            {
+                case UIPlatformType.Mobile:
+                    Speed = textSpeed;
+                    myGorectTransform.transform.localPosition = textBeginPosition;
+                    LastPosition = textEndPosition;
+                    break;
 
-                    case UIPlatformType.PC:
-                        Speed = TextSpeed;
-                        myGorectTransform.transform.localPosition = StartingPostion;
-                        LastPosition = EndPosition;
-                        break;
-                }
+                case UIPlatformType.PC:
+                    Speed = TextSpeed;
+                    myGorectTransform.transform.localPosition = StartingPostion;
+                    LastPosition = EndPosition;
+                    break;
+            }
             while (myGorectTransform.localPosition.y < LastPosition)
             {
-                
+
                 myGorectTransform.Translate(Vector3.up * Speed * Time.deltaTime);
                 if (myGorectTransform.localPosition.y > LastPosition)
                 {
                     if (isLooping)
                     {
-                        
+
                     }
                     else
                     {
-                        SceneLoader.Instance.LoadNextSceneAsync(NextSceneName); 
+                        SceneLoader.Instance.LoadNextSceneAsync(NextSceneName);
                         break;
                     }
                 }
                 yield return null;
             }
 
-            
+
         }
-
-        
-
-        
-
-
 
         IEnumerator ShowSkipButton()
         {
@@ -105,48 +97,23 @@ namespace Story
 
 
         }
-
         private void Update()
         {
 
             string activeSceneName = SceneManager.GetActiveScene().name;
-            
-            
-            
+
+
+
             if (Input.GetMouseButtonDown(0) && !SceneLoader.Instance.IsLoadingScreenPresent)
             {
 
-                
+
 
                 SceneLoader.Instance.LoadNextSceneAsync(NextSceneName);
             }
         }
 
-        void ScrollText()
-        {
-            if(myGorectTransform.localPosition.y < textEndPosition)
-            {
-
-                myGorectTransform.Translate(Vector3.up * TextSpeed * Time.deltaTime);
-                if (myGorectTransform.localPosition.y > textEndPosition)
-                {
-                    if (isLooping)
-                    {
-                        
-                    }
-                    else
-                    {
-                        SceneLoader.Instance.LoadNextSceneAsync(NextSceneName);
-                        
-                    }
-                }
-                
-            }
-        }
-
-
-
+        
     }
 }
-
 

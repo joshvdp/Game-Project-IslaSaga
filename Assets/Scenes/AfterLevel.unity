@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 21766766}
   - component: {fileID: 21766765}
   - component: {fileID: 21766764}
+  - component: {fileID: 21766767}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21766762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48d2af7160b2012479f1181417e9b77c, type: 3}
   m_Name: 
@@ -180,8 +181,11 @@ MonoBehaviour:
   isLooping: 0
   NextSceneName: EndScene
   TextSpeed: 80
-  StartingPostion: {x: 0, y: -512, z: 0}
-  EndPosition: 525
+  StartingPostion: {x: 0, y: -640, z: 0}
+  EndPosition: 632
+  textSpeed: 80
+  textBeginPosition: {x: 0, y: -524, z: 0}
+  textEndPosition: 525
 --- !u!114 &21766765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +285,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21766762}
   m_CullTransparentMesh: 1
+--- !u!114 &21766767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21766762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4289ef8cdb4fb49b243eea5289caa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlatformType: 1
+  Skip: {fileID: 1565107436}
+  mainText: {fileID: 21766765}
+  isLooping: 0
+  NextSceneName: EndScene
+  TextSpeed: 80
+  StartingPostion: {x: 0, y: -640, z: 0}
+  EndPosition: 632
+  textSpeed: 80
+  textBeginPosition: {x: 0, y: -524, z: 0}
+  textEndPosition: 525
 --- !u!1 &398764804
 GameObject:
   m_ObjectHideFlags: 0
