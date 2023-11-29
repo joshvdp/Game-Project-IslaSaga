@@ -22,6 +22,7 @@ public class LoadingSceneHandler : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
+        Time.timeScale = 1;
     }
 
     private void Start()

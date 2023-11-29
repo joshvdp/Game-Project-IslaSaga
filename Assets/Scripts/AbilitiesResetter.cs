@@ -13,6 +13,7 @@ public class AbilitiesResetter : MonoBehaviour
     public MarquisAttack MarquisAttackLight;
     public MarquisAttack MarquisAttackHeavy;
     public MarquisChooseAttack MarquisChooseAttack;
+    [SerializeField] bool CanDoubleJump;
     [SerializeField] float MarquisAttackAnimSpeed;
     [SerializeField] float MarquisMoveSpeed;
     [SerializeField] float MarquisChooseSpeed;
@@ -21,7 +22,7 @@ public class AbilitiesResetter : MonoBehaviour
 
     private void Awake()
     {
-        PlayerJump.isUnlocked = false;
+        PlayerJump.isUnlocked = CanDoubleJump;
 
         MarquisRun.speed = MarquisMoveSpeed;
         MarquisAttackLight.animationSpeed = MarquisAttackAnimSpeed;

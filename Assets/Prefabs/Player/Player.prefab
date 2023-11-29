@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1166125374077770929}
   m_Layer: 6
-  m_Name: Feet Ray Start
+  m_Name: Feet Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,12 +86,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403704971085244903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.329, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1403995966872483314}
+  m_Father: {fileID: 3848411862976309475}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603590314608264889
@@ -1480,11 +1480,10 @@ Transform:
   m_GameObject: {fileID: 3873750573651617882}
   m_LocalRotation: {x: 0, y: -0.9983768, z: 0, w: 0.05695425}
   m_LocalPosition: {x: -28, y: 0, z: 295}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5331457, y: 1.5331457, z: 1.5331457}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3625640908256444989}
-  - {fileID: 1166125374077770929}
   - {fileID: 7861214034940599650}
   - {fileID: 5840287785806680981}
   - {fileID: 8183846953567388571}
@@ -1497,6 +1496,7 @@ Transform:
   - {fileID: 4385544877935423537}
   - {fileID: 8342329090358342443}
   - {fileID: 8585327750373262479}
+  - {fileID: 3848411862976309475}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -173.47, z: 0}
@@ -1563,7 +1563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 11400000, guid: 4a9b425c22747e044bf157746ed8a0a2, type: 2}
-  FeetRayStart: {fileID: 1166125374077770929}
+  FeetStart: {fileID: 1166125374077770929}
+  FeetEnd: {fileID: 3832169093805768721}
   ItemHoldPosition: {fileID: 5840287785806680981}
   NavigatableAreas:
     serializedVersion: 2
@@ -1622,21 +1623,6 @@ MonoBehaviour:
   PopUpScale: 2
   PopupTextColor: {r: 1, g: 0, b: 0, a: 1}
   DroppableObjects: []
-  onHit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1751114433994594629}
-        m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
-        m_MethodName: Hurt
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   <onDeath>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1677,6 +1663,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751114433994594629}
+        m_TargetAssemblyTypeName: AudioSoundEvents.PlayerSound, Assembly-CSharp
+        m_MethodName: Hurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHalfHp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7636897181315624750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1710,6 +1714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlatformType: 0
+  colliderArray: []
   Map_HP: {fileID: 0}
   Potions: {fileID: 0}
   Weapons: {fileID: 0}
@@ -1721,6 +1726,7 @@ MonoBehaviour:
   Cannons: {fileID: 0}
   Puzzle: {fileID: 0}
   End: {fileID: 0}
+  IsFinished: {fileID: 0}
 --- !u!81 &706324163435669238
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3339,6 +3345,37 @@ Transform:
   m_Father: {fileID: 7820432192831500110}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6532449224137036125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3832169093805768721}
+  m_Layer: 6
+  m_Name: Feet End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3832169093805768721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6532449224137036125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3848411862976309475}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6562374649272622247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4636,6 +4673,39 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 1403995966872483314}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9063521554770270453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3848411862976309475}
+  m_Layer: 6
+  m_Name: For Grounding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3848411862976309475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063521554770270453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1166125374077770929}
+  - {fileID: 3832169093805768721}
   m_Father: {fileID: 1403995966872483314}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

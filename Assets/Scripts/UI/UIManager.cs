@@ -23,29 +23,29 @@ namespace Manager
         {
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
-            BossHpBar = GameObject.FindWithTag("Boss").GetComponent<HpBar>();
+            BossHpBar = GameObject.FindWithTag("Boss")?.GetComponent<HpBar>();
             Debug.Log("UI LOADED");
         }
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            BossHpBar = GameObject.FindWithTag("Boss").GetComponent<HpBar>();
+            BossHpBar = GameObject.FindWithTag("Boss")?.GetComponent<HpBar>();
         }
         private void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
-            MainManager.Instance.OnStartBossFight.AddListener(UpdateSlider);
-            BossHpBar.onHit.AddListener(UpdateSlider);
-            MainManager.Instance?.PlayerMachine?.HpComponent.onDeath.AddListener(GameOver);
+            MainManager.Instance.OnStartBossFight?.AddListener(UpdateSlider);
+            BossHpBar?.onHit.AddListener(UpdateSlider);
+            MainManager.Instance?.PlayerMachine?.HpComponent.onDeath?.AddListener(GameOver);
             OnRetry.AddListener(MainManager.Instance.ResetPlayerStats);
         }
         private void OnDisable()
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            MainManager.Instance.OnStartBossFight.RemoveListener(UpdateSlider);
-            BossHpBar.onHit.RemoveListener(UpdateSlider);
-            MainManager.Instance?.PlayerMachine?.HpComponent.onDeath.RemoveListener(GameOver);
-            OnRetry.RemoveListener(MainManager.Instance.ResetPlayerStats);
+            MainManager.Instance.OnStartBossFight?.RemoveListener(UpdateSlider);
+            BossHpBar?.onHit.RemoveListener(UpdateSlider);
+            MainManager.Instance?.PlayerMachine?.HpComponent.onDeath?.RemoveListener(GameOver);
+            OnRetry?.RemoveListener(MainManager.Instance.ResetPlayerStats);
 
         }
         public void ToggleScreen(string ScreenName) => Screens.Find(_ => _.ScreenName == ScreenName)?.ScreenObject.SetActive(!Screens.Find(_ => _.ScreenName == ScreenName).ScreenObject.activeSelf);
