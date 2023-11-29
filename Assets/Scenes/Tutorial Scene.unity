@@ -7170,6 +7170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart Droppable (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7735282801926235269, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8402478404126046592, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
       propertyPath: onPicked.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
@@ -10670,6 +10674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart Droppable (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7735282801926235269, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8402478404126046592, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
       propertyPath: onPicked.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
@@ -12758,6 +12766,8 @@ Transform:
   - {fileID: 927412903}
   - {fileID: 1314424153}
   - {fileID: 2862160602371296237}
+  - {fileID: 1662091805}
+  - {fileID: 2046687070}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16049,6 +16059,11 @@ Transform:
   m_Father: {fileID: 652339533}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1662091805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+  m_PrefabInstance: {fileID: 2135828706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1672210650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3225334710100489446, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
@@ -16407,6 +16422,67 @@ Transform:
   m_Father: {fileID: 1790391043}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1703761449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1298001797}
+    m_Modifications:
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.35173976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -43.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551957570229597695, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_Name
+      value: HP Potion Pickupable (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
 --- !u!4 &1706420377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7476455449665975732, guid: 4ebd9ce55a6aa7a45a98c106ee042ec5, type: 3}
@@ -18712,6 +18788,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 108.53481, y: 108.53462, z: 138.70314}
   m_Center: {x: 3.871558e-13, y: 0.000034332268, z: 27.243673}
+--- !u!4 &2046687070 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+  m_PrefabInstance: {fileID: 1703761449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2051004824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19700,6 +19781,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3853612681849086921, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
   m_PrefabInstance: {fileID: 1129489072}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2135828706
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1298001797}
+    m_Modifications:
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.35173976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -44.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459894679036729387, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551957570229597695, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
+      propertyPath: m_Name
+      value: HP Potion Pickupable (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 24cb3ae2786c4f64a9d8c20e0f4636fe, type: 3}
 --- !u!4 &2141044760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3853612681849086921, guid: 7d65253c079bf5e41a4d6d87a146e901, type: 3}
@@ -19909,13 +20051,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2101172097}
     m_Modifications:
+    - target: {fileID: 786160115788314573, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3225334710100489446, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
       propertyPath: m_Name
       value: Dialogue Collider (IsFinished)
       objectReference: {fileID: 0}
     - target: {fileID: 3225334710100489446, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5798357136777230019, guid: 750dc5a3cd197e146ba382ecd468c38f, type: 3}
       propertyPath: m_RootOrder
@@ -21905,7 +22051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403955431222931919, guid: 6d0d8a63bac0d3943ac033e830645791, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.01
+      value: -5.49
       objectReference: {fileID: 0}
     - target: {fileID: 1403955431222931919, guid: 6d0d8a63bac0d3943ac033e830645791, type: 3}
       propertyPath: m_LocalRotation.w
