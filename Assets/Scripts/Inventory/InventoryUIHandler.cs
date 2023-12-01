@@ -20,6 +20,8 @@ public class InventoryUIHandler : MonoBehaviour
 
     public PlayerInventorySlot WeaponSlot;
     public PlayerInventorySlot ShieldSlot;
+
+    public bool HasPotion = false;
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoadFunctions;
@@ -33,6 +35,7 @@ public class InventoryUIHandler : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
+        CheckIfPotionIsAvailable();
     }
     void OnSceneLoadFunctions(Scene scene, LoadSceneMode mode)
     {
@@ -88,6 +91,7 @@ public class InventoryUIHandler : MonoBehaviour
                 break;
             }
         }
+        CheckIfPotionIsAvailable();
         InventoryData.UpdateInventoryUI(ItemSlots);
     }
 
@@ -101,9 +105,14 @@ public class InventoryUIHandler : MonoBehaviour
                 break;
             }
         }
+        CheckIfPotionIsAvailable();
         InventoryData.UpdateInventoryUI(ItemSlots);
     }
 
+    void CheckIfPotionIsAvailable()
+    {
+        HasPotion = ItemSlots.Find(_ => _.ItemData?.ConsumableType == ConsumableItemType.HP);
+    }
     public void AddEquippableToSavableData(InventoryItem Equippable, PlayerInventorySlot ItemSlot)
     {
         if(Equippable.EquippableType == EquippableItemType.WEAPON)
