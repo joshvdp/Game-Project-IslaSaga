@@ -30468,7 +30468,7 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: CallEvent
-    data: Undetect
+    data: UndetectPlayer
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -30476,6 +30476,13 @@ AnimationClip:
   - time: 0.16666667
     functionName: CallEvent
     data: Death
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.2
+    functionName: CallEvent
+    data: DoneHit
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
