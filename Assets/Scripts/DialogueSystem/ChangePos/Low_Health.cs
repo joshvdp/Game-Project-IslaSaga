@@ -59,6 +59,7 @@ namespace ChangePosition
                 inventory.SetActive(true);
                 analog.SetActive(true);
                 map.SetActive(true);
+                pause.SetActive(true);
             }
         }
     }
