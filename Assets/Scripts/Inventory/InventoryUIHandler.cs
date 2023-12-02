@@ -35,12 +35,13 @@ public class InventoryUIHandler : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
-        CheckIfPotionIsAvailable();
+
     }
     void OnSceneLoadFunctions(Scene scene, LoadSceneMode mode)
     {
         InitializeThis();
         AssignVarsFromSave();
+        CheckIfPotionIsAvailable();
     }
     void InitializeThis()
     {
@@ -48,6 +49,7 @@ public class InventoryUIHandler : MonoBehaviour
         ItemSlots.AddRange(InventorySlotsParent.GetComponentsInChildren<PlayerInventorySlot>());
         WeaponSlot.RemoveItemFromSlot();
         ShieldSlot.RemoveItemFromSlot();
+        CheckIfPotionIsAvailable();
     }
     void AssignVarsFromSave()
     {

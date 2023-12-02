@@ -32,6 +32,8 @@ public class CameraControllerNEW : MonoBehaviour
 
     [SerializeField] float CameraAngle;
 
+    Vector3 currentTouchDist;
+    Vector3 oldTouchDist;
     public float BaseCameraRotateValue = 0.2f;
     [HideInInspector] public FixedTouchField TouchField;
     PlayerInputs PlayerInput => FindObjectOfType<PlayerInputs>();
@@ -41,37 +43,52 @@ public class CameraControllerNEW : MonoBehaviour
     }
     void Update()
     {
+        if (MainManager.Instance.IsPaused) return;
         if (PlayerInput.PlatformType == PlatformType.PC)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position - transform.forward * DistanceFromTarget, 0.5f); // Set to 0.5f to prevent camera stutter.
+
+            transform.position = target.position + Quaternion.AngleAxis(CameraAngle, Vector3.up) * OffSet;
+            transform.rotation = Quaternion.LookRotation(target.position + Vector3.up * 2f - transform.position, Vector3.up);
+            //transform.position = Vector3.Lerp(transform.position, target.position - transform.forward * DistanceFromTarget, 1f); // Set to 0.5f to prevent camera stutter.
             if (Input.GetKey(Controls.CameraRotateKey)) CameraRotation();
+            else
+            {
+                currentTouchDist = new Vector3(Input.mousePosition.x, Input.mousePosition.y) - oldTouchDist;
+                oldTouchDist = Vector3.zero;
+                _rotationY = 0f;
+            }
             CameraZoomInAndOut();
         }
         else if (PlayerInput.PlatformType == PlatformType.Mobile)
         {
             MobileCameraControls();
         }
-
         CameraCollisionHandler();
     }
     void CameraRotation()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
-        float mouseY = -Input.GetAxis("Mouse Y") * _mouseSensitivity;
+        currentTouchDist = Input.mousePosition - oldTouchDist;
+        oldTouchDist = Input.mousePosition;
 
-        _rotationY += mouseX;
-        _rotationX += mouseY;
+        float rotationSpeedClampValue = SettingsHandler.Instance.settingsData.LookSensitivityValue * 100f;
+        _rotationY = Mathf.Clamp(_rotationY + currentTouchDist.normalized.x * 30f, -rotationSpeedClampValue, rotationSpeedClampValue);
 
-        // Apply clamping for x rotation 
-        _rotationX = Mathf.Clamp(_rotationX, _rotationXMinMax.x, _rotationXMinMax.y);
+        CameraAngle += _rotationY * BaseCameraRotateValue * SettingsHandler.Instance.settingsData.LookSensitivityValue;
+        transform.position = target.position + Quaternion.AngleAxis(CameraAngle, Vector3.up) * OffSet;
+        transform.rotation = Quaternion.LookRotation((target.position + Vector3.up * 2f - transform.position) * Time.deltaTime, Vector3.up);
 
-        Vector3 nextRotation = new Vector3(_rotationX, _rotationY);
+        //// VVV OLD VVV
+        //float mouseX = Input.GetAxis("Mouse X") * SettingsHandler.Instance.settingsData.LookSensitivityValue;
+        //float mouseY = -Input.GetAxis("Mouse Y") * SettingsHandler.Instance.settingsData.LookSensitivityValue;
+        //_rotationY += mouseX;
+        //_rotationX += mouseY;
+        //Vector3 nextRotation = new Vector3(transform.rotation.x, _rotationY);
 
-        // Apply damping between rotation changes
-        _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
-        transform.localEulerAngles = _currentRotation;
+        //// Apply damping between rotation changes
+        //_currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
+        //transform.localEulerAngles = _currentRotation;
 
-        // Substract forward vector of the GameObject to point its forward vector to the target
+        //// Substract forward vector of the GameObject to point its forward vector to the target
     }
     void CameraCollisionHandler()
     {
@@ -83,7 +100,6 @@ public class CameraControllerNEW : MonoBehaviour
         }
     }
     void CameraZoomInAndOut() => DistanceFromTarget = Mathf.Clamp(DistanceFromTarget - Input.mouseScrollDelta.y, MaxZoomIn, MaxZoomOut);
-
     void MobileCameraControls()
     {
         if (TouchField == null) return;

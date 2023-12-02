@@ -9,5 +9,6 @@ public class BossFightTrigger : MonoBehaviour
         if (other.tag != "Player") return;
 
         MainManager.Instance.StartBossFight();
+        Destroy(gameObject);
     }
 }

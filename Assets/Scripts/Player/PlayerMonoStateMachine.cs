@@ -280,8 +280,9 @@ namespace StateMachine.Player
         public void FaceDirectionOfMousePos()
         {
             Ray MouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(MouseRay, out RaycastHit rayCastHit, ClickableArea))
+            if (Physics.Raycast(MouseRay, out RaycastHit rayCastHit, Mathf.Infinity, ClickableArea))
             {
+                Debug.Log("FACE DIR MOUSE CLICK HITS " + rayCastHit.transform.name);
                 Vector3 DirectionToLookAt = new Vector3(rayCastHit.point.x, transform.position.y, rayCastHit.point.z);
                 transform.rotation = Quaternion.LookRotation(DirectionToLookAt - transform.position, Vector3.up);
             }
