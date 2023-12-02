@@ -4,33 +4,14 @@ using UnityEngine;
 
 public class ParticleCaller : MonoBehaviour
 {
-    public GameObject LandParticle, SprintParticle, JumpParticle, Blood;
+    public GameObject Particle;
 
-    //-----------Land------------//
-    public void Landed()
+    public void Active()
     {
-        LandParticle.SetActive(true);
+        Particle.SetActive(true);
     }
-
-    //-----------Sprint------------//
-    public void Sprinting()
+    public void Unactive()
     {
-        SprintParticle.SetActive(true);
-    }
-    public void DoneSprinting()
-    {
-        SprintParticle.SetActive(false);
-    }
-
-    //-----------Jump------------//
-    public void Jumped()
-    {
-        JumpParticle.SetActive(true);
-    }
-
-    //-----------Blood------------//
-    public void HitEnemy()
-    {
-        Blood.SetActive(true);
+        Particle.SetActive(false);
     }
 }

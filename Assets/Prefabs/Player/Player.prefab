@@ -2149,7 +2149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2743699679478570640}
-  - component: {fileID: 3502681912736169437}
+  - component: {fileID: 1291558479082927445}
   m_Layer: 6
   m_Name: JumpParticle
   m_TagString: Untagged
@@ -2173,7 +2173,7 @@ Transform:
   m_Father: {fileID: 8585327750373262479}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3502681912736169437
+--- !u!114 &1291558479082927445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2182,10 +2182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4680590060691648941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03be3f21278759e41b7b17e5557058af, type: 3}
+  m_Script: {fileID: 11500000, guid: 994789a6f037be54286333fe50b4cf11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParticleJump: {fileID: 4680590060691648941}
+  Particle: {fileID: 4680590060691648941}
 --- !u!1 &5039370732583442450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,7 +2228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2021873634544757619}
-  - component: {fileID: 2154966704190135821}
+  - component: {fileID: 711452526310412424}
   m_Layer: 6
   m_Name: SprintParticle
   m_TagString: Untagged
@@ -2252,7 +2252,7 @@ Transform:
   m_Father: {fileID: 8585327750373262479}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2154966704190135821
+--- !u!114 &711452526310412424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2261,10 +2261,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5048624516359778071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da32d05351d6d6438a7b7b40ba01b03, type: 3}
+  m_Script: {fileID: 11500000, guid: 994789a6f037be54286333fe50b4cf11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SprintParticle: {fileID: 5048624516359778071}
+  Particle: {fileID: 5048624516359778071}
 --- !u!1 &5155908300188824651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,7 +2478,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938108612642708102}
-  - component: {fileID: 7933513735306967346}
   m_Layer: 6
   m_Name: LandParticle
   m_TagString: Untagged
@@ -2502,19 +2501,6 @@ Transform:
   m_Father: {fileID: 8585327750373262479}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7933513735306967346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644544592720002413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b70fb1f46a78c4bb857d4f75f8c70d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LandParticle: {fileID: 5644544592720002413}
 --- !u!1 &5683680096322212883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,9 +3032,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 3502681912736169437}
-          m_TargetAssemblyTypeName: JumpParticle, Assembly-CSharp
-          m_MethodName: Jumped
+        - m_Target: {fileID: 1291558479082927445}
+          m_TargetAssemblyTypeName: ParticleCaller, Assembly-CSharp
+          m_MethodName: Active
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3206,9 +3192,9 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2154966704190135821}
-          m_TargetAssemblyTypeName: VFX.SprintParticleCaller, Assembly-CSharp
-          m_MethodName: Sprinting
+        - m_Target: {fileID: 711452526310412424}
+          m_TargetAssemblyTypeName: ParticleCaller, Assembly-CSharp
+          m_MethodName: Active
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3222,9 +3208,9 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2154966704190135821}
-          m_TargetAssemblyTypeName: VFX.SprintParticleCaller, Assembly-CSharp
-          m_MethodName: DoneSprinting
+        - m_Target: {fileID: 711452526310412424}
+          m_TargetAssemblyTypeName: ParticleCaller, Assembly-CSharp
+          m_MethodName: Unactive
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3238,9 +3224,9 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3502681912736169437}
-          m_TargetAssemblyTypeName: JumpParticle, Assembly-CSharp
-          m_MethodName: DoneJump
+        - m_Target: {fileID: 1291558479082927445}
+          m_TargetAssemblyTypeName: ParticleCaller, Assembly-CSharp
+          m_MethodName: Unactive
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
