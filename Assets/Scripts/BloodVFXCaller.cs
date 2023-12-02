@@ -9,11 +9,19 @@ namespace VFX
         public void SpawnBlood()
         {
             Debug.Log("Invoke");
+<<<<<<< Updated upstream
             BloodParticle.Hit?.Invoke();
         }
         public void DespawnBlood()
         {
             BloodParticle.HitDone?.Invoke();
+=======
+            //BloodParticle.Hit?.Invoke();
+        }
+        public void DespawnBlood()
+        {
+            //BloodParticle.HitDone?.Invoke();
+>>>>>>> Stashed changes
         }
     }
 }
