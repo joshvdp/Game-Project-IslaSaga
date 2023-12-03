@@ -18,7 +18,7 @@ namespace StateMachine.Player
         [SerializeField, Foldout("Transform")] private Transform FeetStart;
         [SerializeField, Foldout("Transform")] private Transform FeetEnd;
         [SerializeField, Foldout("Transform")] public Transform ItemHoldPosition;
-        [SerializeField] LayerMask NavigatableAreas;
+        [SerializeField] public LayerMask NavigatableAreas;
         public Renderer[] MainRenderers;
         float Gravity = -96.2361f;
 
@@ -69,20 +69,15 @@ namespace StateMachine.Player
 
         public override void Awake()
         {
-            base.Awake();
-            RaycastHit hit;
-            Ray ray = new Ray(FeetStart.position, Vector3.down);
-            Physics.Raycast(ray, out hit, Mathf.Infinity, NavigatableAreas);
-            transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
-            if(WeaponHolderPosition.childCount > 0) for (int i = 0; i < WeaponHolderPosition.childCount; i++) Destroy(WeaponHolderPosition.GetChild(0).gameObject); // Makes sure to destroy all weapons on hand on awake
-            AssignWeaponAndOrShield();
             
+            base.Awake();
+            if (WeaponHolderPosition.childCount > 0) for (int i = 0; i < WeaponHolderPosition.childCount; i++) Destroy(WeaponHolderPosition.GetChild(0).gameObject); // Makes sure to destroy all weapons on hand on awake
+            AssignWeaponAndOrShield();
+            SetSpawnPosition();
         }
-        
         public override void Update()
         {
             CurrentState.StateUpdate();
-
             SlopeHandler();
             CalculateMoveInputs();
             DetectIfFalling();
@@ -130,20 +125,24 @@ namespace StateMachine.Player
             RaycastHit hit;
             Ray ray = new Ray(FeetStart.position, Vector3.down);
 
-            float sphereRadius = (FeetStart.position.y  - FeetEnd.position.y) / 2; 
+            float sphereRadius = (FeetStart.position.y  - FeetEnd.position.y) /2 ; 
             float sphereMaxDist = sphereRadius * 4f; 
-
+            
             Debug.DrawRay(FeetStart.position, Vector3.down * 0.2f, Color.red);
-            // Physics.Raycast(ray, out hit, 1f, NavigatableAreas) OLD LINE. BRING BACK IF THERE IS ISSUE WITH SPHERECAST 
+
+
+
+            //  OLD LINE. BRING BACK IF THERE IS ISSUE WITH SPHERECAST 
+            // Physics.SphereCast(FeetStart.position, sphereRadius, Vector3.down, out hit, sphereMaxDist, NavigatableAreas) SPHERECAST
             // Debug.Log("SPHERE RADIUS: " + sphereRadius + "  SPHERE MAX DIST: " + sphereMaxDist + "    PLAYER VELOCITY: " + PlayerRb.velocity.y);
-            if (Physics.SphereCast(FeetStart.position, sphereRadius, Vector3.down, out hit, sphereMaxDist, NavigatableAreas))
+            if (Physics.Raycast(ray, out hit, 1f, NavigatableAreas))
             {
-                Debug.Log("SPHERECAST HITS SOMETHING " + hit.transform.name);
+                //Debug.Log("SPHERECAST HITS SOMETHING " + hit.transform.name);
                 GoToHitPoint(hit);
             }
             else if(Physics.Raycast(ray, out hit, 0.2f, NavigatableAreas)) // This is if the spherecast fails, which it sometimes does
             {
-                Debug.Log("CAST2 HITS SOMETHING " + hit.transform.name);
+                //Debug.Log("CAST2 HITS SOMETHING " + hit.transform.name);
                 GoToHitPoint(hit);
             }
             else
@@ -165,7 +164,7 @@ namespace StateMachine.Player
             Debug.Log(HitPointYRounded == PositionYRounded); // Had to add this to fix the line above. If you try to remove this, you will experience an issue with jumping
             PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
             Debug.Log("LANDED");
-            transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+            SetPosition(new Vector3(transform.position.x, hit.point.y, transform.position.z));
             OnLanded?.Invoke();
         }
         void CalculateMoveInputs()
@@ -221,9 +220,16 @@ namespace StateMachine.Player
                                 rotationSpeed * Time.deltaTime * (CamRelativeMoveVect.magnitude != 0 ? 1 : 0));
             else transform.rotation = ForwardDirection;
         }
-
         public void MoveHorizontal(float speed) => PlayerRb.velocity = new Vector3(MoveVelocityInputs.x * speed, PlayerRb.velocity.y, MoveVelocityInputs.z * speed);
         public void StopMovement() => PlayerRb.velocity = Vector3.zero;
+        public void SetPosition(Vector3 newPosition) => gameObject.transform.position = newPosition;
+        public void SetSpawnPosition()
+        {
+            RaycastHit hit;
+            Ray ray = new Ray(FeetStart.position, Vector3.down);
+            Physics.Raycast(ray, out hit, Mathf.Infinity, NavigatableAreas);
+            SetPosition(new Vector3(transform.position.x, hit.point.y, transform.position.z));
+        }
 
         #endregion
         #region ATTACK
