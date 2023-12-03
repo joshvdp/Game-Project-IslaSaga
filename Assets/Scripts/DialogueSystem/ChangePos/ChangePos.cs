@@ -9,7 +9,7 @@ namespace ChangePosition
         public FixedTouchField TouchField;
 
         public GameObject scndIntro, lastIntro, atk, run, blk, jmp, lastDia,      //dialogue
-                          sprint, block, pickup, jump, attack, inventory, analogTutorial, analog, map, health, pause;  // buttons & UI
+                          sprint, block, pickup, jump, attack, inventory, analogTutorial, analog, map, health, pause, potion;  // buttons & UI
 
         RectTransform bg;
 
@@ -43,6 +43,7 @@ namespace ChangePosition
                 analogTutorial.SetActive(false);
                 map.SetActive(false);
                 health.SetActive(false);
+                potion.SetActive(false);
 
             }
 

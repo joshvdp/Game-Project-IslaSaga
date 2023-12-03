@@ -8,8 +8,8 @@ namespace ChangePosition
     {
         public FixedTouchField TouchField;
 
-        public GameObject lastDia,      //dialogue
-                          buttons, analog, map, health;  // buttons & UI
+        public GameObject secondDia, lastDia,      //dialogue
+                          buttons, analog, map, health, potion;  // buttons & UI
 
         RectTransform bg;
 
@@ -34,6 +34,13 @@ namespace ChangePosition
 
         void DoThisOnDown()
         {
+            if (secondDia.activeSelf)
+            {
+                bg.transform.localPosition = new Vector3(4.5776e-05f, 0f, 0f);
+                potion.SetActive(true);
+            }
+
+
             if (lastDia.activeSelf)
             {
                 analog.SetActive(true);
