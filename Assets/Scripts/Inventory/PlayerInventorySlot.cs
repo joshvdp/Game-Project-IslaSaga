@@ -63,6 +63,7 @@ public class PlayerInventorySlot : MonoBehaviour, IBeginDragHandler, IEndDragHan
         {
             case ItemType.CONSUMABLE:
                 BehaviorObject = Instantiate(ItemData.BehaviorObject, transform);
+                OnUseItemOnSlot += BehaviorObject.GetComponent<Consumable>().UseConsumable;
                 break;
             case ItemType.EQUIPPABLE:
                 

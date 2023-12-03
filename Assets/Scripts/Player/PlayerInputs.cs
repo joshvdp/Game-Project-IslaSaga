@@ -40,6 +40,8 @@ namespace Player.Controls
 
         public Action OnPickupInput;
 
+        public Action OnUseHPPotion;
+
         PlayerMonoStateMachine machine => GetComponent<PlayerMonoStateMachine>();
 
         public ControlBindings Controls;
@@ -56,7 +58,6 @@ namespace Player.Controls
             switch (PlatformType)
             {
                 case PlatformType.PC:
-                    
                     PCMoveInputs();
                     PCAttackInputs();
                     PCInteractionInputs();

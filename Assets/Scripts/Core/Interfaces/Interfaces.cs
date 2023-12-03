@@ -81,11 +81,15 @@ namespace InterfaceAndInheritables
 
     public abstract class Consumable : MonoBehaviour
     {
-        private void OnEnable()
-        {
-            transform.parent.GetComponent<PlayerInventorySlot>().OnUseItemOnSlot += UseConsumable;
-        }
-        private void OnDisable()
+        //private void OnEnable()
+        //{
+        //    transform.parent.GetComponent<PlayerInventorySlot>().OnUseItemOnSlot += UseConsumable;
+        //}
+        //private void OnDisable()
+        //{
+        //    transform.parent.GetComponent<PlayerInventorySlot>().OnUseItemOnSlot -= UseConsumable;
+        //}
+        private void OnDestroy()
         {
             transform.parent.GetComponent<PlayerInventorySlot>().OnUseItemOnSlot -= UseConsumable;
         }

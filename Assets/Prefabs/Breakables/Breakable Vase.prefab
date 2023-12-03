@@ -95,7 +95,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4318167034187163836}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0d94976b07379a647a50bc38d2b16e52, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -128,9 +128,6 @@ MonoBehaviour:
   PopUpScale: 0
   PopupTextColor: {r: 0, g: 0, b: 0, a: 0}
   DroppableObjects: []
-  onHit:
-    m_PersistentCalls:
-      m_Calls: []
   <onDeath>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -170,6 +167,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHalfHp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &5923836700730564620
 Rigidbody:
   m_ObjectHideFlags: 0

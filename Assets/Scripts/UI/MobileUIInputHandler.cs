@@ -24,7 +24,7 @@ namespace Mobile
         [Foldout("Buttons")] public Button InteractOrPickupButton;
         [Foldout("Buttons")] public Button JumpButton;
         [Foldout("Buttons")] public Button InventoryButton;
-
+        [Foldout("Buttons")] public Button QuickUseHpPotionButton;
         PlayerMonoStateMachine PlayerMachine;
         private void Awake()
         {
@@ -44,8 +44,11 @@ namespace Mobile
             if (PlayerMachine.InteractableDetector.ObjectWithinDetectRange || PlayerMachine.PickUpRange.ObjectWithinDetectRange || PlayerMachine.PlayerIsHoldingObject) 
                 InteractOrPickupButton.interactable = true;
             else InteractOrPickupButton.interactable = false;
+
+            QuickUseHpPotionButton.interactable = InventoryUIHandler.Instance.HasPotion;
         }
 
+        #region Button Invokes
         public void InvokeAttack()
         {
             if(PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.MobileAttackInput();
@@ -88,6 +91,11 @@ namespace Mobile
             if (PlayerInput.PlatformType == PlatformType.Mobile) UIManager.Instance.ToggleScreen("Inventory");
         }
 
+        public void InvokeUseHpPotion()
+        {
+            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnUseHPPotion?.Invoke();
+        }
+        #endregion
     }
 }
 

@@ -37,6 +37,10 @@ public class PauseMenu : MonoBehaviour
                 mobileUI.SetActive(true);
                 mobilePauseButton.SetActive(true);
                 break;
+            case UIPlatformType.PC:
+                mobileUI.SetActive(false);
+                mobilePauseButton.SetActive(false);
+                break;
         }
     }
     private void UI()
