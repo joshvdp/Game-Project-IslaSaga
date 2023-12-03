@@ -6,7 +6,7 @@ using Core;
 using StateMachine.Base;
 using StateMachine.Enemy.State;
 using System;
-
+using UnityEngine.Events;
 
 public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, BoximonMachineFunctions>
 {
@@ -36,6 +36,7 @@ public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, B
     public Renderer[] MainRenderers;
 
     public Action OnEndState;
+
     public override void Awake()
     {
         base.Awake();
