@@ -10,7 +10,7 @@ namespace Manager
         public void Start()
         {
             if (FindObjectOfType<ScenesManager>() != null && FindObjectOfType<ScenesManager>() != this) Destroy(gameObject);
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
 
         public void LoadScene()

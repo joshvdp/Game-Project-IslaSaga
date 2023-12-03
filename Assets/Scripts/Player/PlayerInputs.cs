@@ -100,7 +100,11 @@ namespace Player.Controls
                 Debug.Log(IsMouseOverUI());
             }
             if (IsMouseOverUI()) return;
-            if (Input.GetKeyDown(Controls.Attack1Key)) OnAttackOneInput?.Invoke();
+            if (Input.GetKeyDown(Controls.Attack1Key))
+            {
+                OnAttackOneInput?.Invoke();
+                Debug.Log("LEFT CLIEDK");
+            }
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 0) AttackOne?.Invoke();
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 1) AttackTwo?.Invoke();
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 2) AttackThree?.Invoke();
