@@ -17,6 +17,14 @@ namespace ChangePosition
         {
             bg = gameObject.GetComponent<RectTransform>();
             pause.SetActive(false);
+            sprint.SetActive(false);
+            block.SetActive(false);
+            pickup.SetActive(false);
+            jump.SetActive(false);
+            attack.SetActive(false);
+            inventory.SetActive(false);
+            analogTutorial.SetActive(false);
+            potion.SetActive(false);
         }
 
         private void OnEnable()
@@ -34,16 +42,9 @@ namespace ChangePosition
             if (scndIntro.activeSelf)
             {
                 bg.transform.localPosition = new Vector3(-353, 137.05f, 0f);
-                sprint.SetActive(false);
-                block.SetActive(false);
-                pickup.SetActive(false);
-                jump.SetActive(false);
-                attack.SetActive(false);
-                inventory.SetActive(false);
-                analogTutorial.SetActive(false);
+                
                 map.SetActive(false);
                 health.SetActive(false);
-                potion.SetActive(false);
 
             }
 

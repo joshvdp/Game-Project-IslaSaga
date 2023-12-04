@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Manager;
 
 namespace DialogueSystem
 {
@@ -10,9 +11,14 @@ namespace DialogueSystem
         public float ShowDelay;
         int index;
         public GameObject inventoryBtn, inventoryBtnTutorial, analog, analogTutorial;
-        private void Awake()
+        private bool hasBeenCalled = false;
+        private void Update()
         {
-            StartCoroutine(show());
+            if (!hasBeenCalled && !SceneLoader.Instance.IsLoadingScreenPresent)
+            {
+                StartCoroutine(show());
+            }
+            
         }
 
         IEnumerator show()
@@ -28,10 +34,12 @@ namespace DialogueSystem
             }
             else
             {
-                analogTutorial.SetActive(true);
+                analogTutorial.SetActive(false);
                 inventoryBtn.SetActive(true);
                 inventoryBtnTutorial.SetActive(false);
             }
+
+            hasBeenCalled = true;
         }
     }
 }
