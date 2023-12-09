@@ -117,7 +117,6 @@ namespace StateMachine.Player
             if (PlayerRb.velocity.y < -0.5f)
             {
                 OnFalling?.Invoke();
-                Debug.Log("FALLING");
             }
         }
         void SimulateGravity() => PlayerRb.velocity += Vector3.up * Gravity * Time.deltaTime;
@@ -283,7 +282,6 @@ namespace StateMachine.Player
             Ray MouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(MouseRay, out RaycastHit rayCastHit, Mathf.Infinity, ClickableArea))
             {
-                Debug.Log("FACE DIR MOUSE CLICK HITS " + rayCastHit.transform.name);
                 Vector3 DirectionToLookAt = new Vector3(rayCastHit.point.x, transform.position.y, rayCastHit.point.z);
                 transform.rotation = Quaternion.LookRotation(DirectionToLookAt - transform.position, Vector3.up);
             }

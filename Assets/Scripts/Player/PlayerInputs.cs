@@ -103,7 +103,6 @@ namespace Player.Controls
             if (Input.GetKeyDown(Controls.Attack1Key))
             {
                 OnAttackOneInput?.Invoke();
-                Debug.Log("LEFT CLIEDK");
             }
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 0) AttackOne?.Invoke();
             if (Input.GetKeyDown(Controls.Attack1Key) && machine.AttackSequence == 1) AttackTwo?.Invoke();

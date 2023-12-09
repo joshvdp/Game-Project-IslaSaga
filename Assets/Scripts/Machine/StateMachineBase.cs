@@ -26,5 +26,22 @@ namespace StateMachine.Base
         public abstract void StateFixedUpdate();
         public abstract void Discard();
     }
+    public abstract class QuestMachineData<QMachine, QFuncs> : ScriptableObject
+    {
+        protected QMachine handler;
+        public abstract QFuncs Initialize(QMachine qHandler);
+    }
+    public abstract class QuestMachineFunctions<QMachine, QData>
+    {
+        public QMachine Handler;
+        public QData Data;
+        public QuestMachineFunctions(QMachine qHandler, QData qData)
+        {
+            Handler = qHandler;
+            Data = qData;
+        }
+        public abstract void QuestUpdateFunc();
+        public abstract void QuestDiscard();
+    }
 }
 
