@@ -30,4 +30,6 @@ public class GlobalEvents : MonoBehaviour
             return null;
         }
     }
+
+    public void InvokeUnityEvent(string unityEventName) => FindEvent(unityEventName)?.Invoke();
 }

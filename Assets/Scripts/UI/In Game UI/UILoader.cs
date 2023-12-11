@@ -10,6 +10,7 @@ namespace Manager
 
         private void OnEnable()
         {
+            if (!SceneLoader.Instance) return;
             SceneLoader.Instance.LoadingScreenLoaded += UnloadThisScene;
         }
 
