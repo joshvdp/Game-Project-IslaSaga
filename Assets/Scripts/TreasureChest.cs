@@ -43,6 +43,7 @@ public class TreasureChest : Interactable
         if (AbilityToGive == null) return;
         AbilityToGive.isUnlocked = true;
         OnAbilityGive?.Invoke();
+        print("ABILITY GIVEN");
     }
 
 }

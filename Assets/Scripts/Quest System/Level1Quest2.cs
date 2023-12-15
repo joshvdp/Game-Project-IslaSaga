@@ -7,6 +7,9 @@ namespace Quest
     [CreateAssetMenu(fileName = "Quest 2 Level 1", menuName = "Quests/Level 1/Quest 2")]
     public class Level1Quest2Data : QuestData
     {
+
+        [SerializeField] string triggerEventName;
+        public string TriggerEventName => triggerEventName;
         public override QuestFunction Initialize(QuestsHandler qHandler)
         {
             return new Level1Quest2Functions(qHandler, this);
@@ -15,22 +18,23 @@ namespace Quest
 
     public class Level1Quest2Functions : QuestFunction
     {
-        bool IsPastTheGate;
-
+        bool IsPastTheTrigger;
+        string TriggerEventName;
         public Level1Quest2Functions(QuestsHandler qHandler, Level1Quest2Data qData) : base (qHandler, qData)
         {
-            qHandler.AddBool(IsPastTheGate, "N/A");
-            GlobalEvents.Instance.FindEvent("On Past The Quest Gate").AddListener(CheckIfDone);
+            qHandler.AddBool(IsPastTheTrigger, "N/A");
+            TriggerEventName = qData.TriggerEventName;
+            GlobalEvents.Instance.FindEvent(TriggerEventName).AddListener(CheckIfDone);
         }
 
         void CheckIfDone()
         {
-            IsPastTheGate = true;
+            IsPastTheTrigger = true;
             Handler.ChangeToNextQuest();
         }
         public override void QuestDiscard()
         {
-            GlobalEvents.Instance.FindEvent("On Past The Quest Gate").RemoveListener(CheckIfDone);
+            GlobalEvents.Instance.FindEvent(TriggerEventName).RemoveListener(CheckIfDone);
         }
 
         public override void QuestUpdateFunc()

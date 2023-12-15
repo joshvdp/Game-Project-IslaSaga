@@ -17,9 +17,11 @@ namespace Player
         public float PlayerDamageMultiplier;
 
         public int PlayerKills = 0;
+        public bool IsInvincible = false;
 
         public void TakeDamage(float Damage)
         {
+            if (IsInvincible) return;
             PlayerCurrentHealth = Mathf.Clamp(PlayerCurrentHealth - Damage, 0, PlayerMaxHealth);
             OnChangeHp?.Invoke();
         }
