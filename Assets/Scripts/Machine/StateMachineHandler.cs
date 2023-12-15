@@ -26,4 +26,10 @@ namespace StateMachine.Base
         public abstract void SetState(TData newState);
 
     }
+
+    public abstract class QuestMachineHandler<QData, QFunc> : MonoBehaviour
+    {
+        public QFunc CurrentQuest;
+        public string CurrentQuestName;
+    }
 }
