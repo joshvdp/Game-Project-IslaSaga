@@ -16,7 +16,7 @@ namespace Player
         public float PlayerSpeed;
         public float PlayerDamageMultiplier;
 
-
+        public int PlayerKills = 0;
 
         public void TakeDamage(float Damage)
         {
@@ -34,7 +34,10 @@ namespace Player
         public void Reset()
         {
             PlayerCurrentHealth = PlayerMaxHealth;
+            PlayerKills = 0;
         }
+
+        public void AddPlayerKill() => PlayerKills++;
     }
 }
 

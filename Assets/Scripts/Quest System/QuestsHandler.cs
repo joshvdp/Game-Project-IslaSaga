@@ -47,7 +47,7 @@ namespace Quest
             if(CurrentQuestIndex >= QuestListInOrder.Count)
             {
                 Debug.Log("NO QUEST AVAILABLE");
-                QuestUIHandler.Instance.QuestTitle.text = "NO QUEST AVAILABLE";
+                QuestUIHandler.Instance.QuestTitle.text = "ALL QUESTS ON LEVEL DONE";
                 QuestUIHandler.Instance.DeleteAllQuestContents();
                 return;
             }
