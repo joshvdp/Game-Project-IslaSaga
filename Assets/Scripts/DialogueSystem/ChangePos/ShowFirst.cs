@@ -10,7 +10,7 @@ namespace DialogueSystem
     {
         public float ShowDelay;
         int index;
-        public GameObject inventoryBtn, inventoryBtnTutorial, analog, analogTutorial;
+        public GameObject inventoryBtn, inventoryBtnTutorial, analog, analogTutorial, quest, kill;
         private bool hasBeenCalled = false;
         private void Update()
         {
@@ -28,6 +28,8 @@ namespace DialogueSystem
             {
                 inventoryBtn.SetActive(false);
                 analog.SetActive(false);
+                quest.SetActive(false);
+                kill.SetActive(false);
                 yield return new WaitForSeconds(ShowDelay);
                 index = 2;
                 DialogueHandler.Instance.EnableDialogue(index);
