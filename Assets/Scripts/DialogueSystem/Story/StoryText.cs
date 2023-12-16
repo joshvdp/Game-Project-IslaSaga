@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.Video;
 using Manager;
 namespace Story
 {
@@ -21,6 +22,8 @@ namespace Story
         float Speed;
         float BeginPosition;  
         float LastPosition;
+
+        public VideoPlayer videoPlayer;
 
         public GameObject Skip;
 
@@ -49,6 +52,7 @@ namespace Story
 
             StartCoroutine(Story());
             StartCoroutine(ShowSkipButton());
+            StartCoroutine(PlayVideo());
         }
 
         IEnumerator Story()
@@ -89,9 +93,14 @@ namespace Story
             
         }
 
-        
 
-        
+
+        IEnumerator PlayVideo()
+        {
+            yield return new WaitForSeconds(50);
+
+            videoPlayer.Play();
+        }
 
 
 
