@@ -20,21 +20,21 @@ namespace Quest
         float EnemiesKilled;
         float EnemiesNeededToBeKilled;
 
-        bool AreAllEnemiesKilled = false;
         public Level1Quest1Functions(QuestsHandler qHandler, Level1Quest1Data qData) : base (qHandler, qData)
         {
+            EnemiesKilled = 0;
             EnemiesNeededToBeKilled = qData.EnemiesNeetToKill;
-            Debug.Log(EnemiesNeededToBeKilled);
             GlobalEvents.Instance.FindEvent("On Any Enemy Death")?.AddListener(AddEnemiesKilled);
             qHandler.AddFloat(EnemiesKilled, EnemiesNeededToBeKilled, "Enemies Killed");
-            qHandler.AddBool(AreAllEnemiesKilled, "Enemies are Dead");
         }
 
         void AddEnemiesKilled()
         {
+            
             EnemiesKilled += 1;
             Handler.UpdateFloat("Enemies Killed", EnemiesKilled);
-            CheckIfDone();
+
+            if(EnemiesKilled >= EnemiesNeededToBeKilled) CheckIfDone();
         }
 
         void CheckIfDone()
