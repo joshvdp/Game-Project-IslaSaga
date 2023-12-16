@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1514,6 +1514,87 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6405678311916393958, guid: 62b213544645f4f45b17b4e592099ed2, type: 3}
   m_PrefabInstance: {fileID: 199888626}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &236980108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236980109}
+  - component: {fileID: 236980111}
+  - component: {fileID: 236980110}
+  m_Layer: 0
+  m_Name: Red Boximon Found Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236980109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236980108}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 26.26, y: 1.37, z: -221.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2052780885}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &236980110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236980108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b949861e5dd754ba97d079c0b7a17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventsToTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1888785341}
+        m_TargetAssemblyTypeName: GlobalEvents, Assembly-CSharp
+        m_MethodName: InvokeUnityEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: On Red Boximon Found
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &236980111
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236980108}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2147483583
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.42799, y: 6.026624, z: 1}
+  m_Center: {x: 0.12563896, y: 0.606364, z: 0}
 --- !u!1001 &248211523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3275,6 +3356,10 @@ PrefabInstance:
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_Name
       value: Enemy Boximon (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5218,6 +5303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Boximon (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5405,7 +5494,7 @@ Transform:
   - {fileID: 1993296442}
   - {fileID: 1599909214}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &743156429
 PrefabInstance:
@@ -5692,6 +5781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Boximon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5740,7 +5833,7 @@ Transform:
   - {fileID: 2014668677}
   - {fileID: 48626595}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &765430723
 PrefabInstance:
@@ -5797,6 +5890,10 @@ PrefabInstance:
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_Name
       value: Enemy Boximon (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7424,6 +7521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Boximon (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8120,7 +8221,7 @@ Transform:
   - {fileID: 336838001}
   - {fileID: 849125540}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1010419779
 PrefabInstance:
@@ -8243,6 +8344,10 @@ PrefabInstance:
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_Name
       value: Enemy Boximon (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8602,7 +8707,7 @@ Transform:
   - {fileID: 1720152749}
   - {fileID: 421304352}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1134815318
 PrefabInstance:
@@ -8952,10 +9057,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
       propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
       propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
@@ -8963,7 +9072,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1822710106}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1888785341}
+    - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
       propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
@@ -8971,15 +9088,31 @@ PrefabInstance:
       value: LoadNextSceneAsync
       objectReference: {fileID: 0}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: InvokeUnityEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
       propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Manager.SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GlobalEvents, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
       propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: AfterLevel
       objectReference: {fileID: 0}
     - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: On Boss Defeated
+      objectReference: {fileID: 0}
+    - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
       propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 749500681754432638, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2391861063981144495, guid: 6fc1320a6fe3462408df5c702acdddfd, type: 3}
@@ -9811,6 +9944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Boximon (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10117,6 +10254,10 @@ PrefabInstance:
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_Name
       value: Enemy Boximon (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11033,6 +11174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Boximon (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11281,6 +11426,87 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521034856}
   m_Mesh: {fileID: 3613567641014311022, guid: 1f46446da335c1d4892888424cb1b82e, type: 3}
+--- !u!1 &1523171995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523171996}
+  - component: {fileID: 1523171998}
+  - component: {fileID: 1523171997}
+  m_Layer: 0
+  m_Name: First Right Gate Quest Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1523171996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523171995}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 6.78, y: 1.37, z: -201.76}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2052780885}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1523171997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523171995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b949861e5dd754ba97d079c0b7a17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventsToTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1888785341}
+        m_TargetAssemblyTypeName: GlobalEvents, Assembly-CSharp
+        m_MethodName: InvokeUnityEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: On Past The Right Quest Gate
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1523171998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523171995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2147483583
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.42799, y: 6.026624, z: 1}
+  m_Center: {x: 0.12563896, y: 0.606364, z: 0}
 --- !u!1001 &1543730738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12855,6 +13081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Boximon (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13244,8 +13474,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 2052780885}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1710301910
 GameObject:
@@ -13317,20 +13547,84 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0b677ea1936986248a6a823d38f86079, type: 2}
     - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
       propertyPath: OnChestOpen.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
       propertyPath: OnChestOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1888785341}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
       propertyPath: OnChestOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1468281925}
     - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1888785341}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
       propertyPath: OnChestOpen.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InvokeUnityEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InvokeUnityEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlobalEvents, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlobalEvents, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: On Double Jump Achieved
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: On Double Jump Achieved
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnItemGive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142376776922000683, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
+      propertyPath: OnAbilityGive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4117716025735890756, guid: 400920f1d6c876b49b43e58f7f39f051, type: 3}
       propertyPath: m_RootOrder
@@ -13524,6 +13818,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1888785341}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: InvokeUnityEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GlobalEvents, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: On Red Boximon Defeated
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008583732231167485, guid: fc677436441e29443a623871740505fb, type: 3}
+      propertyPath: <onDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7767462568535393670, guid: fc677436441e29443a623871740505fb, type: 3}
       propertyPath: m_Name
       value: Enemy Fiery Boximon
@@ -13635,7 +13961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.78
+      value: 18.77
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13643,7 +13969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -199.99
+      value: -189.47
       objectReference: {fileID: 0}
     - target: {fileID: 1403995966872483314, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15388,6 +15714,87 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1 &1840901667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1840901670}
+  - component: {fileID: 1840901669}
+  - component: {fileID: 1840901668}
+  m_Layer: 0
+  m_Name: First Left Gate Quest Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1840901668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840901667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b949861e5dd754ba97d079c0b7a17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventsToTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1888785341}
+        m_TargetAssemblyTypeName: GlobalEvents, Assembly-CSharp
+        m_MethodName: InvokeUnityEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: On Past The Left Quest Gate
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1840901669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840901667}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2147483583
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.42799, y: 6.026624, z: 1}
+  m_Center: {x: 0.12563896, y: 0.606364, z: 0}
+--- !u!4 &1840901670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840901667}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 27.21, y: 1.37, z: -202.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2052780885}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1847157910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15765,6 +16172,90 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[0].myName
+      value: On Change Platform Type PC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[1].myName
+      value: On Change Platform Type Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].myName
+      value: On Any Enemy Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[3].myName
+      value: On Past The Left Quest Gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[4].myName
+      value: On Boss Found
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[5].myName
+      value: On Double Jump Achieved
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[6].myName
+      value: On Past The Right Quest Gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[7].myName
+      value: On Red Boximon Found
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[8].myName
+      value: On Red Boximon Defeated
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[9].myName
+      value: On Boss Defeated
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[5].unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[5].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: b57890f3523d89b48822eed1c76915af, type: 2}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[5].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddPlayerKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player.PlayerStats, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6000888276366585903, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -15815,18 +16306,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1172864943}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1888785341}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
@@ -15834,16 +16337,32 @@ PrefabInstance:
       value: SetState
       objectReference: {fileID: 0}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: InvokeUnityEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StateMachine.Enemy.MarquisMonoStateMachine, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GlobalEvents, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 45a68dde8207db948aaf6cf7aed52212, type: 2}
     - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: On Boss Found
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: StateMachine.Enemy.MarquisMachineData, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: OnStartBossFight.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15852,6 +16371,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6000888276366585903, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1888785340}
+    - targetCorrespondingSourceObject: {fileID: 6000888276366585903, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1888785347}
   m_SourcePrefab: {fileID: 100100000, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
 --- !u!1 &1888785339 stripped
 GameObject:
@@ -15881,6 +16403,46 @@ MonoBehaviour:
   MarquisChooseSpeed: 0.7
   MarquisAttackLightDamage: 15
   MarquisAttackHeavyDamage: 20
+--- !u!114 &1888785341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3678513595096809630, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+  m_PrefabInstance: {fileID: 1888785338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888785339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b63f6dfb6253144cbfd09693490b453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1888785347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888785339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3601c87cfdf2a147b8985ffc6e77151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentQuestName: 
+  QuestListInOrder:
+  - {fileID: 11400000, guid: ddd341c2a3f1dc3488f0914ba60e52de, type: 2}
+  - {fileID: 11400000, guid: f1d744592ee0d7e4f807143ee717bc2a, type: 2}
+  - {fileID: 11400000, guid: a5fdee72b96ef2a4ca7f1d0f83c5c320, type: 2}
+  - {fileID: 11400000, guid: a3adf062f2482744a81260ba9f81d69c, type: 2}
+  - {fileID: 11400000, guid: 6abcef981d6c24e4384236c7bd9799a5, type: 2}
+  - {fileID: 11400000, guid: ba9b25ffdd472504ca447e27c5a6ca77, type: 2}
+  - {fileID: 11400000, guid: e5a9ea5416085a84db49e7198b5fbfa0, type: 2}
+  - {fileID: 11400000, guid: 96f7dbab2771abd49ad09efb2dc20764, type: 2}
+  - {fileID: 11400000, guid: a1d13e5cc67e75b4cb063a3fd49f8168, type: 2}
+  Bools: []
+  Floats: []
+  OnChangeQuest:
+    m_PersistentCalls:
+      m_Calls: []
+  CurrentQuestIndex: 0
 --- !u!1001 &1896550032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17618,6 +18180,10 @@ Transform:
   - {fileID: 890502002}
   - {fileID: 1231477976}
   - {fileID: 2053579221}
+  - {fileID: 1840901670}
+  - {fileID: 1523171996}
+  - {fileID: 236980109}
+  - {fileID: 1707293746}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17969,6 +18535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Boximon (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18089,6 +18659,10 @@ PrefabInstance:
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_Name
       value: Enemy Boximon (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18437,6 +19011,10 @@ PrefabInstance:
     - target: {fileID: 8220367471542494280, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
       propertyPath: m_Name
       value: Enemy Boximon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474503708022128161, guid: e44a33fbc3e07024f9c27f8b73d81d1b, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
