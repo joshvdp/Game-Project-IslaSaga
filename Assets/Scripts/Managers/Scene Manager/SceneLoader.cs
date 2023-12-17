@@ -38,7 +38,11 @@ namespace Manager
             if(SceneManager.GetSceneByName("InGameUI").IsValid()) SceneManager.UnloadSceneAsync("InGameUI");
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
-
+        
+        public void exitGame()
+        {
+            Application.Quit();
+        }
     }
 }
 
