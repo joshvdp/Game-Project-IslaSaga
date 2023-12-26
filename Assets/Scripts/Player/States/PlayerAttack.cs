@@ -47,13 +47,13 @@ namespace StateMachine.Player.State
             switch (machine.AttackSequence)
             {
                 case 0:
-                    Damage *= 1.2f;
+                    Damage *= 1f;
                     break;
                 case 1:
-                    Damage *= 1.4f;
+                    Damage *= 1.2f;
                     break;
                 case 2:
-                    Damage *= 1.5f;
+                    Damage *= 1.4f;
                     break;
                 case 3:
                     Damage *= 1.5f;
