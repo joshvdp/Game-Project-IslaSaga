@@ -469,7 +469,6 @@ GameObject:
   - component: {fileID: 3698686243858528324}
   - component: {fileID: 143818410898941179}
   - component: {fileID: 8643131140345802940}
-  - component: {fileID: 6600910187191824639}
   m_Layer: 28
   m_Name: wallcandle
   m_TagString: Untagged
@@ -560,20 +559,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6600910187191824639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714163856231397276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28b387bc2b4272042821845ac036bf6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spotlight: {fileID: 2980050155011279095}
-  torchFire: {fileID: 8364343356960472834}
 --- !u!1 &1819173509717815135
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,11 +5142,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc1cce2fd78bea469061b4a993a7c89, type: 3}
---- !u!198 &8364343356960472834 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4236224722424283257, guid: adc1cce2fd78bea469061b4a993a7c89, type: 3}
-  m_PrefabInstance: {fileID: 5682990806107242363}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8364343356960472835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4236224722424283256, guid: adc1cce2fd78bea469061b4a993a7c89, type: 3}

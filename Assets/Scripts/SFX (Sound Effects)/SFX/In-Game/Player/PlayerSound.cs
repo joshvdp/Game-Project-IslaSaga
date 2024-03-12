@@ -82,6 +82,7 @@ namespace AudioSoundEvents
         public void Hurt()
         {
             SFX.PlayOneShot(Hit);
+            Debug.Log("test");
         }
         public void Jumping ()
         {

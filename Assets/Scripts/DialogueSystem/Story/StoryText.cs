@@ -42,6 +42,13 @@ namespace Story
         [SerializeField] float textSpeed;
         [SerializeField] Vector3 textBeginPosition;
         [SerializeField] float textEndPosition;
+
+        private void OnEnable()
+        {
+            videoPlayer.loopPointReached += CallNextScene;
+        }
+
+        void CallNextScene(VideoPlayer vp) => SceneLoader.Instance.LoadNextSceneAsync(NextSceneName);
         private void Start()
         {
             string activeSceneName = SceneManager.GetActiveScene().name;
@@ -75,7 +82,7 @@ namespace Story
             {
                 
                 myGorectTransform.Translate(Vector3.up * Speed * Time.deltaTime);
-                if (myGorectTransform.localPosition.y > LastPosition)
+                if (myGorectTransform.localPosition.y > LastPosition && videoPlayer == null)
                 {
                     if (isLooping)
                     {
@@ -83,7 +90,7 @@ namespace Story
                     }
                     else
                     {
-                        SceneLoader.Instance.LoadNextSceneAsync(NextSceneName); 
+                        CallNextScene(videoPlayer);
                         break;
                     }
                 }
