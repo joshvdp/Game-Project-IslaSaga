@@ -71,7 +71,10 @@ namespace StateMachine.Player
         {
             
             base.Awake();
-            if (WeaponHolderPosition.childCount > 0) for (int i = 0; i < WeaponHolderPosition.childCount; i++) Destroy(WeaponHolderPosition.GetChild(0).gameObject); // Makes sure to destroy all weapons on hand on awake
+            if (WeaponHolderPosition.childCount > 0)
+            {
+                for (int i = 0; i < WeaponHolderPosition.childCount; i++) DestroyImmediate(WeaponHolderPosition.GetChild(0).gameObject); // DestroyImmediate is needed since for some reason destory does not destroy
+            }// Makes sure to destroy all weapons on hand on awake
             AssignWeaponAndOrShield();
             SetSpawnPosition();
         }
@@ -114,7 +117,6 @@ namespace StateMachine.Player
             if (PlayerRb.velocity.y < -0.5f)
             {
                 OnFalling?.Invoke();
-                Debug.Log("FALLING");
             }
         }
         void SimulateGravity() => PlayerRb.velocity += Vector3.up * Gravity * Time.deltaTime;
@@ -135,21 +137,21 @@ namespace StateMachine.Player
             //  OLD LINE. BRING BACK IF THERE IS ISSUE WITH SPHERECAST 
             // Physics.SphereCast(FeetStart.position, sphereRadius, Vector3.down, out hit, sphereMaxDist, NavigatableAreas) SPHERECAST
             // Debug.Log("SPHERE RADIUS: " + sphereRadius + "  SPHERE MAX DIST: " + sphereMaxDist + "    PLAYER VELOCITY: " + PlayerRb.velocity.y);
-            if (Physics.Raycast(ray, out hit, 1f, NavigatableAreas))
+            if (Physics.Raycast(ray, out hit, 0.2f, NavigatableAreas))
             {
                 //Debug.Log("SPHERECAST HITS SOMETHING " + hit.transform.name);
                 GoToHitPoint(hit);
             }
-            else if(Physics.Raycast(ray, out hit, 0.2f, NavigatableAreas)) // This is if the spherecast fails, which it sometimes does
+            else if(Physics.Raycast(ray, out hit, 0.5f, NavigatableAreas)) // This is if the spherecast fails, which it sometimes does || SET to 0.2 if changed to spherecast
             {
                 //Debug.Log("CAST2 HITS SOMETHING " + hit.transform.name);
                 GoToHitPoint(hit);
             }
             else
             {
+                print("SIMULATE GRAVITY");
                 SimulateGravity();
             }
-            
         }
 
         void GoToHitPoint(RaycastHit hit)
@@ -259,15 +261,13 @@ namespace StateMachine.Player
 
         public void AssignWeaponAndOrShield()
         {
-            
             WeaponOnHand = null;
             WeaponOnHandGameObject = null;
-            WeaponOnHand = WeaponHolderPosition?.GetComponentInChildren<IWeapon>();
-            ShieldCollider = ShieldHolderPosition?.GetComponentInChildren<Collider>();
+            WeaponOnHand = WeaponHolderPosition.GetComponentInChildren<IWeapon>();
+            ShieldCollider = ShieldHolderPosition.GetComponentInChildren<Collider>();
             WeaponOnHandGameObject = WeaponOnHand?.GetGameobject();
             if (WeaponOnHand != null)
             {
-                Debug.Log("ASSIGN WEAPON CALLED WEAPON ASSIGNED IS " + WeaponOnHand.GetGameobject());
                 WeaponOnHand.holder = this;
                 WeaponOnHand.SubscribeEvents();
             }
@@ -282,7 +282,6 @@ namespace StateMachine.Player
             Ray MouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(MouseRay, out RaycastHit rayCastHit, Mathf.Infinity, ClickableArea))
             {
-                Debug.Log("FACE DIR MOUSE CLICK HITS " + rayCastHit.transform.name);
                 Vector3 DirectionToLookAt = new Vector3(rayCastHit.point.x, transform.position.y, rayCastHit.point.z);
                 transform.rotation = Quaternion.LookRotation(DirectionToLookAt - transform.position, Vector3.up);
             }

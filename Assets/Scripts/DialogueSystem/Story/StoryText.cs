@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.Video;
 using Manager;
 namespace Story
 {
@@ -22,6 +23,8 @@ namespace Story
         float BeginPosition;  
         float LastPosition;
 
+        public VideoPlayer videoPlayer;
+
         public GameObject Skip;
 
         RectTransform myGorectTransform;
@@ -39,6 +42,13 @@ namespace Story
         [SerializeField] float textSpeed;
         [SerializeField] Vector3 textBeginPosition;
         [SerializeField] float textEndPosition;
+
+        private void OnEnable()
+        {
+            videoPlayer.loopPointReached += CallNextScene;
+        }
+
+        void CallNextScene(VideoPlayer vp) => SceneLoader.Instance.LoadNextSceneAsync(NextSceneName);
         private void Start()
         {
             string activeSceneName = SceneManager.GetActiveScene().name;
@@ -49,6 +59,7 @@ namespace Story
 
             StartCoroutine(Story());
             StartCoroutine(ShowSkipButton());
+            StartCoroutine(PlayVideo());
         }
 
         IEnumerator Story()
@@ -71,7 +82,7 @@ namespace Story
             {
                 
                 myGorectTransform.Translate(Vector3.up * Speed * Time.deltaTime);
-                if (myGorectTransform.localPosition.y > LastPosition)
+                if (myGorectTransform.localPosition.y > LastPosition && videoPlayer == null)
                 {
                     if (isLooping)
                     {
@@ -79,7 +90,7 @@ namespace Story
                     }
                     else
                     {
-                        SceneLoader.Instance.LoadNextSceneAsync(NextSceneName); 
+                        CallNextScene(videoPlayer);
                         break;
                     }
                 }
@@ -89,9 +100,14 @@ namespace Story
             
         }
 
-        
 
-        
+
+        IEnumerator PlayVideo()
+        {
+            yield return new WaitForSeconds(50);
+
+            videoPlayer.Play();
+        }
 
 
 

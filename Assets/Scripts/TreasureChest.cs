@@ -33,7 +33,7 @@ public class TreasureChest : Interactable
     void GiveLoot(PlayerInventory inventory, InventoryItem itemToGive)
     {
         if (itemToGive == null) return;
-        Instantiate(item.ObjectModel, ItemInChest.transform.position, Quaternion.identity, ItemInChest.transform);
+        Instantiate(item.ObjectModel, ItemInChest.transform.position, item.ObjectModel.transform.rotation, ItemInChest.transform);
         inventory.AddItem(itemToGive);
         OnItemGive?.Invoke();
     }
@@ -43,6 +43,7 @@ public class TreasureChest : Interactable
         if (AbilityToGive == null) return;
         AbilityToGive.isUnlocked = true;
         OnAbilityGive?.Invoke();
+        print("ABILITY GIVEN");
     }
 
 }

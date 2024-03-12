@@ -70,6 +70,7 @@ public class CameraControllerNEW : MonoBehaviour
         currentTouchDist = Input.mousePosition - oldTouchDist;
         oldTouchDist = Input.mousePosition;
 
+        if (!SettingsHandler.Instance) return;
         float rotationSpeedClampValue = SettingsHandler.Instance.settingsData.LookSensitivityValue * 100f;
         _rotationY = Mathf.Clamp(_rotationY + currentTouchDist.normalized.x * 30f, -rotationSpeedClampValue, rotationSpeedClampValue);
 

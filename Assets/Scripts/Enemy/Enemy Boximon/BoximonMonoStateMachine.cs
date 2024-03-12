@@ -42,6 +42,11 @@ public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, B
         base.Awake();
         transform.parent = GameObject.FindWithTag("Enemy Container").transform;
     }
+    private void Start()
+    {
+
+        HpComponent.onDeath.AddListener(InvokeAnyEnemyDeath);
+    }
     public override void Update()
     {
         CurrentState.StateUpdate();
@@ -60,5 +65,10 @@ public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, B
     public void LookAtTarget() => transform.rotation = 
         Quaternion.LookRotation(CurrentTarget.position - transform.position);
     public void DestroyGameobject() => Destroy(gameObject);
+
+    #region GLOBAL EVENTS INVOKES
+    void InvokeAnyEnemyDeath() => GlobalEvents.Instance.FindEvent("On Any Enemy Death").Invoke();
+    #endregion
+
 }
 

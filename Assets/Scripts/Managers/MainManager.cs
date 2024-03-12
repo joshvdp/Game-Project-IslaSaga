@@ -43,7 +43,7 @@ namespace Manager
         {
             if(Application.isEditor)
             {
-                PlayerStatsSCO.PlayerCurrentHealth = PlayerStatsSCO.PlayerMaxHealth;
+                PlayerStatsSCO.Reset();
             }
         }
 

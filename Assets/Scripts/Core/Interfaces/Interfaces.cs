@@ -7,6 +7,7 @@ using Items;
 using StateMachine.Player;
 namespace InterfaceAndInheritables
 {
+    #region Weapon
     public enum DamageType
     {
         MELEE,
@@ -36,17 +37,6 @@ namespace InterfaceAndInheritables
         void SubscribeEvents();
         GameObject GetGameobject();
     }
-
-    // OLD INTERFACE
-    public interface IShield
-    {
-        float DamageReduction { get; set; }
-        void Block();
-
-    }
-    //
-
-   
     public interface IProjectile
     {
         Rigidbody rb { get; set; }
@@ -63,8 +53,7 @@ namespace InterfaceAndInheritables
         public Quaternion ShieldRotation;
         public abstract void Block();
     }
-
-
+    #endregion
 
     [Serializable] 
     public class Droppable
@@ -72,12 +61,6 @@ namespace InterfaceAndInheritables
         public GameObject ItemToDrop;
         public float Probability;
     }
-
-    //public abstract class Pickupable: MonoBehaviour
-    //{
-    //    public Rigidbody rb => GetComponent<Rigidbody>();
-    //    public InventoryItem ItemData;
-    //}
 
     public abstract class Consumable : MonoBehaviour
     {
@@ -96,6 +79,7 @@ namespace InterfaceAndInheritables
         public abstract void UseConsumable();
     }
 
+    #region Interactable
     public class Interactable : MonoBehaviour
     {
         public InteractableType Type;
@@ -138,5 +122,21 @@ namespace InterfaceAndInheritables
         DOOR,
         LOOT,
         ACTION
+    }
+    #endregion
+
+    [Serializable]
+    public class BoolWithName
+    {
+        public bool Boolean;
+        public string BooleanName;
+    }
+
+    [Serializable]
+    public class FloatWithNameAndMaxVal
+    {
+        public float Float;
+        public float MaxFloat;
+        public string FloatName;
     }
 }

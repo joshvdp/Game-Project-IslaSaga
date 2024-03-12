@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Manager;
 
 namespace DialogueSystem
 {
@@ -9,10 +10,15 @@ namespace DialogueSystem
     {
         public float ShowDelay;
         int index;
-        public GameObject inventoryBtn, inventoryBtnTutorial, analog, analogTutorial;
-        private void Awake()
+        public GameObject inventoryBtn, inventoryBtnTutorial, analog, analogTutorial, quest, kill;
+        private bool hasBeenCalled = false;
+        private void Update()
         {
-            StartCoroutine(show());
+            if (!hasBeenCalled && !SceneLoader.Instance.IsLoadingScreenPresent)
+            {
+                StartCoroutine(show());
+            }
+            
         }
 
         IEnumerator show()
@@ -22,16 +28,20 @@ namespace DialogueSystem
             {
                 inventoryBtn.SetActive(false);
                 analog.SetActive(false);
+                quest.SetActive(false);
+                kill.SetActive(false);
                 yield return new WaitForSeconds(ShowDelay);
                 index = 2;
                 DialogueHandler.Instance.EnableDialogue(index);
             }
             else
             {
-                analogTutorial.SetActive(true);
+                analogTutorial.SetActive(false);
                 inventoryBtn.SetActive(true);
                 inventoryBtnTutorial.SetActive(false);
             }
+
+            hasBeenCalled = true;
         }
     }
 }
