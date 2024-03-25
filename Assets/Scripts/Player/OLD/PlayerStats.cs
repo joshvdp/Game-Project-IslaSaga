@@ -19,6 +19,8 @@ namespace Player
         public int PlayerKills = 0;
         public bool IsInvincible = false;
 
+        const float DEFAULT_MAX_HP = 100f;
+
         public void TakeDamage(float Damage)
         {
             if (IsInvincible) return;
@@ -32,9 +34,14 @@ namespace Player
             PlayerCurrentHealth = Mathf.Clamp(PlayerCurrentHealth + HealAmount, 0, PlayerMaxHealth);
             OnChangeHp?.Invoke();
         }
-
+        public void IncreaseMaxHP(float amount)
+        {
+            PlayerMaxHealth += amount;
+            OnChangeHp?.Invoke();
+        }
         public void Reset()
         {
+            PlayerMaxHealth = DEFAULT_MAX_HP;
             PlayerCurrentHealth = PlayerMaxHealth;
             PlayerKills = 0;
         }
