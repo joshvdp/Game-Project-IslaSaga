@@ -6,19 +6,11 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.Video;
 using Manager;
+using Player.Controls;
 namespace Story
 {
-    public enum UIPlatformType
-    {
-        PC,
-        Mobile
-    }
     public class StoryText : MonoBehaviour
     {
-        
-
-        public UIPlatformType PlatformType;
-
         float Speed;
         float BeginPosition;  
         float LastPosition;
@@ -64,15 +56,15 @@ namespace Story
 
         IEnumerator Story()
         {
-            switch (PlatformType)
+            switch (SettingsHandler.Instance.settingsData.PlatformType)
                 {
-                    case UIPlatformType.Mobile:
+                    case PlatformType.Mobile:
                         Speed = textSpeed;
                         myGorectTransform.transform.localPosition = textBeginPosition;
                         LastPosition = textEndPosition;
                         break;
 
-                    case UIPlatformType.PC:
+                    case PlatformType.PC:
                         Speed = TextSpeed;
                         myGorectTransform.transform.localPosition = StartingPostion;
                         LastPosition = EndPosition;
