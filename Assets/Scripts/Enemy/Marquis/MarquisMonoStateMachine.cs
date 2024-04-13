@@ -55,7 +55,7 @@ namespace StateMachine.Enemy
                 return;
             CurrentState?.Discard();
             CurrentState = newState.Initialize(this);
-            Debug.Log("MARQ NEW STATE IS " + CurrentState.Data.name);
+            // Debug.Log("MARQ NEW STATE IS " + CurrentState.Data.name);
         }
         void ChooseAttack()
         {

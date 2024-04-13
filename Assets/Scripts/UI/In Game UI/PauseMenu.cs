@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Manager;
+using Player.Controls;
 
-public enum UIPlatformType
-{
-    PC,
-    Mobile
-}
 public class PauseMenu : MonoBehaviour
 {
-    public UIPlatformType PlatformType;
-
     public static bool GameisPaused = false;
 
     public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap, inventory;
 
     public Button pauseButton;
 
+    private void OnEnable()
+    {
+        GlobalEvents.Instance.FindEvent("On Change Platform Type PC").AddListener(checkPlatform);
+        GlobalEvents.Instance.FindEvent("On Change Platform Type Mobile").AddListener(checkPlatform);
+    }
+
+    private void OnDisable()
+    {
+        GlobalEvents.Instance.FindEvent("On Change Platform Type PC").RemoveListener(checkPlatform);
+        GlobalEvents.Instance.FindEvent("On Change Platform Type Mobile").RemoveListener(checkPlatform);
+    }
     void Awake()
     {
         checkPlatform();
@@ -31,13 +36,13 @@ public class PauseMenu : MonoBehaviour
 
     private void checkPlatform()
     {
-        switch (PlatformType)
+        switch (MainManager.Instance.Settings.PlatformType)
         {
-            case UIPlatformType.Mobile:
+            case PlatformType.Mobile:
                 mobileUI.SetActive(true);
                 mobilePauseButton.SetActive(true);
                 break;
-            case UIPlatformType.PC:
+            case PlatformType.PC:
                 mobileUI.SetActive(false);
                 mobilePauseButton.SetActive(false);
                 break;
@@ -45,12 +50,12 @@ public class PauseMenu : MonoBehaviour
     }
     private void UI()
     {
-        switch (PlatformType)
+        switch (MainManager.Instance.Settings.PlatformType)
         {
-            case UIPlatformType.PC:
+            case PlatformType.PC:
                 interfacePC();
                 break;
-            case UIPlatformType.Mobile:
+            case PlatformType.Mobile:
                 interfaceMobile();
                 break;
         }
@@ -58,9 +63,9 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeButton()
     {
-        switch (PlatformType)
+        switch (MainManager.Instance.Settings.PlatformType)
         {
-            case UIPlatformType.PC:
+            case PlatformType.PC:
                 MainManager.Instance.IsPaused = false;
 
                 pauseMenuUI.SetActive(false);
@@ -72,7 +77,7 @@ public class PauseMenu : MonoBehaviour
                 
                 GameisPaused = false;
                 break;
-            case UIPlatformType.Mobile:
+            case PlatformType.Mobile:
                 MainManager.Instance.IsPaused = false;
 
                 pauseMenuUI.SetActive(false);

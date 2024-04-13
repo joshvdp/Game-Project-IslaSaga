@@ -28,6 +28,8 @@ namespace Player.Controls
 
         public KeyCode InteractKey;
 
+        public KeyCode QuickUsePotionKey;
+
     }
 }
 
