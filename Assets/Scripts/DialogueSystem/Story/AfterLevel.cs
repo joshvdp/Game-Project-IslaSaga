@@ -5,17 +5,11 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Events;
 using Manager;
+using Player.Controls;
 namespace AfterLevel
 {
-    public enum UIPlatformType
-    {
-        PC,
-        Mobile
-    }
     public class AfterLevel : MonoBehaviour
     {
-        public UIPlatformType PlatformType;
-
         float Speed;
         float BeginPosition;
         float LastPosition;
@@ -50,15 +44,15 @@ namespace AfterLevel
         }
         IEnumerator AfterLevelScene()
         {
-            switch (PlatformType)
+            switch (SettingsHandler.Instance.settingsData.PlatformType)
             {
-                case UIPlatformType.Mobile:
+                case PlatformType.Mobile:
                     Speed = textSpeed;
                     myGorectTransform.transform.localPosition = textBeginPosition;
                     LastPosition = textEndPosition;
                     break;
 
-                case UIPlatformType.PC:
+                case PlatformType.PC:
                     Speed = TextSpeed;
                     myGorectTransform.transform.localPosition = StartingPostion;
                     LastPosition = EndPosition;

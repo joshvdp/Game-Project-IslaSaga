@@ -51,12 +51,12 @@ namespace Mobile
         #region Button Invokes
         public void InvokeAttack()
         {
-            if(PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.MobileAttackInput();
+            if(MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.MobileAttackInput();
         }
 
         public void InvokePickUpOrInteract()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile)
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile)
             {
                 PlayerInput.OnInteractInput?.Invoke();
                 PlayerInput.OnPickupInput?.Invoke();
@@ -65,35 +65,35 @@ namespace Mobile
 
         public void InvokeSprint()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnSprintInput?.Invoke();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.OnSprintInput?.Invoke();
         }
         public void InvokeNoSprint()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnNoSprintInput?.Invoke();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.OnNoSprintInput?.Invoke();
         }
 
         public void InvokeBlock()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnShieldInput?.Invoke();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.OnShieldInput?.Invoke();
         }
         public void InvokeNoBlock()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnNoShieldInput?.Invoke();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.OnNoShieldInput?.Invoke();
         }
 
         public void InvokeJump()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnJumpInput?.Invoke();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.OnJumpInput?.Invoke();
         }
 
         public void InvokeInventory()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile) UIManager.Instance.ToggleScreen("Inventory");
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) UIManager.Instance.ToggleScreen("Inventory");
         }
 
         public void InvokeUseHpPotion()
         {
-            if (PlayerInput.PlatformType == PlatformType.Mobile) PlayerInput.OnUseHPPotion?.Invoke();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.OnUseHPPotion?.Invoke();
         }
         #endregion
     }

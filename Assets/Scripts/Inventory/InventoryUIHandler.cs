@@ -76,11 +76,9 @@ public class InventoryUIHandler : MonoBehaviour
             InventoryData.InventoryItemsData.Add(fileSaved.ShieldData);
         }
 
-        Debug.Log("CURRENT WEAPON SLOT ITEM DATA IS " + WeaponSlot.ItemData);
 
         if (WeaponSlot.ItemData != null) WeaponSlot.InitializeItem();
         if (ShieldSlot.ItemData != null) ShieldSlot.InitializeItem();
-        Debug.Log("Done Loading Inventory");
     }
     public void AddItemToUI(InventoryItem Item)
     {

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using StateMachine.Base;
 using System;
@@ -8,8 +7,7 @@ using Player.Controls;
 using Core;
 using InterfaceAndInheritables;
 using Player;
-using AudioSoundEvents;
-using UnityEngine.EventSystems;
+using Manager;
 namespace StateMachine.Player
 {
     [RequireComponent(typeof(PlayerInputs))]
@@ -149,7 +147,6 @@ namespace StateMachine.Player
             }
             else
             {
-                print("SIMULATE GRAVITY");
                 SimulateGravity();
             }
         }
@@ -165,7 +162,6 @@ namespace StateMachine.Player
             if (HitPointYRounded == PositionYRounded) return; // This line is bugged. makes me angy >:[
             Debug.Log(HitPointYRounded == PositionYRounded); // Had to add this to fix the line above. If you try to remove this, you will experience an issue with jumping
             PlayerRb.velocity = new Vector3(PlayerRb.velocity.x, 0f, PlayerRb.velocity.z);
-            Debug.Log("LANDED");
             SetPosition(new Vector3(transform.position.x, hit.point.y, transform.position.z));
             OnLanded?.Invoke();
         }
@@ -187,7 +183,7 @@ namespace StateMachine.Player
 
             MoveVelocityInputs = CamRelativeMoveVect.normalized  *  Time.fixedDeltaTime;
 
-            switch (PlayerInputs.PlatformType)
+            switch (MainManager.Instance.Settings.PlatformType)
             {
                 case PlatformType.PC:
                     CalculatePCInputs();
