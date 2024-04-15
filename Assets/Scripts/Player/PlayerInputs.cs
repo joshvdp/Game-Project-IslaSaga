@@ -15,7 +15,6 @@ namespace Player.Controls
     }
     public class PlayerInputs : MonoBehaviour
     {
-        public PlatformType PlatformType;
         PlatformType PreviousPlatformType;
 
 
@@ -55,7 +54,7 @@ namespace Player.Controls
 
         void ListenToInputs()
         {
-            switch (PlatformType)
+            switch (MainManager.Instance.Settings.PlatformType)
             {
                 case PlatformType.PC:
                     PCMoveInputs();
@@ -69,12 +68,12 @@ namespace Player.Controls
         }
         void CheckIfChangedPlatformType()
         {
-            if(PlatformType != PreviousPlatformType)
+            if(MainManager.Instance.Settings.PlatformType != PreviousPlatformType)
             {
                 Debug.Log("CHANGED PLATFORM TYPE");
-                if (PlatformType == PlatformType.PC) GlobalEvents.Instance.CallEvent("On Change Platform Type PC", this.GetType().ToString());
-                if (PlatformType == PlatformType.Mobile) GlobalEvents.Instance.CallEvent("On Change Platform Type Mobile", this.GetType().ToString());
-                PreviousPlatformType = PlatformType;
+                if (MainManager.Instance.Settings.PlatformType == PlatformType.PC) GlobalEvents.Instance.CallEvent("On Change Platform Type PC", this.GetType().ToString());
+                if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) GlobalEvents.Instance.CallEvent("On Change Platform Type Mobile", this.GetType().ToString());
+                PreviousPlatformType = MainManager.Instance.Settings.PlatformType;
             }
         }
         #region PC Inputs
@@ -111,6 +110,8 @@ namespace Player.Controls
 
             if (Input.GetKeyDown(Controls.ShieldKey)) OnShieldInput?.Invoke();
             if (Input.GetKeyUp(Controls.ShieldKey)) OnNoShieldInput?.Invoke();
+
+            if (Input.GetKeyDown(Controls.QuickUsePotionKey)) OnUseHPPotion?.Invoke();
 
         }
         private void PCInteractionInputs()

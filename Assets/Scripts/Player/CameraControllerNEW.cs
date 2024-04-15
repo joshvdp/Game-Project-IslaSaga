@@ -11,7 +11,6 @@ public class CameraControllerNEW : MonoBehaviour
     [SerializeField] float MaxZoomOut;
     [SerializeField] LayerMask RayHittableLayers;
 
-    [SerializeField] private float _mouseSensitivity = 3.0f;
 
     private float _rotationY;
     private float _rotationX;
@@ -23,8 +22,6 @@ public class CameraControllerNEW : MonoBehaviour
 
     private Vector3 _currentRotation;
     private Vector3 _smoothVelocity = Vector3.zero;
-
-    [SerializeField] private float _smoothTime = 0.2f;
 
     [SerializeField] private Vector2 _rotationXMinMax = new Vector2(-40, 40);
 
@@ -39,17 +36,16 @@ public class CameraControllerNEW : MonoBehaviour
     PlayerInputs PlayerInput => FindObjectOfType<PlayerInputs>();
     private void Start()
     {
-        if(PlayerInput.PlatformType == PlatformType.PC) CameraRotation();
+        if(MainManager.Instance.Settings.PlatformType == PlatformType.PC) CameraRotation();
     }
     void Update()
     {
         if (MainManager.Instance.IsPaused) return;
-        if (PlayerInput.PlatformType == PlatformType.PC)
+        if (MainManager.Instance.Settings.PlatformType == PlatformType.PC)
         {
 
             transform.position = target.position + Quaternion.AngleAxis(CameraAngle, Vector3.up) * OffSet;
             transform.rotation = Quaternion.LookRotation(target.position + Vector3.up * 2f - transform.position, Vector3.up);
-            //transform.position = Vector3.Lerp(transform.position, target.position - transform.forward * DistanceFromTarget, 1f); // Set to 0.5f to prevent camera stutter.
             if (Input.GetKey(Controls.CameraRotateKey)) CameraRotation();
             else
             {
@@ -59,7 +55,7 @@ public class CameraControllerNEW : MonoBehaviour
             }
             CameraZoomInAndOut();
         }
-        else if (PlayerInput.PlatformType == PlatformType.Mobile)
+        else if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile)
         {
             MobileCameraControls();
         }
@@ -78,18 +74,6 @@ public class CameraControllerNEW : MonoBehaviour
         transform.position = target.position + Quaternion.AngleAxis(CameraAngle, Vector3.up) * OffSet;
         transform.rotation = Quaternion.LookRotation((target.position + Vector3.up * 2f - transform.position) * Time.deltaTime, Vector3.up);
 
-        //// VVV OLD VVV
-        //float mouseX = Input.GetAxis("Mouse X") * SettingsHandler.Instance.settingsData.LookSensitivityValue;
-        //float mouseY = -Input.GetAxis("Mouse Y") * SettingsHandler.Instance.settingsData.LookSensitivityValue;
-        //_rotationY += mouseX;
-        //_rotationX += mouseY;
-        //Vector3 nextRotation = new Vector3(transform.rotation.x, _rotationY);
-
-        //// Apply damping between rotation changes
-        //_currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
-        //transform.localEulerAngles = _currentRotation;
-
-        //// Substract forward vector of the GameObject to point its forward vector to the target
     }
     void CameraCollisionHandler()
     {

@@ -10,6 +10,7 @@ namespace Player
     public class PlayerStats : ScriptableObject
     {
         public Action OnChangeHp;
+        public Action OnHpPotionUsed;
         public float PlayerMaxHealth;
         public float PlayerCurrentHealth;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player.Controls;
 using NaughtyAttributes;
-
+using Manager;
 namespace StateMachine.Player.State
 {
     [CreateAssetMenu(fileName = "Player Block", menuName = "State Machine/Player/State/Block")]
@@ -23,7 +23,7 @@ namespace StateMachine.Player.State
         float DragResist;
         public PlayerBlockFunctions (PlayerMonoStateMachine machine, PlayerBlock data) : base(machine, data)
         {
-            if (machine.PlayerInputs.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
             DragResist = data.DragResist;
             machine.PlayerRb.drag = DragResist;
             ToggleShield(true);

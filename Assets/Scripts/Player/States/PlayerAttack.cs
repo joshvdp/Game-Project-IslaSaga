@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Player.Controls;
 using UnityEngine;
+using Manager;
 namespace StateMachine.Player.State
 {
     [CreateAssetMenu(fileName = "Player Attack", menuName = "State Machine/Player/State/Attack")]
@@ -27,8 +28,8 @@ namespace StateMachine.Player.State
         TargetingType AttackTargetingType;
         public PlayerAttackFunctions(PlayerMonoStateMachine machine, PlayerAttack data) : base(machine, data)
         {
-            if (machine.PlayerInputs.PlatformType == PlatformType.PC) machine.FaceDirectionOfMousePos();
-            else if (machine.PlayerInputs.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
+            if (MainManager.Instance.Settings.PlatformType == PlatformType.PC) machine.FaceDirectionOfMousePos();
+            else if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) machine.FaceToNearestEnemy();
 
             machine.PlayerRb.velocity = Vector3.zero;
             ColliderName = data.ColliderName;

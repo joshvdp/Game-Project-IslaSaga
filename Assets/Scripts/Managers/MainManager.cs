@@ -9,10 +9,13 @@ namespace Manager
     public class MainManager : MonoBehaviour
     {
         public static MainManager Instance;
+        public SettingsData Settings;
         public PlayerStats PlayerStatsSCO;
         public PlayerMonoStateMachine PlayerMachine => FindAnyObjectByType<PlayerMonoStateMachine>();
 
         public UnityEvent OnStartBossFight;
+
+
 
         public bool IsPaused = false;
         public bool IsGameOver = false;
