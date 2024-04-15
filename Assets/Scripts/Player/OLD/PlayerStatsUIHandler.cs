@@ -11,21 +11,34 @@ namespace Manager
         [SerializeField] Slider PlayerHealthUI;
 
         public bool CanUpdatePlayerStats = true;
-        private void Awake()
+        private void OnEnable()
         {
-            PlayerHealthUI.maxValue = PlayerStatsSCO.PlayerMaxHealth;
-            PlayerHealthUI.value = PlayerStatsSCO.PlayerCurrentHealth;
+            PlayerStatsSCO.OnChangeHp += UpdateStats;
         }
 
-
-        private void Update()
+        private void OnDisable()
         {
+            PlayerStatsSCO.OnChangeHp -= UpdateStats;
+        }
+        private void Awake()
+        {
+
             UpdateStats();
         }
 
+
+        //private void Update()
+        //{
+        //    UpdateStats();
+        //}
+
         void UpdateStats()
         {
-            if (CanUpdatePlayerStats) PlayerHealthUI.value = PlayerStatsSCO.PlayerCurrentHealth;
+            if (CanUpdatePlayerStats)
+            {
+                PlayerHealthUI.maxValue = PlayerStatsSCO.PlayerMaxHealth;
+                PlayerHealthUI.value = PlayerStatsSCO.PlayerCurrentHealth;
+            }
             if (MainManager.Instance.IsGameOver) CanUpdatePlayerStats = false; // This makes sure to update player stats one last time before game over
         }
     }

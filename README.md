@@ -1,2 +1,2 @@
 # Isla Saga
-A game project by NEU Game Devs
+A game developed by Clutch Devs
