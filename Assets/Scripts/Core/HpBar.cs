@@ -13,7 +13,7 @@ using Random = UnityEngine.Random;
 
 public class HpBar : MonoBehaviour, IDamageable
 {
-    [field: SerializeField] public float MaxHealth { get; set; } = 100f;
+    [field: SerializeField] public float MaxHealth { get; set; } = 0f;
     [field: SerializeField] public float CurrentHealth { get; set; }
     [field: SerializeField] public bool IsDamageable { get; set; }
     [SerializeField] bool ShowDamageText;
@@ -42,6 +42,7 @@ public class HpBar : MonoBehaviour, IDamageable
     private void Awake()
     {
         PlayerStatistics = GetComponent<PlayerMonoStateMachine>()?.PlayerStatsSCO;
+        if (PlayerStatistics) MaxHealth = PlayerStatistics.PlayerMaxHealth;
         CurrentHealth = MaxHealth;
         vfxManager = FindObjectOfType<VFXManager>();
     }
@@ -74,13 +75,17 @@ public class HpBar : MonoBehaviour, IDamageable
         {
             DropItemOrObject(DroppableObjects[i].Probability, DroppableObjects[i].ItemToDrop);
         }
-    }    
+    }
 
-    void PlayerUpdateHp() => CurrentHealth = PlayerStatistics.PlayerCurrentHealth;
+    void PlayerUpdateHp()
+    {
+        if (PlayerStatistics) MaxHealth = PlayerStatistics.PlayerMaxHealth;
+        CurrentHealth = PlayerStatistics.PlayerCurrentHealth;
+    }
 
 
-    #region OPTIONS OF FUNCTIONS TO CALL WHEN THIS DIES
-    public void DestroyThis() => Destroy(gameObject);
+        #region OPTIONS OF FUNCTIONS TO CALL WHEN THIS DIES
+        public void DestroyThis() => Destroy(gameObject);
     public void DropItemOrObject(float PercentChance, GameObject ObjToDrop)
     {
         float DropChance = Random.Range(1, 100 + 1); // Added +1 because maxExclusive is like index range. 100 = 100%. Random number between 1 and 100.
