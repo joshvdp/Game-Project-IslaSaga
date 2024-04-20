@@ -9,24 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a1317918f481941a979c978a1586df, type: 3}
-  m_Name: Marquis Attack Light
+  m_Script: {fileID: 11500000, guid: bf5f10010a9ca4446b27e571d752a15b, type: 3}
+  m_Name: Marquis Stun
   m_EditorClassIdentifier: 
-  StateName: Attack Light
-  AnimationTrigger: Attack Light
+  StateName: Stun
+  AnimationTrigger: Idle
   isUnlocked: 1
   isDamageable: 1
-  isKnockbackable: 0
+  isKnockbackable: 1
   materialColor: {r: 1, g: 1, b: 1, a: 1}
   animationSpeed: 1
   statesToChangeTo:
   - state: {fileID: 11400000, guid: 45a68dde8207db948aaf6cf7aed52212, type: 2}
-    eventsToListen: 02000000
+    eventsToListen: 06000000
     reasonForSetState: 
-  - state: {fileID: 11400000, guid: a800d3caa605bb243b2027ad38a7c63d, type: 2}
-    eventsToListen: 05000000
-    reasonForSetState: 
-  damage: 5
-  raycastableLayer:
-    serializedVersion: 2
-    m_Bits: 1081408
