@@ -6212,7 +6212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f94443477be55041a756393097afd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformType: 1
   Controls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
   ShowClickcastObjects: 0
 --- !u!114 &648237657
@@ -7718,11 +7717,9 @@ MonoBehaviour:
   RayHittableLayers:
     serializedVersion: 2
     m_Bits: 1023
-  _mouseSensitivity: 3
   target: {fileID: 1240137863}
   DistanceFromTarget: 5
   SmoothFollow: 0
-  _smoothTime: 0.1
   _rotationXMinMax: {x: -40, y: 80}
   OffSet: {x: 0, y: 12, z: 10}
   CameraAngle: 0
@@ -11079,7 +11076,7 @@ PrefabInstance:
       objectReference: {fileID: 1600703692}
     - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: PlatformType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2173312641986869490, guid: 25a863841e0e9e145bda518871dabdbe, type: 3}
       propertyPath: controlIndex

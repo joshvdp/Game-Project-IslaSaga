@@ -8322,7 +8322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 364471975513603041, guid: 18bc82799e7c36d4dad8b25a962aedb3, type: 3}
       propertyPath: input
-      value: Click to open the Inventory.
+      value: Press the I Button to open the Inventory.
       objectReference: {fileID: 0}
     - target: {fileID: 364471975513603041, guid: 18bc82799e7c36d4dad8b25a962aedb3, type: 3}
       propertyPath: TouchField
@@ -8557,7 +8557,8 @@ PrefabInstance:
       value: -97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5552051434083488091, guid: 18bc82799e7c36d4dad8b25a962aedb3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18bc82799e7c36d4dad8b25a962aedb3, type: 3}
@@ -15502,7 +15503,7 @@ GameObject:
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &848003052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20268,6 +20269,10 @@ MonoBehaviour:
   - {fileID: 641889614005359022}
   - {fileID: 4283439691985203752}
   - {fileID: 787237889}
+  - {fileID: 3527043026543326829}
+  - {fileID: 1518884503128991374}
+  - {fileID: 6764053288714890428}
+  - {fileID: 1789943889}
 --- !u!224 &1190971358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20301,6 +20306,7 @@ RectTransform:
   - {fileID: 7264461331244504640}
   - {fileID: 5945397974586117918}
   - {fileID: 508932507}
+  - {fileID: 2382901932224967137}
   - {fileID: 1789943885}
   - {fileID: 3998333406573824563}
   - {fileID: 5933235095448550402}
@@ -28442,6 +28448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901c9af514dd69648989d21e597b6a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlatformType: 0
   ShowDelay: 0.9
   inventoryBtn: {fileID: 912410689}
   inventoryBtnTutorial: {fileID: 1492595694}
@@ -30686,7 +30693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2739053995896855538, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
       propertyPath: input
-      value: Or you can push it instead!.
+      value: Or you can push it instead!
       objectReference: {fileID: 0}
     - target: {fileID: 2739053995896855538, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
       propertyPath: TouchField
@@ -30734,7 +30741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7129711181376049766, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
       propertyPath: input
-      value: This button is used for picking up boxes!
+      value: To pickup boxes, press the E Button on your keyboard.
       objectReference: {fileID: 0}
     - target: {fileID: 7129711181376049766, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
       propertyPath: TouchField
@@ -30875,6 +30882,11 @@ GameObject:
 --- !u!1 &1789943888 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1741483433224976126, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
+  m_PrefabInstance: {fileID: 1789943884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1789943889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 389520932766983253, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
   m_PrefabInstance: {fileID: 1789943884}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1790100460
@@ -38879,6 +38891,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2868665603810649864}
   m_CullTransparentMesh: 1
+--- !u!1 &547620620195248058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1496648721218496655, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &641889614005359022 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3342417094641244617, guid: 9421ba94b0b260e40a01d8e44769a4a1, type: 3}
@@ -39064,7 +39081,7 @@ PrefabInstance:
       objectReference: {fileID: 2068228260}
     - target: {fileID: 6788391850580264211, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
       propertyPath: input
-      value: Click here to QUICKLY use Potions from your inventory!
+      value: Press the Q Button to QUICKLY use Potions from your inventory!
       objectReference: {fileID: 0}
     - target: {fileID: 6788391850580264211, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
       propertyPath: TouchField
@@ -39159,6 +39176,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+--- !u!1 &1518884503128991374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2547705072437660777, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+  m_PrefabInstance: {fileID: 1518884503128991373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1659020149262766317
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39205,6 +39227,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &2251311273699056403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5420717407148721579, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2327967530711375071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4967146578445893838, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2382901932224967137 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2452033134592640331
 GameObject:
   m_ObjectHideFlags: 0
@@ -39500,6 +39537,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1492595694}
     - target: {fileID: 1241671580635231842, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241671580635231842, guid: 10345e9ff75e0784c816862997b74886, type: 3}
       propertyPath: TouchField
       value: 
       objectReference: {fileID: 2068228260}
@@ -39507,6 +39548,54 @@ PrefabInstance:
       propertyPath: analogTutorial
       value: 
       objectReference: {fileID: 2908747726944396246}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: atk
+      value: 
+      objectReference: {fileID: 3527043026543326834}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: blk
+      value: 
+      objectReference: {fileID: 3527043026543326832}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: jmp
+      value: 
+      objectReference: {fileID: 3527043026543326831}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 635003374}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: run
+      value: 
+      objectReference: {fileID: 3527043026543326833}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 721215794}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1471643450}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: potion
+      value: 
+      objectReference: {fileID: 292636122}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: lastDia
+      value: 
+      objectReference: {fileID: 3527043026543326830}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: lastIntro
+      value: 
+      objectReference: {fileID: 3527043026543326835}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: scndIntro
+      value: 
+      objectReference: {fileID: 3527043026543326836}
+    - target: {fileID: 1497580895041833702, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 2200590699056129913, guid: 10345e9ff75e0784c816862997b74886, type: 3}
       propertyPath: input
       value: 'First, you need to navigate your surroundings by holding the Right
@@ -39536,6 +39625,10 @@ PrefabInstance:
       propertyPath: TouchField
       value: 
       objectReference: {fileID: 2068228260}
+    - target: {fileID: 4126901087956304343, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+      propertyPath: input
+      value: Press the Left CTRL Button to defend against enemies' attacks.
+      objectReference: {fileID: 0}
     - target: {fileID: 4126901087956304343, guid: 10345e9ff75e0784c816862997b74886, type: 3}
       propertyPath: TouchField
       value: 
@@ -39653,10 +39746,54 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2068228260}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3051014277604968153, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+    - {fileID: 5956272181597669463, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+    - {fileID: 8679506849253634259, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+    - {fileID: 2094109256153575282, guid: 10345e9ff75e0784c816862997b74886, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+--- !u!1 &3527043026543326829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2373932895437994670, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3527043026543326830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1950052270112257569, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3527043026543326831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1364273443380791500, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3527043026543326832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4052338463674450917, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3527043026543326833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1009535489131136552, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3527043026543326834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6883237092772571215, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3527043026543326835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4042209048960782370, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3527043026543326836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7695987313353228697, guid: 10345e9ff75e0784c816862997b74886, type: 3}
+  m_PrefabInstance: {fileID: 3527043026543326828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3900339212263466251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39740,6 +39877,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4519117869645845217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4122740618509348648, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4545532826929895615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40193,6 +40335,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9203923320866364840, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
   m_PrefabInstance: {fileID: 1518884503128991373}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5957265327280753809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5662273292597768602, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!222 &6005487113064843820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40307,6 +40454,285 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &6636119694862532262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6906966532851530468, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6764053288714890427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1190971358}
+    m_Modifications:
+    - target: {fileID: 10338752888937075, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 1923284089788181807, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_Name
+      value: Inventory  (PC)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546711684085038646, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 2591228290280399336, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 2659286493171265677, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 3098810227014461157, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 635003374}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: tabs
+      value: 
+      objectReference: {fileID: 440086687}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: lastDia
+      value: 
+      objectReference: {fileID: 7578326046280384205}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: fifthDia
+      value: 
+      objectReference: {fileID: 547620620195248058}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: firstDia
+      value: 
+      objectReference: {fileID: 2327967530711375071}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: forthDia
+      value: 
+      objectReference: {fileID: 4519117869645845217}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: sixthDia
+      value: 
+      objectReference: {fileID: 6636119694862532262}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: thirdDia
+      value: 
+      objectReference: {fileID: 2251311273699056403}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1471643450}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: secondDia
+      value: 
+      objectReference: {fileID: 5957265327280753809}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: invenTutorial
+      value: 
+      objectReference: {fileID: 785307965}
+    - target: {fileID: 3258332237133273018, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: inventorySlots
+      value: 
+      objectReference: {fileID: 1505009403}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: atk
+      value: 
+      objectReference: {fileID: 1751639328}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: blk
+      value: 
+      objectReference: {fileID: 111100680}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 635003374}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 824818382}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: tabs
+      value: 
+      objectReference: {fileID: 440086687}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 721215794}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: analog
+      value: 
+      objectReference: {fileID: 1041755493}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: pickup
+      value: 
+      objectReference: {fileID: 2096362662}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: sprint
+      value: 
+      objectReference: {fileID: 1877014806}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: buttons
+      value: 
+      objectReference: {fileID: 719635002}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1471643450}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: exitInventory
+      value: 
+      objectReference: {fileID: 1989206191}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: invenTutorial
+      value: 
+      objectReference: {fileID: 785307965}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: inventorySlots
+      value: 
+      objectReference: {fileID: 1505009403}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: Mobileinventorybtn
+      value: 
+      objectReference: {fileID: 912410689}
+    - target: {fileID: 4728739877289250702, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: sampleInventoryBtn
+      value: 
+      objectReference: {fileID: 1492595694}
+    - target: {fileID: 5255777725035839560, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 638.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 256.0248
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030518
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -103
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652159073548593095, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526581508121304213, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 7686721674861124596, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 8304656210796190997, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 8528380504785149058, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 9035991428432251009, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+--- !u!1 &6764053288714890428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1923284089788181807, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6832424799780215511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40691,6 +41117,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &7578326046280384205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 909713971041012606, guid: 1f9df88b1f9708a429a061db494b29ed, type: 3}
+  m_PrefabInstance: {fileID: 6764053288714890427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7853315572777692102
 GameObject:
   m_ObjectHideFlags: 0

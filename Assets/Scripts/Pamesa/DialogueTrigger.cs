@@ -77,7 +77,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 18;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -111,7 +111,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 19;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -213,7 +213,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 20;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
