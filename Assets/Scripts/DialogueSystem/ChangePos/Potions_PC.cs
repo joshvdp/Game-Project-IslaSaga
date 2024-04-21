@@ -4,20 +4,21 @@ using UnityEngine;
 
 namespace ChangePosition
 {
-    public class Movement_PC : MonoBehaviour
+    public class Potions_PC : MonoBehaviour
     {
         public FixedTouchField TouchField;
 
-        public GameObject scndIntro, lastIntro, atk, run, blk, jmp, lastDia,      //dialogue
-                           map, health, pause;  // buttons & UI
+        public GameObject lastDia,      //dialogue
+                          map, health;  // buttons & UI
 
         RectTransform bg;
 
         private void Start()
         {
             bg = gameObject.GetComponent<RectTransform>();
-            pause.SetActive(false);
             
+            map.SetActive(false);
+            health.SetActive(false);
         }
 
         private void OnEnable()
@@ -32,22 +33,14 @@ namespace ChangePosition
 
         void DoThisOnDown()
         {
-            if (scndIntro.activeSelf)
-            {
-                
+            
 
-                map.SetActive(false);
-                health.SetActive(false);
-
-            }
-
-           
 
             if (lastDia.activeSelf)
             {
-                
+               
                 map.SetActive(true);
-                pause.SetActive(true);
+                health.SetActive(true);
             }
         }
     }

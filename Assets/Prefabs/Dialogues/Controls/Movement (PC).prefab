@@ -983,7 +983,6 @@ GameObject:
   - component: {fileID: 6094500405375743920}
   - component: {fileID: 314139359069868083}
   - component: {fileID: 4857348740259063768}
-  - component: {fileID: 1241671580635231842}
   - component: {fileID: 1497580895041833702}
   m_Layer: 5
   m_Name: Movement (PC)
@@ -1071,38 +1070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9fcd7568050a94ea3bf192b2e02f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1241671580635231842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2373932895437994670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ef9e9a6029a4f44a26eec35df35ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TouchField: {fileID: 0}
-  scndIntro: {fileID: 7695987313353228697}
-  lastIntro: {fileID: 4042209048960782370}
-  atk: {fileID: 6883237092772571215}
-  run: {fileID: 1009535489131136552}
-  blk: {fileID: 4052338463674450917}
-  jmp: {fileID: 1364273443380791500}
-  lastDia: {fileID: 1950052270112257569}
-  sprint: {fileID: 0}
-  block: {fileID: 0}
-  pickup: {fileID: 0}
-  jump: {fileID: 0}
-  attack: {fileID: 0}
-  inventory: {fileID: 0}
-  analogTutorial: {fileID: 0}
-  analog: {fileID: 0}
-  map: {fileID: 0}
-  health: {fileID: 0}
-  pause: {fileID: 0}
-  potion: {fileID: 0}
 --- !u!114 &1497580895041833702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,7 +1093,6 @@ MonoBehaviour:
   map: {fileID: 0}
   health: {fileID: 0}
   pause: {fileID: 0}
-  potion: {fileID: 0}
 --- !u!1 &3051014277604968153
 GameObject:
   m_ObjectHideFlags: 0

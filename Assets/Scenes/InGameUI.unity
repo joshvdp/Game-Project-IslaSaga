@@ -15503,7 +15503,7 @@ GameObject:
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &848003052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28448,7 +28448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901c9af514dd69648989d21e597b6a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformType: 0
+  PlatformType: 1
   ShowDelay: 0.9
   inventoryBtn: {fileID: 912410689}
   inventoryBtnTutorial: {fileID: 1492595694}
@@ -30675,6 +30675,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1080055396452945405, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 721215794}
+    - target: {fileID: 1080055396452945405, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
+      propertyPath: lastDia
+      value: 
+      objectReference: {fileID: 1789943886}
+    - target: {fileID: 1080055396452945405, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
     - target: {fileID: 2669238469797381949, guid: b772bef995e9d8447b24131a05a20a90, type: 3}
       propertyPath: delay
       value: 0.01
@@ -39068,6 +39080,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 719635002}
     - target: {fileID: 3667548549256255645, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667548549256255645, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+      propertyPath: TouchField
+      value: 
+      objectReference: {fileID: 2068228260}
+    - target: {fileID: 3734997518286084730, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 635003374}
+    - target: {fileID: 3734997518286084730, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1471643450}
+    - target: {fileID: 3734997518286084730, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+      propertyPath: lastDia
+      value: 
+      objectReference: {fileID: 1518884503128991375}
+    - target: {fileID: 3734997518286084730, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+      propertyPath: secondDia
+      value: 
+      objectReference: {fileID: 1518884503128991376}
+    - target: {fileID: 3734997518286084730, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
       propertyPath: TouchField
       value: 
       objectReference: {fileID: 2068228260}
@@ -39179,6 +39215,16 @@ PrefabInstance:
 --- !u!1 &1518884503128991374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2547705072437660777, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+  m_PrefabInstance: {fileID: 1518884503128991373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1518884503128991375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4041920896221327472, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
+  m_PrefabInstance: {fileID: 1518884503128991373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1518884503128991376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2411685585896914380, guid: e95ea0dddfef8fe499d8a724c17d98eb, type: 3}
   m_PrefabInstance: {fileID: 1518884503128991373}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1659020149262766317
