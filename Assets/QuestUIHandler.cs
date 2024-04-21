@@ -15,12 +15,12 @@ namespace Quest
         public List<QuestContentHolder> QuestContents;
         private void OnEnable()
         {
-            QuestsHandler.Instance.OnChangeQuest.AddListener(DisplayNewQuest);
+            QuestsHandler.Instance?.OnChangeQuest?.AddListener(DisplayNewQuest);
         }
 
         private void OnDisable()
         {
-            QuestsHandler.Instance.OnChangeQuest.RemoveListener(DisplayNewQuest);
+            QuestsHandler.Instance?.OnChangeQuest?.RemoveListener(DisplayNewQuest);
         }
         private void Awake()
         {
@@ -30,7 +30,7 @@ namespace Quest
         }
         private void Start()
         {
-            QuestsHandler.Instance.ChangeToQuestByIndex(0);
+            QuestsHandler.Instance?.ChangeToQuestByIndex(0);
         }
         void DisplayNewQuest(QuestData newQuest)
         {
