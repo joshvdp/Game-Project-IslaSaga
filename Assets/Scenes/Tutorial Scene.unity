@@ -6212,7 +6212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f94443477be55041a756393097afd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformType: 1
   Controls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
   ShowClickcastObjects: 0
 --- !u!114 &648237657
@@ -7544,7 +7543,6 @@ GameObject:
   - component: {fileID: 735775786}
   - component: {fileID: 735775785}
   - component: {fileID: 735775788}
-  - component: {fileID: 735775789}
   - component: {fileID: 735775790}
   m_Layer: 0
   m_Name: Main Camera
@@ -7673,33 +7671,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &735775789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735775784}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2d832f0aad0c104f804407bdf959f4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  Controls: {fileID: 11400000, guid: fe123a1805416834ab7613b9be2d56b6, type: 2}
-  offset: {x: 0, y: 20, z: -11}
-  FollowSpeed: 5
-  LookAtPlayer: 1
-  CamRotationSpeed: 5
-  MinYOffset: -18
-  MinZOffset: 7
-  MaxYOffset: 0
-  MaxZOffset: 0
-  OffsetIndicator: 0
-  ZoomInSpeed: 0.1
-  RayHittableLayers:
-    serializedVersion: 2
-    m_Bits: 1023
 --- !u!114 &735775790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7718,11 +7689,9 @@ MonoBehaviour:
   RayHittableLayers:
     serializedVersion: 2
     m_Bits: 1023
-  _mouseSensitivity: 3
   target: {fileID: 1240137863}
   DistanceFromTarget: 5
   SmoothFollow: 0
-  _smoothTime: 0.1
   _rotationXMinMax: {x: -40, y: 80}
   OffSet: {x: 0, y: 12, z: 10}
   CameraAngle: 0
@@ -14319,6 +14288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6096452270527209536, guid: 98369e9148274ba42bf7bcd9b927e8cd, type: 3}
+      propertyPath: Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: d6ab1b01efac68c4282c4346ace6afa3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
