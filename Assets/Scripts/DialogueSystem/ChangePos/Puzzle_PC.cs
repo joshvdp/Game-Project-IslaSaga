@@ -8,15 +8,14 @@ namespace ChangePosition
     {
         public FixedTouchField TouchField;
 
-        public GameObject lastDia,
-                          pause;
+        public GameObject lastDia;
 
 
         RectTransform bg;
 
         private void Start()
         {
-            pause.SetActive(false);
+            
             
             bg = gameObject.GetComponent<RectTransform>();
         }
@@ -40,7 +39,7 @@ namespace ChangePosition
             if (lastDia.activeSelf)
             {
                 
-                pause.SetActive(true);
+                
             }
 
         }

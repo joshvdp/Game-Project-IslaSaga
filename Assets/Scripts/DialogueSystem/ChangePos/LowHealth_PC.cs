@@ -4,20 +4,18 @@ using UnityEngine;
 
 namespace ChangePosition
 {
-    public class Movement_PC : MonoBehaviour
+    public class LowHealth_PC : MonoBehaviour
     {
         public FixedTouchField TouchField;
 
-        public GameObject scndIntro, lastIntro, atk, run, blk, jmp, lastDia,      //dialogue
-                           map, health;  // buttons & UI
+        public GameObject scndIntro, thirdDia, lastDia,      //dialogue
+                          map;  // buttons & UI
 
         RectTransform bg;
 
         private void Start()
         {
             bg = gameObject.GetComponent<RectTransform>();
-            
-            
         }
 
         
@@ -28,24 +26,30 @@ namespace ChangePosition
             {
                 if (Input.anyKeyDown)
                 {
+                    bg.transform.localPosition = new Vector3(42, 409, 0f);
                     map.SetActive(false);
-                    health.SetActive(false);
                 }
-
                 
+
 
             }
 
-           
+            if (thirdDia.activeSelf)
+            {
+                if (Input.anyKeyDown)
+                {
+                    bg.transform.localPosition = new Vector3(0, 137.05f, 0f);
+                }
+                
+            }
 
             if (lastDia.activeSelf)
             {
                 if (Input.anyKeyDown)
                 {
                     map.SetActive(true);
-                    health.SetActive(true);
                 }
-                
+
                 
             }
         }

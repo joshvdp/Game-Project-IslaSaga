@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace ChangePosition
 {
-    public class Potions_PC : MonoBehaviour
+    public class Weapon_PC : MonoBehaviour
     {
-        public FixedTouchField TouchField;
+        
 
         public GameObject lastDia,      //dialogue
                           map, health;  // buttons & UI
@@ -16,7 +16,6 @@ namespace ChangePosition
         private void Start()
         {
             bg = gameObject.GetComponent<RectTransform>();
-            
             map.SetActive(false);
             health.SetActive(false);
         }
@@ -25,10 +24,9 @@ namespace ChangePosition
 
         void Update()
         {
-
             if (lastDia.activeSelf)
             {
-                if (Input.anyKeyDown)
+                if(Input.anyKeyDown)
                 {
                     map.SetActive(true);
                     health.SetActive(true);

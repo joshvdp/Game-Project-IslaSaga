@@ -20,63 +20,82 @@ namespace ChangePosition
             bg = gameObject.GetComponent<RectTransform>();
         }
 
-        private void OnEnable()
-        {
-            TouchField.OnTouchDown += DoThisOnDown;
-        }
+        
 
-        private void OnDisable()
-        {
-            TouchField.OnTouchDown -= DoThisOnDown;
-        }
-
-        void DoThisOnDown()
+        void Update()
         {
             if (firstDia.activeSelf)
             {
+                if (Input.anyKeyDown)
+                {
+                    bg.transform.localPosition = new Vector3(-392, 137.05f, 0f);
+                    tabs.SetActive(false);
+                }
                 
-                bg.transform.localPosition = new Vector3(-392, 137.05f, 0f);
                 
-                tabs.SetActive(false);
             }
 
             if (secondDia.activeSelf)
             {
-                bg.transform.localPosition = new Vector3(-123, 294, 0f);
-                inventorySlots.SetActive(false);
-                tabs.SetActive(true);
+                if (Input.anyKeyDown)
+                {
+                    bg.transform.localPosition = new Vector3(-123, 294, 0f);
+                    inventorySlots.SetActive(false);
+                    tabs.SetActive(true);
+                }
+                
             }
 
             if (thirdDia.activeSelf)
             {
-                bg.transform.localPosition = new Vector3(-334, 66, 0f);
+                if (Input.anyKeyDown)
+                {
+                    bg.transform.localPosition = new Vector3(-334, 66, 0f);
+                }
+                
 
             }
 
             if (forthDia.activeSelf)
             {
-                bg.transform.localPosition = new Vector3(-392, 137.05f, 0f);
+                if (Input.anyKeyDown)
+                {
+                    bg.transform.localPosition = new Vector3(-392, 137.05f, 0f);
 
-                inventorySlots.SetActive(true);
+                    inventorySlots.SetActive(true);
+                }
+                
             }
 
             if (fifthDia.activeSelf)
             {
-                bg.transform.localPosition = new Vector3(-334, 66, 0f);
+                if (Input.anyKeyDown)
+                {
+                    bg.transform.localPosition = new Vector3(-334, 66, 0f);
+                }
+                
 
             }
 
             if (sixthDia.activeSelf)
             {
-                bg.transform.localPosition = new Vector3(3.0518e-05f, 137.05f, 0f);
+                if (Input.anyKeyDown)
+                {
+                    bg.transform.localPosition = new Vector3(3.0518e-05f, 137.05f, 0f);
+                }
+                
             }
 
             if (lastDia.activeSelf)
             {
-                map.SetActive(true);
-                healthBar.SetActive(true);
+                if (Input.anyKeyDown)
+                {
+                    map.SetActive(true);
+                    healthBar.SetActive(true);
+
+                    invenTutorial.SetActive(false);
+                }
                 
-                invenTutorial.SetActive(false);
             }
         }
     }

@@ -20,7 +20,7 @@ namespace DialogueSystem
 
 
         int index;
-        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished;
+        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished, NPC_Shop;
         
 
         private void OnCollisionEnter(Collision collision)
@@ -57,9 +57,18 @@ namespace DialogueSystem
 
             if (collision.collider.name == "Dialogue Collider (Map_HP)")
             {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 22;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 3;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
                 
-                index = 3;
-                DialogueHandler.Instance.EnableDialogue(index);
 
                 Map_HP.SetActive(false);
             }
@@ -83,9 +92,19 @@ namespace DialogueSystem
 
             if (collision.collider.name == "Dialogue Collider (Weapons)")
             {
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 23;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 5;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
 
-                index = 5;
-                DialogueHandler.Instance.EnableDialogue(index);
+                
 
                 Weapons.SetActive(false);
             }
@@ -118,9 +137,18 @@ namespace DialogueSystem
 
             if (collision.collider.name == "Dialogue Collider (Low_Health)")
             {
-
-                index = 9;
-                DialogueHandler.Instance.EnableDialogue(index);
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 25;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 9;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+                
 
                 Low_Health.SetActive(false);
             }
@@ -171,9 +199,18 @@ namespace DialogueSystem
 
             if (collision.collider.name == "Dialogue Collider (End)")
             {
-
-                index = 14;
-                DialogueHandler.Instance.EnableDialogue(index);
+                switch (PlatformType)
+                {
+                    case UIPlatformType.PC:
+                        index = 26;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                    case UIPlatformType.Mobile:
+                        index = 14;
+                        DialogueHandler.Instance.EnableDialogue(index);
+                        break;
+                }
+               
 
                 End.SetActive(false);
             }
@@ -182,15 +219,31 @@ namespace DialogueSystem
             {
                 if (!allMarksVisited)
                 {
-
-                    index = 15;
-                    DialogueHandler.Instance.EnableDialogue(index);
+                    switch (PlatformType)
+                    {
+                        case UIPlatformType.PC:
+                            index = 24;
+                            DialogueHandler.Instance.EnableDialogue(index);
+                            break;
+                        case UIPlatformType.Mobile:
+                            index = 15;
+                            DialogueHandler.Instance.EnableDialogue(index);
+                            break;
+                    }
 
                 }
                 else
                 {
                     IsFinished.SetActive(false);
                 }
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Shop)")
+            {
+
+                index = 21;
+                DialogueHandler.Instance.EnableDialogue(index);
+
             }
         }
         private void Update()
