@@ -31,8 +31,7 @@ public class End : MonoBehaviour
     void DoThisOnDown()
     {
         if (lastDia.activeSelf)
-        {
-            
+        { 
             SceneManager.LoadScene("MainMenu");
         }
     }
