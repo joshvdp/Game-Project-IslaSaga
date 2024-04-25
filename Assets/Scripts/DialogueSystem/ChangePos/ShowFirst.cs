@@ -6,15 +6,8 @@ using Manager;
 
 namespace DialogueSystem
 {
-    public enum UIPlatform
-    {
-        PC,
-        Mobile
-    }
     public class ShowFirst : MonoBehaviour
     {
-        public UIPlatform PlatformType;
-
         public float ShowDelay;
         int index;
         public GameObject inventoryBtn, inventoryBtnTutorial, analog, analogTutorial, quest, kill;
@@ -38,18 +31,8 @@ namespace DialogueSystem
                 quest.SetActive(false);
                 kill.SetActive(false);
                 yield return new WaitForSeconds(ShowDelay);
-                
-                switch (PlatformType)
-                {
-                    case UIPlatform.PC:
-                        index = 17;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                    case UIPlatform.Mobile:
-                        index = 2;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                }
+                index = 2;
+                DialogueHandler.Instance.EnableDialogue(index);
             }
             else
             {
