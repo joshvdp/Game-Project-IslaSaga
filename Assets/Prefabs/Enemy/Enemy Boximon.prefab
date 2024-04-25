@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1023550832082770999}
   - component: {fileID: 4254740269258209040}
   - component: {fileID: 6171697376380555383}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4906,7 +4906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 915020480708047630}
   - component: {fileID: 279376644313741461}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Take Damage Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6378,7 +6378,7 @@ Transform:
   - {fileID: 1285054216004153713}
   - {fileID: 6808967949890549758}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -173.47, z: 0}
 --- !u!195 &8674071401994616894
 NavMeshAgent:
@@ -6674,6 +6674,10 @@ PrefabInstance:
     - target: {fileID: 1767749385458323536, guid: 284cb04240c26ff4cb4b46b9677d35d8, type: 3}
       propertyPath: m_Name
       value: IconWhiteExclamation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767749385458323536, guid: 284cb04240c26ff4cb4b46b9677d35d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1767749385458588328, guid: 284cb04240c26ff4cb4b46b9677d35d8, type: 3}
       propertyPath: m_RootOrder
