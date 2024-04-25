@@ -27,7 +27,7 @@ public class LoadingSceneHandler : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("LOADING SCENE LOADED");
+        //Debug.Log("LOADING SCENE LOADED");
         BackgroundImage = SceneLoader.Instance?.BGOfLoadingScreen;
 
         SceneToLoad = SceneLoader.Instance? SceneLoader.Instance?.NextSceneToLoad : SceneToLoad ;

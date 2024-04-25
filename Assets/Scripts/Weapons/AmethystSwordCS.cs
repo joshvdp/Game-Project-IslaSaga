@@ -43,7 +43,7 @@ namespace Items.Weapon
         }
         public void Attack()
         {
-            Debug.Log("Amethyst sword attack");
+            //Debug.Log("Amethyst sword attack");
         }
         public void SubscribeEvents()
         {

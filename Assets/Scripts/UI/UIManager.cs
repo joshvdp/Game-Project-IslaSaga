@@ -24,7 +24,7 @@ namespace Manager
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
             BossHpBar = GameObject.FindWithTag("Boss")?.GetComponent<HpBar>();
-            Debug.Log("UI LOADED");
+            //Debug.Log("UI LOADED");
         }
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)

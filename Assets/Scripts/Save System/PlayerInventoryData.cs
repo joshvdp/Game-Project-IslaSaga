@@ -40,7 +40,7 @@ public class PlayerInventoryData : ScriptableObject
         WeaponData = null;
         ShieldSlot = null;
         ShieldData = null;
-        Debug.Log("INVENTORY CLEARED");
+        //Debug.Log("INVENTORY CLEARED");
     }
 
     public void SaveList()

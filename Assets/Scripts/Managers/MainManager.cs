@@ -22,7 +22,7 @@ namespace Manager
         public bool BossFightStarted = false;
         private void Awake()
         {
-            Debug.Log("MAIN SCENE LOADED");
+            //Debug.Log("MAIN SCENE LOADED");
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
         }
