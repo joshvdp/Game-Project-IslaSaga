@@ -49,9 +49,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c93c3796a1f4d4aa11362e03c8b008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Settings: {fileID: 11400000, guid: d6ab1b01efac68c4282c4346ace6afa3, type: 2}
   PlayerStatsSCO: {fileID: 11400000, guid: b57890f3523d89b48822eed1c76915af, type: 2}
+  OnStartBossFight:
+    m_PersistentCalls:
+      m_Calls: []
   IsPaused: 0
   IsGameOver: 0
+  BossFightStarted: 0
 --- !u!114 &2710472813978367015
 MonoBehaviour:
   m_ObjectHideFlags: 0
