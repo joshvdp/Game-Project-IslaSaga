@@ -18,10 +18,14 @@ namespace DialogueSystem
 
         private bool allMarksVisited = false;
 
+        private bool keyPressed = false;
+
 
         int index;
-        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished, NPC_Shop;
+        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished, NPC_Shop, SwordChest,BootsChest;
+
         
+
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -245,9 +249,78 @@ namespace DialogueSystem
                 DialogueHandler.Instance.EnableDialogue(index);
 
             }
+
+            if (collision.collider.name == "Treasure Chest (1)")
+            {
+                if (keyPressed)
+                {
+                    StartCoroutine(Sword());
+                }
+                
+
+                
+            }
+
+            
+
         }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            if (collision.collider.name == "Treasure Chest (Ability Double Jump)" && Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Collided with the treasure chest and pressed 'E' key.");
+                StartCoroutine(Boots());
+
+            }
+
+            if (collision.collider.name == "Treasure Chest (1)" && Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Collided with the treasure chest and pressed 'E' key.");
+                StartCoroutine(Sword());
+
+            }
+        }
+
+
+        void Sword_Chests()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartCoroutine(Sword());
+            }
+            
+        }
+
+        void Boots_Chest()
+        {
+            if (keyPressed == true)
+            {
+                StartCoroutine(Boots());
+            }
+
+        }
+
+        IEnumerator Sword()
+        {
+            yield return new WaitForSeconds(2);
+            index = 27;
+            DialogueHandler.Instance.EnableDialogue(index);
+        }
+
+        IEnumerator Boots()
+        {
+            yield return new WaitForSeconds(2);
+            index = 28;
+            DialogueHandler.Instance.EnableDialogue(index);
+        }
+
         private void Update()
         {
+
+            
+
+
             if (!allMarksVisited)
             {
                 allMarksVisited = CheckAllMarksVisited();
