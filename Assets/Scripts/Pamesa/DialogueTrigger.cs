@@ -21,8 +21,11 @@ namespace DialogueSystem
 
         int index;
         [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished, NPC_Shop;
-        
 
+        private void OnTriggerEnter(Collider collision)
+        {
+            
+        }
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.name == "Moveable Box")
