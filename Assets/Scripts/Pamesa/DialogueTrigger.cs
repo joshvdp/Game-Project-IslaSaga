@@ -18,11 +18,11 @@ namespace DialogueSystem
 
         private bool allMarksVisited = false;
 
-        private bool keyPressed = false;
+        
 
 
         int index;
-        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished, NPC_Shop, SwordChest,BootsChest;
+        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished, NPC_Shop;
 
         
 
@@ -250,16 +250,7 @@ namespace DialogueSystem
 
             }
 
-            if (collision.collider.name == "Treasure Chest (1)")
-            {
-                if (keyPressed)
-                {
-                    StartCoroutine(Sword());
-                }
-                
-
-                
-            }
+            
 
             
 
@@ -292,14 +283,7 @@ namespace DialogueSystem
             
         }
 
-        void Boots_Chest()
-        {
-            if (keyPressed == true)
-            {
-                StartCoroutine(Boots());
-            }
-
-        }
+        
 
         IEnumerator Sword()
         {
