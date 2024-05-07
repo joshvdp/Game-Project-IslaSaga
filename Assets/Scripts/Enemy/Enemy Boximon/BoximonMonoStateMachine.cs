@@ -10,15 +10,18 @@ using UnityEngine.Events;
 
 public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, BoximonMachineFunctions>
 {
-
     private NavMeshAgent _agent;
     private Animator _animator;
     private DetectCollider _detectCollider;
     private AttackCollider _attackCollider;
     private AnimationEvents _animationEvents;
     private HpBar _hpComponent;
+    private EnemySpawnPosition _enemySpawnPosition;
+    
     public NavMeshAgent Agent => _agent ?
         _agent : _agent = GetComponent<NavMeshAgent>();
+    public EnemySpawnPosition EnemySpawnPosition => _enemySpawnPosition ? 
+        _enemySpawnPosition : _enemySpawnPosition = GetComponent<EnemySpawnPosition>();
     public Animator Animator => _animator ?
         _animator : _animator = GetComponentInChildren<Animator>();
     public DetectCollider DetectCollider => _detectCollider ? 
@@ -59,6 +62,7 @@ public class BoximonMonoStateMachine : StateMachineHandler<BoximonMachineData, B
     {
         if (newState == null || !newState.IsUnlocked)
             return;
+        
         CurrentState?.Discard();
         CurrentState = newState.Initialize(this);
     }

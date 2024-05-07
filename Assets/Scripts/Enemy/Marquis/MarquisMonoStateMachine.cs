@@ -18,7 +18,10 @@ namespace StateMachine.Enemy
         private AnimationEvents _animationEvents;
         private HpBar _hpComponent;
         private AttackCollider _attackCol;
+        private EnemySpawnPosition _enemySpawnPosition;
+        
         public NavMeshAgent Agent => _agent ? _agent : _agent = GetComponent<NavMeshAgent>();
+        public EnemySpawnPosition EnemySpawnPosition => _enemySpawnPosition ? _enemySpawnPosition : _enemySpawnPosition = GetComponent<EnemySpawnPosition>();
         public Animator Animator => _animator ? _animator : _animator = GetComponentInChildren<Animator>();
         public DetectCollider DetectCollider => _detectCollider ? _detectCollider : _detectCollider = GetComponentInChildren<DetectCollider>();
         public DetectCollider AttackRange => _attackRange ? _attackRange : _attackRange = transform.Find("Attack Range").GetComponent<DetectCollider>();

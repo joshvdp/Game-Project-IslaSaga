@@ -17,6 +17,7 @@ namespace StateMachine.Enemy.State
         public BoximonIdleFunctions(BoximonMonoStateMachine machine, BoximonIdle data) : base(machine, data)
         {
             machine.Agent.isStopped = true;
+            machine.EnemySpawnPosition.StartWaitingForReturn(false);
         }
     }
 }

@@ -6352,6 +6352,7 @@ GameObject:
   - component: {fileID: 8362184488016823727}
   - component: {fileID: 4386025406839128643}
   - component: {fileID: 8474503708022128161}
+  - component: {fileID: 8046558096809329852}
   m_Layer: 7
   m_Name: Enemy Boximon
   m_TagString: Enemy
@@ -6504,6 +6505,41 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnHalfHp:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8046558096809329852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220367471542494280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d4be1af2314c74abbff367ed8810c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagRange: 0.1
+  atSpawnPoint: 1
+  idlePoint: {x: 29.03, y: 0, z: -43.02178}
+  zone: {fileID: 0}
+  onPlayerExitZone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4386025406839128643}
+        m_TargetAssemblyTypeName: BoximonMonoStateMachine, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 1e433ffee060c1c4b87f89e651b9130d, type: 2}
+          m_ObjectArgumentAssemblyTypeName: StateMachine.Enemy.State.BoximonMachineData,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  spawnRange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8397401009913331196

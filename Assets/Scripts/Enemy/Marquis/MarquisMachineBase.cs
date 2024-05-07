@@ -6,7 +6,7 @@ using NaughtyAttributes;
 using System;
 namespace StateMachine.Enemy
 {
-    public class MarquisMachineData : StateMachineData<MarquisMonoStateMachine, MarquisMachineFunctions>
+    public abstract class MarquisMachineData : StateMachineData<MarquisMonoStateMachine, MarquisMachineFunctions>
     {
         [SerializeField, Foldout("Animations")] protected string AnimationTrigger;
         [SerializeField, Foldout("Settings")] protected bool isUnlocked = true;
@@ -21,10 +21,7 @@ namespace StateMachine.Enemy
         public Color MaterialColor => materialColor;
         public string AnimTrigger => AnimationTrigger;
         public float AnimationSpeed => animationSpeed;
-        public override MarquisMachineFunctions Initialize(MarquisMonoStateMachine machine)
-        {
-            return null;
-        }
+        public abstract override MarquisMachineFunctions Initialize(MarquisMonoStateMachine machine);
 
     }
 
@@ -188,7 +185,8 @@ namespace StateMachine.Enemy
         ON_ATTACK_LIGHT,
         ON_ATTACK_HEAVY,
         ON_STUN,
-        ON_STUN_END
+        ON_STUN_END,
+        SPAWN_IN_RANGE,
     }
 }
 

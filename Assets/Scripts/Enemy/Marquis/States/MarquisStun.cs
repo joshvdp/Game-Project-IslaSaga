@@ -27,4 +27,5 @@ namespace StateMachine.Enemy.State
             machine.OnStunEnd?.Invoke();
         }
     }
+
 }
