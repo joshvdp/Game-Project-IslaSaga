@@ -6,7 +6,7 @@ using NaughtyAttributes;
 using System;
 namespace StateMachine.Enemy
 {
-    public class MarquisMachineData : StateMachineData<MarquisMonoStateMachine, MarquisMachineFunctions>
+    public abstract class MarquisMachineData : StateMachineData<MarquisMonoStateMachine, MarquisMachineFunctions>
     {
         [SerializeField, Foldout("Animations")] protected string AnimationTrigger;
         [SerializeField, Foldout("Settings")] protected bool isUnlocked = true;
@@ -21,10 +21,8 @@ namespace StateMachine.Enemy
         public Color MaterialColor => materialColor;
         public string AnimTrigger => AnimationTrigger;
         public float AnimationSpeed => animationSpeed;
-        public override MarquisMachineFunctions Initialize(MarquisMonoStateMachine machine)
-        {
-            return null;
-        }
+        public abstract override MarquisMachineFunctions Initialize(MarquisMonoStateMachine machine);
+
     }
 
     public class MarquisMachineFunctions : StateMachineFunction<MarquisMonoStateMachine, MarquisMachineData>
@@ -118,6 +116,13 @@ namespace StateMachine.Enemy
                 case MarquisChangeEventsToListen.ON_ATTACK_HEAVY:
                     machine.OnStartHeavyAttack += SetState;
                     break;
+                case MarquisChangeEventsToListen.ON_STUN:
+                    machine.OnStun += SetState;
+                    break;
+                case MarquisChangeEventsToListen.ON_STUN_END:
+                    machine.OnStunEnd += SetState;
+                    break;
+
             }
             isDoneWithStart = true;
         }
@@ -133,6 +138,12 @@ namespace StateMachine.Enemy
                     break;
                 case MarquisChangeEventsToListen.ON_ATTACK_HEAVY:
                     machine.OnStartHeavyAttack -= SetState;
+                    break;
+                case MarquisChangeEventsToListen.ON_STUN:
+                    machine.OnStun -= SetState;
+                    break;
+                case MarquisChangeEventsToListen.ON_STUN_END:
+                    machine.OnStunEnd -= SetState;
                     break;
             }
         }
@@ -172,7 +183,10 @@ namespace StateMachine.Enemy
         PLAYER_WITHIN_ATTACK_RANGE,
         ON_ANIMATION_END,
         ON_ATTACK_LIGHT,
-        ON_ATTACK_HEAVY
+        ON_ATTACK_HEAVY,
+        ON_STUN,
+        ON_STUN_END,
+        SPAWN_IN_RANGE,
     }
 }
 

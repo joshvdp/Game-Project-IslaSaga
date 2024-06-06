@@ -12,11 +12,11 @@ namespace Manager
 
         private void OnEnable()
         {
-            GlobalEvents.Instance.FindEvent("On Any Enemy Death").AddListener(UpdateKillCounterText);
+            GlobalEvents.Instance?.FindEvent("On Any Enemy Death")?.AddListener(UpdateKillCounterText);
         }
         private void OnDisable()
         {
-            GlobalEvents.Instance.FindEvent("On Any Enemy Death").RemoveListener(UpdateKillCounterText);
+            GlobalEvents.Instance?.FindEvent("On Any Enemy Death")?.RemoveListener(UpdateKillCounterText);
         }
 
         private void Start()

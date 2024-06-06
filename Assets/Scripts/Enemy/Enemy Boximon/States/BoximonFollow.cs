@@ -28,6 +28,7 @@ namespace StateMachine.Enemy.State
             machine.Agent.isStopped = false;
             machine.Agent.speed = Speed;
             machine.CurrentTarget = Target;
+            machine.EnemySpawnPosition.StartWaitingForReturn(true);
         }
         public override void StateUpdate()
         {

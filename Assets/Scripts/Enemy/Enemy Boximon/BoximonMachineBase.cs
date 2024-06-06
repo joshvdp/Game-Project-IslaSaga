@@ -7,7 +7,7 @@ using System;
 
 namespace StateMachine.Enemy.State
 {
-    public class BoximonMachineData : StateMachineData<BoximonMonoStateMachine, BoximonMachineFunctions>
+    public abstract class BoximonMachineData : StateMachineData<BoximonMonoStateMachine, BoximonMachineFunctions>
     {
         [SerializeField, Foldout("Animations")] protected string AnimationTrigger;
         [SerializeField, Foldout("Settings")] protected bool isUnlocked = true;
@@ -21,12 +21,7 @@ namespace StateMachine.Enemy.State
         public bool IsKnockbackable => isKnockbackable;
         public Color MaterialColor => materialColor;
         public string AnimTrigger => AnimationTrigger;
-        public override BoximonMachineFunctions Initialize(BoximonMonoStateMachine machine)
-        {
-            return null;
-        }
-
-       
+        public abstract override BoximonMachineFunctions Initialize(BoximonMonoStateMachine machine);
     }
     public class BoximonMachineFunctions : StateMachineFunction<BoximonMonoStateMachine, BoximonMachineData>
     {
@@ -125,7 +120,11 @@ namespace StateMachine.Enemy.State
                     reasonForSetState = "on hit called";
                     machine.HpComponent.onHit.AddListener(SetState);
                     break;
-
+                case BoximonChangeEventsToListen.SPAWN_IN_RANGE:
+                    reasonForSetState = "flag spawn range";
+                    machine.EnemySpawnPosition.spawnRange.AddListener(SetState);
+                    break;
+                
             }
 
             isDoneWithStart = true;
@@ -153,6 +152,9 @@ namespace StateMachine.Enemy.State
                     break;
                 case BoximonChangeEventsToListen.ON_HIT:
                     machine.HpComponent.onHit.RemoveListener(SetState);
+                    break;
+                case BoximonChangeEventsToListen.SPAWN_IN_RANGE:
+                    machine.EnemySpawnPosition.spawnRange.RemoveListener(SetState);
                     break;
             }
         }
@@ -190,6 +192,7 @@ namespace StateMachine.Enemy.State
         PLAYER_WITHIN_ATTACK_RANGE,
         ON_ANIMATION_END,
         ON_END_STATE_CALLED,
-        ON_HIT
+        ON_HIT,
+        SPAWN_IN_RANGE,
     }
 }

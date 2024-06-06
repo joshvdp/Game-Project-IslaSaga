@@ -38,6 +38,7 @@ namespace Player
         public void IncreaseMaxHP(float amount)
         {
             PlayerMaxHealth += amount;
+            TakeHeal(amount);
             OnChangeHp?.Invoke();
         }
         public void Reset()

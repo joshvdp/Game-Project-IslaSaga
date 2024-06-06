@@ -18,7 +18,10 @@ namespace StateMachine.Enemy
         private AnimationEvents _animationEvents;
         private HpBar _hpComponent;
         private AttackCollider _attackCol;
+        private EnemySpawnPosition _enemySpawnPosition;
+        
         public NavMeshAgent Agent => _agent ? _agent : _agent = GetComponent<NavMeshAgent>();
+        public EnemySpawnPosition EnemySpawnPosition => _enemySpawnPosition ? _enemySpawnPosition : _enemySpawnPosition = GetComponent<EnemySpawnPosition>();
         public Animator Animator => _animator ? _animator : _animator = GetComponentInChildren<Animator>();
         public DetectCollider DetectCollider => _detectCollider ? _detectCollider : _detectCollider = GetComponentInChildren<DetectCollider>();
         public DetectCollider AttackRange => _attackRange ? _attackRange : _attackRange = transform.Find("Attack Range").GetComponent<DetectCollider>();
@@ -36,6 +39,12 @@ namespace StateMachine.Enemy
         public Action OnStartLightAttack;
         public Action OnStartHeavyAttack;
 
+        public Action OnStun;
+        public Action OnStunEnd;
+        public float StunDuration = 3f;
+
+        [SerializeField] int StunHitThreshold = 3;
+        int GotHitCounter = 0;
         public override void Awake()
         {
             base.Awake();
@@ -67,6 +76,22 @@ namespace StateMachine.Enemy
         Quaternion.LookRotation(CurrentTarget.position - transform.position);
         public void DestroyGameobject() => Destroy(gameObject);
 
+        public void CheckStunCondition()
+        {
+            GotHitCounter++;
+            if(GotHitCounter >= StunHitThreshold)
+            {
+                ApplyStun();
+            }
+
+        }
+
+        public void ApplyStun()
+        {
+
+            OnStun?.Invoke();
+            GotHitCounter = 0;
+        }
     }
 }
 

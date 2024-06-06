@@ -20,9 +20,12 @@ namespace DialogueSystem
 
 
         int index;
-        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished;
-        
+        [SerializeField] private GameObject Map_HP, Potions, Weapons, Inventory_Button, Start, Low_Health, Halfway, Vases, Cannons, Puzzle, End, IsFinished, NPC_Shop;
 
+        private void OnTriggerEnter(Collider collision)
+        {
+            
+        }
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.name == "Moveable Box")
@@ -60,7 +63,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 22;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -68,6 +71,7 @@ namespace DialogueSystem
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                 }
+                
 
                 Map_HP.SetActive(false);
             }
@@ -77,7 +81,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 18;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -94,7 +98,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 23;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -102,6 +106,8 @@ namespace DialogueSystem
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                 }
+
+                
 
                 Weapons.SetActive(false);
             }
@@ -111,7 +117,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 19;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -125,17 +131,9 @@ namespace DialogueSystem
 
             if (collision.collider.name == "Dialogue Collider (Start)")
             {
-                switch (PlatformType)
-                {
-                    case UIPlatformType.PC:
-                        index = 1;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                    case UIPlatformType.Mobile:
-                        index = 8;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                }
+
+                index = 8;
+                DialogueHandler.Instance.EnableDialogue(index);
 
                 Start.SetActive(false);
             }
@@ -145,7 +143,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 25;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -153,57 +151,34 @@ namespace DialogueSystem
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                 }
+                
 
                 Low_Health.SetActive(false);
             }
 
             if (collision.collider.name == "Dialogue Collider (Halfway)")
             {
-                switch (PlatformType)
-                {
-                    case UIPlatformType.PC:
-                        index = 1;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                    case UIPlatformType.Mobile:
-                        index = 10;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                }
+               
+                index = 10;
+                DialogueHandler.Instance.EnableDialogue(index);
 
                 Halfway.SetActive(false);
             }
 
             if (collision.collider.name == "Dialogue Collider (Vases)")
             {
-                switch (PlatformType)
-                {
-                    case UIPlatformType.PC:
-                        index = 1;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                    case UIPlatformType.Mobile:
-                        index = 11;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                }
+
+                index = 11;
+                DialogueHandler.Instance.EnableDialogue(index);
 
                 Vases.SetActive(false);
             }
 
             if (collision.collider.name == "Dialogue Collider (Cannons)")
             {
-                switch (PlatformType)
-                {
-                    case UIPlatformType.PC:
-                        index = 1;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                    case UIPlatformType.Mobile:
-                        index = 12;
-                        DialogueHandler.Instance.EnableDialogue(index);
-                        break;
-                }
+
+                index = 12;
+                DialogueHandler.Instance.EnableDialogue(index);
 
                 Cannons.SetActive(false);
             }
@@ -213,7 +188,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 20;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -230,7 +205,7 @@ namespace DialogueSystem
                 switch (PlatformType)
                 {
                     case UIPlatformType.PC:
-                        index = 1;
+                        index = 26;
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                     case UIPlatformType.Mobile:
@@ -238,6 +213,7 @@ namespace DialogueSystem
                         DialogueHandler.Instance.EnableDialogue(index);
                         break;
                 }
+               
 
                 End.SetActive(false);
             }
@@ -249,7 +225,7 @@ namespace DialogueSystem
                     switch (PlatformType)
                     {
                         case UIPlatformType.PC:
-                            index = 1;
+                            index = 24;
                             DialogueHandler.Instance.EnableDialogue(index);
                             break;
                         case UIPlatformType.Mobile:
@@ -257,11 +233,20 @@ namespace DialogueSystem
                             DialogueHandler.Instance.EnableDialogue(index);
                             break;
                     }
+
                 }
                 else
                 {
                     IsFinished.SetActive(false);
                 }
+            }
+
+            if (collision.collider.name == "Dialogue Collider (Shop)")
+            {
+
+                index = 21;
+                DialogueHandler.Instance.EnableDialogue(index);
+
             }
         }
         private void Update()
