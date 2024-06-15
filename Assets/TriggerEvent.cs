@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class TriggerEvent : MonoBehaviour
 {
     public UnityEvent EventsToTrigger;
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         EventsToTrigger?.Invoke();
         Destroy(gameObject);
