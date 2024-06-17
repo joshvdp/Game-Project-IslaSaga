@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 namespace DialogueSystem
 {
     public class DialogueLine : DialogueBaseClass
     {
         public FixedTouchField TouchField;
+        public UnityEvent OnFinished;
         
         [SerializeField]private string input;
         private TMP_Text textHolder;
@@ -48,7 +50,10 @@ namespace DialogueSystem
                     textHolder.text = input;
                 }
                 else
+                {
                     Finished = true;
+                    OnFinished?.Invoke();
+                }
             }
         }
 
