@@ -48,7 +48,28 @@ namespace Manager
             OnRetry?.RemoveListener(MainManager.Instance.ResetPlayerStats);
 
         }
-        public void ToggleScreen(string ScreenName) => Screens.Find(_ => _.ScreenName == ScreenName)?.ScreenObject.SetActive(!Screens.Find(_ => _.ScreenName == ScreenName).ScreenObject.activeSelf);
+        public void ToggleScreen(string ScreenName)
+        {
+            Screens.ForEach(screen =>
+            {
+                if (screen.ScreenName != ScreenName)
+                    return;
+                
+                if (screen.ScreenObject.activeInHierarchy)
+                {
+                    screen.onClose?.Invoke();
+                    screen.ScreenObject.SetActive(false);
+                }
+                else
+                {
+                    screen.onOpen?.Invoke();
+                    screen.ScreenObject.SetActive(true);
+                }
+            });
+            
+            // Screens.Find(_ => _.ScreenName == ScreenName)?.ScreenObject.SetActive(!Screens.Find(_ => _.ScreenName == ScreenName).ScreenObject.activeSelf);
+        }
+
         public void GameOver()
         {
             for (int i = 0; i < Screens.Count; i++)
@@ -84,6 +105,8 @@ namespace Manager
     {
         public GameObject ScreenObject;
         public string ScreenName;
-        
+
+        public UnityEvent onOpen;
+        public UnityEvent onClose;
     }
 }

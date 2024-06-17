@@ -2003,16 +2003,76 @@ MonoBehaviour:
   Screens:
   - ScreenObject: {fileID: 201125753488961950}
     ScreenName: Game Over Screen
+    onOpen:
+      m_PersistentCalls:
+        m_Calls: []
+    onClose:
+      m_PersistentCalls:
+        m_Calls: []
   - ScreenObject: {fileID: 4216650639683339893}
     ScreenName: Inventory
+    onOpen:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1814756574502981009}
+          m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+          m_MethodName: SetTimePause
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    onClose:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1814756574502981009}
+          m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+          m_MethodName: SetTimePause
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - ScreenObject: {fileID: 3884140693518329872}
     ScreenName: Pause Menu
+    onOpen:
+      m_PersistentCalls:
+        m_Calls: []
+    onClose:
+      m_PersistentCalls:
+        m_Calls: []
   - ScreenObject: {fileID: 3950948094394901979}
     ScreenName: Options Menu
+    onOpen:
+      m_PersistentCalls:
+        m_Calls: []
+    onClose:
+      m_PersistentCalls:
+        m_Calls: []
   - ScreenObject: {fileID: 4809725965433421712}
     ScreenName: Mobile UI
+    onOpen:
+      m_PersistentCalls:
+        m_Calls: []
+    onClose:
+      m_PersistentCalls:
+        m_Calls: []
   - ScreenObject: {fileID: 2198976341563416062}
     ScreenName: Boss Fight UI
+    onOpen:
+      m_PersistentCalls:
+        m_Calls: []
+    onClose:
+      m_PersistentCalls:
+        m_Calls: []
   BossHpSlider: {fileID: 2049865289745794516}
   BossHpBar: {fileID: 0}
 --- !u!114 &7470336955963819939
@@ -14615,13 +14675,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7470336955963819939}
     - target: {fileID: 8087961079684832626, guid: cc5d11b4e8a259240ba799558af8b1ce, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 5757276341623917694}
     - target: {fileID: 8087961079684832626, guid: cc5d11b4e8a259240ba799558af8b1ce, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 5061096866741752914}
+    - target: {fileID: 8087961079684832626, guid: cc5d11b4e8a259240ba799558af8b1ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 3737656044203076200}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

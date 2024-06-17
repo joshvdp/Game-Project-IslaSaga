@@ -761,18 +761,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 0
-      - m_Target: {fileID: 6664001777530470970}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 199441338678470770}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -821,6 +809,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Manager.UIManager, Assembly-CSharp
+        m_MethodName: ToggleScreen
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Inventory
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1971518457403451977
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +856,7 @@ RectTransform:
   - {fileID: 6713986413635950311}
   - {fileID: 1148420755913924270}
   - {fileID: 2411257576954077319}
-  - {fileID: 5999685100654646554}
+  - {fileID: 866161328763854933}
   - {fileID: 83830669891162754}
   - {fileID: 1785877689857861038}
   - {fileID: 4198662249006981250}
@@ -7597,7 +7597,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
---- !u!224 &5999685100654646554 stripped
+--- !u!224 &866161328763854933 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6865193288234644812, guid: c8ed8f2e95bb34346a3c895a02816050, type: 3}
   m_PrefabInstance: {fileID: 5999685100654646553}
