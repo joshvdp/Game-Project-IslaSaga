@@ -17,9 +17,22 @@ namespace DialogueSystem
         {
             for (int i = 0; i < transform.childCount; i++)
             {
+                Transform childTransform = transform.GetChild(i);
+
+                if (childTransform.parent == null || childTransform.parent != transform)
+                    continue;
+
                 Deactivate();
-                transform.GetChild(i).gameObject.SetActive(true);
-                yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().Finished);
+
+                childTransform.gameObject.SetActive(true);
+                yield return new WaitUntil(() =>
+                {
+                    if (childTransform.TryGetComponent(out DialogueLine dialogueLine))
+                        return dialogueLine.Finished;
+                    
+                    Debug.Log($"The {childTransform.name} has no Dialogue Line Component.");
+                    return false;
+                });
             }
 
             Time.timeScale = 1f;
@@ -32,7 +45,12 @@ namespace DialogueSystem
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                Transform childTransform = transform.GetChild(i);
+
+                if (childTransform.parent == null || childTransform.parent != transform)
+                    continue;
+                
+                childTransform.gameObject.SetActive(false);
             }
         }
     }
