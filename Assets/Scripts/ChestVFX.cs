@@ -9,7 +9,7 @@ namespace AudioVisualEvents
         public GameObject SpawnPoint, Particle, OpenSound;
         public void ChestOpen()
         {
-          Debug.Log("Chest Open");
+          //Debug.Log("Chest Open");
           //Instantiate(Open, transform.position, transform.rotation);
           Instantiate(Particle, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
           Instantiate(OpenSound, transform.position, transform.rotation);
