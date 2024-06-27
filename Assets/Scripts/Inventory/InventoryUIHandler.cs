@@ -88,15 +88,34 @@ public class InventoryUIHandler : MonoBehaviour
     }
     public void AddItemToUI(InventoryItem Item)
     {
-        for (int i = 0; i < ItemSlots.Count; i++)
+        InventoryItem cache = Item;
+        if (Item.EquippableType == EquippableItemType.WEAPON)
         {
-            if (!ItemSlots[i].IsOccupied)
+            cache = WeaponSlot.ItemData;
+            WeaponSlot.RemoveItemFromSlot();
+            WeaponSlot.ItemData = Item;
+            WeaponSlot.InitializeItem();
+        }
+        else if (Item.EquippableType == EquippableItemType.SHIELD)
+        {
+            cache = ShieldSlot.ItemData;
+            ShieldSlot.RemoveItemFromSlot();
+            ShieldSlot.ItemData = Item;
+            ShieldSlot.InitializeItem();
+        }
+        if (cache != null)
+        {
+            foreach (PlayerInventorySlot itemSlot in ItemSlots)
             {
-                ItemSlots[i].ItemData = Item;
-                ItemSlots[i].InitializeItem();
+                if (itemSlot.IsOccupied)
+                    continue;
+                
+                itemSlot.ItemData = cache;
+                itemSlot.InitializeItem();
                 break;
             }
         }
+        
         CheckIfPotionIsAvailable();
         InventoryData.UpdateInventoryUI(ItemSlots);
     }
@@ -111,6 +130,7 @@ public class InventoryUIHandler : MonoBehaviour
                 break;
             }
         }
+        
         CheckIfPotionIsAvailable();
         InventoryData.UpdateInventoryUI(ItemSlots);
     }

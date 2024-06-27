@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CameraSystem;
 using UnityEngine;
 using Player.Controls;
 using StateMachine.Player;
@@ -11,6 +12,7 @@ namespace Mobile
 {
     public class MobileUIInputHandler : MonoBehaviour
     {
+        public static MobileUIInputHandler instance;
         
         public FixedJoystick Joystick;
         public FixedTouchField TouchField;
@@ -28,6 +30,7 @@ namespace Mobile
         PlayerMonoStateMachine PlayerMachine;
         private void Awake()
         {
+            instance = this;
             PlayerMachine = FindObjectOfType<PlayerMonoStateMachine>();
             PlayerMachine.MobileJoystick = Joystick;
             FindObjectOfType<CameraControllerNEW>().TouchField = TouchField;
