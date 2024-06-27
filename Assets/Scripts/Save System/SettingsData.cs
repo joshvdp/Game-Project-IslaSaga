@@ -7,6 +7,7 @@ using Player.Controls;
 public class SettingsData : ScriptableObject
 {
     public float LookSensitivityValue = 0.5f;
+    public int TargetFPS = 144;
     public GraphicsQuality GraphicsQualityValue = GraphicsQuality.MEDIUM;
     public PlatformType PlatformType;
     public void ChangeLookSensitivityValue(float LookSensitivity) => LookSensitivityValue = LookSensitivity;
