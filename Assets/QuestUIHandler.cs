@@ -24,6 +24,7 @@ namespace Quest
         }
         private void Awake()
         {
+            if (!QuestsHandler.Instance) enabled = false;
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
 
