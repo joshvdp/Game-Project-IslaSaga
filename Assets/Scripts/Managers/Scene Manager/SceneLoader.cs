@@ -27,6 +27,7 @@ namespace Manager
         }
         public void LoadNextSceneAsync(string SceneToLoad)
         {
+            if (LoadingSceneHandler.Instance) return;
             NextSceneToLoad = SceneToLoad;
             SceneManager.LoadScene("Loading Screen", LoadSceneMode.Additive);
         }

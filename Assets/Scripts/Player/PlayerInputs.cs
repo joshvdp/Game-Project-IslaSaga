@@ -46,6 +46,11 @@ namespace Player.Controls
         public ControlBindings Controls;
 
         [SerializeField] bool ShowClickcastObjects;
+
+        private void Start()
+        {
+            PreviousPlatformType = MainManager.Instance.Settings.PlatformType;
+        }
         private void Update()
         {
             CheckIfChangedPlatformType();
@@ -70,7 +75,7 @@ namespace Player.Controls
         {
             if(MainManager.Instance.Settings.PlatformType != PreviousPlatformType)
             {
-                Debug.Log("CHANGED PLATFORM TYPE");
+                Debug.Log("CHANGED PLATFORM TYPE because previous platformtype is " + PreviousPlatformType + " and current platformtype now is " + MainManager.Instance.Settings.PlatformType);
                 if (MainManager.Instance.Settings.PlatformType == PlatformType.PC) GlobalEvents.Instance.CallEvent("On Change Platform Type PC", this.GetType().ToString());
                 if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) GlobalEvents.Instance.CallEvent("On Change Platform Type Mobile", this.GetType().ToString());
                 PreviousPlatformType = MainManager.Instance.Settings.PlatformType;

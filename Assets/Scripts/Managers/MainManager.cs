@@ -26,6 +26,10 @@ namespace Manager
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
         }
+        private void Start()
+        {
+            Application.targetFrameRate = Settings.TargetFPS;
+        }
 
         public void StartBossFight()
         {
