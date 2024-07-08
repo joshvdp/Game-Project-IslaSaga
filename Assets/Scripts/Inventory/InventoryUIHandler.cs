@@ -14,7 +14,7 @@ public class InventoryUIHandler : MonoBehaviour
     public PlayerInventoryData InventoryData;
 
     public Transform InventorySlotsParent; // To increase performance
-    
+
     [SerializeField] public List<PlayerInventorySlot> ItemSlots;
     [SerializeField] List<GameObject> itemSlotsGameObjects;
 
@@ -54,9 +54,15 @@ public class InventoryUIHandler : MonoBehaviour
     void AssignVarsFromSave()
     {
         string json = SaveSystemJSON.Instance?.ReadJson(Application.persistentDataPath + "/SaveData.json");
+
         if (json == null || json == "{}") return;
+
         Debug.Log("Starting Loading Inventory");
+
         PlayerInventorySlotData fileSaved = JsonUtility.FromJson<PlayerInventorySlotData>(json);
+
+        if (fileSaved.PlayerInventorySavedItemData.Count <= 0) return;
+
         for (int i = 0; i < ItemSlots.Count; i++)
         {
             ItemSlots[i].ItemData = fileSaved.PlayerInventorySavedItemData[i];
