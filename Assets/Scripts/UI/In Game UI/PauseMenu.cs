@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameisPaused = false;
 
-    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap, inventory;
+    public GameObject pauseMenuUI, optionsMenuUI, dialogueBox, mobileUI, mobilePauseButton, healthBar, miniMap, inventory, QuestUI, KillCount;
 
     public Button pauseButton;
 
@@ -85,6 +85,8 @@ public class PauseMenu : MonoBehaviour
                 healthBar.SetActive(true);
                 mobileUI.SetActive(true);
                 mobilePauseButton.SetActive(true);
+                QuestUI.SetActive(true);
+                KillCount.SetActive(true);
 
                 Time.timeScale = 1f;
 
@@ -106,6 +108,8 @@ public class PauseMenu : MonoBehaviour
         mobileUI.SetActive(false);
         mobilePauseButton.SetActive(false);
         inventory.SetActive(false);
+        QuestUI.SetActive(false);
+        KillCount.SetActive(false);
 
         Time.timeScale = 0f;
 
@@ -192,6 +196,7 @@ public class PauseMenu : MonoBehaviour
         optionsMenuUI.SetActive(false);
         mobileUI.SetActive(true);
         mobilePauseButton.SetActive(true);
+        
 
         Time.timeScale = 1f;
 
@@ -209,6 +214,7 @@ public class PauseMenu : MonoBehaviour
         mobileUI.SetActive(false);
         mobilePauseButton.SetActive(false);
 
+
         Time.timeScale = 0f;
 
         GameisPaused = true;
@@ -216,11 +222,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     #endregion
-
-    public void exit2Menu()
-    {
-        
-    }
+    
 
     
 }
