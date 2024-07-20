@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using InterfaceAndInheritables;
 
@@ -10,14 +8,15 @@ namespace Items.Weapon
     public class Projectile : MonoBehaviour, IProjectile
     {
         [SerializeField] LayerMask RaycastableLayer;
-        public float DefaultSpeed;
+
         public float DefaultDamage;
         public float DefaultArmorPenetrationPercent;
         public Rigidbody rb { get { return GetComponent<Rigidbody>(); } set => value = GetComponent<Rigidbody>(); } 
-        public float Speed { get { return DefaultSpeed; } set { DefaultSpeed = value; }}
+        public float Speed { get; set;}
         public float Damage { get { return DefaultDamage; } set { DefaultDamage = value; } }
-
         public float ArmorPenetrationPercent { get { return DefaultArmorPenetrationPercent; } set { DefaultArmorPenetrationPercent = value; } }
+
+        public float KnockbackMultiplier = 0.3f;
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -32,17 +31,20 @@ namespace Items.Weapon
                     Shield shield = hit.collider.GetComponent<Shield>();
 
                     // If there is something blocking it, and it is a shield, get the shield's damage reduction and apply it to the damage.
-                    if (shield != null)
-                    {
-                        target.Hit(Damage * Mathf.Clamp(shield.DamageReduction + ArmorPenetrationPercent, 0, 1), DamageType.RANGE);
-                        Debug.Log(Mathf.Clamp(shield.DamageReduction + ArmorPenetrationPercent, 0, 1));
-                    }
+                    if (shield != null) target.Hit(Damage * Mathf.Clamp(shield.DamageReduction + ArmorPenetrationPercent, 0, 1), DamageType.RANGE);
                     else target.Hit(Damage, DamageType.RANGE);
                 }
             }
-            if (targetRb != null) targetRb.AddForce((rb.velocity + targetRb.velocity), ForceMode.VelocityChange);
+            if (targetRb != null) ApplyKnockback(targetRb);
 
             Destroy(gameObject);
+        }
+
+        void ApplyKnockback(Rigidbody rb)
+        {
+            Vector3 knockbackAmount = rb.velocity + rb.velocity;
+            knockbackAmount = new Vector3(knockbackAmount.x, 0, knockbackAmount.z); // Negates force in the Y-axis
+            rb.AddForce(knockbackAmount * KnockbackMultiplier, ForceMode.Impulse);
         }
     }
 
