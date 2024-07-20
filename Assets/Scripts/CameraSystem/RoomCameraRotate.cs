@@ -26,7 +26,8 @@ namespace CameraSystem
             return MainManager.Instance.Settings.PlatformType switch
             {
                 PlatformType.PC => PCCamera(),
-                PlatformType.Mobile => MobileCamera()
+                PlatformType.Mobile => MobileCamera(),
+                _ => throw new NotImplementedException()
             };
         }
 
