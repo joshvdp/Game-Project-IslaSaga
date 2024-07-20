@@ -125,7 +125,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477980525637089130}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -260,7 +260,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762309076003338560}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -486,10 +486,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd8034b7e9495947972fadc58799356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Force: 2000
+  Force: 1500
   Radius: 3
   Torque: 10
   ForcePosition: {fileID: 6493972251205556371}
+  RandomForcePositionIntensity: 1
 --- !u!114 &8393655246889616656
 MonoBehaviour:
   m_ObjectHideFlags: 0
