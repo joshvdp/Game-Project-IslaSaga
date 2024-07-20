@@ -37,13 +37,12 @@ namespace Items.Weapon
                 {
                     holder.AttackCollidersHandler.Colliders[i].OnTargetHit?.RemoveListener(InvokeOnTargetHit);
                     holder.AttackCollidersHandler.Colliders[i].OnNoTargetHit?.RemoveListener(InvokeOnNoTargetHit);
-                    Debug.Log("UNNNSUBSCRIBEED");
                 }
             }
         }
         public void Attack()
         {
-            Debug.Log("Amethyst sword attack");
+            
         }
         public void SubscribeEvents()
         {
@@ -52,7 +51,7 @@ namespace Items.Weapon
             {
                 holder.AttackCollidersHandler.Colliders[i].OnTargetHit.AddListener(InvokeOnTargetHit);
                 holder.AttackCollidersHandler.Colliders[i].OnNoTargetHit.AddListener(InvokeOnNoTargetHit);
-                Debug.Log("SUBSCRIBEED TO " + holder.AttackCollidersHandler.Colliders[i]);
+                
             }
         }
 

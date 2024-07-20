@@ -8,9 +8,9 @@ namespace StateMachine.Enemy.State
     [CreateAssetMenu(fileName = "Fiery Damaged", menuName = "State Machine/Enemy/Fiery/State/Damaged")]
     public class FieryDamaged : FieryMachineData
     {
-        [SerializeField, Foldout("Damaged")] private float timerTime = 0.5f;
+        [SerializeField, Foldout("Damaged")] private float knockBackTime = 0.5f;
         [SerializeField, Foldout("Damaged")] private float knockbackPower = 5f;
-        public float TimerTime => timerTime;
+        public float KnockbackTime => knockBackTime;
         public float KnockbackPower => knockbackPower;
         public override FieryMachineFunctions Initialize(FieryMonoStateMachine machine)
         {
@@ -19,11 +19,11 @@ namespace StateMachine.Enemy.State
     }
     public class FieryDamagedFunctions : FieryMachineFunctions
     {
-        public float TimerTime;
+        public float KnockbackTime;
         public float KnockbackPower;
         public FieryDamagedFunctions(FieryMonoStateMachine machine, FieryDamaged data) : base(machine, data)
         {
-            TimerTime = data.TimerTime;
+            KnockbackTime = data.KnockbackTime;
             KnockbackPower = data.KnockbackPower;
             machine.Agent.isStopped = true;
             machine.StartCoroutine(Timer());
@@ -33,7 +33,7 @@ namespace StateMachine.Enemy.State
 
         IEnumerator Timer()
         {
-            yield return new WaitForSeconds(TimerTime);
+            yield return new WaitForSeconds(KnockbackTime);
             machine.OnEndState?.Invoke();
         }
         IEnumerator Knockback()
@@ -41,7 +41,7 @@ namespace StateMachine.Enemy.State
             float TimeElapsed = 0;
             Vector3 KnockbackDir = machine.transform.position - machine.CurrentTarget.position;
 
-            while (TimeElapsed < TimerTime)
+            while (TimeElapsed < KnockbackTime)
             {
                 TimeElapsed += Time.deltaTime;
                 machine.transform.Translate(KnockbackDir.normalized * 5 * Time.deltaTime, Space.World);
