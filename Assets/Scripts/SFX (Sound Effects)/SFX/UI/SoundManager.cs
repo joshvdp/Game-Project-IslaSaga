@@ -6,21 +6,12 @@ namespace SoundFX
 {
     public class SoundManager : MonoBehaviour
     {
-        [SerializeField] public AudioSource musicSource;
         [SerializeField] public AudioSource SFX;
-
-        [Header("-----  Music   -----")]
-        public AudioClip music;
-
-        [Header("-----  SFX    -----")]
+        
+        [Header("-----  Buttons SFX    -----")]
         public AudioClip clickSelect;
         public AudioClip clickBack;
-
-        private void Start()
-        {
-            musicSource.clip = music;
-            musicSource.Play();
-        }
+        
         public void onClick()
         {
             SFX.PlayOneShot(clickSelect);
