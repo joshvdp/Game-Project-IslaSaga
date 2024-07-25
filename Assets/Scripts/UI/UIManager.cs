@@ -11,9 +11,13 @@ namespace Manager
 {
     public class UIManager : MonoBehaviour
     {
+        public static UIManager Instance;
+
         public UnityEvent OnRetry;
         public UnityEvent OnGameOver;
-        public static UIManager Instance;
+        public UnityEvent OnPause;
+        public UnityEvent OnUnPause;
+        public UnityEvent OnReturnToPlaying;
         public List<Screen> Screens;
         public Slider BossHpSlider;
         public HpBar BossHpBar;
@@ -48,7 +52,18 @@ namespace Manager
             OnRetry?.RemoveListener(MainManager.Instance.ResetPlayerStats);
 
         }
-        public void ToggleScreen(string ScreenName) => Screens.Find(_ => _.ScreenName == ScreenName)?.ScreenObject.SetActive(!Screens.Find(_ => _.ScreenName == ScreenName).ScreenObject.activeSelf);
+        public void ToggleScreen(string ScreenName)
+        {
+            Screens.Find(_ => _.ScreenName == ScreenName)?.ScreenObject.SetActive(!Screens.Find(_ => _.ScreenName == ScreenName).ScreenObject.activeSelf);
+            //for (int i = 0; i < Screens.Count; i++)
+            //{
+            //    if (Screens[i].ScreenName == ScreenName) Screens[i].ScreenObject.SetActive(true);
+            //    else Screens[i].ScreenObject.SetActive(false);
+            //}
+        }
+
+        public void InvokeReturnToPlaying() => OnReturnToPlaying?.Invoke();
+
         public void GameOver()
         {
             for (int i = 0; i < Screens.Count; i++)
@@ -62,8 +77,7 @@ namespace Manager
 
         public void Retry()
         {
-            SceneLoader.Instance.LoadNextSceneAsync(SceneManager.GetActiveScene().name);
-            Time.timeScale = 1;
+            SceneLoader.Instance.ReloadLevel();
             OnRetry?.Invoke();
         }
 
@@ -71,6 +85,13 @@ namespace Manager
         {
             SceneManager.LoadScene("MainMenu");
         }
+
+        public void Pause() => OnPause?.Invoke();
+
+        public void InvokeSetTimeScale(float time) => MainManager.Instance.SetTimeScale(time);
+
+        public void UnPause() => OnUnPause?.Invoke();
+        
 
         public void UpdateSlider()
         {

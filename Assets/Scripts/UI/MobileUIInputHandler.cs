@@ -89,10 +89,7 @@ namespace Mobile
             if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) PlayerInput.OnJumpInput?.Invoke();
         }
 
-        public void InvokeInventory()
-        {
-            if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile) UIManager.Instance.ToggleScreen("Inventory");
-        }
+        
 
         public void InvokeUseHpPotion()
         {

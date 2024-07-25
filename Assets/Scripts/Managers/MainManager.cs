@@ -17,7 +17,11 @@ namespace Manager
 
 
 
-        public bool IsPaused = false;
+        public bool IsPaused()
+        {
+            if (Time.timeScale == 0) return true;
+            else return false;
+        }
         public bool IsGameOver = false;
         public bool BossFightStarted = false;
         private void Awake()
@@ -30,6 +34,8 @@ namespace Manager
         {
             Application.targetFrameRate = Settings.TargetFPS;
         }
+
+        public void SetTimeScale(float time) => Time.timeScale = time;
 
         public void StartBossFight()
         {
@@ -53,13 +59,6 @@ namespace Manager
                 PlayerStatsSCO.Reset();
             }
         }
-
-        public void DebuggingTestFrom(GameObject obj)
-        {
-            Debug.Log("THIS DEBUG IS FROM " + obj.name);
-        }
-
-
     }
 }
 

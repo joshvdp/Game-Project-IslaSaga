@@ -10,6 +10,7 @@ namespace Manager
     {
         public string MainMenu;
         public string InGameUI;
+        public string TutorialInGameUI;
         public string LoadingScreen;
         public string Prologue;
         public string Level1;

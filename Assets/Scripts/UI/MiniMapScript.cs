@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MiniMapScript : MonoBehaviour
 {
-    public Transform Player;
+    [SerializeField] Transform Player;
     [SerializeField] float Height;
 
     void LateUpdate()

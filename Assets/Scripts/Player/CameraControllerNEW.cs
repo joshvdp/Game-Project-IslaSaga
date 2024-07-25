@@ -33,14 +33,13 @@ public class CameraControllerNEW : MonoBehaviour
     Vector3 oldTouchDist;
     public float BaseCameraRotateValue = 0.2f;
     [HideInInspector] public FixedTouchField TouchField;
-    PlayerInputs PlayerInput => FindObjectOfType<PlayerInputs>();
     private void Start()
     {
         if(MainManager.Instance.Settings.PlatformType == PlatformType.PC) CameraRotation();
     }
     void Update()
     {
-        if (MainManager.Instance.IsPaused) return;
+        if (MainManager.Instance.IsPaused()) return;
         if (MainManager.Instance.Settings.PlatformType == PlatformType.PC)
         {
 
@@ -53,7 +52,7 @@ public class CameraControllerNEW : MonoBehaviour
                 oldTouchDist = Vector3.zero;
                 _rotationY = 0f;
             }
-            CameraZoomInAndOut();
+            //CameraZoomInAndOut();
         }
         else if (MainManager.Instance.Settings.PlatformType == PlatformType.Mobile)
         {

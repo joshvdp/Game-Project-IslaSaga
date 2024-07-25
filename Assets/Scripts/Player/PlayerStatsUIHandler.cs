@@ -25,13 +25,6 @@ namespace Manager
 
             UpdateStats();
         }
-
-
-        //private void Update()
-        //{
-        //    UpdateStats();
-        //}
-
         void UpdateStats()
         {
             if (CanUpdatePlayerStats)

@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
                 interfacePC();
                 break;
             case PlatformType.Mobile:
-                interfaceMobile();
+                
                 break;
         }
     }
@@ -66,19 +66,16 @@ public class PauseMenu : MonoBehaviour
         switch (MainManager.Instance.Settings.PlatformType)
         {
             case PlatformType.PC:
-                MainManager.Instance.IsPaused = false;
+                MainManager.Instance.SetTimeScale(1);
 
                 pauseMenuUI.SetActive(false);
                 miniMap.SetActive(true);
                 healthBar.SetActive(true);
 
-                Time.timeScale = 1f;
-
-                
                 GameisPaused = false;
                 break;
             case PlatformType.Mobile:
-                MainManager.Instance.IsPaused = false;
+                MainManager.Instance.SetTimeScale(1);
 
                 pauseMenuUI.SetActive(false);
                 miniMap.SetActive(true);
@@ -87,9 +84,6 @@ public class PauseMenu : MonoBehaviour
                 mobilePauseButton.SetActive(true);
                 QuestUI.SetActive(true);
                 KillCount.SetActive(true);
-
-                Time.timeScale = 1f;
-
                 
                 GameisPaused = false;
                 break;
@@ -99,7 +93,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseButton()
     {
-        MainManager.Instance.IsPaused = true;
+        MainManager.Instance.SetTimeScale(0);
 
         pauseMenuUI.SetActive(true);
         dialogueBox.SetActive(false);
@@ -110,8 +104,6 @@ public class PauseMenu : MonoBehaviour
         inventory.SetActive(false);
         QuestUI.SetActive(false);
         KillCount.SetActive(false);
-
-        Time.timeScale = 0f;
 
         GameisPaused = true;
         
@@ -138,13 +130,13 @@ public class PauseMenu : MonoBehaviour
     {
         healthBar.SetActive(true);
         miniMap.SetActive(true);
-        
-        MainManager.Instance.IsPaused = false;
+
+        MainManager.Instance.SetTimeScale(1);
 
         pauseMenuUI.SetActive(false);
         optionsMenuUI.SetActive(false);
 
-        Time.timeScale = 1f;
+        
 
         GameisPaused = false;
         
@@ -154,14 +146,12 @@ public class PauseMenu : MonoBehaviour
     {
         healthBar.SetActive(false);
         miniMap.SetActive(false);
-        
-        MainManager.Instance.IsPaused = true;
+
+        MainManager.Instance.SetTimeScale(0);
 
         pauseMenuUI.SetActive(true);
         dialogueBox.SetActive(false);
         inventory.SetActive(false);
-
-        Time.timeScale = 0f;
 
         GameisPaused = true;
         
@@ -171,10 +161,6 @@ public class PauseMenu : MonoBehaviour
 
     #region Mobile Pause Menu
 
-    private void interfaceMobile()
-    {
-        pauseButton.onClick.AddListener(inputMobile); 
-    }
 
     public void inputMobile()
     {
@@ -189,8 +175,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void mobileResume()
     {
-        
-        MainManager.Instance.IsPaused = false;
+
+        MainManager.Instance.SetTimeScale(1);
 
         pauseMenuUI.SetActive(false);
         optionsMenuUI.SetActive(false);
@@ -198,7 +184,6 @@ public class PauseMenu : MonoBehaviour
         mobilePauseButton.SetActive(true);
         
 
-        Time.timeScale = 1f;
 
         GameisPaused = false;
         
@@ -206,16 +191,13 @@ public class PauseMenu : MonoBehaviour
 
     public void mobilePause()
     {
-        
-        MainManager.Instance.IsPaused = true;
+
+        MainManager.Instance.SetTimeScale(0);
 
         pauseMenuUI.SetActive(true);
         dialogueBox.SetActive(false);
         mobileUI.SetActive(false);
         mobilePauseButton.SetActive(false);
-
-
-        Time.timeScale = 0f;
 
         GameisPaused = true;
         

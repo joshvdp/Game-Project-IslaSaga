@@ -12,18 +12,35 @@ namespace Manager
         public static SceneLoader Instance;
 
         public Action LoadingScreenLoaded;
-        public SceneNames SceneName;
+        public SceneNames SceneNames;
 
         [Foldout("Next Scene Variables")] public Sprite BGOfLoadingScreen;
         [Foldout("Next Scene Variables")] public string NextSceneToLoad;
         [Foldout("Next Scene Variables")] public LightingSettings NextSceneLightingSettings;
-
+        [SerializeField] bool IsTutorialScene = false;
         public bool IsLoadingScreenPresent => FindObjectOfType<LoadingSceneHandler>();
-
         private void Awake()
         {
             if (Instance != null && Instance != this) Destroy(this);
             else Instance = this;
+        }
+        private void Start()
+        {
+            if (!MainManager.Instance) return;
+            if(!IsTutorialScene) LoadSceneAdditive(SceneNames.InGameUI); 
+            else LoadSceneAdditive(SceneNames.TutorialInGameUI);
+        }
+
+        public void ReloadLevel()
+        {
+            if (LoadingSceneHandler.Instance) return;
+            LoadNextSceneAsync(SceneManager.GetActiveScene().name);
+            MainManager.Instance.SetTimeScale(1);
+        }
+        void LoadSceneAdditive(string SceneToLoad)
+        {
+            if (SceneManager.GetSceneByName(SceneToLoad).IsValid()) return;
+            SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Additive);
         }
         public void LoadNextSceneAsync(string SceneToLoad)
         {
@@ -35,15 +52,11 @@ namespace Manager
         public void UnloadThisScene()
         {
             LoadingScreenLoaded?.Invoke();
-            Debug.Log(SceneManager.GetSceneByName("InGameUI").IsValid());
-            if(SceneManager.GetSceneByName("InGameUI").IsValid()) SceneManager.UnloadSceneAsync("InGameUI");
+            if (SceneManager.GetSceneByName(SceneNames.InGameUI).IsValid()) SceneManager.UnloadSceneAsync(SceneNames.InGameUI);
+            if (SceneManager.GetSceneByName(SceneNames.TutorialInGameUI).IsValid()) SceneManager.UnloadSceneAsync(SceneNames.TutorialInGameUI);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
         
-        public void exitGame()
-        {
-            Application.Quit();
-        }
     }
 }
 

@@ -7,17 +7,6 @@ namespace Manager
 {
     public class UILoader : MonoBehaviour
     {
-
-        private void OnEnable()
-        {
-            if (!SceneLoader.Instance) return;
-            SceneLoader.Instance.LoadingScreenLoaded += UnloadThisScene;
-        }
-
-        private void OnDisable()
-        {
-            SceneLoader.Instance.LoadingScreenLoaded -= UnloadThisScene;
-        }
         public void Start()
         {
             if (IsUIAlreadyAdded()) return;
