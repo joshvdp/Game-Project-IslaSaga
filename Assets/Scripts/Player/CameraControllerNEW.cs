@@ -67,12 +67,11 @@ public class CameraControllerNEW : MonoBehaviour
 
         if (!SettingsHandler.Instance) return;
         float rotationSpeedClampValue = SettingsHandler.Instance.settingsData.LookSensitivityValue * 100f;
-        _rotationY = Mathf.Clamp(_rotationY + currentTouchDist.normalized.x * 30f, -rotationSpeedClampValue, rotationSpeedClampValue);
-
+        _rotationY = Mathf.Clamp(_rotationY + (currentTouchDist.normalized.x * 30f), -rotationSpeedClampValue, rotationSpeedClampValue);
         CameraAngle += _rotationY * BaseCameraRotateValue * SettingsHandler.Instance.settingsData.LookSensitivityValue;
         transform.position = target.position + Quaternion.AngleAxis(CameraAngle, Vector3.up) * OffSet;
         transform.rotation = Quaternion.LookRotation((target.position + Vector3.up * 2f - transform.position) * Time.deltaTime, Vector3.up);
-
+        _rotationY = 0;
     }
     void CameraCollisionHandler()
     {
