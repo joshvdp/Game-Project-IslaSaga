@@ -20131,9 +20131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d374ddea1bcc97f4494b402a98300efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 471281299}
   SFX: {fileID: 538040483}
-  music: {fileID: 0}
   clickSelect: {fileID: 8300000, guid: aebebda2f31892042b00cd2b7dec2a39, type: 3}
   clickBack: {fileID: 8300000, guid: 93c2e5efd33720346a4b9c0563b641fd, type: 3}
 --- !u!4 &1160905344
@@ -28634,6 +28632,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnPause:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnPause:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReturnToPlaying:
+    m_PersistentCalls:
+      m_Calls: []
   Screens:
   - ScreenObject: {fileID: 848887776}
     ScreenName: Game Over Screen
@@ -28719,7 +28726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901c9af514dd69648989d21e597b6a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformType: 0
+  PlatformType: 1
   ShowDelay: 0.9
   inventoryBtn: {fileID: 912410689}
   inventoryBtnTutorial: {fileID: 1492595694}
