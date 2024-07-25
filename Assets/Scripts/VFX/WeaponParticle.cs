@@ -28,12 +28,12 @@ namespace VFX
         }
         private void SwingParticle()
         {
-            Debug.Log("SwingParticle");
+            //Debug.Log("SwingParticle");
             Trails.gameObject.SetActive(true);
         }
         private void DoneSwing()
         {
-            Debug.Log("PASSED");
+            //Debug.Log("PASSED");
             Trails.gameObject.SetActive(false);
         }
 

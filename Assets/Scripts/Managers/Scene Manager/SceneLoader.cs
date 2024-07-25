@@ -56,7 +56,11 @@ namespace Manager
             if (SceneManager.GetSceneByName(SceneNames.TutorialInGameUI).IsValid()) SceneManager.UnloadSceneAsync(SceneNames.TutorialInGameUI);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
-        
+
+        public void ExitThisGame()
+        {
+            Application.Quit();
+        }
     }
 }
 
