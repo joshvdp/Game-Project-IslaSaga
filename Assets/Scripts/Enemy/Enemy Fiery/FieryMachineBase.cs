@@ -13,12 +13,14 @@ namespace StateMachine.Enemy.State
         [SerializeField, Foldout("Settings")] protected bool isUnlocked = true;
         [SerializeField, Foldout("Settings")] protected bool isDamageable = true;
         [SerializeField, Foldout("Settings")] protected bool isKnockbackable = true;
+        [SerializeField, Foldout("Settings")] protected bool canChangeState = true;
         [SerializeField, Foldout("Settings")] protected Color materialColor;
 
         [SerializeField] public List<FieryChangeState> statesToChangeTo;
         public bool IsUnlocked => isUnlocked;
         public bool IsDamageable => isDamageable;
         public bool IsKnockbackable => isKnockbackable;
+        public bool CanChangeState => canChangeState;
         public Color MaterialColor => materialColor;
         public string AnimTrigger => AnimationTrigger;
         public override FieryMachineFunctions Initialize(FieryMonoStateMachine machine)
