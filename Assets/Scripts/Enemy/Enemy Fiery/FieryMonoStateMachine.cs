@@ -30,6 +30,8 @@ public class FieryMonoStateMachine : StateMachineHandler<FieryMachineData, Fiery
 
 
     public Action OnEndState;
+
+    bool CanChangeState = true;
     public override void Awake()
     {
         base.Awake();
@@ -44,11 +46,12 @@ public class FieryMonoStateMachine : StateMachineHandler<FieryMachineData, Fiery
     }
     public override void SetState(FieryMachineData newState)
     {
-        if (newState == null || !newState.IsUnlocked)
+        if (newState == null || !newState.IsUnlocked || !CanChangeState)
             return;
 
         CurrentState?.Discard();
         CurrentState = newState.Initialize(this);
+        CanChangeState = newState.CanChangeState;
     }
 
     public void LookAtTarget() => transform.rotation = Quaternion.LookRotation(CurrentTarget.position - transform.position);
