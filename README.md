@@ -1,2 +1,2 @@
 # Isla Saga
-A game developed by Clutch Devs
+Game Developed by ClutchDevs MNL 
